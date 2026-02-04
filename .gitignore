@@ -1,0 +1,16 @@
+# Byte-compiled / optimized / DLL files
+.DS_Store
+
+# Environment files
+.env
+/env
+
+# R specific files
+.Rproj.user/
+.Rhistory
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# specific files
+transfer_data.ipynb
