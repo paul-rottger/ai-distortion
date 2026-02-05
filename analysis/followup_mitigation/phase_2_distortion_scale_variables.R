@@ -1,17 +1,24 @@
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
   library(tidyverse)
+  library(showtext)
+  library(systemfonts)
   library(glmmTMB)
   library(broom.mixed)
   library(marginaleffects)
 })
+
+# ===== PLOTTING DEFAULTS ----
+font_add(family = "CMU Serif", regular = "~/Library/Fonts/cmunrm.ttf")
+showtext_auto()
+theme_set(theme_minimal(base_family = "CMU Serif", base_size = 14))
 
 # ===== RANDOM SEED ----
 set.seed(123)
 
 # ===== DATA IMPORTS ----
 setwd("~/Documents/Repos/ai-distortion")
-data <- read_csv("./data/main_phase_2/annotations.csv", show_col_types = FALSE)
+data <- read_csv("./data/followup_mitigation_phase_2/annotations.csv", show_col_types = FALSE)
 
 # ===== DATA PROCESSING ----
 data <- data %>%
@@ -25,11 +32,15 @@ data <- data %>%
     input_condition_ = factor(
       ifelse(paragraph_type == "writer", "writer", model_input_condition)
     ),
+    mitigation_condition_ = factor(
+      ifelse(paragraph_type == "writer", "writer", model_mitigation_condition)
+    ),
   )
 
 # Set reference category for predictors
 data$model_ <- relevel(data$model_, ref = "writer")
 data$input_condition_ <- relevel(data$input_condition_, ref = "writer")
+data$mitigation_condition_ <- relevel(data$mitigation_condition_, ref = "writer")
 
 # Create unedited and edited subsets of data for later analyses
 data_unedited <- data %>%
@@ -126,11 +137,11 @@ results$tidy_fixed
 run_regressions <- function(attribute) {
   print(paste("running regressions for:", attribute))
 
-  for (data_split in c("edited")) {
+  for (data_split in c("unedited", "edited")) {
     for (predictor in list(
-      c("paragraph_type_", "by_type"),
-      c("model_", "by_model"),
-      c("input_condition_", "by_input")
+      #c("paragraph_type_", "by_type"),
+      #c("model_", "by_model"),
+      c("mitigation_condition_", "by_mitigation")
     )) {
       results <- fit_beta(if (data_split == "unedited") data_unedited else data_edited,
         outcome = attribute,
@@ -139,7 +150,7 @@ run_regressions <- function(attribute) {
       )
       write_csv(
         results$tidy_fixed,
-        paste0("./results/main_phase_2_distortion/", data_split, "/", attribute, "_", predictor[2], ".csv")
+        paste0("./results/followup_mitigation_phase_2_distortion/", data_split, "/", attribute, "_", predictor[2], ".csv")
       )
     }
   }
