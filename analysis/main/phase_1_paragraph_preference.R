@@ -31,7 +31,7 @@ data <- data %>%
 bootstrap_preference_summary <- function(data,
                                          pref_var,
                                          n_boot = 1000,
-                                         conf = 0.95) {
+                                         conf = 0.99) {
   alpha <- (1 - conf) / 2
   
   summarize_group <- function(df) {
@@ -42,6 +42,7 @@ bootstrap_preference_summary <- function(data,
     tibble(
       n = n,
       prop_preferred = mean(df[[pref_var]]),
+      n_preferred = sum(df[[pref_var]]),
       ci_low = quantile(boot_means, probs = alpha),
       ci_high = quantile(boot_means, probs = 1 - alpha)
     )
@@ -67,7 +68,7 @@ bootstrap_preference_summary <- function(data,
       mutate(group = as.character(input_condition_)) %>%
       ungroup()
   ) %>%
-    select(group, n, prop_preferred, ci_low, ci_high)
+    select(group, n, n_preferred, prop_preferred, ci_low, ci_high)
   
   table <- table %>%
     mutate(
