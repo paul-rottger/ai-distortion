@@ -1,0 +1,182 @@
+# ===== PACKAGES ----
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(showtext)
+  library(systemfonts)
+  library(glmmTMB)
+  library(broom.mixed)
+  library(marginaleffects)
+  
+})
+
+# ===== PLOTTING DEFAULTS ----
+font_add(family = "CMU Serif", regular = "~/Library/Fonts/cmunrm.ttf")
+showtext_auto()
+theme_set(theme_minimal(base_family = "CMU Serif", base_size = 14))
+
+# ===== RANDOM SEED ----
+set.seed(123)
+
+# ===== DATA IMPORTS ----
+setwd("~/Documents/Repos/ai-distortion")
+data <- read_csv("./data/main_phase_2/annotations.csv", show_col_types = FALSE)
+
+# ===== DATA PROCESSING ----
+data <- data %>%
+  filter(paragraph_type %in% c("writer", "model")) %>%
+  mutate(
+    rater_id = as.factor(rater_id),
+    writer_id = as.factor(writer_id),
+    proposition_id = as.factor(proposition_id),
+    paragraph_type_ = factor(paragraph_type),
+    model_ = factor(ifelse(
+      paragraph_type == "writer", "writer", model_name
+    )),
+    input_condition_ = factor(
+      ifelse(paragraph_type == "writer", "writer", model_input_condition)
+    ),
+    model_input_condition_ = factor(ifelse(
+      paragraph_type == "writer",
+      "writer",
+      paste(model_name, model_input_condition, sep = "_")
+    )),
+  )
+
+# Set reference category for predictors
+data$paragraph_type_ <- relevel(data$paragraph_type_, ref = "writer")
+data$model_ <- relevel(data$model_, ref = "writer")
+data$input_condition_ <- relevel(data$input_condition_, ref = "writer")
+data$model_input_condition_ <- relevel(data$model_input_condition_, ref = "writer")
+
+
+# ===== BETA REGRESSION SETUP for SCALE VARIABLES ----
+
+# Helper function: squeeze 0..1 for beta regression
+# Source: https://pubmed.ncbi.nlm.nih.gov/16594767/
+squeeze01 <- function(y) {
+  n <- length(y)
+  (y * (n - 1) + 0.5) / n
+}
+
+# Beta regression function
+fit_beta <- function(df, outcome, predictor, random) {
+  # 0–100 -> proportion, then squeeze to (0,1)
+  y <- df[[outcome]] / 100
+  y <- pmin(pmax(y, 0), 1)
+  y <- squeeze01(y)
+  
+  # Build model
+  form <- as.formula(paste0("y ~ ", predictor, " + ", random))
+  model <- glmmTMB(form, data = df, family = beta_family(link = "logit"))
+  
+  # Fixed effects
+  tidy_fixed <- broom.mixed::tidy(model, effects = "fixed", conf.int = TRUE) %>%
+    filter(term != "(Intercept)") %>%
+    mutate(
+      odds_ratio = exp(estimate),
+      or_low     = exp(conf.low),
+      or_high    = exp(conf.high),
+      p = p.value
+    ) %>%
+    select(term, odds_ratio, or_low, or_high, statistic, p)
+  
+  # Compute average marginal effects
+  ame <- avg_comparisons(
+    model,
+    variables = setNames(list("reference"), predictor),
+    type = "response",
+    re.form = NA
+  ) %>% as_tibble() %>%
+    mutate(
+      term = paste0(predictor, sub(" .*", "", contrast)),
+      ame = estimate * 100,
+      ame_low = conf.low * 100,
+      ame_high = conf.high * 100,
+    ) %>%
+    select(term, ame, ame_low, ame_high)
+  
+  tidy_fixed <- tidy_fixed %>% left_join(ame, by = "term")
+  
+  list(model = model, tidy_fixed = tidy_fixed)
+}
+
+# ===== RUN SINGLE REGRESSION FOR DEBUGGING ----
+
+# Select subset of data for debugging
+data_small <- data %>% slice_sample(n = 1000)
+
+# Run regression
+results <- fit_beta(data_small,
+                    outcome = "writer_knowledge",
+                    predictor = "paragraph_type_",
+                    random = "(1 | rater_id)")
+results$tidy_fixed
+
+# ===== RUN ALL REGRESSIONS ----
+
+# set scale rating attributes to analyse
+rating_attributes <- c(
+  "paragraph_formality",
+  "paragraph_clarity",
+  "paragraph_informativeness",
+  "paragraph_originality",
+  "paragraph_relevance",
+  "writer_knowledge",
+  "writer_importance",
+  "writer_confidence",
+  "writer_stance",
+  "writer_stance_polarity",
+  "paragraph_hope",
+  "paragraph_excitement",
+  "paragraph_fear",
+  "paragraph_disgust",
+  "paragraph_anger",
+  "writer_affect_x",
+  "writer_affect_y",
+  "writer_optimism",
+  "writer_optimism",
+  "writer_community",
+  "writer_friendliness",
+  "writer_openness"
+)
+
+# loop through all rating attributes
+for (attr in rating_attributes) {
+  print(paste("running regressions for:", attr))
+  
+  # regression by type
+  results_by_type <- fit_beta(
+    data,
+    outcome = attr,
+    predictor = "paragraph_type_",
+    random = "(1 | rater_id)"
+  )
+  write_csv(
+    results_by_type$tidy_fixed,
+    paste0("./results/main_phase_2_distortion/", attr, "_by_type.csv")
+  )
+  
+  # regression by model
+  results_by_model <- fit_beta(
+    data,
+    outcome = attr,
+    predictor = "model_",
+    random = "(1 | rater_id)"
+  )
+  write_csv(
+    results_by_model$tidy_fixed,
+    paste0("./results/main_phase_2_distortion/", attr, "_by_model.csv")
+  )
+  
+  # regression by input condition
+  results_by_input <- fit_beta(
+    data,
+    outcome = attr,
+    predictor = "input_condition_",
+    random = "(1 | rater_id)"
+  )
+  write_csv(
+    results_by_input$tidy_fixed,
+    paste0("./results/main_phase_2_distortion/", attr, "_by_input.csv")
+  )
+}
