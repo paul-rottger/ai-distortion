@@ -180,11 +180,10 @@ def create_tolerance_whisker_plot(
 
     # Define colors for background bands
     colors = {
-        "darkred": "#cc0000",  # 0-20
-        "lightred": "#e06666",  # 20-40
-        "lightorange": "#ffd966",  # 40-60
-        "lightgreen": "#93c47d",  # 60-80
-        "darkgreen": "#38761d",  # 80-100
+        "darkred": "#cc0000",  # 0-25
+        "lightred": "#e06666",  # 25-50
+        "lightgreen": "#93c47d",  # 50-75
+        "darkgreen": "#38761d",  # 75-100
     }
 
     # Create background color bands
@@ -195,7 +194,7 @@ def create_tolerance_whisker_plot(
     ax.add_patch(
         Rectangle(
             (0, y_min),
-            20,
+            25,
             y_max - y_min + 1,
             facecolor=colors["darkred"],
             alpha=0.3,
@@ -204,8 +203,8 @@ def create_tolerance_whisker_plot(
     )
     ax.add_patch(
         Rectangle(
-            (20, y_min),
-            20,
+            (25, y_min),
+            25,
             y_max - y_min + 1,
             facecolor=colors["lightred"],
             alpha=0.3,
@@ -214,18 +213,8 @@ def create_tolerance_whisker_plot(
     )
     ax.add_patch(
         Rectangle(
-            (40, y_min),
-            20,
-            y_max - y_min + 1,
-            facecolor=colors["lightorange"],
-            alpha=0.3,
-            zorder=0,
-        )
-    )
-    ax.add_patch(
-        Rectangle(
-            (60, y_min),
-            20,
+            (50, y_min),
+            25,
             y_max - y_min + 1,
             facecolor=colors["lightgreen"],
             alpha=0.3,
@@ -234,8 +223,8 @@ def create_tolerance_whisker_plot(
     )
     ax.add_patch(
         Rectangle(
-            (80, y_min),
-            20,
+            (75, y_min),
+            25,
             y_max - y_min + 1,
             facecolor=colors["darkgreen"],
             alpha=0.3,
