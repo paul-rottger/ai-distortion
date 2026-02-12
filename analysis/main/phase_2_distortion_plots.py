@@ -5,7 +5,6 @@ import seaborn as sns
 
 RESULTS_DIR = "../../results/main_phase_2_distortion/"
 
-
 ################################
 # SCALE ATTRIBUTES
 ################################
@@ -63,26 +62,32 @@ for para in ["unedited", "edited"]:
 def create_horizontal_ame_plot(
     regression_dict,
     subset="by_type",
+    include_unedited=True,
     figsize=(10, 7),
     xlabel="Average Marginal Effect (AME) for AI vs. Writer Paragraphs.\nHigher = More Distortion from AI.",
     ylabel="Scale Attributes (Grouped by Type)",
-    save_path=None,
+    save_path=None
 ):
 
     # Create the plot
     fig, ax = plt.subplots(figsize=figsize)
 
     # Define colors for each condition
-    colors = {
-        "unedited": "#2E8B57",
-        "edited": "#DC143C",
-    }  # Sea green for unedited, crimson for edited
+    if include_unedited:
+        colors = {
+            "unedited": "#2E8B57",
+            "edited": "#DC143C",
+        }  # Sea green for unedited, crimson for edited
+    else:
+        colors = {
+            "edited": "#000000",
+        }  # Black for edited only
 
     # Define y-position offsets to avoid overlapping points
-    y_offset = {"unedited": -0.1, "edited": 0.1}
+    y_offset = {"unedited": -0.1, "edited": 0.1} if include_unedited else {"edited": 0}  # No offset if only edited
 
     # Process both unedited and edited data
-    for para_type in ["unedited", "edited"]:
+    for para_type in ["unedited", "edited"] if include_unedited else ["edited"]:
         if para_type in regression_dict:
             # Select the appropriate dataframe based on subset
             regression_df = pd.concat(
@@ -123,6 +128,11 @@ def create_horizontal_ame_plot(
     # Add reference line at x=0
     ax.axvline(0, color="black", linestyle=(0, (5, 7)), linewidth=1)
 
+    # Add vertical lines to separate attribute groups
+    group_boundaries = [3.5, 5.5, 10.5, 14.5]
+    for boundary in group_boundaries:
+        ax.axhline(boundary, color="gray", linestyle=(0, (5, 5)), linewidth=0.5)
+
     # Set y-tick labels and positions
     y_tick_positions = list(range(len(SCALE_ATTRIBUTES)))
     ax.set_yticks(y_tick_positions)
@@ -131,7 +141,7 @@ def create_horizontal_ame_plot(
     # Customize the plot
     ax.set_xlabel(xlabel, fontsize=12)
     ax.set_ylabel(ylabel, fontsize=12)
-    ax.legend(frameon=False, loc="lower right")
+    ax.legend(frameon=False, loc="lower right") if include_unedited else None
 
     sns.despine(ax=ax)
 
@@ -147,6 +157,8 @@ def create_horizontal_ame_plot(
 # Usage
 create_horizontal_ame_plot(
     regression_dict,
+    include_unedited=False, 
+    ylabel = None,
     save_path="../../figures/main_phase_2_distortion/distortion_scale_variables_ame.pdf",
 )
 
@@ -156,9 +168,9 @@ create_horizontal_ame_plot(
 ################################
 
 ORDINAL_ATTRIBUTES = [
-    "writer_income",
-    "writer_age_binned",
     "writer_english_first",
+    "writer_age_binned",
+    "writer_income",
     "writer_english_skills",
     "writer_education",
 ]
@@ -182,6 +194,7 @@ for para in ["unedited", "edited"]:
 def create_horizontal_cliffs_delta_plot(
     regression_dict,
     subset="by_type",
+    include_unedited=True,
     figsize=(10, 2.5),
     xlabel="Cliff's Delta for AI vs. Writer Paragraphs.\nHigher = More Distortion from AI.",
     ylabel="Ordinal Attributes",
@@ -192,16 +205,19 @@ def create_horizontal_cliffs_delta_plot(
     fig, ax = plt.subplots(figsize=figsize)
 
     # Define colors for each condition
-    colors = {
-        "unedited": "#2E8B57",
-        "edited": "#DC143C",
-    }  # Sea green for unedited, crimson for edited
+    if include_unedited:
+        colors = {
+            "unedited": "#2E8B57",
+            "edited": "#DC143C",
+        }  # Sea green for unedited, crimson for edited
+    else:
+        colors = { "edited": "#000000", } # Black for editedÍ
 
     # Define y-position offsets to avoid overlapping points
-    y_offset = {"unedited": -0.1, "edited": 0.1}
+    y_offset = {"unedited": -0.1, "edited": 0.1} if include_unedited else {"edited": 0}  # No offset if only edited
 
     # Process both unedited and edited data
-    for para_type in ["unedited", "edited"]:
+    for para_type in ["unedited", "edited"] if include_unedited else ["edited"]:
         if para_type in regression_dict:
             # Select the appropriate dataframe based on subset
             regression_df = pd.concat(
@@ -227,8 +243,10 @@ def create_horizontal_cliffs_delta_plot(
                 regression_df["cliffs_delta"],
                 y_positions,
                 xerr=[
-                    regression_df["cliffs_delta"] - regression_df["cliffs_delta_ci_low"],
-                    regression_df["cliffs_delta_ci_high"] - regression_df["cliffs_delta"],
+                    regression_df["cliffs_delta"]
+                    - regression_df["cliffs_delta_ci_low"],
+                    regression_df["cliffs_delta_ci_high"]
+                    - regression_df["cliffs_delta"],
                 ],
                 fmt="o",
                 capsize=3,
@@ -250,7 +268,7 @@ def create_horizontal_cliffs_delta_plot(
     # Customize the plot
     ax.set_xlabel(xlabel, fontsize=12)
     ax.set_ylabel(ylabel, fontsize=12)
-    #ax.legend(frameon=False, loc="lower right")
+    ax.legend(frameon=False, loc="lower right") if include_unedited else None
 
     sns.despine(ax=ax)
 
@@ -262,10 +280,13 @@ def create_horizontal_cliffs_delta_plot(
 
     return fig, ax
 
+
 # Usage
 create_horizontal_cliffs_delta_plot(
     regression_dict,
+    include_unedited=False,
+    ylabel = None,
     save_path="../../figures/main_phase_2_distortion/distortion_ordinal_variables_cliffs_delta.pdf",
-) 
+)
 
 plt.show()
