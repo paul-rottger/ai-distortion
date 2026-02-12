@@ -4,6 +4,21 @@ import os
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
+# set up plot format: latex fonts
+from matplotlib import rc, font_manager
+
+font_files = font_manager.findSystemFonts(
+    fontpaths="/Users/paul/Library/Fonts", fontext="ttf"
+)
+
+for font_file in font_files:
+    font_manager.fontManager.addfont(font_file)
+
+rc("font", **{"family": "serif", "serif": ["CMU Serif"]})
+rc("text", usetex=False)
+plt.rcParams.update({"text.color": "black"})
+plt.rcParams.update({"font.size": 12})
+
 
 # load data
 DATA_DIR = "../../data/main_phase_1/"
@@ -257,10 +272,10 @@ def create_tolerance_whisker_plot(
 
 for statistic in ["mean", "median"]:
     fig, ax = create_tolerance_whisker_plot(
-            summary_df,
-            statistic=statistic,  # or "median"
-            label_mapping=distortion_label_mapping,
-            save_path=f"../../figures/main_phase_1/distortion_tolerance_{statistic}.pdf",
-        )
+        summary_df,
+        statistic=statistic,  # or "median"
+        label_mapping=distortion_label_mapping,
+        save_path=f"../../figures/main_phase_1/distortion_tolerance_{statistic}.pdf",
+    )
 
 plt.show()

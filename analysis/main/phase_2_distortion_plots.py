@@ -3,6 +3,21 @@ import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# set up plot format: latex fonts
+from matplotlib import rc, font_manager
+
+font_files = font_manager.findSystemFonts(
+    fontpaths="/Users/paul/Library/Fonts", fontext="ttf"
+)
+
+for font_file in font_files:
+    font_manager.fontManager.addfont(font_file)
+
+rc("font", **{"family": "serif", "serif": ["CMU Serif"]})
+rc("text", usetex=False)
+plt.rcParams.update({"text.color": "black"})
+plt.rcParams.update({"font.size": 12})
+
 RESULTS_DIR = "../../results/main_phase_2_distortion/"
 
 ################################
@@ -11,10 +26,9 @@ RESULTS_DIR = "../../results/main_phase_2_distortion/"
 
 SCALE_ATTRIBUTES = [
     "paragraph_formality",
-    "paragraph_clarity",
-    #
     "paragraph_informativeness",
     "paragraph_originality",
+    "paragraph_clarity",
     "paragraph_relevance",
     #
     "writer_knowledge",
@@ -66,7 +80,7 @@ def create_horizontal_ame_plot(
     figsize=(10, 7),
     xlabel="Average Marginal Effect (AME) for AI vs. Writer Paragraphs.\nHigher = More Distortion from AI.",
     ylabel="Scale Attributes (Grouped by Type)",
-    save_path=None
+    save_path=None,
 ):
 
     # Create the plot
@@ -84,7 +98,9 @@ def create_horizontal_ame_plot(
         }  # Black for edited only
 
     # Define y-position offsets to avoid overlapping points
-    y_offset = {"unedited": -0.1, "edited": 0.1} if include_unedited else {"edited": 0}  # No offset if only edited
+    y_offset = (
+        {"unedited": -0.1, "edited": 0.1} if include_unedited else {"edited": 0}
+    )  # No offset if only edited
 
     # Process both unedited and edited data
     for para_type in ["unedited", "edited"] if include_unedited else ["edited"]:
@@ -157,8 +173,8 @@ def create_horizontal_ame_plot(
 # Usage
 create_horizontal_ame_plot(
     regression_dict,
-    include_unedited=False, 
-    ylabel = None,
+    include_unedited=False,
+    ylabel=None,
     save_path="../../figures/main_phase_2_distortion/distortion_scale_variables_ame.pdf",
 )
 
@@ -168,11 +184,11 @@ create_horizontal_ame_plot(
 ################################
 
 ORDINAL_ATTRIBUTES = [
-    "writer_english_first",
-    "writer_age_binned",
-    "writer_income",
-    "writer_english_skills",
     "writer_education",
+    "writer_english_skills",
+    "writer_income",
+    "writer_age_binned",
+    "writer_english_first",
 ]
 
 # Load regression results for each attribute and split
@@ -211,10 +227,14 @@ def create_horizontal_cliffs_delta_plot(
             "edited": "#DC143C",
         }  # Sea green for unedited, crimson for edited
     else:
-        colors = { "edited": "#000000", } # Black for editedÍ
+        colors = {
+            "edited": "#000000",
+        }  # Black for editedÍ
 
     # Define y-position offsets to avoid overlapping points
-    y_offset = {"unedited": -0.1, "edited": 0.1} if include_unedited else {"edited": 0}  # No offset if only edited
+    y_offset = (
+        {"unedited": -0.1, "edited": 0.1} if include_unedited else {"edited": 0}
+    )  # No offset if only edited
 
     # Process both unedited and edited data
     for para_type in ["unedited", "edited"] if include_unedited else ["edited"]:
@@ -285,7 +305,7 @@ def create_horizontal_cliffs_delta_plot(
 create_horizontal_cliffs_delta_plot(
     regression_dict,
     include_unedited=False,
-    ylabel = None,
+    ylabel=None,
     save_path="../../figures/main_phase_2_distortion/distortion_ordinal_variables_cliffs_delta.pdf",
 )
 
