@@ -1,12 +1,6 @@
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
   library(tidyverse)
-  library(showtext)
-  library(systemfonts)
-  library(glmmTMB)
-  library(broom.mixed)
-  library(marginaleffects)
-  
 })
 
 # ===== PLOTTING DEFAULTS ----
@@ -34,9 +28,31 @@ describe_participants <- function(participant_path) {
   cat("Number of participants:", nrow(participants), "\n")
 }
 
+describe_phase2_ratings <- function(study_name) {
+  annotations_path <- file.path("./data", study_name, "annotations.csv")
+
+  if (!file.exists(annotations_path)) {
+    cat("Number of ratings: annotations.csv not found\n")
+    return(invisible(NULL))
+  }
+
+  annotations <- read_csv(annotations_path, show_col_types = FALSE)
+  cat("Number of ratings:", nrow(annotations), "\n")
+}
+
 # ===== DESCRIBE PARTICIPANTS ----
 for (study in studies) {
   cat("Study:", study, "\n")
   describe_participants(paste0(study, "/participants.csv"))
+  cat("\n")
+}
+
+# ===== PHASE 2 RATINGS OVERVIEW ----
+phase2_studies <- studies[str_detect(studies, "phase_2")]
+
+cat("Phase 2 ratings overview:\n")
+for (study in phase2_studies) {
+  cat("Study:", study, "\n")
+  describe_phase2_ratings(study)
   cat("\n")
 }

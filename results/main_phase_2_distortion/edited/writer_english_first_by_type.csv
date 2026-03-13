@@ -1,2 +1,2 @@
-term,statistic,p_value,cliffs_delta,cliffs_delta_ci_high,cliffs_delta_ci_low
-paragraph_type_model,919224483,0,0.07526841816118177,0.07864795795274726,0.0718871483636779
+term,odds_ratio,or_low,or_high,statistic,p,p_value
+paragraph_type_model,3.8586360366109176,3.628121181524075,4.10379679125765,42.965345430573215,0,0

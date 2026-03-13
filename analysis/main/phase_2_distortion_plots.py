@@ -9,7 +9,7 @@ from scipy.stats import pearsonr, spearmanr
 RESULTS_DIR = "../../results/main_phase_2_distortion/"
 
 ################################
-# SCALE ATTRIBUTES
+# SCALE ATTRIBUTES - AME PLOTS
 ################################
 
 SCALE_ATTRIBUTES = [
@@ -77,9 +77,9 @@ def create_horizontal_ame_plot(
     # Define colors for each condition
     if include_unedited:
         colors = {
-            "unedited": "#2E8B57",
-            "edited": "#DC143C",
-        }  # Sea green for unedited, crimson for edited
+            "unedited": "#0070C0",
+            "edited": "#7030A0",
+        }  # Blue for unedited, purple for edited
     else:
         colors = {
             "edited": "#000000",
@@ -167,7 +167,7 @@ create_horizontal_ame_plot(
 )
 
 ################################
-# SCALE ATTRIBUTES - DISTORTION VS WRITER TOLERANCE
+# SCALE ATTRIBUTES - DISTORTION VS AVG WRITER TOLERANCE
 ################################
 
 OUTCOME_MAP_SCALE = {
@@ -226,8 +226,8 @@ def create_ame_tolerance_scatterplot(
     # --------------------------------
     if include_unedited:
         colors = {
-            "unedited": "#2E8B57",
-            "edited": "#DC143C",
+            "unedited": "#0070C0",
+            "edited": "#7030A0",
         }
         x_offset = {"unedited": -0.005, "edited": 0.005}
     else:
@@ -565,9 +565,9 @@ def create_horizontal_cliffs_delta_plot(
     # Define colors for each condition
     if include_unedited:
         colors = {
-            "unedited": "#2E8B57",
-            "edited": "#DC143C",
-        }  # Sea green for unedited, crimson for edited
+            "unedited": "#0070C0",
+            "edited": "#7030A0",
+        }  # Blue for unedited, purple for edited
     else:
         colors = {
             "edited": "#000000",
@@ -707,8 +707,8 @@ def create_cliffsdelta_tolerance_scatterplot(
     # --------------------------------
     if include_unedited:
         colors = {
-            "unedited": "#2E8B57",
-            "edited": "#DC143C",
+            "unedited": "#0070C0",
+            "edited": "#7030A0",
         }
         x_offset = {"unedited": -0.01, "edited": 0.01}
     else:
@@ -930,8 +930,8 @@ def create_horizontal_cramersv_plot_nominal(
     # Colors
     if include_unedited:
         colors = {
-            "unedited": "#2E8B57",
-            "edited": "#DC143C",
+            "unedited": "#0070C0",
+            "edited": "#7030A0",
         }
     else:
         colors = {"edited": "#000000"}

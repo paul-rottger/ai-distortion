@@ -1,2 +1,2 @@
-term,statistic,p_value,cliffs_delta,cliffs_delta_ci_high,cliffs_delta_ci_low
-paragraph_type_model,917498532.5,0,0.07652857529980786,0.07989335819059645,0.07316204842004959
+term,statistic,p_value,cramers_v,cramers_v_ci_low,cramers_v_ci_high
+paragraph_type_model,1942.1698214167147,0,0.14759635074184674,0.14208609123487287,0.15345153977111797

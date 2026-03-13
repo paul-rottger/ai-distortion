@@ -3,6 +3,8 @@ suppressPackageStartupMessages({
   library(tidyverse)
   library(showtext)
   library(systemfonts)
+  library(glmmTMB)
+  library(broom.mixed)
 })
 
 # ===== PLOTTING DEFAULTS ----
@@ -24,9 +26,15 @@ data <- data %>%
     model_ = as.factor(model_name),
     input_condition_ = as.factor(model_input_condition),
     disclaimer_condition_ = as.factor(disclaimer_condition),
+    writer_id = as.factor(writer_id),
     weak_preference_model = writer_preference != "original",
     strict_preference_model = writer_preference == "edited",
+    made_edits = as.integer(made_edits),
+    weak_preference_model = as.integer(weak_preference_model),
+    strict_preference_model = as.integer(strict_preference_model),
   )
+
+data$disclaimer_condition_ <- relevel(data$disclaimer_condition_, ref = "no_disclaimer")
 
 # ===== PREFERENCE RATES + CIs ----
 bootstrap_preference_summary <- function(data,
@@ -103,3 +111,57 @@ for (var in c("made_edits",
               "strict_preference_model")) {
   produce_results(data, var)
 }
+
+# ===== MIXED-EFFECTS LOGISTIC REGRESSIONS ----
+fit_disclaimer_mixed_logit <- function(df,
+                                       outcome,
+                                       random_effects = "(1 | writer_id)") {
+  form <- as.formula(paste0(outcome, " ~ disclaimer_condition_ + model_ + input_condition_ + ", random_effects))
+
+  model <- glmmTMB(
+    form,
+    data = df,
+    family = binomial(link = "logit")
+  )
+
+  broom.mixed::tidy(model, effects = "fixed", conf.int = TRUE) %>%
+    filter(term != "(Intercept)") %>%
+    mutate(
+      outcome = outcome,
+      odds_ratio = exp(estimate),
+      or_low = exp(conf.low),
+      or_high = exp(conf.high),
+      p_value = p.value,
+    ) %>%
+    select(
+      outcome,
+      term,
+      estimate,
+      std.error,
+      statistic,
+      p_value,
+      conf.low,
+      conf.high,
+      odds_ratio,
+      or_low,
+      or_high
+    )
+}
+
+run_disclaimer_mixed_models <- function(df,
+                                        outcomes = c("made_edits", "weak_preference_model", "strict_preference_model"),
+                                        output_dir = "./results/followup_disclaimer_phase_1") {
+  dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
+
+  results_list <- map(outcomes, ~ fit_disclaimer_mixed_logit(df, .x))
+  names(results_list) <- outcomes
+
+  walk2(results_list, outcomes, ~ {
+    write_csv(.x, file.path(output_dir, paste0(.y, "_mixed_logit_disclaimer_condition.csv")))
+  })
+
+  bind_rows(results_list)
+}
+
+mixed_logit_results <- run_disclaimer_mixed_models(data)
+print(mixed_logit_results)
