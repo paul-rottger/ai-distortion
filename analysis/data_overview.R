@@ -3,14 +3,6 @@ suppressPackageStartupMessages({
   library(tidyverse)
 })
 
-# ===== PLOTTING DEFAULTS ----
-font_add(family = "CMU Serif", regular = "~/Library/Fonts/cmunrm.ttf")
-showtext_auto()
-theme_set(theme_minimal(base_family = "CMU Serif", base_size = 14))
-
-# ===== RANDOM SEED ----
-set.seed(123)
-
 # ===== DATA IMPORTS ----
 setwd("~/Documents/Repos/ai-distortion")
 

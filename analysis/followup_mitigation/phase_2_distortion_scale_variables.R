@@ -1,17 +1,10 @@
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
   library(tidyverse)
-  library(showtext)
-  library(systemfonts)
   library(glmmTMB)
   library(broom.mixed)
   library(marginaleffects)
 })
-
-# ===== PLOTTING DEFAULTS ----
-font_add(family = "CMU Serif", regular = "~/Library/Fonts/cmunrm.ttf")
-showtext_auto()
-theme_set(theme_minimal(base_family = "CMU Serif", base_size = 14))
 
 # ===== RANDOM SEED ----
 set.seed(123)
@@ -19,13 +12,13 @@ set.seed(123)
 # ===== DATA IMPORTS ----
 setwd("~/Documents/Repos/ai-distortion")
 data <- read_csv("./data/followup_mitigation_phase_2/annotations.csv", show_col_types = FALSE)
+phase_1_preferences <- read_csv("./data/followup_mitigation_phase_1/proposition_responses.csv", show_col_types = FALSE)
 
 # ===== DATA PROCESSING ----
 data <- data %>%
   mutate(
     rater_id = as.factor(rater_id),
     writer_id = as.factor(writer_id),
-    proposition_id = as.factor(proposition_id),
     model_ = factor(ifelse(
       paragraph_type == "writer", "writer", model_name
     )),
@@ -40,7 +33,7 @@ data <- data %>%
 # Set reference category for predictors
 data$model_ <- relevel(data$model_, ref = "writer")
 data$input_condition_ <- relevel(data$input_condition_, ref = "writer")
-data$mitigation_condition_ <- relevel(data$mitigation_condition_, ref = "writer")
+data$mitigation_condition_ <- relevel(data$mitigation_condition_, ref = "none")
 
 # Create unedited and edited subsets of data for later analyses
 data_unedited <- data %>%
@@ -64,7 +57,14 @@ data_edited <- data %>%
   ) %>%
   ungroup()
 
-rm(data)
+preferred_exclusions <- phase_1_preferences %>%
+  filter(writer_preference == "original") %>%
+  distinct(writer_id, proposition_id)
+
+data_preferred <- data_edited %>%
+  anti_join(preferred_exclusions, by = c("writer_id", "proposition_id"))
+
+rm(data, phase_1_preferences, preferred_exclusions)
 
 # ===== BETA REGRESSION SETUP for SCALE VARIABLES ----
 
@@ -137,13 +137,23 @@ results$tidy_fixed
 run_regressions <- function(attribute) {
   print(paste("running regressions for:", attribute))
 
-  for (data_split in c("unedited", "edited")) {
+  for (data_split in c("preferred")) {
     for (predictor in list(
-      #c("paragraph_type_", "by_type"),
-      #c("model_", "by_model"),
       c("mitigation_condition_", "by_mitigation")
     )) {
-      results <- fit_beta(if (data_split == "unedited") data_unedited else data_edited,
+      split_data <- switch(data_split,
+        unedited = data_unedited,
+        edited = data_edited,
+        preferred = data_preferred
+      )
+
+      dir.create(
+        paste0("./results/followup_mitigation_phase_2_distortion/", data_split),
+        recursive = TRUE,
+        showWarnings = FALSE
+      )
+
+      results <- fit_beta(split_data,
         outcome = attribute,
         predictor = predictor[1],
         random = "(1 | rater_id)"
@@ -175,7 +185,6 @@ rating_attributes <- c(
   "paragraph_anger",
   "writer_affect_x",
   "writer_affect_y",
-  "writer_optimism",
   "writer_optimism",
   "writer_community",
   "writer_friendliness",
