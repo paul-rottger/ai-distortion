@@ -6,19 +6,35 @@ suppressPackageStartupMessages({
 # ===== RANDOM SEED ----
 set.seed(123)
 
-# ===== DATA IMPORT ----
+# ===== DATA IMPORTS ----
 setwd("~/Documents/Repos/ai-distortion")
 data <- read_csv("./data/main_phase_2/annotations.csv", show_col_types = FALSE)
+phase_1_preferences <- read_csv("./data/main_phase_1/proposition_responses.csv", show_col_types = FALSE)
+
+# ===== ANALYSIS CONFIG ----
+RESULTS_DIR <- "./results/main_phase_2_distribution"
+FIGURES_DIR <- "./figures/main_phase_2_distributions"
+DATA_SPLITS <- c("unedited", "edited", "preferred")
 
 # ===== DATA PROCESSING ----
 data <- data %>%
   mutate(
+    rater_id = as.factor(rater_id),
+    writer_id = as.factor(writer_id),
+    proposition_id = as.factor(proposition_id),
     paragraph_type_ = factor(paragraph_type)
   )
 
 data$paragraph_type_ <- relevel(data$paragraph_type_, ref = "writer")
 
-# ===== CREATE EDITED DATASET ----
+# ===== DATA SPLITS ----
+data_unedited <- data %>%
+  filter(paragraph_type %in% c("writer", "model")) %>%
+  mutate(
+    paragraph_type_ = factor(paragraph_type),
+    paragraph_type_ = relevel(paragraph_type_, ref = "writer")
+  )
+
 data_edited <- data %>%
   group_by(writer_id, proposition_id) %>%
   filter(!(paragraph_type == "model" &
@@ -33,7 +49,138 @@ data_edited <- data %>%
 
 data_edited$paragraph_type_ <- relevel(data_edited$paragraph_type_, ref = "writer")
 
-rm(data)
+preferred_exclusions <- phase_1_preferences %>%
+  filter(writer_preference == "original") %>%
+  mutate(
+    writer_id = as.factor(writer_id),
+    proposition_id = as.factor(proposition_id)
+  ) %>%
+  distinct(writer_id, proposition_id)
+
+data_preferred <- data_edited %>%
+  anti_join(preferred_exclusions, by = c("writer_id", "proposition_id"))
+
+rm(data, phase_1_preferences, preferred_exclusions)
+
+get_split_data <- function(data_split) {
+  switch(data_split,
+    unedited = data_unedited,
+    edited = data_edited,
+    preferred = data_preferred
+  )
+}
+
+# ===== CORRELATION HELPERS ----
+
+compute_correlation_results <- function(df, attributes) {
+  pairs <- expand_grid(
+    attribute_x = attributes,
+    attribute_y = attributes
+  )
+
+  pair_results <- pmap_dfr(
+    pairs,
+    function(attribute_x, attribute_y) {
+      pair_df <- df %>%
+        select(all_of(attribute_x), all_of(attribute_y)) %>%
+        drop_na()
+
+      n_obs <- nrow(pair_df)
+
+      if (n_obs < 3) {
+        return(tibble(
+          attribute_x = attribute_x,
+          attribute_y = attribute_y,
+          n = n_obs,
+          correlation = NA_real_,
+          p_value = NA_real_
+        ))
+      }
+
+      x_vals <- pair_df[[attribute_x]]
+      y_vals <- pair_df[[attribute_y]]
+
+      if (sd(x_vals) == 0 || sd(y_vals) == 0) {
+        return(tibble(
+          attribute_x = attribute_x,
+          attribute_y = attribute_y,
+          n = n_obs,
+          correlation = NA_real_,
+          p_value = NA_real_
+        ))
+      }
+
+      test_out <- cor.test(x_vals, y_vals, method = "pearson")
+
+      tibble(
+        attribute_x = attribute_x,
+        attribute_y = attribute_y,
+        n = n_obs,
+        correlation = unname(test_out$estimate),
+        p_value = test_out$p.value
+      )
+    }
+  )
+
+  pair_results %>%
+    mutate(
+      label_x = attribute_x,
+      label_y = attribute_y,
+      label_text = case_when(
+        !is.na(p_value) & p_value < 0.001 ~ sprintf("%.2f", correlation),
+        TRUE ~ ""
+      )
+    )
+}
+
+create_correlation_heatmap <- function(correlation_results, data_split) {
+  figure_dir <- file.path(FIGURES_DIR, data_split)
+  dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
+
+  plot_data <- correlation_results %>%
+    mutate(
+      correlation = if_else(!is.na(p_value) & p_value < 0.001, correlation, NA_real_),
+      label_x = factor(label_x, levels = correlation_attributes),
+      label_y = factor(label_y, levels = rev(correlation_attributes))
+    )
+
+  heatmap_plot <- ggplot(plot_data, aes(x = label_x, y = label_y, fill = correlation)) +
+    geom_tile(color = "white", linewidth = 0.3) +
+    geom_text(aes(label = label_text), size = 2.7, na.rm = FALSE) +
+    scale_fill_gradient2(
+      low = "#2166ac",
+      mid = "#f7f7f7",
+      high = "#b2182b",
+      midpoint = 0,
+      limits = c(-1, 1),
+      na.value = "#d9d9d9",
+      name = "Pearson r"
+    ) +
+    coord_fixed() +
+    labs(
+      title = paste("Scale Attribute Correlations:", str_to_title(data_split)),
+      x = NULL,
+      y = NULL,
+      caption = "Cells show Pearson correlation coefficients rounded to two decimals. Cells are masked unless p < .001."
+    ) +
+    theme_minimal(base_size = 11) +
+    theme(
+      axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+      axis.text.y = element_text(hjust = 1),
+      panel.grid = element_blank(),
+      plot.title = element_text(face = "bold"),
+      plot.caption = element_text(hjust = 0),
+      legend.position = "right"
+    )
+
+  ggsave(
+    filename = file.path(figure_dir, "scale_attribute_correlation_matrix.pdf"),
+    plot = heatmap_plot,
+    width = 14,
+    height = 12,
+    dpi = 300
+  )
+}
 
 # ===== SIMPLE T-TEST FUNCTION ----
 
@@ -66,6 +213,7 @@ run_test_by_type <- function(df, attribute) {
   d <- (mean(model_vals) - mean(writer_vals)) / pooled_sd
   
   tibble(
+    term = "paragraph_type_model",
     mean_writer = mean(writer_vals),
     mean_model = mean(model_vals),
     mean_difference = mean(model_vals) - mean(writer_vals),
@@ -103,21 +251,57 @@ rating_attributes <- c(
   "writer_openness"
 )
 
-# ===== RUN ALL TESTS (EDITED ONLY) ----
+correlation_attributes <- setdiff(rating_attributes, "writer_stance")
+
+# ===== RUN ALL TESTS ----
 
 for (attr in rating_attributes) {
-  
-  results <- run_test_by_type(
-    df = data_edited,
-    attribute = attr
-  )
-  
-  write_csv(
-    results,
-    paste0(
-      "./results/main_phase_2_distribution/edited/",
-      attr,
-      "_by_type.csv"
+  message("Running tests for: ", attr)
+
+  for (data_split in DATA_SPLITS) {
+    dir.create(
+      file.path(RESULTS_DIR, data_split),
+      recursive = TRUE,
+      showWarnings = FALSE
     )
+
+    results <- run_test_by_type(
+      df = get_split_data(data_split),
+      attribute = attr
+    )
+
+    write_csv(
+      results,
+      file.path(RESULTS_DIR, data_split, paste0(attr, "_by_type.csv"))
+    )
+  }
+}
+
+# ===== RUN CORRELATION ANALYSIS ----
+
+for (data_split in DATA_SPLITS) {
+  message("Running correlation analysis for: ", data_split)
+
+  split_data <- get_split_data(data_split)
+
+  dir.create(
+    file.path(RESULTS_DIR, data_split),
+    recursive = TRUE,
+    showWarnings = FALSE
+  )
+
+  correlation_results <- compute_correlation_results(
+    df = split_data,
+    attributes = correlation_attributes
+  )
+
+  write_csv(
+    correlation_results,
+    file.path(RESULTS_DIR, data_split, "scale_attribute_correlations.csv")
+  )
+
+  create_correlation_heatmap(
+    correlation_results = correlation_results,
+    data_split = data_split
   )
 }

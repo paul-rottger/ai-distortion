@@ -14,13 +14,21 @@ theme_set(theme_minimal(base_family = "CMU Serif", base_size = 14))
 # ===== RANDOM SEED ----
 set.seed(123)
 
+# ===== ANALYSIS CONFIG ----
+RESULTS_DIR <- "./results/main_phase_2_distribution"
+DATA_SPLITS <- c("unedited", "edited", "preferred")
+
 # ===== DATA IMPORTS ----
 setwd("~/Documents/Repos/ai-distortion")
 data <- read_csv("./data/main_phase_2/annotations.csv", show_col_types = FALSE)
+phase_1_preferences <- read_csv("./data/main_phase_1/proposition_responses.csv", show_col_types = FALSE)
 
 # ===== DATA PROCESSING ----
 data <- data %>%
   mutate(
+    rater_id = as.factor(rater_id),
+    writer_id = as.factor(writer_id),
+    proposition_id = as.factor(proposition_id),
     paragraph_type_ = factor(paragraph_type),
     writer_age_binned = factor(writer_age_binned, levels = c("18-29", "30-39", "40-49", "50-59", "60-69", "70+"), ordered = TRUE),
     writer_english_first = factor(writer_english_first, levels = c("No", "Yes"), ordered = TRUE),
@@ -55,7 +63,26 @@ data_edited <- data %>%
   ) %>%
   ungroup()
 
-rm(data)
+preferred_exclusions <- phase_1_preferences %>%
+  filter(writer_preference == "original") %>%
+  mutate(
+    writer_id = as.factor(writer_id),
+    proposition_id = as.factor(proposition_id)
+  ) %>%
+  distinct(writer_id, proposition_id)
+
+data_preferred <- data_edited %>%
+  anti_join(preferred_exclusions, by = c("writer_id", "proposition_id"))
+
+rm(data, phase_1_preferences, preferred_exclusions)
+
+get_split_data <- function(data_split) {
+  switch(data_split,
+    unedited = data_unedited,
+    edited = data_edited,
+    preferred = data_preferred
+  )
+}
 
 # Create random data sample for debugging
 data_small <- data_unedited %>%
@@ -110,8 +137,15 @@ run_nominal_test <- function(data, rating_attribute) {
 run_all_nominal_tests <- function(attribute) {
   print(paste("running nominal variable tests for:", attribute))
 
-  for (data_split in c("unedited", "edited")) {
-    results <- run_nominal_test(if (data_split == "unedited") data_unedited else data_edited, attribute)
+  for (data_split in DATA_SPLITS) {
+    dir.create(
+      file.path(RESULTS_DIR, data_split),
+      recursive = TRUE,
+      showWarnings = FALSE
+    )
+
+    results <- run_nominal_test(get_split_data(data_split), attribute)
+
     write_csv(
       tibble(
         term = "paragraph_type_model",
@@ -121,7 +155,7 @@ run_all_nominal_tests <- function(attribute) {
         cramers_v_ci_low = results$cramers_v_ci_low,
         cramers_v_ci_high = results$cramers_v_ci_high
       ),
-      paste0("./results/main_phase_2_distribution/", data_split, "/", attribute, "_by_type.csv")
+      file.path(RESULTS_DIR, data_split, paste0(attribute, "_by_type.csv"))
     )
   }
 }

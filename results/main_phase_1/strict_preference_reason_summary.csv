@@ -1,3 +1,7 @@
-writer_preference_reason,n_responses,n_strict_preferences,prop_strict_preferences
-style,2120,2835,0.7477954144620811
-opinion,1477,2835,0.5209876543209877
+strict_preference,writer_preference_reason,n_responses,n_strict_preferences,prop_strict_preferences
+ai,style,2120,2835,0.7477954144620811
+ai,opinion,1477,2835,0.5209876543209877
+ai,other,388,2835,0.13686067019400353
+human,opinion,545,708,0.769774011299435
+human,style,349,708,0.4929378531073446
+human,other,146,708,0.2062146892655367

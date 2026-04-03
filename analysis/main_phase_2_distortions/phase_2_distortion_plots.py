@@ -9,11 +9,13 @@ from adjustText import adjust_text
 from scipy.stats import pearsonr, spearmanr
 
 RESULTS_DIR = "../../results/main_phase_2_distortion/"
+DISTRIBUTION_RESULTS_DIR = "../../results/main_phase_2_distribution/"
+FIGURES_DIR = "../../figures/main_phase_2_distortion/"
 ALL_SPLITS = ["unedited", "edited", "preferred"]
 DEFAULT_PLOT_SPLITS = ["preferred"]
 
 
-def load_results_by_attribute(attributes, subset_names, splits=None):
+def load_results_by_attribute(attributes, subset_names, splits=None, results_dir=RESULTS_DIR):
     if splits is None:
         splits = ALL_SPLITS
 
@@ -24,7 +26,7 @@ def load_results_by_attribute(attributes, subset_names, splits=None):
         for attr in reversed(attributes):
             attr_results = {}
             for split in subset_names:
-                path = os.path.join(RESULTS_DIR, para, f"{attr}_{split}.csv")
+                path = os.path.join(results_dir, para, f"{attr}_{split}.csv")
                 if os.path.exists(path):
                     attr_results[split] = pd.read_csv(path)
 
@@ -35,6 +37,37 @@ def load_results_by_attribute(attributes, subset_names, splits=None):
             loaded_results[para] = split_results
 
     return loaded_results
+
+
+def build_split_figure_path(split, filename):
+    return os.path.join(FIGURES_DIR, split, filename)
+
+
+def save_figure(fig, save_path):
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
+    fig.savefig(save_path, dpi=300, bbox_inches="tight")
+
+
+def split_has_required_columns(
+    results_dict,
+    split,
+    attributes,
+    subset,
+    required_columns,
+):
+    if split not in results_dict:
+        return False
+
+    for attr in attributes:
+        attr_results = results_dict[split].get(attr, {})
+        if subset not in attr_results:
+            return False
+
+        df = attr_results[subset]
+        if df.empty or any(column not in df.columns for column in required_columns):
+            return False
+
+    return True
 
 ################################
 # SCALE ATTRIBUTES - AME PLOTS
@@ -180,17 +213,29 @@ def create_horizontal_ame_plot(
 
     # Save if path provided
     if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches="tight")
+        save_figure(fig, save_path)
 
     return fig, ax
 
 
-# Usage
-create_horizontal_ame_plot(
-    regression_dict,
-    ylabel=None,
-    save_path="../../figures/main_phase_2_distortion/distortion_scale_variables_ame.pdf",
-)
+for split in ALL_SPLITS:
+    if not split_has_required_columns(
+        regression_dict,
+        split,
+        SCALE_ATTRIBUTES,
+        "by_type",
+        ["ame", "ame_low", "ame_high"],
+    ):
+        print(f"Skipping scale AME plot for split '{split}' due to missing results.")
+        continue
+
+    fig, _ = create_horizontal_ame_plot(
+        regression_dict,
+        included_splits=[split],
+        ylabel=None,
+        save_path=build_split_figure_path(split, "distortion_scale_variables_ame.pdf"),
+    )
+    plt.close(fig)
 
 ################################
 # SCALE ATTRIBUTES - DISTORTION VS AVG WRITER TOLERANCE
@@ -460,18 +505,32 @@ def create_ame_tolerance_scatterplot(
     plt.tight_layout()
 
     if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches="tight")
+        save_figure(fig, save_path)
 
     return fig, ax
 
 
-# run
-create_ame_tolerance_scatterplot(
-    regression_dict,
-    distortion_tolerance_df,
-    subset="by_type",
-    save_path="../../figures/main_phase_2_distortion/distortion_scale_variables_tolerance_scatter.pdf",
-)
+for split in ALL_SPLITS:
+    if not split_has_required_columns(
+        regression_dict,
+        split,
+        SCALE_ATTRIBUTES,
+        "by_type",
+        ["ame", "ame_low", "ame_high"],
+    ):
+        print(
+            f"Skipping scale tolerance scatter for split '{split}' due to missing results."
+        )
+        continue
+
+    fig, _ = create_ame_tolerance_scatterplot(
+        regression_dict,
+        distortion_tolerance_df,
+        subset="by_type",
+        included_splits=[split],
+        save_path=build_split_figure_path(split, "distortion_scale_variables_tolerance_scatter.pdf"),
+    )
+    plt.close(fig)
 
 
 def calculate_ame_tolerance_correlations(
@@ -692,19 +751,31 @@ def create_horizontal_odds_ratio_plot(
 
     # Save if path provided
     if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches="tight")
+        save_figure(fig, save_path)
 
     return fig, ax
 
 
-# Usage
-create_horizontal_odds_ratio_plot(
-    regression_dict,
-    ylabel=None,
-    save_path="../../figures/main_phase_2_distortion/distortion_ordinal_variables_odds_ratio.pdf",
-)
+for split in ALL_SPLITS:
+    if not split_has_required_columns(
+        regression_dict,
+        split,
+        ORDINAL_ATTRIBUTES,
+        "by_type",
+        ["odds_ratio", "or_low", "or_high"],
+    ):
+        print(
+            f"Skipping ordinal odds-ratio plot for split '{split}' due to incompatible results."
+        )
+        continue
 
-plt.close()
+    fig, _ = create_horizontal_odds_ratio_plot(
+        regression_dict,
+        included_splits=[split],
+        ylabel=None,
+        save_path=build_split_figure_path(split, "distortion_ordinal_variables_odds_ratio.pdf"),
+    )
+    plt.close(fig)
 
 
 ################################
@@ -945,20 +1016,32 @@ def create_oddsratio_tolerance_scatterplot(
     plt.tight_layout()
 
     if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches="tight")
+        save_figure(fig, save_path)
 
     return fig, ax
 
 
-# run
-create_oddsratio_tolerance_scatterplot(
-    regression_dict,
-    distortion_tolerance_df,
-    subset="by_type",
-    save_path="../../figures/main_phase_2_distortion/distortion_ordinal_variables_tolerance_scatter.pdf",
-)
+for split in ALL_SPLITS:
+    if not split_has_required_columns(
+        regression_dict,
+        split,
+        ORDINAL_ATTRIBUTES,
+        "by_type",
+        ["odds_ratio", "or_low", "or_high"],
+    ):
+        print(
+            f"Skipping ordinal tolerance scatter for split '{split}' due to incompatible results."
+        )
+        continue
 
-plt.close()
+    fig, _ = create_oddsratio_tolerance_scatterplot(
+        regression_dict,
+        distortion_tolerance_df,
+        subset="by_type",
+        included_splits=[split],
+        save_path=build_split_figure_path(split, "distortion_ordinal_variables_tolerance_scatter.pdf"),
+    )
+    plt.close(fig)
 
 
 ################################
@@ -975,6 +1058,12 @@ NOMINAL_ATTRIBUTES = [
 regression_dict = load_results_by_attribute(
     NOMINAL_ATTRIBUTES,
     subset_names=["by_type"],
+)
+
+nominal_distribution_dict = load_results_by_attribute(
+    NOMINAL_ATTRIBUTES,
+    subset_names=["by_type"],
+    results_dir=DISTRIBUTION_RESULTS_DIR,
 )
 
 
@@ -996,6 +1085,28 @@ def prepare_nominal_regression_df(regression_dict, para_type, subset="by_type"):
             lambda row: f"{row['outcome']}: {row['target_level']} vs {row['reference_level']}",
             axis=1,
         )
+        rows.append(df)
+
+    if not rows:
+        return pd.DataFrame()
+
+    return pd.concat(rows, ignore_index=True)
+
+
+def prepare_nominal_cramers_df(regression_dict, para_type, subset="by_type"):
+    rows = []
+
+    for attr in reversed(NOMINAL_ATTRIBUTES):
+        if attr not in regression_dict.get(para_type, {}):
+            continue
+        if subset not in regression_dict[para_type][attr]:
+            continue
+
+        df = regression_dict[para_type][attr][subset].copy()
+        if df.empty:
+            continue
+
+        df["outcome"] = attr
         rows.append(df)
 
     if not rows:
@@ -1127,18 +1238,31 @@ def create_horizontal_odds_ratio_plot_nominal(
     plt.tight_layout()
 
     if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches="tight")
+        save_figure(fig, save_path)
 
     return fig, ax
 
 
-# Usage
-create_horizontal_odds_ratio_plot_nominal(
-    regression_dict,
-    ylabel=None,
-    save_path="../../figures/main_phase_2_distortion/distortion_nominal_variables_odds_ratio.pdf",
-)
-plt.close()
+for split in ALL_SPLITS:
+    if not split_has_required_columns(
+        regression_dict,
+        split,
+        NOMINAL_ATTRIBUTES,
+        "by_type",
+        ["odds_ratio", "or_low", "or_high", "target_level", "reference_level"],
+    ):
+        print(
+            f"Skipping nominal odds-ratio plot for split '{split}' due to incompatible results."
+        )
+        continue
+
+    fig, _ = create_horizontal_odds_ratio_plot_nominal(
+        regression_dict,
+        included_splits=[split],
+        ylabel=None,
+        save_path=build_split_figure_path(split, "distortion_nominal_variables_odds_ratio.pdf"),
+    )
+    plt.close(fig)
 
 ################################
 # NOMINAL ATTRIBUTES - DISTORTION VS WRITER TOLERANCE
@@ -1152,9 +1276,9 @@ OUTCOME_MAP_NOMINAL = {
 
 def match_outcome_distortion_nominal(row):
     labels = OUTCOME_MAP_NOMINAL.get(row.outcome)
-    if labels is None or row.odds_ratio == 1:
+    if labels is None:
         return None
-    return labels[0] if row.odds_ratio > 1 else labels[1]
+    return labels[0]
 
 
 def create_oddsratio_tolerance_scatterplot_nominal(
@@ -1166,7 +1290,7 @@ def create_oddsratio_tolerance_scatterplot_nominal(
     figsize=(9, 6),
     s=40,
     title=None,
-    xlabel="Odds Ratio for AI vs. Writer Paragraphs by Category.\n1 = No Difference.",
+    xlabel="Cramer's V for AI vs. Writer Paragraph Distributions.\nHigher = Larger Distribution Shift from AI.",
     ylabel="Average Tolerance Score (0–100).\nHigher = More Accepting of This Distortion.",
     save_path=None,
     annotate_points=True,
@@ -1207,7 +1331,7 @@ def create_oddsratio_tolerance_scatterplot_nominal(
         if para_type not in regression_dict:
             continue
 
-        regression_df = prepare_nominal_regression_df(
+        regression_df = prepare_nominal_cramers_df(
             regression_dict,
             para_type,
             subset=subset,
@@ -1234,7 +1358,7 @@ def create_oddsratio_tolerance_scatterplot_nominal(
         if merged_df.empty:
             continue
 
-        x_values = merged_df["odds_ratio"] + x_offset[para_type]
+        x_values = merged_df["cramers_v"] + x_offset[para_type]
         y_values = merged_df["mean"]
 
         ax.scatter(
@@ -1249,8 +1373,8 @@ def create_oddsratio_tolerance_scatterplot_nominal(
         )
 
         x_err = [
-            merged_df["odds_ratio"] - merged_df["or_low"],
-            merged_df["or_high"] - merged_df["odds_ratio"],
+            merged_df["cramers_v"] - merged_df["cramers_v_ci_low"],
+            merged_df["cramers_v_ci_high"] - merged_df["cramers_v"],
         ]
 
         y_err = [
@@ -1275,8 +1399,8 @@ def create_oddsratio_tolerance_scatterplot_nominal(
             texts = []
             for _, row in merged_df.iterrows():
                 text = ax.annotate(
-                    f"{row['outcome']}: {row['target_level']} vs {row['reference_level']}",
-                    (row["odds_ratio"] + x_offset[para_type], row["mean"]),
+                    row["outcome"],
+                    (row["cramers_v"] + x_offset[para_type], row["mean"]),
                     fontsize=9,
                     ha="center",
                     va="center",
@@ -1302,7 +1426,7 @@ def create_oddsratio_tolerance_scatterplot_nominal(
                 force_text=(1, 1),
             )
 
-    ax.axvline(1, color="black", linestyle=(0, (5, 7)), linewidth=1)
+    ax.axvline(0, color="black", linestyle=(0, (5, 7)), linewidth=1)
 
     # Background tolerance bands
     x_min, x_max = ax.get_xlim()
@@ -1343,16 +1467,29 @@ def create_oddsratio_tolerance_scatterplot_nominal(
     plt.tight_layout()
 
     if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches="tight")
+        save_figure(fig, save_path)
 
     return fig, ax
 
 
-# run
-create_oddsratio_tolerance_scatterplot_nominal(
-    regression_dict,
-    distortion_tolerance_df,
-    subset="by_type",
-    save_path="../../figures/main_phase_2_distortion/distortion_nominal_variables_tolerance_scatter.pdf",
-)
-plt.close()
+for split in ALL_SPLITS:
+    if not split_has_required_columns(
+        nominal_distribution_dict,
+        split,
+        NOMINAL_ATTRIBUTES,
+        "by_type",
+        ["cramers_v", "cramers_v_ci_low", "cramers_v_ci_high"],
+    ):
+        print(
+            f"Skipping nominal tolerance scatter for split '{split}' due to missing Cramer's V results."
+        )
+        continue
+
+    fig, _ = create_oddsratio_tolerance_scatterplot_nominal(
+        nominal_distribution_dict,
+        distortion_tolerance_df,
+        subset="by_type",
+        included_splits=[split],
+        save_path=build_split_figure_path(split, "distortion_nominal_variables_tolerance_scatter.pdf"),
+    )
+    plt.close(fig)

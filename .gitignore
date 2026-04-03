@@ -16,3 +16,7 @@
 transfer_data.ipynb
 
 .github/
+
+# Ignore Python bytecode and cache directories
+*.pyc
+__pycache__

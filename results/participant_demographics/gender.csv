@@ -1,6 +1,6 @@
-gender,main_phase_1,main_phase_2,followup_disclaimer_phase_1,followup_mitigation_phase_1,followup_mitigation_phase_2
-Female,767 (51.1%),5767 (57.6%),306 (45.7%),472 (61.4%),1466 (57.6%)
-Male,725 (48.3%),4110 (41.0%),355 (53.1%),289 (37.6%),1056 (41.5%)
-Other,4 (0.3%),97 (1.0%),7 (1.0%),5 (0.7%),14 (0.6%)
-Prefer not to say,5 (0.3%),43 (0.4%),1 (0.1%),3 (0.4%),7 (0.3%)
-n_participants,1501,10017,669,769,2543
+gender,main_phase_1,main_phase_2,followup_disclaimer_phase_1,followup_mitigation_phase_1,followup_mitigation_phase_2,census
+Female,767 (51.1%),5767 (57.6%),306 (45.7%),472 (61.4%),1466 (57.6%),27427080 (51.7%)
+Male,725 (48.3%),4110 (41.0%),355 (53.1%),289 (37.6%),1056 (41.5%),25650027 (48.3%)
+Other,4 (0.3%),97 (1.0%),7 (1.0%),5 (0.7%),14 (0.6%),0 (0.0%)
+Prefer not to say,5 (0.3%),43 (0.4%),1 (0.1%),3 (0.4%),7 (0.3%),0 (0.0%)
+n_participants,1501,10017,669,769,2543,53077107

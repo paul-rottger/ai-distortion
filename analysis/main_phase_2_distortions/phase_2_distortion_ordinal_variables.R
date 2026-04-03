@@ -16,6 +16,9 @@ theme_set(theme_minimal(base_family = "CMU Serif", base_size = 14))
 # ===== RANDOM SEED ----
 set.seed(123)
 
+# ===== EXECUTION FLAGS ----
+RUN_DEBUG_ONLY <- FALSE
+
 # ===== DATA IMPORTS ----
 setwd("~/Documents/Repos/ai-distortion")
 data <- read_csv("./data/main_phase_2/annotations.csv", show_col_types = FALSE)
@@ -88,9 +91,23 @@ fit_ordinal_logit <- function(df, outcome, predictor = "paragraph_type_", random
   model_df <- df %>%
     filter(!is.na(.data[[outcome]]), !is.na(.data[[predictor]])) %>%
     mutate(
-      rater_id = as.factor(rater_id),
-      paragraph_type_ = relevel(as.factor(paragraph_type_), ref = "writer")
+      rater_id = as.factor(rater_id)
     )
+
+  if (predictor == "paragraph_type_") {
+    model_df <- model_df %>%
+      mutate(paragraph_type_ = relevel(as.factor(paragraph_type_), ref = "writer"))
+  }
+
+  if (predictor == "model_") {
+    model_df <- model_df %>%
+      mutate(model_ = relevel(as.factor(model_), ref = "writer"))
+  }
+
+  if (predictor == "input_condition_") {
+    model_df <- model_df %>%
+      mutate(input_condition_ = relevel(as.factor(input_condition_), ref = "writer"))
+  }
 
   # Drop "Other" only when fitting writer_education model
   if (outcome == "writer_education") {
@@ -127,47 +144,77 @@ fit_ordinal_logit <- function(df, outcome, predictor = "paragraph_type_", random
       or_high = exp(conf.high),
       p_value = p
     ) %>%
-    select(term, odds_ratio, or_low, or_high, statistic, p, p_value)
+    dplyr::select(term, odds_ratio, or_low, or_high, statistic, p, p_value)
 
   list(model = model, tidy_fixed = tidy_fixed)
 }
 
 # Debug run
-purrr::map(
-  c("writer_income", "writer_education"),
-  ~ fit_ordinal_logit(data_small, .x)$tidy_fixed
+debug_runs <- list(
+  list(outcome = "writer_income", predictor = "paragraph_type_"),
+  list(outcome = "writer_income", predictor = "model_"),
+  list(outcome = "writer_income", predictor = "input_condition_"),
+  list(outcome = "writer_education", predictor = "model_")
 )
+
+debug_results <- purrr::map(
+  debug_runs,
+  ~ {
+    fit_ordinal_logit(
+      data_small,
+      outcome = .x$outcome,
+      predictor = .x$predictor,
+      random = "(1 | rater_id)"
+    )$tidy_fixed
+  }
+)
+
+names(debug_results) <- purrr::map_chr(
+  debug_runs,
+  ~ paste(.x$outcome, .x$predictor, sep = "__")
+)
+
+print(debug_results)
 
 run_ordinal_regressions <- function(attribute) {
   print(paste("running ordinal logistic regression for:", attribute))
 
   for (data_split in c("preferred")) {
-    split_data <- switch(data_split,
-      unedited = data_unedited,
-      edited = data_edited,
-      preferred = data_preferred
-    )
+    for (predictor in list(
+      #c("paragraph_type_", "by_type"),
+      c("model_", "by_model"),
+      c("input_condition_", "by_input_condition")
+    )) {
+      split_data <- switch(data_split,
+        unedited = data_unedited,
+        edited = data_edited,
+        preferred = data_preferred
+      )
 
-    dir.create(
-      paste0("./results/main_phase_2_distortion/", data_split),
-      recursive = TRUE,
-      showWarnings = FALSE
-    )
+      dir.create(
+        paste0("./results/main_phase_2_distortion/", data_split),
+        recursive = TRUE,
+        showWarnings = FALSE
+      )
 
-    results <- fit_ordinal_logit(
-      split_data,
-      outcome = attribute,
-      predictor = "paragraph_type_",
-      random = "(1 | rater_id)"
-    )
+      results <- fit_ordinal_logit(
+        split_data,
+        outcome = attribute,
+        predictor = predictor[1],
+        random = "(1 | rater_id)"
+      )
 
-    write_csv(
-      results$tidy_fixed,
-      paste0("./results/main_phase_2_distortion/", data_split, "/", attribute, "_by_type.csv")
-    )
+      write_csv(
+        results$tidy_fixed,
+        paste0("./results/main_phase_2_distortion/", data_split, "/", attribute, "_", predictor[2], ".csv")
+      )
+    }
   }
 }
 
-# Loop through all ordinal attributes for by-type ordinal logistic regression (parallel)
-n_cores <- max(1, parallel::detectCores() - 1)
-parallel::mclapply(ordinal_vars, run_ordinal_regressions, mc.cores = n_cores)
+if (!RUN_DEBUG_ONLY) {
+  # Loop through all ordinal attributes and predictors
+  for (attribute in ordinal_vars) {
+    run_ordinal_regressions(attribute)
+  }
+}

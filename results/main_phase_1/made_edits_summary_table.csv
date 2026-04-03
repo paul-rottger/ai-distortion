@@ -1,0 +1,9 @@
+group,n,no,yes
+improve,761,605 (79.5%),156 (20.5%)
+rewrite,740,579 (78.2%),161 (21.8%)
+bullets-based,1501,1236 (82.3%),265 (17.7%)
+stance-based,1501,1081 (72.0%),420 (28.0%)
+anthropic/claude-sonnet-4,1501,1117 (74.4%),384 (25.6%)
+deepseek/deepseek-chat-v3-0324,1501,1181 (78.7%),320 (21.3%)
+openai/chatgpt-4o-latest,1501,1203 (80.1%),298 (19.9%)
+overall,4503,3501 (77.7%),1002 (22.3%)

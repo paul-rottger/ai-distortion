@@ -33,7 +33,7 @@ data <- data %>%
 # Set reference category for predictors
 data$model_ <- relevel(data$model_, ref = "writer")
 data$input_condition_ <- relevel(data$input_condition_, ref = "writer")
-data$mitigation_condition_ <- relevel(data$mitigation_condition_, ref = "none")
+data$mitigation_condition_ <- relevel(data$mitigation_condition_, ref = "writer")
 
 # Create unedited and edited subsets of data for later analyses
 data_unedited <- data %>%
@@ -176,7 +176,6 @@ rating_attributes <- c(
   "writer_knowledge",
   "writer_importance",
   "writer_confidence",
-  "writer_stance",
   "writer_stance_polarity",
   "paragraph_hope",
   "paragraph_excitement",
@@ -195,3 +194,5 @@ rating_attributes <- c(
 for (attr in rating_attributes) {
   run_regressions(attr)
 }
+
+run_regressions("writer_stance_polarity")

@@ -5,6 +5,7 @@ suppressPackageStartupMessages({
   library(systemfonts)
   library(glmmTMB)
   library(broom.mixed)
+  library(marginaleffects)
 })
 
 # ===== PLOTTING DEFAULTS ----
@@ -36,6 +37,60 @@ data <- data %>%
 
 data$mitigation_condition_ <- relevel(data$mitigation_condition_, ref = "none")
 
+mitigation_group_levels <- c(
+  "reranking | deepseek/deepseek-chat-v3-0324",
+  "prompting | deepseek/deepseek-chat-v3-0324",
+  "none | deepseek/deepseek-chat-v3-0324",
+  "reranking | openai/chatgpt-4o-latest",
+  "prompting | openai/chatgpt-4o-latest",
+  "none | openai/chatgpt-4o-latest",
+  "reranking | anthropic/claude-sonnet-4",
+  "prompting | anthropic/claude-sonnet-4",
+  "none | anthropic/claude-sonnet-4",
+  "reranking",
+  "prompting",
+  "none"
+)
+
+summarize_mitigation_groups <- function(df, summarize_group_fn) {
+  bind_rows(
+    df %>%
+      group_by(mitigation_condition_) %>%
+      group_modify(~ summarize_group_fn(.x)) %>%
+      mutate(group = as.character(mitigation_condition_)) %>%
+      ungroup() %>%
+      dplyr::select(-mitigation_condition_),
+
+    df %>%
+      group_by(mitigation_condition_, model_) %>%
+      group_modify(~ summarize_group_fn(.x)) %>%
+      mutate(group = paste(as.character(mitigation_condition_), as.character(model_), sep = " | ")) %>%
+      ungroup() %>%
+      dplyr::select(-mitigation_condition_, -model_)
+  ) %>%
+    mutate(group = factor(group, levels = mitigation_group_levels)) %>%
+    arrange(group)
+}
+
+add_mitigation_group_labels <- function(table) {
+  group_label_levels <- table %>%
+    mutate(group = as.character(group)) %>%
+    distinct(group, n) %>%
+    mutate(group = factor(group, levels = mitigation_group_levels)) %>%
+    arrange(group) %>%
+    transmute(group_label = paste0(group, " (n = ", n, ")")) %>%
+    pull(group_label)
+
+  table %>%
+    mutate(
+      group = factor(group, levels = mitigation_group_levels),
+      group_label = factor(
+        paste0(as.character(group), " (n = ", n, ")"),
+        levels = group_label_levels
+      )
+    )
+}
+
 # ===== PREFERENCE RATES + CIs ----
 bootstrap_preference_summary <- function(data,
                                          pref_var,
@@ -56,29 +111,9 @@ bootstrap_preference_summary <- function(data,
     )
   }
   
-  table <- bind_rows(
-    # by mitigation condition
-    data %>%
-      group_by(mitigation_condition_) %>%
-      group_modify( ~ summarize_group(.x)) %>%
-      mutate(group = as.character(mitigation_condition_)) %>%
-      ungroup()
-    
-  ) %>%
-    select(group, n, prop_preferred, ci_low, ci_high)
-  
-  table <- table %>%
-    mutate(
-      group = factor(
-        group,
-        levels = c(
-          "prompting",
-          "reranking",
-          "none"
-        )
-      ),
-      group_label = factor(paste0(group, " (n = ", n, ")"), levels = paste0(levels(group), " (n = ", n[match(levels(group), group)], ")"))
-    )
+  table <- summarize_mitigation_groups(data, summarize_group) %>%
+    select(group, n, prop_preferred, ci_low, ci_high) %>%
+    add_mitigation_group_labels()
   
   plot <- ggplot(table, aes(x = prop_preferred, y = group_label)) +
     geom_point() +
@@ -86,7 +121,8 @@ bootstrap_preference_summary <- function(data,
     labs(x = paste0("% ", pref_var, " with 95% bootstrap CI"),
          y = NULL,
     ) +
-    scale_x_continuous(limits = c(0, 1), expand = c(0, 0))
+    geom_hline(yintercept = c(3.5, 6.5, 9.5), linetype = "dotted")+
+    scale_x_continuous(limits = c(0, 1), expand = c(0, 0), labels = scales::label_percent(accuracy = 1))
   
   list(table = table, plot = plot)
 }
@@ -96,11 +132,12 @@ produce_results <- function(data, var) {
   summary <- bootstrap_preference_summary(data, var)
   print(summary$table)
   print(summary$plot)
+  plot_height <- max(4, 0.45 * nrow(summary$table) + 1)
   ggsave(
     paste0("./figures/followup_mitigation_phase_1/", var, ".pdf"),
     summary$plot,
     width = 8,
-    height = 4,
+    height = plot_height,
     dpi = 150
   )
 }
@@ -115,13 +152,29 @@ for (var in c("made_edits",
 fit_mitigation_mixed_logit <- function(df,
                                        outcome,
                                        random_effects = "(1 | writer_id)") {
-  form <- as.formula(paste0(outcome, " ~ mitigation_condition_ + model_ + ", random_effects))
+  form <- as.formula(paste0(outcome, " ~ mitigation_condition_ + ", random_effects))
 
   model <- glmmTMB(
     form,
     data = df,
     family = binomial(link = "logit")
   )
+
+  ame <- avg_comparisons(
+    model,
+    variables = list(mitigation_condition_ = "reference"),
+    type = "response",
+    re.form = NA
+  ) %>%
+    as_tibble() %>%
+    mutate(
+      term = paste0("mitigation_condition_", sub(" .*", "", contrast)),
+      ame = estimate,
+      ame_low = conf.low,
+      ame_high = conf.high,
+      ame_p_value = p.value
+    ) %>%
+    select(term, ame, ame_low, ame_high, ame_p_value)
 
   broom.mixed::tidy(model, effects = "fixed", conf.int = TRUE) %>%
     filter(term != "(Intercept)") %>%
@@ -132,6 +185,7 @@ fit_mitigation_mixed_logit <- function(df,
       or_high = exp(conf.high),
       p_value = p.value,
     ) %>%
+    left_join(ame, by = "term") %>%
     select(
       outcome,
       term,
@@ -143,7 +197,11 @@ fit_mitigation_mixed_logit <- function(df,
       conf.high,
       odds_ratio,
       or_low,
-      or_high
+      or_high,
+      ame,
+      ame_low,
+      ame_high,
+      ame_p_value
     )
 }
 

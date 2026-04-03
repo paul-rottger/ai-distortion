@@ -4,6 +4,7 @@ suppressPackageStartupMessages({
   library(showtext)
   library(systemfonts)
   library(mclogit)
+  library(lme4)
 })
 
 # ===== PLOTTING DEFAULTS ----
@@ -79,6 +80,20 @@ reference_levels <- c(
   writer_politicalIdeology = "Centrist"
 )
 
+empty_nominal_results <- function() {
+  tibble(
+    term = character(),
+    target_level = character(),
+    reference_level = character(),
+    odds_ratio = numeric(),
+    or_low = numeric(),
+    or_high = numeric(),
+    statistic = numeric(),
+    p = numeric(),
+    p_value = numeric()
+  )
+}
+
 # ===== MULTINOMIAL LOGISTIC REGRESSION (BY TYPE) ----
 fit_multinomial_logit_model <- function(df,
                                         outcome,
@@ -131,35 +146,6 @@ fit_multinomial_logit_model <- function(df,
   )
 }
 
-calculate_total_variation_distance <- function(model_fit,
-                                               predictor = "paragraph_type_") {
-  predictor_levels <- levels(model_fit$model_df[[predictor]])
-
-  if (!all(c("writer", "model") %in% predictor_levels)) {
-    return(NA_real_)
-  }
-
-  newdata <- setNames(
-    data.frame(factor(c("writer", "model"), levels = predictor_levels)),
-    predictor
-  )
-
-  if ("rater_id" %in% names(model_fit$model_df)) {
-    newdata$rater_id <- model_fit$model_df$rater_id[[1]]
-  }
-
-  predicted_probs <- tryCatch(
-    predict(model_fit$model, newdata = newdata, type = "response"),
-    error = function(e) NULL
-  )
-
-  if (is.null(predicted_probs) || nrow(predicted_probs) != 2) {
-    return(NA_real_)
-  }
-
-  0.5 * sum(abs(predicted_probs[2, ] - predicted_probs[1, ]))
-}
-
 fit_multinomial_logit <- function(df,
                                   outcome,
                                   predictor = "paragraph_type_",
@@ -174,7 +160,7 @@ fit_multinomial_logit <- function(df,
   )
 
   if (is.null(model_fit)) {
-    return(list(results = tibble(), total_variation_distance = NA_real_))
+    return(empty_nominal_results())
   }
 
   fit_summary <- summary(model_fit$model)
@@ -202,68 +188,155 @@ fit_multinomial_logit <- function(df,
   if (nrow(coef_table) == 0) {
     reference_level <- levels(model_fit$model_df[[outcome]])[1]
 
-    return(list(
-      results = tibble(
-        term = term_name,
-        target_level = setdiff(levels(model_fit$model_df[[outcome]]), reference_level),
-        reference_level = reference_level,
+    return(tibble(
+      term = term_name,
+      target_level = setdiff(levels(model_fit$model_df[[outcome]]), reference_level),
+      reference_level = reference_level,
+      odds_ratio = NA_real_,
+      or_low = NA_real_,
+      or_high = NA_real_,
+      statistic = NA_real_,
+      p = NA_real_,
+      p_value = NA_real_
+    ))
+  }
+
+  coef_table %>%
+    transmute(
+      term = term,
+      target_level = target_level,
+      reference_level = levels(model_fit$model_df[[outcome]])[1],
+      odds_ratio = exp(Estimate),
+      or_low = exp(Estimate - 1.96 * `Std. Error`),
+      or_high = exp(Estimate + 1.96 * `Std. Error`),
+      statistic = `z value`,
+      p = `Pr(>|z|)`,
+      p_value = `Pr(>|z|)`
+    )
+}
+
+fit_ova_logit <- function(df,
+                          outcome,
+                          predictor = "paragraph_type_",
+                          predictor_level = "model",
+                          random_effect = "rater_id") {
+  model_df <- df %>%
+    filter(!is.na(.data[[outcome]]), !is.na(.data[[predictor]]), !is.na(.data[[random_effect]])) %>%
+    mutate(
+      outcome_factor = droplevels(as.factor(.data[[outcome]])),
+      predictor_factor = droplevels(as.factor(.data[[predictor]])),
+      random_effect_factor = as.factor(.data[[random_effect]])
+    )
+
+  if (nrow(model_df) == 0 || !(predictor_level %in% levels(model_df$predictor_factor))) {
+    return(empty_nominal_results())
+  }
+
+  target_levels <- levels(model_df$outcome_factor)
+
+  map_dfr(target_levels, function(target_level) {
+    binary_df <- model_df %>%
+      mutate(target_flag = as.integer(outcome_factor == target_level))
+
+    if (n_distinct(binary_df$target_flag) < 2 || nlevels(binary_df$predictor_factor) < 2) {
+      return(tibble(
+        term = paste0(predictor, predictor_level),
+        target_level = target_level,
+        reference_level = "all_other_levels",
         odds_ratio = NA_real_,
         or_low = NA_real_,
         or_high = NA_real_,
         statistic = NA_real_,
         p = NA_real_,
         p_value = NA_real_
-      ),
-      total_variation_distance = calculate_total_variation_distance(model_fit, predictor = predictor)
-    ))
-  }
+      ))
+    }
 
-  list(
-    results = coef_table %>%
-      transmute(
-        term = term,
+    fit <- tryCatch(
+      suppressWarnings(
+        glmer(
+          target_flag ~ predictor_factor + (1 | random_effect_factor),
+          data = binary_df,
+          family = binomial(link = "logit")
+        )
+      ),
+      error = function(e) NULL
+    )
+
+    if (is.null(fit)) {
+      return(tibble(
+        term = paste0(predictor, predictor_level),
         target_level = target_level,
-        reference_level = levels(model_fit$model_df[[outcome]])[1],
-        odds_ratio = exp(Estimate),
-        or_low = exp(Estimate - 1.96 * `Std. Error`),
-        or_high = exp(Estimate + 1.96 * `Std. Error`),
-        statistic = `z value`,
-        p = `Pr(>|z|)`,
-        p_value = `Pr(>|z|)`
-      ),
-    total_variation_distance = calculate_total_variation_distance(model_fit, predictor = predictor)
-  )
-}
+        reference_level = "all_other_levels",
+        odds_ratio = NA_real_,
+        or_low = NA_real_,
+        or_high = NA_real_,
+        statistic = NA_real_,
+        p = NA_real_,
+        p_value = NA_real_
+      ))
+    }
 
-# Debug run
-data_small <- data_unedited %>% sample_n(2000)
-debug_results <- fit_multinomial_logit(data_small, "writer_gender", outcome_ref = reference_levels[["writer_gender"]])
-print(debug_results$results)
-print(tibble(
-  outcome = "writer_gender",
-  total_variation_distance = debug_results$total_variation_distance
-))
+    fit_summary <- coef(summary(fit))
+    term_name <- paste0("predictor_factor", predictor_level)
+
+    if (!(term_name %in% rownames(fit_summary))) {
+      return(tibble(
+        term = paste0(predictor, predictor_level),
+        target_level = target_level,
+        reference_level = "all_other_levels",
+        odds_ratio = NA_real_,
+        or_low = NA_real_,
+        or_high = NA_real_,
+        statistic = NA_real_,
+        p = NA_real_,
+        p_value = NA_real_
+      ))
+    }
+
+    estimate <- fit_summary[term_name, "Estimate"]
+    std_error <- fit_summary[term_name, "Std. Error"]
+    statistic <- fit_summary[term_name, "z value"]
+    p_value <- fit_summary[term_name, "Pr(>|z|)"]
+
+    tibble(
+      term = paste0(predictor, predictor_level),
+      target_level = target_level,
+      reference_level = "all_other_levels",
+      odds_ratio = exp(estimate),
+      or_low = exp(estimate - 1.96 * std_error),
+      or_high = exp(estimate + 1.96 * std_error),
+      statistic = statistic,
+      p = p_value,
+      p_value = p_value
+    )
+  })
+}
 
 run_nominal_regressions <- function(attribute) {
   print(paste("running multinomial logistic regression for:", attribute))
 
   for (data_split in c("preferred")) {
-    results <- fit_multinomial_logit(
-      switch(data_split,
+    split_data <- switch(data_split,
         unedited = data_unedited,
         edited = data_edited,
         preferred = data_preferred
-      ),
+      )
+
+    multinomial_results <- fit_multinomial_logit(
+      split_data,
       outcome = attribute,
       predictor = "paragraph_type_",
       outcome_ref = reference_levels[[attribute]]
     )
 
-    print(tibble(
+    ova_results <- fit_ova_logit(
+      split_data,
       outcome = attribute,
-      data_split = data_split,
-      total_variation_distance = results$total_variation_distance
-    ))
+      predictor = "paragraph_type_",
+      predictor_level = "model",
+      random_effect = "rater_id"
+    )
 
     dir.create(
       paste0("./results/main_phase_2_distortion/", data_split),
@@ -271,9 +344,26 @@ run_nominal_regressions <- function(attribute) {
       showWarnings = FALSE
     )
 
+    dir.create(
+      paste0("./results/main_phase_2_distortion/", data_split, "/ova_logistic_results"),
+      recursive = TRUE,
+      showWarnings = FALSE
+    )
+
     write_csv(
-      results$results,
+      multinomial_results,
       paste0("./results/main_phase_2_distortion/", data_split, "/", attribute, "_by_type.csv")
+    )
+
+    write_csv(
+      ova_results,
+      paste0(
+        "./results/main_phase_2_distortion/",
+        data_split,
+        "/ova_logistic_results/",
+        attribute,
+        "_by_type.csv"
+      )
     )
   }
 }

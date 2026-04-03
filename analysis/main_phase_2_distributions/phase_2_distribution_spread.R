@@ -6,13 +6,21 @@ suppressPackageStartupMessages({
 # ===== RANDOM SEED ----
 set.seed(123)
 
-# ===== DATA IMPORT ----
+# ===== DATA IMPORTS ----
 setwd("~/Documents/Repos/ai-distortion")
 data <- read_csv("./data/main_phase_2/annotations.csv", show_col_types = FALSE)
+phase_1_preferences <- read_csv("./data/main_phase_1/proposition_responses.csv", show_col_types = FALSE)
+
+# ===== ANALYSIS CONFIG ----
+RESULTS_DIR <- "./results/main_phase_2_distribution"
+DATA_SPLITS <- c("unedited", "edited", "preferred")
 
 # ===== DATA PROCESSING ----
 data <- data %>%
 	mutate(
+		rater_id = as.factor(rater_id),
+		writer_id = as.factor(writer_id),
+		proposition_id = as.factor(proposition_id),
 		paragraph_type_ = factor(paragraph_type),
 		writer_age_binned = factor(writer_age_binned, levels = c("18-29", "30-39", "40-49", "50-59", "60-69", "70+"), ordered = TRUE),
 		writer_english_first = factor(writer_english_first, levels = c("No", "Yes"), ordered = TRUE),
@@ -21,7 +29,14 @@ data <- data %>%
 		writer_income = factor(writer_income, levels = c("Under £15,000", "£15,000-£24,999", "£25,000-£34,999", "£35,000-£49,999", "£50,000-£74,999", "£75,000-£99,999", "£100,000+"), ordered = TRUE)
 	)
 
-# Edited dataset for writer vs model comparisons (edited grouped into model)
+# ===== DATA SPLITS ----
+data_unedited <- data %>%
+	filter(paragraph_type %in% c("writer", "model")) %>%
+	mutate(
+		paragraph_type_ = factor(paragraph_type),
+		paragraph_type_ = relevel(paragraph_type_, ref = "writer")
+	)
+
 data_edited <- data %>%
 	group_by(writer_id, proposition_id) %>%
 	filter(!(paragraph_type == "model" & any(paragraph_type == "edited"))) %>%
@@ -33,7 +48,26 @@ data_edited <- data %>%
 	filter(paragraph_type_ %in% c("writer", "model")) %>%
 	mutate(paragraph_type_ = relevel(paragraph_type_, ref = "writer"))
 
-rm(data)
+preferred_exclusions <- phase_1_preferences %>%
+	filter(writer_preference == "original") %>%
+	mutate(
+		writer_id = as.factor(writer_id),
+		proposition_id = as.factor(proposition_id)
+	) %>%
+	distinct(writer_id, proposition_id)
+
+data_preferred <- data_edited %>%
+	anti_join(preferred_exclusions, by = c("writer_id", "proposition_id"))
+
+rm(data, phase_1_preferences, preferred_exclusions)
+
+get_split_data <- function(data_split) {
+	switch(data_split,
+		unedited = data_unedited,
+		edited = data_edited,
+		preferred = data_preferred
+	)
+}
 
 # ===== ATTRIBUTE LISTS ----
 scale_attributes <- c(
@@ -247,23 +281,29 @@ bootstrap_test_attribute <- function(df, attribute, attribute_type, n_boot = 100
 	)
 }
 
-# ===== RUN ANALYSIS + SAVE SINGLE OUTPUT ----
-spread_results <- bind_rows(
-	map_dfr(scale_attributes, ~ {
-		message("Running bootstrap spread comparison for scale attribute: ", .x)
-		bootstrap_test_attribute(data_edited, .x, attribute_type = "scale", n_boot = n_boot)
-	}),
-	map_dfr(ordinal_attributes, ~ {
-		message("Running bootstrap spread comparison for ordinal attribute: ", .x)
-		bootstrap_test_attribute(data_edited, .x, attribute_type = "ordinal", n_boot = n_boot)
-	}),
-	map_dfr(nominal_attributes, ~ {
-		message("Running bootstrap spread comparison for nominal attribute: ", .x)
-		bootstrap_test_attribute(data_edited, .x, attribute_type = "nominal", n_boot = n_boot)
-	})
-)
+# ===== RUN ANALYSIS + SAVE OUTPUTS ----
+walk(DATA_SPLITS, function(data_split) {
+	message("Running spread analysis for split: ", data_split)
 
-write_csv(
-	spread_results,
-	"./results/main_phase_2_distribution/edited/spread_bootstrap_by_type.csv"
-)
+	df_split <- get_split_data(data_split)
+
+	spread_results <- bind_rows(
+		map_dfr(scale_attributes, ~ {
+			message("Running bootstrap spread comparison for scale attribute: ", .x)
+			bootstrap_test_attribute(df_split, .x, attribute_type = "scale", n_boot = n_boot)
+		}),
+		map_dfr(ordinal_attributes, ~ {
+			message("Running bootstrap spread comparison for ordinal attribute: ", .x)
+			bootstrap_test_attribute(df_split, .x, attribute_type = "ordinal", n_boot = n_boot)
+		}),
+		map_dfr(nominal_attributes, ~ {
+			message("Running bootstrap spread comparison for nominal attribute: ", .x)
+			bootstrap_test_attribute(df_split, .x, attribute_type = "nominal", n_boot = n_boot)
+		})
+	)
+
+	write_csv(
+		spread_results,
+		file.path(RESULTS_DIR, data_split, "spread_bootstrap_by_type.csv")
+	)
+})
