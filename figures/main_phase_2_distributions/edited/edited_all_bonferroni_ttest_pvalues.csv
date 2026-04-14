@@ -1,13 +1,13 @@
 variable,variable_type,p_raw,p_bonferroni,sig
+writer_knowledge,scale,0.0,0.0,***
+writer_importance,scale,0.0,0.0,***
+writer_confidence,scale,0.0,0.0,***
+writer_stance_polarity,scale,2.521968596959895e-89,7.313708931183695e-88,***
 paragraph_formality,scale,0.0,0.0,***
 paragraph_clarity,scale,0.0,0.0,***
 paragraph_informativeness,scale,0.0,0.0,***
 paragraph_originality,scale,0.0,0.0,***
 paragraph_relevance,scale,0.0,0.0,***
-writer_knowledge,scale,0.0,0.0,***
-writer_importance,scale,0.0,0.0,***
-writer_confidence,scale,0.0,0.0,***
-writer_stance_polarity,scale,2.521968596959895e-89,7.313708931183695e-88,***
 writer_optimism,scale,0.0,0.0,***
 writer_community,scale,6.550625220038626e-308,1.8996813138112016e-306,***
 writer_friendliness,scale,2.4658055769873624e-131,7.1508361732633515e-130,***

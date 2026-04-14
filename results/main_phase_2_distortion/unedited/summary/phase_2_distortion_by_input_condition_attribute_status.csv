@@ -1,0 +1,26 @@
+split,analysis_group,attribute,in_summary,passes_check,status_note
+unedited,scale,paragraph_formality,True,True,
+unedited,scale,paragraph_clarity,True,True,
+unedited,scale,paragraph_informativeness,True,True,
+unedited,scale,paragraph_originality,True,True,
+unedited,scale,paragraph_relevance,True,True,
+unedited,scale,writer_knowledge,True,True,
+unedited,scale,writer_importance,True,True,
+unedited,scale,writer_confidence,True,True,
+unedited,scale,writer_stance_polarity,True,False,"non-significant coefficient(s): input_condition_rewrite; mixed AME directions: input_condition_bullets-based=positive, input_condition_improve=positive, input_condition_rewrite=negative, input_condition_stance-based=positive"
+unedited,scale,paragraph_hope,True,True,
+unedited,scale,paragraph_excitement,True,True,
+unedited,scale,paragraph_fear,True,False,"non-significant coefficient(s): input_condition_bullets-based, input_condition_rewrite"
+unedited,scale,paragraph_disgust,True,True,
+unedited,scale,paragraph_anger,True,True,
+unedited,scale,writer_affect_x,True,True,
+unedited,scale,writer_affect_y,True,True,
+unedited,scale,writer_optimism,True,True,
+unedited,scale,writer_community,True,True,
+unedited,scale,writer_friendliness,True,True,
+unedited,scale,writer_openness,True,False,"non-significant coefficient(s): input_condition_improve; mixed AME directions: input_condition_bullets-based=negative, input_condition_improve=negative, input_condition_rewrite=positive, input_condition_stance-based=positive"
+unedited,ordinal,writer_english_first,True,True,
+unedited,ordinal,writer_education,False,False,"Missing regression results for writer_education in split 'unedited'. Tried: /Users/paul/Documents/Repos/ai-distortion/results/main_phase_2_distortion/unedited/writer_education_by_input_condition.csv, /Users/paul/Documents/Repos/ai-distortion/results/main_phase_2_distortion/unedited/writer_education_by_input.csv"
+unedited,ordinal,writer_english_skills,True,True,
+unedited,ordinal,writer_income,True,True,
+unedited,ordinal,writer_age_binned,False,False,"Missing regression results for writer_age_binned in split 'unedited'. Tried: /Users/paul/Documents/Repos/ai-distortion/results/main_phase_2_distortion/unedited/writer_age_binned_by_input_condition.csv, /Users/paul/Documents/Repos/ai-distortion/results/main_phase_2_distortion/unedited/writer_age_binned_by_input.csv"

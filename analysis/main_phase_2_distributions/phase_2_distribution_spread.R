@@ -13,7 +13,12 @@ phase_1_preferences <- read_csv("./data/main_phase_1/proposition_responses.csv",
 
 # ===== ANALYSIS CONFIG ----
 RESULTS_DIR <- "./results/main_phase_2_distribution"
-DATA_SPLITS <- c("unedited", "edited", "preferred")
+FIGURES_DIR <- "./figures/main_phase_2_distributions"
+DATA_SPLITS <- c(
+	# "unedited",
+	# "edited",
+	"preferred"
+)
 
 # ===== DATA PROCESSING ----
 data <- data %>%
@@ -281,6 +286,87 @@ bootstrap_test_attribute <- function(df, attribute, attribute_type, n_boot = 100
 	)
 }
 
+create_scale_spread_boxplot <- function(df, spread_results, data_split) {
+	figure_dir <- file.path(FIGURES_DIR, data_split)
+	dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
+
+	scale_spread_results <- spread_results %>%
+		filter(attribute_type == "scale", spread_metric == "sd") %>%
+		arrange(desc(relative_dispersion_ratio), attribute)
+
+	if (nrow(scale_spread_results) == 0) {
+		return(invisible(NULL))
+	}
+
+	attribute_order <- scale_spread_results$attribute
+
+	plot_data <- df %>%
+		filter(paragraph_type_ %in% c("writer", "model")) %>%
+		select(paragraph_type_, all_of(scale_attributes)) %>%
+		pivot_longer(
+			cols = all_of(scale_attributes),
+			names_to = "attribute",
+			values_to = "rating"
+		) %>%
+		filter(!is.na(rating), attribute %in% attribute_order) %>%
+		mutate(
+			attribute = factor(attribute, levels = rev(attribute_order)),
+			paragraph_type_ = factor(paragraph_type_, levels = c("writer", "model"))
+		)
+
+	plot_summary <- plot_data %>%
+		group_by(attribute, paragraph_type_) %>%
+		summarise(
+			q1 = quantile(rating, 0.25, na.rm = TRUE),
+			median = median(rating, na.rm = TRUE),
+			q3 = quantile(rating, 0.75, na.rm = TRUE),
+			.groups = "drop"
+		)
+
+	if (nrow(plot_summary) == 0) {
+		return(invisible(NULL))
+	}
+
+	boxplot_figure <- ggplot(plot_summary, aes(y = paragraph_type_)) +
+		geom_rect(
+			aes(xmin = q1, xmax = q3, ymin = as.numeric(paragraph_type_) - 0.28, ymax = as.numeric(paragraph_type_) + 0.28, fill = paragraph_type_),
+			colour = "#4d4d4d",
+			linewidth = 0.3
+		) +
+		geom_segment(
+			aes(x = median, xend = median, y = as.numeric(paragraph_type_) - 0.28, yend = as.numeric(paragraph_type_) + 0.28),
+			linewidth = 0.5,
+			colour = "#1f1f1f"
+		) +
+		facet_grid(attribute ~ ., scales = "fixed", switch = "y") +
+		scale_fill_manual(values = c(writer = "#0070C0", model = "#7030A0"), guide = "none") +
+		scale_y_discrete(limits = c("writer", "model")) +
+		scale_x_continuous(limits = c(0, 100), breaks = c(0, 25, 50, 75, 100)) +
+		labs(
+			title = paste("Scale rating distributions by paragraph type:", str_to_title(data_split)),
+			x = "Rating",
+			y = NULL
+		) +
+		theme_minimal(base_size = 11) +
+		theme(
+			panel.grid.major.y = element_blank(),
+			panel.grid.minor = element_blank(),
+			panel.spacing.y = unit(0.15, "lines"),
+			strip.text.y.left = element_text(angle = 0, hjust = 1, face = "bold", size = 9),
+			strip.background = element_rect(fill = "#f5f5f5", colour = NA),
+			axis.text.y = element_text(face = "bold"),
+			plot.title = element_text(face = "bold")
+		)
+
+	ggsave(
+		filename = file.path(figure_dir, "scale_boxplots_by_relative_dispersion_ratio.pdf"),
+		plot = boxplot_figure,
+		width = 11,
+		height = max(10, 0.45 * length(attribute_order) + 1.5),
+		dpi = 300
+	)
+}
+
 # ===== RUN ANALYSIS + SAVE OUTPUTS ----
 walk(DATA_SPLITS, function(data_split) {
 	message("Running spread analysis for split: ", data_split)
@@ -306,4 +392,6 @@ walk(DATA_SPLITS, function(data_split) {
 		spread_results,
 		file.path(RESULTS_DIR, data_split, "spread_bootstrap_by_type.csv")
 	)
+
+	create_scale_spread_boxplot(df_split, spread_results, data_split)
 })

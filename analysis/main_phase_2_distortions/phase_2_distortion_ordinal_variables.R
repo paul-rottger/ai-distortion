@@ -1,17 +1,10 @@
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
   library(tidyverse)
-  library(showtext)
-  library(systemfonts)
   library(effsize)
   library(ordinal)
   library(parallel)
 })
-
-# ===== PLOTTING DEFAULTS ----
-font_add(family = "CMU Serif", regular = "~/Library/Fonts/cmunrm.ttf")
-showtext_auto()
-theme_set(theme_minimal(base_family = "CMU Serif", base_size = 14))
 
 # ===== RANDOM SEED ----
 set.seed(123)
@@ -74,11 +67,11 @@ data_preferred <- data_edited %>%
 rm(data, phase_1_preferences, preferred_exclusions)
 
 ordinal_vars <- c(
-  "writer_education",
+  #"writer_english_first",
+  #"writer_education",
   "writer_english_skills",
   "writer_income",
-  "writer_age_binned",
-  "writer_english_first"
+  "writer_age_binned"
 )
 
 # Create random data sample for debugging
@@ -179,9 +172,9 @@ print(debug_results)
 run_ordinal_regressions <- function(attribute) {
   print(paste("running ordinal logistic regression for:", attribute))
 
-  for (data_split in c("preferred")) {
+  for (data_split in c("unedited", "edited")) {
     for (predictor in list(
-      #c("paragraph_type_", "by_type"),
+      #c("paragraph_type_", "by_type")
       c("model_", "by_model"),
       c("input_condition_", "by_input_condition")
     )) {

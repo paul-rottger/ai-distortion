@@ -1,0 +1,26 @@
+split,analysis_group,attribute,in_summary,passes_check,status_note
+edited,scale,paragraph_formality,True,True,
+edited,scale,paragraph_clarity,True,True,
+edited,scale,paragraph_informativeness,True,True,
+edited,scale,paragraph_originality,True,True,
+edited,scale,paragraph_relevance,True,True,
+edited,scale,writer_knowledge,True,True,
+edited,scale,writer_importance,True,True,
+edited,scale,writer_confidence,True,True,
+edited,scale,writer_stance_polarity,True,False,"non-significant coefficient(s): input_condition_rewrite; mixed AME directions: input_condition_bullets-based=positive, input_condition_improve=positive, input_condition_rewrite=negative, input_condition_stance-based=positive"
+edited,scale,paragraph_hope,True,True,
+edited,scale,paragraph_excitement,True,True,
+edited,scale,paragraph_fear,True,False,"non-significant coefficient(s): input_condition_bullets-based, input_condition_rewrite"
+edited,scale,paragraph_disgust,True,True,
+edited,scale,paragraph_anger,True,True,
+edited,scale,writer_affect_x,True,True,
+edited,scale,writer_affect_y,True,True,
+edited,scale,writer_optimism,True,True,
+edited,scale,writer_community,True,True,
+edited,scale,writer_friendliness,True,True,
+edited,scale,writer_openness,True,False,"non-significant coefficient(s): input_condition_improve; mixed AME directions: input_condition_bullets-based=negative, input_condition_improve=negative, input_condition_rewrite=positive, input_condition_stance-based=positive"
+edited,ordinal,writer_english_first,True,True,
+edited,ordinal,writer_education,False,False,"Missing regression results for writer_education in split 'edited'. Tried: /Users/paul/Documents/Repos/ai-distortion/results/main_phase_2_distortion/edited/writer_education_by_input_condition.csv, /Users/paul/Documents/Repos/ai-distortion/results/main_phase_2_distortion/edited/writer_education_by_input.csv"
+edited,ordinal,writer_english_skills,True,True,
+edited,ordinal,writer_income,True,True,
+edited,ordinal,writer_age_binned,False,False,"Missing regression results for writer_age_binned in split 'edited'. Tried: /Users/paul/Documents/Repos/ai-distortion/results/main_phase_2_distortion/edited/writer_age_binned_by_input_condition.csv, /Users/paul/Documents/Repos/ai-distortion/results/main_phase_2_distortion/edited/writer_age_binned_by_input.csv"

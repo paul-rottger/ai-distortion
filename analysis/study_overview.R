@@ -39,10 +39,65 @@ describe_phase2_ratings <- function(study_name) {
   cat("Number of unique paragraphs rated:", nrow(unique_paragraphs), "\n")
 }
 
+describe_phase1_assignments <- function(study_name) {
+  responses_path <- file.path("./data", study_name, "proposition_responses.csv")
+
+  if (!file.exists(responses_path)) {
+    cat("Assignment breakdown: proposition_responses.csv not found\n")
+    return(invisible(NULL))
+  }
+
+  responses <- read_csv(responses_path, show_col_types = FALSE)
+
+  if (study_name == "main_phase_1") {
+    assignment_counts <- responses %>%
+      distinct(writer_id, proposition_id, model_name, model_input_condition) %>%
+      count(model_name, model_input_condition, name = "n_pairs") %>%
+      rename(
+        model = model_name,
+        input_condition = model_input_condition
+      ) %>%
+      arrange(model, input_condition)
+  } else if (study_name == "followup_disclaimer_phase_1") {
+    assignment_counts <- responses %>%
+      distinct(writer_id, proposition_id, disclaimer_condition) %>%
+      count(disclaimer_condition, name = "n_pairs") %>%
+      arrange(disclaimer_condition)
+  } else if (study_name == "followup_mitigation_phase_1") {
+    assignment_counts <- responses %>%
+      distinct(writer_id, proposition_id, model_name, model_mitigation_condition) %>%
+      count(model_name, model_mitigation_condition, name = "n_pairs") %>%
+      rename(
+        model = model_name,
+        mitigation_condition = model_mitigation_condition
+      ) %>%
+      arrange(model, mitigation_condition)
+  } else {
+    cat("Assignment breakdown: not applicable\n")
+    return(invisible(NULL))
+  }
+
+  print(assignment_counts, n = Inf)
+}
+
 # ===== DESCRIBE PARTICIPANTS ----
 for (study in studies) {
   cat("Study:", study, "\n")
   describe_participants(paste0(study, "/participants.csv"))
+  cat("\n")
+}
+
+# ===== PHASE 1 ASSIGNMENT OVERVIEW ----
+phase1_studies <- c(
+  "main_phase_1",
+  "followup_disclaimer_phase_1",
+  "followup_mitigation_phase_1"
+)
+
+cat("Phase 1 assignment overview:\n")
+for (study in phase1_studies) {
+  cat("Study:", study, "\n")
+  describe_phase1_assignments(study)
   cat("\n")
 }
 

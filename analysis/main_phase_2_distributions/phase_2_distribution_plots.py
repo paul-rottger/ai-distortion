@@ -121,17 +121,17 @@ def build_split_datasets(annotations, preferences):
 
 # ===== SCALE VARIABLES DEFINITION =====
 SCALE_ATTRIBUTES = [
+    # Writer opinion
+    "writer_knowledge",
+    "writer_importance",
+    "writer_confidence",
+    "writer_stance_polarity",
     # Paragraph quality
     "paragraph_formality",
     "paragraph_clarity",
     "paragraph_informativeness",
     "paragraph_originality",
     "paragraph_relevance",
-    # Writer authorial stance
-    "writer_knowledge",
-    "writer_importance",
-    "writer_confidence",
-    "writer_stance_polarity",
     # Writer personality & values
     "writer_optimism",
     "writer_community",
@@ -236,10 +236,7 @@ VIOLIN_DENSITY_MAX = 0.05
 
 
 def draw_kde_with_overlap_fill(ax, writer_data, model_data, x_min=0, x_max=100):
-    """Draw two KDE curves with:
-    - white fill where densities overlap
-    - transparent line-color fill where only one curve is above the other
-    """
+    """Draw two overlapping KDE curves with semi-transparent fills."""
 
     if len(writer_data) < 2 or len(model_data) < 2:
         return False
@@ -252,50 +249,121 @@ def draw_kde_with_overlap_fill(ax, writer_data, model_data, x_min=0, x_max=100):
     writer_y = writer_kde(x_grid)
     model_y = model_kde(x_grid)
 
-    overlap_y = np.minimum(writer_y, model_y)
-
-    # White overlap area (base)
-    ax.fill_between(x_grid, 0, overlap_y, color="white", alpha=1.0, zorder=1)
-
-    # Non-overlap regions in transparent line colors
-    writer_above = writer_y > model_y
-    model_above = model_y > writer_y
-
     ax.fill_between(
         x_grid,
-        overlap_y,
+        0,
         writer_y,
-        where=writer_above,
         color=colors["writer"],
-        alpha=1,
-        interpolate=True,
-        zorder=2,
+        alpha=0.3,
+        zorder=1,
     )
     ax.fill_between(
         x_grid,
-        overlap_y,
+        0,
         model_y,
-        where=model_above,
         color=colors["model"],
-        alpha=1,
-        interpolate=True,
-        zorder=2,
+        alpha=0.3,
+        zorder=1,
     )
 
-    # Outline curves
     ax.plot(
         x_grid,
         writer_y,
         color=colors["writer"],
         linewidth=1.5,
         label="Writer",
-        zorder=3,
+        zorder=2,
     )
     ax.plot(
-        x_grid, model_y, color=colors["model"], linewidth=1.5, label="Model", zorder=3
+        x_grid, model_y, color=colors["model"], linewidth=1.5, label="Model", zorder=2
     )
 
     return True
+
+
+def add_kde_mean_annotations(ax, writer_values, model_values, y_max):
+    """Add writer/model mean lines and labels at a common height."""
+
+    if len(writer_values) == 0 or len(model_values) == 0:
+        return
+
+    writer_mean = float(np.mean(writer_values))
+    model_mean = float(np.mean(model_values))
+    label_y = y_max * 0.92
+    x_offset = 1.2
+
+    ax.axvline(writer_mean, color=colors["writer"], linewidth=1.4, linestyle="-")
+    ax.axvline(model_mean, color=colors["model"], linewidth=1.4, linestyle="-")
+
+    left_is_writer = writer_mean <= model_mean
+
+    writer_x = max(writer_mean - x_offset, 0) if left_is_writer else min(writer_mean + x_offset, 100)
+    writer_ha = "right" if left_is_writer else "left"
+    model_x = max(model_mean - x_offset, 0) if not left_is_writer else min(model_mean + x_offset, 100)
+    model_ha = "right" if not left_is_writer else "left"
+
+    ax.text(
+        writer_x,
+        label_y,
+        f"{writer_mean:.1f}",
+        color=colors["writer"],
+        fontsize=10,
+        ha=writer_ha,
+        va="center",
+    )
+    ax.text(
+        model_x,
+        label_y,
+        f"{model_mean:.1f}",
+        color=colors["model"],
+        fontsize=10,
+        ha=model_ha,
+        va="center",
+    )
+
+
+def add_bar_count_labels(ax, plot_counts, variable, order, min_padding=0.8, fontsize=9):
+    """Annotate grouped percentage bars with raw observation counts."""
+
+    value_lookup = {}
+    for paragraph_type in ["writer", "model"]:
+        for category in order:
+            match = plot_counts[
+                (plot_counts["paragraph_type_"] == paragraph_type)
+                & (plot_counts[variable] == category)
+            ]
+            count = int(match["count"].iloc[0]) if not match.empty else 0
+            value_lookup[(paragraph_type, category)] = count
+
+    containers = list(ax.containers)
+    hue_order = ["writer", "model"]
+
+    for paragraph_type, container in zip(hue_order, containers):
+        labels = []
+        for category, patch in zip(order, container.patches):
+            if np.isnan(patch.get_height()):
+                labels.append("")
+                continue
+            count = value_lookup[(paragraph_type, category)]
+            labels.append(f"{count}")
+
+        ax.bar_label(
+            container,
+            labels=labels,
+            padding=3,
+            fontsize=fontsize,
+        )
+
+    ymax = ax.get_ylim()[1]
+    max_percent = float(plot_counts["percent"].max()) if not plot_counts.empty else 0.0
+    ax.set_ylim(0, max(ymax, max_percent + min_padding + 3.0))
+
+
+def apply_shortened_category_tick_labels(ax, variable, order):
+    """Apply abbreviated category labels to categorical barplots."""
+
+    display_labels = [_abbreviate_category_label(variable, category) for category in order]
+    ax.set_xticklabels(display_labels)
 
 
 def prepare_categorical_data(df):
@@ -380,6 +448,8 @@ def create_categorical_barplot(df, variable, output_path):
         dodge=True,
         ax=ax,
     )
+    add_bar_count_labels(ax, counts, variable, order)
+    apply_shortened_category_tick_labels(ax, variable, order)
 
     ax.set_title(
         f"Categorical Distribution: {variable.replace('_', ' ').title()}\nWriter vs AI Model Generated Paragraphs",
@@ -388,7 +458,7 @@ def create_categorical_barplot(df, variable, output_path):
     )
     ax.set_xlabel(variable.replace("_", " ").title(), fontsize=12)
     ax.set_ylabel("Percentage within paragraph type (%)", fontsize=12)
-    ax.grid(True, axis="y", alpha=0.25, linestyle="-", linewidth=0.5)
+    ax.grid(True, axis="y", alpha=0.3, linestyle="-", linewidth=0.5)
     ax.legend(title="Paragraph type", frameon=True)
 
     if len(order) > 4:
@@ -405,10 +475,10 @@ def create_combined_categorical_grid(df, output_dir):
     """Create one combined subplot figure for all categorical variables."""
 
     n_vars = len(CATEGORICAL_VARS)
-    n_cols = 3
+    n_cols = 2
     n_rows = int(np.ceil(n_vars / n_cols))
 
-    fig, axes = plt.subplots(n_rows, n_cols, figsize=(22, 5.8 * n_rows))
+    fig, axes = plt.subplots(n_rows, n_cols, figsize=(16, 3.8 * n_rows))
     axes = axes.flatten() if n_vars > 1 else [axes]
 
     for i, variable in enumerate(CATEGORICAL_VARS):
@@ -449,6 +519,8 @@ def create_combined_categorical_grid(df, output_dir):
             dodge=True,
             ax=ax,
         )
+        add_bar_count_labels(ax, counts, variable, order, min_padding=0.5, fontsize=8)
+        apply_shortened_category_tick_labels(ax, variable, order)
         ax.set_axisbelow(True)
 
         ax.set_title(f"{variable.replace('_', ' ').title()}", fontsize=11)
@@ -469,11 +541,10 @@ def create_combined_categorical_grid(df, output_dir):
     for i in range(n_vars, len(axes)):
         axes[i].set_visible(False)
 
-    fig.text(0.5, 0.02, "Category", ha="center", fontsize=13)
     fig.text(
         0.02,
         0.5,
-        "Percentage within paragraph type (%)",
+        "% within paragraph type",
         va="center",
         rotation="vertical",
         fontsize=13,
@@ -578,7 +649,7 @@ def _blend_with_white(hex_color, intensity):
 def create_combined_categorical_heatmap(df, output_dir):
     """Create a combined heatmap-style plot for all categorical variables."""
     n_vars = len(CATEGORICAL_VARS)
-    n_cols = 3
+    n_cols = 2
     n_rows = int(np.ceil(n_vars / n_cols))
 
     fig, axes = plt.subplots(n_rows, n_cols, figsize=(26, 8))
@@ -720,6 +791,8 @@ def create_kde_plot(df, variable, output_path):
                     label=f"{ptype.capitalize()}",
                     color=colors[ptype],
                     linewidth=1.5,
+                    fill=True,
+                    alpha=0.3,
                     ax=ax,
                 )
 
@@ -738,35 +811,10 @@ def create_kde_plot(df, variable, output_path):
     # Set x-axis limits to 0-100 for scale variables
     ax.set_xlim(0, 100)
     ax.set_ylim(KDE_Y_MIN, KDE_Y_MAX)
+    add_kde_mean_annotations(ax, writer_data, model_data, KDE_Y_MAX)
 
     # Add grid for better readability
     ax.grid(True, alpha=0.3, linestyle="-", linewidth=0.5)
-
-    # Add summary statistics as text
-    writer_data = plot_data[plot_data["paragraph_type_"] == "writer"][variable]
-    model_data = plot_data[plot_data["paragraph_type_"] == "model"][variable]
-
-    if len(writer_data) > 0 and len(model_data) > 0:
-        writer_mean = writer_data.mean()
-        model_mean = model_data.mean()
-        writer_std = writer_data.std()
-        model_std = model_data.std()
-
-        # Add text box with summary stats
-        stats_text = f"Writer: μ={writer_mean:.1f}, σ={writer_std:.1f} (n={len(writer_data):,})\n"
-        stats_text += (
-            f"Model: μ={model_mean:.1f}, σ={model_std:.1f} (n={len(model_data):,})"
-        )
-
-        ax.text(
-            0.02,
-            0.98,
-            stats_text,
-            transform=ax.transAxes,
-            fontsize=10,
-            verticalalignment="top",
-            bbox=dict(boxstyle="round", facecolor="wheat", alpha=0.8),
-        )
 
     # Adjust layout and save
     plt.tight_layout()
@@ -777,40 +825,6 @@ def create_kde_plot(df, variable, output_path):
 
 
 # ===== FUNCTION TO CREATE COMBINED GRID PLOT =====
-def get_scale_attributes_sorted_by_cohens_d(data_split):
-    """Return scale attributes sorted by descending Cohen's d from split-specific by_type results."""
-
-    results_dir = os.path.join("results", "main_phase_2_distribution", data_split)
-    d_rows = []
-
-    for variable in SCALE_ATTRIBUTES:
-        file_path = os.path.join(results_dir, f"{variable}_by_type.csv")
-        if not os.path.exists(file_path):
-            continue
-
-        df = pd.read_csv(file_path)
-        if "cohens_d" not in df.columns:
-            continue
-
-        d_rows.append(
-            {
-                "variable": variable,
-                "cohens_d": float(df.iloc[0]["cohens_d"]),
-            }
-        )
-
-    if not d_rows:
-        return SCALE_ATTRIBUTES, {}
-
-    d_df = pd.DataFrame(d_rows).sort_values("cohens_d", ascending=False)
-    ordered = d_df["variable"].tolist()
-    d_lookup = dict(zip(d_df["variable"], d_df["cohens_d"]))
-
-    # Keep any missing variables at the end in original order
-    remaining = [v for v in SCALE_ATTRIBUTES if v not in ordered]
-    return ordered + remaining, d_lookup
-
-
 def get_scale_attributes_sorted_by_ame(data_split):
     """Return scale attributes sorted by descending AME from split-specific distortion results."""
 
@@ -848,15 +862,15 @@ def get_scale_attributes_sorted_by_ame(data_split):
 def create_combined_kde_grid(df, output_dir, data_split):
     """Create a grid of KDE plots for all scale variables."""
 
-    ordered_scale_attributes, d_lookup = get_scale_attributes_sorted_by_cohens_d(data_split)
+    ordered_scale_attributes = SCALE_ATTRIBUTES
 
     # Calculate grid dimensions (try to make roughly square)
     n_vars = len(ordered_scale_attributes)
-    n_cols = int(np.ceil(np.sqrt(n_vars)))
+    n_cols = 3
     n_rows = int(np.ceil(n_vars / n_cols))
 
     # Create figure with subplots
-    fig, axes = plt.subplots(n_rows, n_cols, figsize=(26, 14), sharey="row")
+    fig, axes = plt.subplots(n_rows, n_cols, figsize=(16, 22), sharey="row")
     axes = axes.flatten() if n_vars > 1 else [axes]
 
     # Create KDE plot for each variable
@@ -875,10 +889,8 @@ def create_combined_kde_grid(df, output_dir, data_split):
                 va="center",
                 transform=ax.transAxes,
             )
-            d_value = d_lookup.get(variable)
-            d_label = f"Cohen's d: {d_value:.2f}" if d_value is not None else "Cohen's d: N/A"
             ax.set_title(
-                f"{variable.replace('_', ' ').title()} ({d_label})",
+                f"{variable.replace('_', ' ').title()}",
                 fontsize=14,
                 pad=10,
             )
@@ -902,21 +914,22 @@ def create_combined_kde_grid(df, output_dir, data_split):
                         label=f"{ptype.capitalize()}",
                         color=colors[ptype],
                         linewidth=1,
+                        fill=True,
+                        alpha=0.3,
                         ax=ax,
                     )
 
         # Customize subplot
         ax.set_xlabel("")  # Remove individual x-labels for cleaner look
         ax.set_ylabel("")  # Remove individual y-labels for cleaner look
-        d_value = d_lookup.get(variable)
-        d_label = f"Cohen's d: {d_value:.2f}" if d_value is not None else "Cohen's d: N/A"
         ax.set_title(
-            f"{variable.replace('_', ' ').title()} ({d_label})",
+            f"{variable.replace('_', ' ').title()}",
             fontsize=18,
             pad=10,
         )
         ax.set_xlim(0, 100)
         ax.set_ylim(KDE_Y_MIN, KDE_Y_MAX)
+        add_kde_mean_annotations(ax, writer_data, model_data, KDE_Y_MAX)
         ax.grid(True, alpha=0.2, linestyle="-", linewidth=0.5)
         ax.tick_params(axis="both", labelsize=12)
 

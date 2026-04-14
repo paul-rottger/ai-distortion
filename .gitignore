@@ -14,6 +14,8 @@
 
 # specific files
 transfer_data.ipynb
+anonymise.py
+participant_study_membership.csv
 
 .github/
 

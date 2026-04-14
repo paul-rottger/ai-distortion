@@ -27,6 +27,11 @@ data <- data %>%
 		mitigation_condition_ = factor(ifelse(
 			paragraph_type == "writer", "writer", model_mitigation_condition
 		)),
+		model_and_mitigation_ = factor(ifelse(
+			paragraph_type == "writer",
+			"writer",
+			paste(model_name, model_mitigation_condition, sep = "__")
+		)),
 		writer_age_binned = factor(writer_age_binned,
 			levels = c("18-29", "30-39", "40-49", "50-59", "60-69", "70+"),
 			ordered = TRUE
@@ -68,7 +73,8 @@ data <- data %>%
 # Set reference category for predictors
 data$model_ <- relevel(data$model_, ref = "writer")
 data$input_condition_ <- relevel(data$input_condition_, ref = "writer")
-data$mitigation_condition_ <- relevel(data$mitigation_condition_, ref = "none")
+data$mitigation_condition_ <- relevel(data$mitigation_condition_, ref = "writer")
+data$model_and_mitigation_ <- relevel(data$model_and_mitigation_, ref = "writer")
 
 # Create unedited and edited subsets of data for later analyses
 data_unedited <- data %>%
@@ -106,11 +112,11 @@ data_preferred <- data_edited %>%
 rm(data, phase_1_preferences, preferred_exclusions)
 
 ordinal_vars <- c(
+	"writer_income",
 	"writer_education",
 	"writer_english_skills",
-	"writer_income",
-	"writer_age_binned",
-	"writer_english_first"
+	"writer_english_first",
+	"writer_age_binned"
 )
 
 # ===== ORDINAL LOGISTIC REGRESSION (BY MITIGATION) ----
@@ -127,13 +133,14 @@ empty_ordinal_results <- function() {
 	)
 }
 
-fit_ordinal_logit <- function(df, outcome, predictor = "mitigation_condition_", random = "(1 | rater_id)") {
+fit_ordinal_logit <- function(df, outcome, predictor = "model_and_mitigation_", random = "(1 | rater_id)") {
 	model_df <- df %>%
 		filter(!is.na(.data[[outcome]]), !is.na(.data[[predictor]])) %>%
 		mutate(
-			rater_id = as.factor(rater_id),
-			mitigation_condition_ = droplevels(as.factor(mitigation_condition_))
+			rater_id = as.factor(rater_id)
 		)
+
+	model_df[[predictor]] <- droplevels(as.factor(model_df[[predictor]]))
 
 	if (outcome == "writer_education") {
 		model_df <- model_df %>%
@@ -189,7 +196,7 @@ debug_sample_size <- min(1000, nrow(data_preferred))
 debug_data <- data_preferred %>% slice_sample(n = debug_sample_size)
 debug_results <- fit_ordinal_logit(debug_data,
 	outcome = "writer_income",
-	predictor = "mitigation_condition_",
+	predictor = "model_and_mitigation_",
 	random = "(1 | rater_id)"
 )
 print(debug_results$tidy_fixed)
@@ -213,13 +220,13 @@ run_ordinal_regressions <- function(attribute) {
 		results <- fit_ordinal_logit(
 			split_data,
 			outcome = attribute,
-			predictor = "mitigation_condition_",
+			predictor = "model_and_mitigation_",
 			random = "(1 | rater_id)"
 		)
 
 		write_csv(
 			results$tidy_fixed,
-			paste0("./results/followup_mitigation_phase_2_distortion/", data_split, "/", attribute, "_by_mitigation.csv")
+			paste0("./results/followup_mitigation_phase_2_distortion/", data_split, "/", attribute, "_by_model_and_mitigation.csv")
 		)
 	}
 }

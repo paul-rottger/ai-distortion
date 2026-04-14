@@ -1,0 +1,26 @@
+split,analysis_group,attribute,in_summary,passes_check,status_note
+preferred,scale,paragraph_formality,True,True,
+preferred,scale,paragraph_clarity,True,True,
+preferred,scale,paragraph_informativeness,True,True,
+preferred,scale,paragraph_originality,True,True,
+preferred,scale,paragraph_relevance,True,True,
+preferred,scale,writer_knowledge,True,True,
+preferred,scale,writer_importance,True,True,
+preferred,scale,writer_confidence,True,True,
+preferred,scale,writer_stance_polarity,True,False,"non-significant coefficient(s): input_condition_rewrite; mixed AME directions: input_condition_bullets-based=positive, input_condition_improve=positive, input_condition_rewrite=negative, input_condition_stance-based=positive"
+preferred,scale,paragraph_hope,True,True,
+preferred,scale,paragraph_excitement,True,True,
+preferred,scale,paragraph_fear,True,False,"non-significant coefficient(s): input_condition_bullets-based, input_condition_improve, input_condition_rewrite"
+preferred,scale,paragraph_disgust,True,True,
+preferred,scale,paragraph_anger,True,True,
+preferred,scale,writer_affect_x,True,True,
+preferred,scale,writer_affect_y,True,True,
+preferred,scale,writer_optimism,True,True,
+preferred,scale,writer_community,True,True,
+preferred,scale,writer_friendliness,True,True,
+preferred,scale,writer_openness,True,False,"non-significant coefficient(s): input_condition_improve; mixed AME directions: input_condition_bullets-based=negative, input_condition_improve=positive, input_condition_rewrite=positive, input_condition_stance-based=positive"
+preferred,ordinal,writer_english_first,True,True,
+preferred,ordinal,writer_education,True,True,
+preferred,ordinal,writer_english_skills,True,True,
+preferred,ordinal,writer_income,True,True,
+preferred,ordinal,writer_age_binned,True,True,

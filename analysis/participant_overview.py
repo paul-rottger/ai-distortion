@@ -192,6 +192,28 @@ def ordered_categories(series: pd.Series, attribute: str) -> list[str]:
     return categories
 
 
+def deduplicate_participants(
+    participants_by_study: dict[str, pd.DataFrame],
+) -> pd.DataFrame:
+    combined_participants = pd.concat(
+        [
+            df.assign(_study_order=study_index)
+            for study_index, df in enumerate(participants_by_study.values())
+        ],
+        ignore_index=True,
+    )
+
+    combined_participants = combined_participants.sort_values(
+        ["participant_id", "_study_order"],
+        kind="stable",
+    )
+
+    return combined_participants.drop_duplicates(
+        subset="participant_id",
+        keep="first",
+    ).drop(columns="_study_order")
+
+
 def summarize_attribute_wide(
     participants_by_study: dict[str, pd.DataFrame],
     attribute: str,
@@ -220,12 +242,24 @@ def summarize_attribute_wide(
         census_counts = census_summaries[attribute].reindex(categories, fill_value=0)
         summary_df["census"] = format_count_percent(census_counts, int(census_counts.sum()))
 
+    deduplicated_participants = deduplicate_participants(participants_by_study)
+    total_counts = (
+        deduplicated_participants[attribute]
+        .fillna("Missing")
+        .astype(str)
+        .value_counts(dropna=False)
+        .reindex(categories, fill_value=0)
+    )
+    summary_df["total"] = format_count_percent(total_counts, len(deduplicated_participants))
+
     total_row = {attribute: "n_participants"}
     for study, df in participants_by_study.items():
         total_row[study] = str(len(df))
 
     if attribute in CENSUS_ATTRIBUTES:
         total_row["census"] = str(int(census_summaries[attribute].sum()))
+
+    total_row["total"] = str(len(deduplicated_participants))
 
     summary_df = pd.concat([summary_df, pd.DataFrame([total_row])], ignore_index=True)
 

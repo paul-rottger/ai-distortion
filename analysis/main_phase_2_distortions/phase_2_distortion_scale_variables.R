@@ -132,9 +132,9 @@ results$tidy_fixed
 run_regressions <- function(attribute) {
   print(paste("running regressions for:", attribute))
 
-  for (data_split in c("preferred")) {
+  for (data_split in c("preferred","edited","unedited")) {
     for (predictor in list(
-      c("paragraph_type_", "by_type"),
+      #c("paragraph_type_", "by_type")
       c("model_", "by_model"),
       c("input_condition_", "by_input")
     )) {
@@ -173,7 +173,6 @@ rating_attributes <- c(
   "writer_knowledge",
   "writer_importance",
   "writer_confidence",
-  "writer_stance",
   "writer_stance_polarity",
   "paragraph_hope",
   "paragraph_excitement",

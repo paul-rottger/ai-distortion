@@ -28,12 +28,18 @@ data <- data %>%
     mitigation_condition_ = factor(
       ifelse(paragraph_type == "writer", "writer", model_mitigation_condition)
     ),
+    model_and_mitigation_ = factor(ifelse(
+      paragraph_type == "writer",
+      "writer",
+      paste(model_name, model_mitigation_condition, sep = "__")
+    )),
   )
 
 # Set reference category for predictors
 data$model_ <- relevel(data$model_, ref = "writer")
 data$input_condition_ <- relevel(data$input_condition_, ref = "writer")
 data$mitigation_condition_ <- relevel(data$mitigation_condition_, ref = "writer")
+data$model_and_mitigation_ <- relevel(data$model_and_mitigation_, ref = "writer")
 
 # Create unedited and edited subsets of data for later analyses
 data_unedited <- data %>%
@@ -137,9 +143,9 @@ results$tidy_fixed
 run_regressions <- function(attribute) {
   print(paste("running regressions for:", attribute))
 
-  for (data_split in c("preferred")) {
+  for (data_split in c("preferred", "edited", "unedited")) {
     for (predictor in list(
-      c("mitigation_condition_", "by_mitigation")
+      c("model_and_mitigation_", "by_model_and_mitigation")
     )) {
       split_data <- switch(data_split,
         unedited = data_unedited,
@@ -194,5 +200,3 @@ rating_attributes <- c(
 for (attr in rating_attributes) {
   run_regressions(attr)
 }
-
-run_regressions("writer_stance_polarity")

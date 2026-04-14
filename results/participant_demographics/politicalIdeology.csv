@@ -1,9 +1,9 @@
-politicalIdeology,main_phase_1,main_phase_2,followup_disclaimer_phase_1,followup_mitigation_phase_1,followup_mitigation_phase_2
-Very Left-Wing,146 (9.7%),1010 (10.1%),71 (10.6%),83 (10.8%),220 (8.7%)
-Moderately Left-Wing,532 (35.4%),3921 (39.1%),270 (40.4%),313 (40.7%),968 (38.1%)
-Centrist,417 (27.8%),2846 (28.4%),179 (26.8%),229 (29.8%),752 (29.6%)
-Moderately Right-Wing,315 (21.0%),1510 (15.1%),127 (19.0%),107 (13.9%),462 (18.2%)
-Very Right-Wing,43 (2.9%),183 (1.8%),13 (1.9%),12 (1.6%),57 (2.2%)
-Prefer not to say,19 (1.3%),331 (3.3%),9 (1.3%),25 (3.3%),84 (3.3%)
-Other,29 (1.9%),216 (2.2%),0 (0.0%),0 (0.0%),0 (0.0%)
-n_participants,1501,10017,669,769,2543
+politicalIdeology,main_phase_1,main_phase_2,followup_disclaimer_phase_1,followup_mitigation_phase_1,followup_mitigation_phase_2,total
+Very Left-Wing,146 (9.7%),1010 (10.1%),71 (10.6%),83 (10.8%),220 (8.7%),1420 (10.1%)
+Moderately Left-Wing,532 (35.4%),3921 (39.1%),270 (40.4%),313 (40.7%),968 (38.1%),5453 (38.9%)
+Centrist,417 (27.8%),2846 (28.4%),179 (26.8%),229 (29.8%),752 (29.6%),3984 (28.4%)
+Moderately Right-Wing,315 (21.0%),1510 (15.1%),127 (19.0%),107 (13.9%),462 (18.2%),2218 (15.8%)
+Very Right-Wing,43 (2.9%),183 (1.8%),13 (1.9%),12 (1.6%),57 (2.2%),272 (1.9%)
+Prefer not to say,19 (1.3%),331 (3.3%),9 (1.3%),25 (3.3%),84 (3.3%),438 (3.1%)
+Other,29 (1.9%),216 (2.2%),0 (0.0%),0 (0.0%),0 (0.0%),245 (1.7%)
+n_participants,1501,10017,669,769,2543,14030

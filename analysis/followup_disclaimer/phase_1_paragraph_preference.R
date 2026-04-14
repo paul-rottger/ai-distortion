@@ -1,16 +1,9 @@
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
   library(tidyverse)
-  library(showtext)
-  library(systemfonts)
   library(glmmTMB)
   library(broom.mixed)
 })
-
-# ===== PLOTTING DEFAULTS ----
-font_add(family = "CMU Serif", regular = "~/Library/Fonts/cmunrm.ttf")
-showtext_auto()
-theme_set(theme_minimal(base_family = "CMU Serif", base_size = 14))
 
 # ===== RANDOM SEED ----
 set.seed(123)
@@ -96,7 +89,6 @@ bootstrap_preference_summary <- function(data,
 produce_results <- function(data, var) {
   summary <- bootstrap_preference_summary(data, var)
   print(summary$table)
-  print(summary$plot)
   ggsave(
     paste0("./figures/followup_disclaimer_phase_1/", var, ".pdf"),
     summary$plot,

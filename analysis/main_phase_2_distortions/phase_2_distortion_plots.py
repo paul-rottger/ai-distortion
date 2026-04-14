@@ -6,13 +6,66 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib.patches import Rectangle
 from adjustText import adjust_text
-from scipy.stats import pearsonr, spearmanr
+from scipy.stats import linregress, pearsonr, spearmanr
 
 RESULTS_DIR = "../../results/main_phase_2_distortion/"
 DISTRIBUTION_RESULTS_DIR = "../../results/main_phase_2_distribution/"
 FIGURES_DIR = "../../figures/main_phase_2_distortion/"
 ALL_SPLITS = ["unedited", "edited", "preferred"]
 DEFAULT_PLOT_SPLITS = ["preferred"]
+SUBSET_FILE_ALIASES = {
+    "by_type": ["by_type"],
+    "by_model": ["by_model"],
+    "by_input": ["by_input", "by_input_condition"],
+}
+PROPOSITION_LEANINGS = ["left", "right"]
+PROPOSITION_LEANING_SPLIT = "preferred"
+PROPOSITION_LEANING_SUBSET = "by_proposition_leaning"
+
+MODEL_TERM_ORDER = [
+    "model_anthropic/claude-sonnet-4",
+    "model_deepseek/deepseek-chat-v3-0324",
+    "model_openai/chatgpt-4o-latest",
+]
+
+INPUT_TERM_ORDER = [
+    "input_condition_stance-based",
+    "input_condition_bullets-based",
+    "input_condition_rewrite",
+    "input_condition_improve",
+]
+
+TERM_LABELS = {
+    "model_anthropic/claude-sonnet-4": "Claude Sonnet 4",
+    "model_deepseek/deepseek-chat-v3-0324": "DeepSeek Chat V3",
+    "model_openai/chatgpt-4o-latest": "ChatGPT 4o",
+    "input_condition_stance-based": "Stance-based",
+    "input_condition_bullets-based": "Bullets-based",
+    "input_condition_rewrite": "Rewrite",
+    "input_condition_improve": "Improve",
+    "left": "Left-leaning",
+    "right": "Right-leaning",
+}
+
+TERM_COLORS = {
+    "model_anthropic/claude-sonnet-4": "#1B4965",
+    "model_deepseek/deepseek-chat-v3-0324": "#CA6702",
+    "model_openai/chatgpt-4o-latest": "#2A9D8F",
+    "input_condition_stance-based": "#0101FF",
+    "input_condition_bullets-based": "#44239F",
+    "input_condition_rewrite": "#B90ED3",
+    "input_condition_improve": "#E844BF",
+    "left": "#C84C09",
+    "right": "#1F6AA5",
+}
+
+TERM_ORDERS = {
+    "by_model": MODEL_TERM_ORDER,
+    "by_input": INPUT_TERM_ORDER,
+    PROPOSITION_LEANING_SUBSET: PROPOSITION_LEANINGS,
+}
+
+SCALE_GROUP_BOUNDARIES = [2.5, 4.5, 9.5, 14.5]
 
 
 def load_results_by_attribute(attributes, subset_names, splits=None, results_dir=RESULTS_DIR):
@@ -25,16 +78,53 @@ def load_results_by_attribute(attributes, subset_names, splits=None, results_dir
         split_results = {}
         for attr in reversed(attributes):
             attr_results = {}
-            for split in subset_names:
-                path = os.path.join(results_dir, para, f"{attr}_{split}.csv")
-                if os.path.exists(path):
-                    attr_results[split] = pd.read_csv(path)
+            for subset in subset_names:
+                candidate_subsets = SUBSET_FILE_ALIASES.get(subset, [subset])
+                for candidate_subset in candidate_subsets:
+                    path = os.path.join(results_dir, para, f"{attr}_{candidate_subset}.csv")
+                    if os.path.exists(path):
+                        attr_results[subset] = pd.read_csv(path)
+                        break
 
             if attr_results:
                 split_results[attr] = attr_results
 
         if split_results:
             loaded_results[para] = split_results
+
+    return loaded_results
+
+
+def load_results_by_proposition_leaning(attributes, results_dir=RESULTS_DIR):
+    loaded_results = {PROPOSITION_LEANING_SPLIT: {}}
+    base_dir = os.path.join(
+        results_dir,
+        PROPOSITION_LEANING_SPLIT,
+        PROPOSITION_LEANING_SUBSET,
+    )
+
+    for attr in reversed(attributes):
+        leaning_frames = []
+        for leaning in PROPOSITION_LEANINGS:
+            path = os.path.join(base_dir, f"{attr}_{leaning}.csv")
+            if not os.path.exists(path):
+                continue
+
+            df = pd.read_csv(path)
+            if df.empty:
+                continue
+
+            df = df.copy()
+            df["term"] = leaning
+            leaning_frames.append(df)
+
+        if leaning_frames:
+            loaded_results[PROPOSITION_LEANING_SPLIT][attr] = {
+                PROPOSITION_LEANING_SUBSET: pd.concat(leaning_frames, ignore_index=True)
+            }
+
+    if not loaded_results[PROPOSITION_LEANING_SPLIT]:
+        return {}
 
     return loaded_results
 
@@ -69,6 +159,362 @@ def split_has_required_columns(
 
     return True
 
+
+def prettify_term_label(term):
+    return TERM_LABELS.get(term, term)
+
+
+def get_available_attributes(
+    results_dict,
+    split,
+    attributes,
+    subset,
+    required_columns,
+):
+    if split not in results_dict:
+        return []
+
+    available_attributes = []
+    for attr in attributes:
+        attr_results = results_dict[split].get(attr, {})
+        if subset not in attr_results:
+            continue
+
+        df = attr_results[subset]
+        if df.empty or any(column not in df.columns for column in required_columns):
+            continue
+
+        available_attributes.append(attr)
+
+    return available_attributes
+
+
+def get_term_order(subset, terms):
+    expected_terms = TERM_ORDERS.get(subset, [])
+    ordered_terms = [term for term in expected_terms if term in terms]
+    extra_terms = sorted(term for term in terms if term not in expected_terms)
+    return ordered_terms + extra_terms
+
+
+def get_available_terms(
+    results_dict,
+    split,
+    attributes,
+    subset,
+    required_columns,
+    candidate_attributes=None,
+):
+    term_sets = []
+    target_attributes = candidate_attributes or attributes
+
+    if split not in results_dict:
+        return []
+
+    for attr in target_attributes:
+        attr_results = results_dict[split].get(attr, {})
+        if subset not in attr_results:
+            return []
+
+        df = attr_results[subset]
+        if df.empty or any(column not in df.columns for column in required_columns):
+            return []
+
+        terms = df["term"].dropna().unique().tolist()
+        if not terms:
+            return []
+        term_sets.append(set(terms))
+
+    common_terms = set.intersection(*term_sets)
+    return get_term_order(subset, common_terms)
+
+
+def get_group_offsets(group_names, offset_scale=0.12):
+    if len(group_names) == 1:
+        return {group_names[0]: 0}
+
+    offset_positions = [
+        index - (len(group_names) - 1) / 2 for index in range(len(group_names))
+    ]
+    return {
+        group_name: position * offset_scale
+        for group_name, position in zip(group_names, offset_positions)
+    }
+
+
+def create_horizontal_grouped_effect_plot(
+    regression_dict,
+    attributes,
+    split,
+    subset,
+    estimate_column,
+    lower_column,
+    upper_column,
+    figsize,
+    xlabel,
+    ylabel,
+    reference_line,
+    save_path=None,
+    group_boundaries=None,
+):
+    fig, ax = plt.subplots(figsize=figsize)
+
+    available_attributes = get_available_attributes(
+        regression_dict,
+        split,
+        attributes,
+        subset,
+        ["term", estimate_column, lower_column, upper_column],
+    )
+    if not available_attributes:
+        raise ValueError(f"No plottable attributes are available for split '{split}' and subset '{subset}'.")
+
+    included_terms = get_available_terms(
+        regression_dict,
+        split,
+        attributes,
+        subset,
+        ["term", estimate_column, lower_column, upper_column],
+        candidate_attributes=available_attributes,
+    )
+    if not included_terms:
+        raise ValueError(f"No requested terms are available for split '{split}' and subset '{subset}'.")
+
+    colors = {term: TERM_COLORS[term] for term in included_terms}
+    y_offset = get_group_offsets(included_terms)
+    attribute_order = list(reversed(available_attributes))
+    attribute_positions = {
+        attribute: index for index, attribute in enumerate(attribute_order)
+    }
+
+    for term in included_terms:
+        term_frames = []
+        for attr in attribute_order:
+            df = regression_dict[split].get(attr, {}).get(subset)
+            if df is None:
+                continue
+
+            term_df = df[df["term"] == term].copy()
+            if term_df.empty:
+                continue
+
+            term_df["outcome"] = attr
+            term_frames.append(term_df)
+
+        if not term_frames:
+            continue
+
+        regression_df = pd.concat(term_frames, ignore_index=True)
+        y_positions = [
+            attribute_positions[outcome] + y_offset[term]
+            for outcome in regression_df["outcome"]
+        ]
+
+        ax.errorbar(
+            regression_df[estimate_column],
+            y_positions,
+            xerr=[
+                regression_df[estimate_column] - regression_df[lower_column],
+                regression_df[upper_column] - regression_df[estimate_column],
+            ],
+            fmt="o",
+            capsize=3,
+            capthick=1,
+            elinewidth=1,
+            color=colors[term],
+            label=prettify_term_label(term),
+            zorder=4,
+        )
+
+    ax.axvline(reference_line, color="black", linestyle=(0, (5, 7)), linewidth=1)
+
+    if group_boundaries:
+        for boundary in group_boundaries:
+            ax.axhline(boundary, color="gray", linestyle=(0, (5, 5)), linewidth=0.5)
+
+    y_tick_positions = list(range(len(attribute_order)))
+    ax.set_yticks(y_tick_positions)
+    ax.set_yticklabels(attribute_order)
+    ax.set_xlabel(xlabel, fontsize=12)
+    ax.set_ylabel(ylabel, fontsize=12)
+
+    if len(included_terms) > 1:
+        ax.legend(frameon=False, loc="lower right")
+
+    sns.despine(ax=ax)
+    plt.tight_layout()
+
+    if save_path:
+        save_figure(fig, save_path)
+
+    return fig, ax
+
+
+def prepare_nominal_regression_df_for_term(
+    regression_dict,
+    para_type,
+    term,
+    subset="by_type",
+    attributes=None,
+):
+    rows = []
+    nominal_attributes = attributes or NOMINAL_ATTRIBUTES
+
+    for attr in reversed(nominal_attributes):
+        if attr not in regression_dict.get(para_type, {}):
+            continue
+        if subset not in regression_dict[para_type][attr]:
+            continue
+
+        df = regression_dict[para_type][attr][subset].copy()
+        if df.empty:
+            continue
+
+        df = df[df["term"] == term].copy()
+        if df.empty:
+            continue
+
+        df["outcome"] = attr
+        df["comparison_label"] = df.apply(
+            lambda row: f"{row['outcome']}: {row['target_level']} vs {row['reference_level']}",
+            axis=1,
+        )
+        rows.append(df)
+
+    if not rows:
+        return pd.DataFrame()
+
+    return pd.concat(rows, ignore_index=True)
+
+
+def get_nominal_comparison_order_for_terms(
+    regression_dict,
+    para_type,
+    included_terms,
+    subset="by_type",
+    attributes=None,
+):
+    comparison_order = []
+    seen = set()
+    nominal_attributes = attributes or NOMINAL_ATTRIBUTES
+
+    for attr in reversed(nominal_attributes):
+        for term in included_terms:
+            if attr not in regression_dict.get(para_type, {}):
+                continue
+            if subset not in regression_dict[para_type][attr]:
+                continue
+
+            df = regression_dict[para_type][attr][subset]
+            df = df[df["term"] == term]
+            for _, row in df.iterrows():
+                label = f"{attr}: {row['target_level']} vs {row['reference_level']}"
+                if label not in seen:
+                    seen.add(label)
+                    comparison_order.append(label)
+
+    return comparison_order
+
+
+def create_horizontal_odds_ratio_plot_nominal_grouped(
+    regression_dict,
+    split,
+    subset="by_model",
+    figsize=(10, 10),
+    xlabel="Odds Ratio for AI vs. Writer Paragraphs by Category.\n1 = No Difference.",
+    ylabel="Nominal Attribute Categories",
+    save_path=None,
+):
+    fig, ax = plt.subplots(figsize=figsize)
+
+    available_attributes = get_available_attributes(
+        regression_dict,
+        split,
+        NOMINAL_ATTRIBUTES,
+        subset,
+        ["term", "odds_ratio", "or_low", "or_high", "target_level", "reference_level"],
+    )
+    if not available_attributes:
+        raise ValueError(f"No plottable attributes are available for split '{split}' and subset '{subset}'.")
+
+    included_terms = get_available_terms(
+        regression_dict,
+        split,
+        NOMINAL_ATTRIBUTES,
+        subset,
+        ["term", "odds_ratio", "or_low", "or_high", "target_level", "reference_level"],
+        candidate_attributes=available_attributes,
+    )
+    if not included_terms:
+        raise ValueError(f"No requested terms are available for split '{split}' and subset '{subset}'.")
+
+    comparison_order = get_nominal_comparison_order_for_terms(
+        regression_dict,
+        split,
+        included_terms,
+        subset=subset,
+        attributes=available_attributes,
+    )
+    group_boundaries = get_nominal_group_boundaries(comparison_order)
+    comparison_positions = {
+        label: index for index, label in enumerate(comparison_order)
+    }
+    y_offset = get_group_offsets(included_terms)
+
+    for term in included_terms:
+        regression_df = prepare_nominal_regression_df_for_term(
+            regression_dict,
+            split,
+            term,
+            subset=subset,
+            attributes=available_attributes,
+        )
+
+        if regression_df.empty:
+            continue
+
+        y_positions = [
+            comparison_positions[label] + y_offset[term]
+            for label in regression_df["comparison_label"]
+        ]
+
+        ax.errorbar(
+            regression_df["odds_ratio"],
+            y_positions,
+            xerr=[
+                regression_df["odds_ratio"] - regression_df["or_low"],
+                regression_df["or_high"] - regression_df["odds_ratio"],
+            ],
+            fmt="o",
+            capsize=3,
+            capthick=1,
+            elinewidth=1,
+            color=TERM_COLORS[term],
+            label=prettify_term_label(term),
+            zorder=4,
+        )
+
+    ax.axvline(1, color="black", linestyle=(0, (5, 7)), linewidth=1)
+
+    for boundary in group_boundaries:
+        ax.axhline(boundary, color="gray", linestyle=(0, (5, 5)), linewidth=0.5)
+
+    y_tick_positions = list(range(len(comparison_order)))
+    ax.set_yticks(y_tick_positions)
+    ax.set_yticklabels(comparison_order)
+    ax.set_xlabel(xlabel, fontsize=12)
+    ax.set_ylabel(ylabel, fontsize=12)
+
+    if len(included_terms) > 1:
+        ax.legend(frameon=False, loc="lower left")
+
+    sns.despine(ax=ax)
+    plt.tight_layout()
+
+    if save_path:
+        save_figure(fig, save_path)
+
+    return fig, ax
+
 ################################
 # SCALE ATTRIBUTES - AME PLOTS
 ################################
@@ -84,6 +530,7 @@ SCALE_ATTRIBUTES = [
     "writer_importance",
     "writer_confidence",
     "writer_stance_polarity",
+    "writer_openness",
     #
     "paragraph_hope",
     "paragraph_excitement",
@@ -97,7 +544,6 @@ SCALE_ATTRIBUTES = [
     "writer_optimism",
     "writer_community",
     "writer_friendliness",
-    "writer_openness",
 ]
 
 regression_dict = load_results_by_attribute(
@@ -105,14 +551,16 @@ regression_dict = load_results_by_attribute(
     subset_names=["by_type", "by_model", "by_input"],
 )
 
+proposition_regression_dict = load_results_by_proposition_leaning(SCALE_ATTRIBUTES)
+
 
 # Create horizontal AME plot for "by_type" subset
 def create_horizontal_ame_plot(
     regression_dict,
     subset="by_type",
     included_splits=None,
-    figsize=(10, 7),
-    xlabel="Average Marginal Effect (AME) for AI vs. Writer Paragraphs.\nHigher = More Distortion from AI.",
+    figsize=(8, 10),
+    xlabel="Average Marginal Effect (AME) for AI vs. Writer Paragraphs.\nLarger = More Distortion from AI.",
     ylabel="Scale Attributes (Grouped by Type)",
     save_path=None,
 ):
@@ -191,7 +639,7 @@ def create_horizontal_ame_plot(
     ax.axvline(0, color="black", linestyle=(0, (5, 7)), linewidth=1)
 
     # Add vertical lines to separate attribute groups
-    group_boundaries = [3.5, 5.5, 10.5, 14.5]
+    group_boundaries = [2.5, 4.5, 9.5, 14.5]
     for boundary in group_boundaries:
         ax.axhline(boundary, color="gray", linestyle=(0, (5, 5)), linewidth=0.5)
 
@@ -203,6 +651,8 @@ def create_horizontal_ame_plot(
     # Customize the plot
     ax.set_xlabel(xlabel, fontsize=12)
     ax.set_ylabel(ylabel, fontsize=12)
+    ax.set_axisbelow(True)
+    ax.grid(axis="x", color="lightgray", linestyle="-", linewidth=0.5)
 
     if len(included_splits) > 1:
         ax.legend(frameon=False, loc="lower right")
@@ -218,24 +668,98 @@ def create_horizontal_ame_plot(
     return fig, ax
 
 
-for split in ALL_SPLITS:
-    if not split_has_required_columns(
+available_splits = [
+    split
+    for split in ALL_SPLITS
+    if split_has_required_columns(
         regression_dict,
         split,
         SCALE_ATTRIBUTES,
         "by_type",
         ["ame", "ame_low", "ame_high"],
-    ):
-        print(f"Skipping scale AME plot for split '{split}' due to missing results.")
-        continue
+    )
+]
 
+missing_splits = [split for split in ALL_SPLITS if split not in available_splits]
+for split in missing_splits:
+    print(f"Skipping scale AME data for split '{split}' due to missing results.")
+
+if available_splits:
     fig, _ = create_horizontal_ame_plot(
         regression_dict,
-        included_splits=[split],
+        included_splits=available_splits,
         ylabel=None,
-        save_path=build_split_figure_path(split, "distortion_scale_variables_ame.pdf"),
+        save_path=os.path.join(FIGURES_DIR, "distortion_scale_variables_ame.pdf"),
     )
     plt.close(fig)
+else:
+    print("Skipping scale AME plot because no compatible split results were found.")
+
+for split in ALL_SPLITS:
+    for subset, file_suffix in [("by_model", "by_model"), ("by_input", "by_input")]:
+        available_attributes = get_available_attributes(
+            regression_dict,
+            split,
+            SCALE_ATTRIBUTES,
+            subset,
+            ["term", "ame", "ame_low", "ame_high"],
+        )
+        if not available_attributes:
+            print(
+                f"Skipping scale AME plot for split '{split}' and subset '{subset}' due to missing results."
+            )
+            continue
+
+        fig, _ = create_horizontal_grouped_effect_plot(
+            regression_dict,
+            attributes=SCALE_ATTRIBUTES,
+            split=split,
+            subset=subset,
+            estimate_column="ame",
+            lower_column="ame_low",
+            upper_column="ame_high",
+            figsize=(8, 10),
+            xlabel="Average Marginal Effect (AME) for AI vs. Writer Paragraphs.\nLarger = More Distortion from AI.",
+            ylabel=None,
+            reference_line=0,
+            save_path=build_split_figure_path(
+                split,
+                f"distortion_scale_variables_ame_{file_suffix}.pdf",
+            ),
+            group_boundaries=SCALE_GROUP_BOUNDARIES,
+        )
+        plt.close(fig)
+
+proposition_available_attributes = get_available_attributes(
+    proposition_regression_dict,
+    PROPOSITION_LEANING_SPLIT,
+    SCALE_ATTRIBUTES,
+    PROPOSITION_LEANING_SUBSET,
+    ["term", "ame", "ame_low", "ame_high"],
+)
+
+if proposition_available_attributes:
+    fig, _ = create_horizontal_grouped_effect_plot(
+        proposition_regression_dict,
+        attributes=SCALE_ATTRIBUTES,
+        split=PROPOSITION_LEANING_SPLIT,
+        subset=PROPOSITION_LEANING_SUBSET,
+        estimate_column="ame",
+        lower_column="ame_low",
+        upper_column="ame_high",
+        figsize=(8, 10),
+        xlabel="Average Marginal Effect (AME) for AI vs. Writer Paragraphs.\nLarger = More Distortion from AI.",
+        ylabel=None,
+        reference_line=0,
+        save_path=build_split_figure_path(
+            PROPOSITION_LEANING_SPLIT,
+            "distortion_scale_variables_ame_by_proposition_leaning.pdf",
+        ),
+        group_boundaries=SCALE_GROUP_BOUNDARIES,
+    )
+    plt.close(fig)
+else:
+    print("Skipping scale AME by proposition leaning plot due to missing results.")
 
 ################################
 # SCALE ATTRIBUTES - DISTORTION VS AVG WRITER TOLERANCE
@@ -399,6 +923,19 @@ def create_ame_tolerance_scatterplot(
             color=colors[para_type],
             zorder=4,
         )
+
+        if len(merged_df) >= 2 and x_values.nunique() > 1:
+            fit = linregress(x_values, y_values)
+            x_fit = pd.Series([x_values.min(), x_values.max()])
+            y_fit = fit.intercept + fit.slope * x_fit
+            ax.plot(
+                x_fit,
+                y_fit,
+                color=colors[para_type],
+                linewidth=1.5,
+                alpha=0.85,
+                zorder=3,
+            )
 
         # Annotations
         if annotate_points:
@@ -633,18 +1170,20 @@ print("Correlation Results:", correlation_results)
 ################################
 
 ORDINAL_ATTRIBUTES = [
-    "writer_education",
     "writer_english_skills",
+    "writer_education",
     "writer_income",
-    "writer_age_binned",
     "writer_english_first",
+    "writer_age_binned",
 ]
 
 # Load regression results for each attribute and split
 regression_dict = load_results_by_attribute(
     ORDINAL_ATTRIBUTES,
-    subset_names=["by_type"],
+    subset_names=["by_type", "by_model", "by_input"],
 )
+
+proposition_regression_dict = load_results_by_proposition_leaning(ORDINAL_ATTRIBUTES)
 
 
 # Create horizontal odds ratio plot for "by_type" subset
@@ -652,7 +1191,7 @@ def create_horizontal_odds_ratio_plot(
     regression_dict,
     subset="by_type",
     included_splits=None,
-    figsize=(10, 2.5),
+    figsize=(8, 4),
     xlabel="Odds Ratio for AI vs. Writer Paragraphs.\nHigher = More Distortion from AI.",
     ylabel="Ordinal Attributes",
     save_path=None,
@@ -756,26 +1295,98 @@ def create_horizontal_odds_ratio_plot(
     return fig, ax
 
 
-for split in ALL_SPLITS:
-    if not split_has_required_columns(
+available_splits = [
+    split
+    for split in ALL_SPLITS
+    if split_has_required_columns(
         regression_dict,
         split,
         ORDINAL_ATTRIBUTES,
         "by_type",
         ["odds_ratio", "or_low", "or_high"],
-    ):
-        print(
-            f"Skipping ordinal odds-ratio plot for split '{split}' due to incompatible results."
-        )
-        continue
+    )
+]
 
+missing_splits = [split for split in ALL_SPLITS if split not in available_splits]
+for split in missing_splits:
+    print(
+        f"Skipping ordinal odds-ratio data for split '{split}' due to incompatible results."
+    )
+
+if available_splits:
     fig, _ = create_horizontal_odds_ratio_plot(
         regression_dict,
-        included_splits=[split],
+        included_splits=available_splits,
         ylabel=None,
-        save_path=build_split_figure_path(split, "distortion_ordinal_variables_odds_ratio.pdf"),
+        save_path=os.path.join(FIGURES_DIR, "distortion_ordinal_variables_odds_ratio.pdf"),
     )
     plt.close(fig)
+else:
+    print("Skipping ordinal odds-ratio plot because no compatible split results were found.")
+
+for split in ALL_SPLITS:
+    for subset, file_suffix in [("by_model", "by_model"), ("by_input", "by_input")]:
+        available_attributes = get_available_attributes(
+            regression_dict,
+            split,
+            ORDINAL_ATTRIBUTES,
+            subset,
+            ["term", "odds_ratio", "or_low", "or_high"],
+        )
+        if not available_attributes:
+            print(
+                f"Skipping ordinal odds-ratio plot for split '{split}' and subset '{subset}' due to missing results."
+            )
+            continue
+
+        fig, _ = create_horizontal_grouped_effect_plot(
+            regression_dict,
+            attributes=ORDINAL_ATTRIBUTES,
+            split=split,
+            subset=subset,
+            estimate_column="odds_ratio",
+            lower_column="or_low",
+            upper_column="or_high",
+            figsize=(8, 4),
+            xlabel="Odds Ratio for AI vs. Writer Paragraphs.\nHigher = More Distortion from AI.",
+            ylabel=None,
+            reference_line=1,
+            save_path=build_split_figure_path(
+                split,
+                f"distortion_ordinal_variables_odds_ratio_{file_suffix}.pdf",
+            ),
+        )
+        plt.close(fig)
+
+proposition_available_attributes = get_available_attributes(
+    proposition_regression_dict,
+    PROPOSITION_LEANING_SPLIT,
+    ORDINAL_ATTRIBUTES,
+    PROPOSITION_LEANING_SUBSET,
+    ["term", "odds_ratio", "or_low", "or_high"],
+)
+
+if proposition_available_attributes:
+    fig, _ = create_horizontal_grouped_effect_plot(
+        proposition_regression_dict,
+        attributes=ORDINAL_ATTRIBUTES,
+        split=PROPOSITION_LEANING_SPLIT,
+        subset=PROPOSITION_LEANING_SUBSET,
+        estimate_column="odds_ratio",
+        lower_column="or_low",
+        upper_column="or_high",
+        figsize=(8, 4),
+        xlabel="Odds Ratio for AI vs. Writer Paragraphs.\nHigher = More Distortion from AI.",
+        ylabel=None,
+        reference_line=1,
+        save_path=build_split_figure_path(
+            PROPOSITION_LEANING_SPLIT,
+            "distortion_ordinal_variables_odds_ratio_by_proposition_leaning.pdf",
+        ),
+    )
+    plt.close(fig)
+else:
+    print("Skipping ordinal odds-ratio by proposition leaning plot due to missing results.")
 
 
 ################################
@@ -1050,6 +1661,7 @@ for split in ALL_SPLITS:
 
 NOMINAL_ATTRIBUTES = [
     "writer_politicalParty",
+    "writer_politicalIdeology",
     "writer_race",
     "writer_gender",
 ]
@@ -1057,8 +1669,10 @@ NOMINAL_ATTRIBUTES = [
 # Load regression results for each attribute and split
 regression_dict = load_results_by_attribute(
     NOMINAL_ATTRIBUTES,
-    subset_names=["by_type"],
+    subset_names=["by_type", "by_model", "by_input"],
 )
+
+proposition_regression_dict = load_results_by_proposition_leaning(NOMINAL_ATTRIBUTES)
 
 nominal_distribution_dict = load_results_by_attribute(
     NOMINAL_ATTRIBUTES,
@@ -1136,11 +1750,24 @@ def get_nominal_comparison_order(regression_dict, included_splits, subset="by_ty
     return comparison_order
 
 
+def get_nominal_group_boundaries(comparison_order):
+    group_boundaries = []
+    previous_attribute = None
+
+    for index, label in enumerate(comparison_order):
+        current_attribute = label.split(":", 1)[0]
+        if previous_attribute is not None and current_attribute != previous_attribute:
+            group_boundaries.append(index - 0.5)
+        previous_attribute = current_attribute
+
+    return group_boundaries
+
+
 def create_horizontal_odds_ratio_plot_nominal(
     regression_dict,
     subset="by_type",
     included_splits=None,
-    figsize=(10, 6),
+    figsize=(10, 10),
     xlabel="Odds Ratio for AI vs. Writer Paragraphs by Category.\n1 = No Difference.",
     ylabel="Nominal Attribute Categories",
     save_path=None,
@@ -1171,6 +1798,7 @@ def create_horizontal_odds_ratio_plot_nominal(
         included_splits,
         subset=subset,
     )
+    group_boundaries = get_nominal_group_boundaries(comparison_order)
     comparison_positions = {
         label: index for index, label in enumerate(comparison_order)
     }
@@ -1224,6 +1852,9 @@ def create_horizontal_odds_ratio_plot_nominal(
 
     ax.axvline(1, color="black", linestyle=(0, (5, 7)), linewidth=1)
 
+    for boundary in group_boundaries:
+        ax.axhline(boundary, color="gray", linestyle=(0, (5, 5)), linewidth=0.5)
+
     y_tick_positions = list(range(len(comparison_order)))
     ax.set_yticks(y_tick_positions)
     ax.set_yticklabels(comparison_order)
@@ -1232,7 +1863,7 @@ def create_horizontal_odds_ratio_plot_nominal(
     ax.set_ylabel(ylabel, fontsize=12)
 
     if len(included_splits) > 1:
-        ax.legend(frameon=False, loc="lower right")
+        ax.legend(frameon=False, loc="lower left")
 
     sns.despine(ax=ax)
     plt.tight_layout()
@@ -1243,26 +1874,84 @@ def create_horizontal_odds_ratio_plot_nominal(
     return fig, ax
 
 
-for split in ALL_SPLITS:
-    if not split_has_required_columns(
+available_splits = [
+    split
+    for split in ALL_SPLITS
+    if split_has_required_columns(
         regression_dict,
         split,
         NOMINAL_ATTRIBUTES,
         "by_type",
         ["odds_ratio", "or_low", "or_high", "target_level", "reference_level"],
-    ):
-        print(
-            f"Skipping nominal odds-ratio plot for split '{split}' due to incompatible results."
-        )
-        continue
+    )
+]
 
+missing_splits = [split for split in ALL_SPLITS if split not in available_splits]
+for split in missing_splits:
+    print(
+        f"Skipping nominal odds-ratio data for split '{split}' due to incompatible results."
+    )
+
+if available_splits:
     fig, _ = create_horizontal_odds_ratio_plot_nominal(
         regression_dict,
-        included_splits=[split],
+        included_splits=available_splits,
         ylabel=None,
-        save_path=build_split_figure_path(split, "distortion_nominal_variables_odds_ratio.pdf"),
+        save_path=os.path.join(FIGURES_DIR, "distortion_nominal_variables_odds_ratio.pdf"),
     )
     plt.close(fig)
+else:
+    print("Skipping nominal odds-ratio plot because no compatible split results were found.")
+
+for split in ALL_SPLITS:
+    for subset, file_suffix in [("by_model", "by_model"), ("by_input", "by_input")]:
+        available_attributes = get_available_attributes(
+            regression_dict,
+            split,
+            NOMINAL_ATTRIBUTES,
+            subset,
+            ["term", "odds_ratio", "or_low", "or_high", "target_level", "reference_level"],
+        )
+        if not available_attributes:
+            print(
+                f"Skipping nominal odds-ratio plot for split '{split}' and subset '{subset}' due to missing results."
+            )
+            continue
+
+        fig, _ = create_horizontal_odds_ratio_plot_nominal_grouped(
+            regression_dict,
+            split=split,
+            subset=subset,
+            ylabel=None,
+            save_path=build_split_figure_path(
+                split,
+                f"distortion_nominal_variables_odds_ratio_{file_suffix}.pdf",
+            ),
+        )
+        plt.close(fig)
+
+proposition_available_attributes = get_available_attributes(
+    proposition_regression_dict,
+    PROPOSITION_LEANING_SPLIT,
+    NOMINAL_ATTRIBUTES,
+    PROPOSITION_LEANING_SUBSET,
+    ["term", "odds_ratio", "or_low", "or_high", "target_level", "reference_level"],
+)
+
+if proposition_available_attributes:
+    fig, _ = create_horizontal_odds_ratio_plot_nominal_grouped(
+        proposition_regression_dict,
+        split=PROPOSITION_LEANING_SPLIT,
+        subset=PROPOSITION_LEANING_SUBSET,
+        ylabel=None,
+        save_path=build_split_figure_path(
+            PROPOSITION_LEANING_SPLIT,
+            "distortion_nominal_variables_odds_ratio_by_proposition_leaning.pdf",
+        ),
+    )
+    plt.close(fig)
+else:
+    print("Skipping nominal odds-ratio by proposition leaning plot due to missing results.")
 
 ################################
 # NOMINAL ATTRIBUTES - DISTORTION VS WRITER TOLERANCE

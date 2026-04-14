@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import matplotlib.colors as mcolors
-from matplotlib.backends.backend_pdf import PdfPages
 from scipy.stats import gaussian_kde
 import warnings
 
@@ -29,10 +28,29 @@ colors = {
     "writer": "#0070C0",  # Blue
     "model": "#7030A0",  # Purple
 }
+ALL_SPLITS = ["unedited", "edited", "preferred"]
+OUTPUT_BASE_DIR = "figures/followup_mitigation_phase_2_distributions"
 
 # ===== DATA LOADING =====
 print("Loading phase 2 annotations data...")
 annotations_df = pd.read_csv("data/followup_mitigation_phase_2/annotations.csv")
+phase_1_preferences = pd.read_csv("data/followup_mitigation_phase_1/proposition_responses.csv")
+
+
+def prepare_annotations_data(df):
+    """Apply shared preprocessing used by the distribution analysis scripts."""
+
+    data = df.copy()
+
+    data["paragraph_type_"] = pd.Categorical(data["paragraph_type"])
+
+    for variable, levels in CATEGORICAL_LEVELS.items():
+        if variable in data.columns:
+            data[variable] = pd.Categorical(data[variable], categories=levels, ordered=True)
+
+    # Match the R analysis scripts.
+    data = data[data["writer_education"] != "Other"].copy()
+    return data
 
 def replace_model_with_edited(df):
     """R-equivalent preprocessing:
@@ -70,9 +88,34 @@ def replace_model_with_edited(df):
     return data_edited, dropped_model_rows
 
 
-annotations_df, dropped_model_rows = replace_model_with_edited(annotations_df)
-print(f"Loaded and processed {len(annotations_df):,} annotations")
-print(f"Dropped {dropped_model_rows:,} model rows where edited rows existed")
+def build_split_datasets(annotations, preferences):
+    """Build unedited, edited, and preferred datasets to match the R analysis."""
+
+    processed = prepare_annotations_data(annotations)
+
+    data_unedited = processed[processed["paragraph_type"].isin(["writer", "model"])].copy()
+    data_unedited["paragraph_type_"] = pd.Categorical(
+        data_unedited["paragraph_type"], categories=["writer", "model"], ordered=True
+    )
+
+    data_edited, dropped_model_rows = replace_model_with_edited(processed)
+
+    preferred_exclusions = preferences[
+        preferences["writer_preference"] == "original"
+    ][["writer_id", "proposition_id"]].drop_duplicates()
+
+    data_preferred = data_edited.merge(
+        preferred_exclusions.assign(_exclude=True),
+        on=["writer_id", "proposition_id"],
+        how="left",
+    )
+    data_preferred = data_preferred[data_preferred["_exclude"].isna()].drop(columns="_exclude")
+
+    return {
+        "unedited": data_unedited,
+        "edited": data_edited,
+        "preferred": data_preferred,
+    }, dropped_model_rows
 
 # ===== SCALE VARIABLES DEFINITION =====
 SCALE_ATTRIBUTES = [
@@ -105,15 +148,15 @@ SCALE_ATTRIBUTES = [
 
 # ===== CATEGORICAL VARIABLES DEFINITION =====
 CATEGORICAL_VARS = [
+    "writer_education",
+    "writer_english_skills",
+    "writer_income",
+    "writer_politicalParty",
     "writer_age_binned",
+    "writer_english_first",
+    "writer_politicalIdeology",
     "writer_gender",
     "writer_race",
-    "writer_education",
-    "writer_income",
-    "writer_english_first",
-    "writer_english_skills",
-    "writer_politicalParty",
-    "writer_politicalIdeology",
 ]
 
 CATEGORICAL_LEVELS = {
@@ -143,23 +186,19 @@ CATEGORICAL_LEVELS = {
         "Centrist",
         "Moderately Right-Wing",
         "Very Right-Wing",
+        "Other",
     ],
     "writer_politicalParty": [
         "Labour",
         "Conservative",
         "Liberal Democrats",
         "Greens",
-        "Reform UK",
         "Scottish National Party",
         "Did not vote",
         "Not eligible to vote",
-        "Other"
+        "Other",
     ],
-    "writer_gender": [
-        "Male",
-        "Female",
-        "Other"
-    ],
+    "writer_gender": ["Male", "Female", "Other"],
     "writer_race": [
         "White",
         "Black",
@@ -169,16 +208,30 @@ CATEGORICAL_LEVELS = {
     ],
 }
 
-# ===== FIGURE OUTPUT DIRECTORY =====
-output_dir = 'figures/followup_mitigation_phase_2_distributions'
-os.makedirs(output_dir, exist_ok=True)
+split_datasets, dropped_model_rows = build_split_datasets(
+    annotations_df,
+    phase_1_preferences,
+)
+print(f"Loaded {len(annotations_df):,} raw annotations")
+print(f"Dropped {dropped_model_rows:,} model rows where edited rows existed")
+for split_name, split_df in split_datasets.items():
+    print(f"Prepared {split_name} split with {len(split_df):,} annotations")
 
-categorical_output_dir = os.path.join(output_dir, "categorical")
-os.makedirs(categorical_output_dir, exist_ok=True)
+# ===== FIGURE OUTPUT DIRECTORY =====
+os.makedirs(OUTPUT_BASE_DIR, exist_ok=True)
+
+
+def get_split_output_dir(split_name):
+    split_output_dir = os.path.join(OUTPUT_BASE_DIR, split_name)
+    os.makedirs(split_output_dir, exist_ok=True)
+    return split_output_dir
 
 # ===== KDE AXIS STANDARDIZATION =====
 KDE_Y_MIN = 0.0
 KDE_Y_MAX = 0.05
+
+# ===== VIOLIN AXIS STANDARDIZATION =====
+VIOLIN_DENSITY_MAX = 0.05
 
 
 def draw_kde_with_overlap_fill(ax, writer_data, model_data, x_min=0, x_max=100):
@@ -338,7 +391,7 @@ def create_categorical_barplot(df, variable, output_path):
     print(f"Saved categorical barplot for {variable}")
 
 
-def create_combined_categorical_grid(df):
+def create_combined_categorical_grid(df, output_dir):
     """Create one combined subplot figure for all categorical variables."""
 
     n_vars = len(CATEGORICAL_VARS)
@@ -408,7 +461,7 @@ def create_combined_categorical_grid(df):
     fig.text(0.02, 0.5, "Percentage within paragraph type (%)", va="center", rotation="vertical", fontsize=13)
 
     plt.tight_layout(rect=[0.03, 0.03, 0.99, 0.96])
-    combined_path = os.path.join(categorical_output_dir, "barplot_all_categorical_variables_combined.pdf")
+    combined_path = os.path.join(output_dir, "barplot_all_categorical_variables_combined.pdf")
     plt.savefig(combined_path, dpi=300, bbox_inches="tight")
     plt.close()
 
@@ -459,11 +512,11 @@ def _abbreviate_category_label(variable, label):
             "Doctorate (PhD)": "PhD",
         },
         "writer_politicalIdeology": {
-            "Very Left-Wing": "Very Left",
+            "Very Left-Wing": "V. Left",
             "Moderately Left-Wing": "Mod. Left",
             "Centrist": "Center",
             "Moderately Right-Wing": "Mod. Right",
-            "Very Right-Wing": "Very Right",
+            "Very Right-Wing": "V. Right",
             "Other": "Other",
         },
         "writer_politicalParty": {
@@ -471,7 +524,6 @@ def _abbreviate_category_label(variable, label):
             "Labour": "Labour",
             "Liberal Democrats": "Lib Dems",
             "Greens": "Greens",
-            "Reform UK": "Reform UK",
             "Scottish National Party": "SNP",
             "Did not vote": "Did not vote",
             "Not eligible to vote": "Cannot vote",
@@ -480,6 +532,19 @@ def _abbreviate_category_label(variable, label):
     }
 
     return abbreviations.get(variable, {}).get(label, label)
+
+
+def _two_line_label(label):
+    """Split a label across two lines when possible to save horizontal space."""
+    text = str(label)
+    parts = text.split()
+
+    if len(parts) <= 1:
+        return text
+
+    # Split near midpoint by word count
+    split_idx = len(parts) // 2
+    return " ".join(parts[:split_idx]) + "\n" + " ".join(parts[split_idx:])
 
 
 def _blend_with_white(hex_color, intensity):
@@ -491,15 +556,19 @@ def _blend_with_white(hex_color, intensity):
     return tuple(mixed)
 
 
-def create_combined_categorical_heatmap(df):
+def create_combined_categorical_heatmap(df, output_dir):
     """Create a combined heatmap-style plot for all categorical variables."""
     n_vars = len(CATEGORICAL_VARS)
+    n_cols = 3
+    n_rows = int(np.ceil(n_vars / n_cols))
 
-    fig, axes = plt.subplots(n_vars, 1, figsize=(16, 1.4 * n_vars + 1.5))
-    axes = axes if n_vars > 1 else [axes]
+    fig, axes = plt.subplots(n_rows, n_cols, figsize=(26, 8))
+    fig.patch.set_facecolor("#EBEBEB")
+    axes = axes.flatten() if n_vars > 1 else [axes]
 
     for i, variable in enumerate(CATEGORICAL_VARS):
         ax = axes[i]
+        ax.set_facecolor("#EBEBEB")
         plot_data = df[["paragraph_type_", variable]].dropna().copy()
 
         if len(plot_data) == 0:
@@ -508,6 +577,29 @@ def create_combined_categorical_heatmap(df):
             continue
 
         order = _categorical_order(plot_data, variable)
+
+        # Heatmap-only collapse for political party voting non-participation categories
+        if variable == "writer_politicalParty":
+            collapsed_label = "Did not vote"
+            plot_data[variable] = (
+                plot_data[variable]
+                .astype(str)
+                .replace(
+                    {
+                        "Did not vote": collapsed_label,
+                        "Not eligible to vote": collapsed_label,
+                    }
+                )
+            )
+
+            order = [
+                collapsed_label
+                if cat in ["Did not vote", "Not eligible to vote"]
+                else cat
+                for cat in order
+            ]
+            order = list(dict.fromkeys(order))
+
         wide = _categorical_percent_wide(plot_data, variable, order)
 
         writer_vals = wide["writer"].to_numpy()
@@ -525,52 +617,53 @@ def create_combined_categorical_heatmap(df):
             w_color = _blend_with_white(colors["writer"], w_int)
             m_color = _blend_with_white(colors["model"], m_int)
 
-            # Writer row (top)
+            # Model row (top)
             ax.add_patch(
                 plt.Rectangle(
                     (j, 1),
                     1,
                     1,
-                    facecolor=w_color,
-                    edgecolor="white",
+                    facecolor=m_color,
+                    edgecolor="#EBEBEB",
                     linewidth=2,
                 )
             )
-            # Model row (bottom)
+            # Writer row (bottom)
             ax.add_patch(
                 plt.Rectangle(
                     (j, 0),
                     1,
                     1,
-                    facecolor=m_color,
-                    edgecolor="white",
+                    facecolor=w_color,
+                    edgecolor="#EBEBEB",
                     linewidth=2,
                 )
             )
-
-            w_txt = "white" if w_int > 0.45 else "#4c5a70"
-            m_txt = "white" if m_int > 0.45 else "#6f4b4b"
-
-            ax.text(j + 0.5, 1.5, f"{w_pct:.0f}%", ha="center", va="center", fontsize=12, color=w_txt, fontweight="bold")
-            ax.text(j + 0.5, 0.5, f"{m_pct:.0f}%", ha="center", va="center", fontsize=12, color=m_txt, fontweight="bold")
 
         display_labels = [_abbreviate_category_label(variable, cat) for cat in order]
         ax.set_xlim(0, len(order))
         ax.set_ylim(0, 2)
         ax.set_xticks(np.arange(len(order)) + 0.5)
-        ax.set_xticklabels(display_labels, fontsize=12)
+        ax.set_xticklabels(display_labels, fontsize=12, linespacing=0.9)
         ax.set_yticks([])
 
-        pretty_name = variable.replace("_", " ").title()
-        ax.text(-0.15, 1.0, pretty_name, ha="right", va="center", fontsize=12, fontweight="bold", transform=ax.transData)
+        ax.set_title(
+            variable.replace("_", " ").title(),
+            fontsize=18,
+            fontweight="bold",
+            pad=14,
+        )
 
         for spine in ax.spines.values():
             spine.set_visible(False)
         ax.tick_params(axis="x", length=0)
-    
-    plt.tight_layout(rect=[0.10, 0.02, 0.99, 0.98], h_pad=1.1)
 
-    heatmap_path = os.path.join(categorical_output_dir, "heatmap_all_categorical_variables_combined.pdf")
+    for i in range(n_vars, len(axes)):
+        axes[i].set_visible(False)
+
+    plt.tight_layout(rect=[0.04, 0.02, 0.99, 0.98], h_pad=2.8, w_pad=2.1)
+
+    heatmap_path = os.path.join(output_dir, "heatmap_all_categorical_variables_combined.pdf")
     plt.savefig(heatmap_path, dpi=300, bbox_inches="tight")
     plt.close()
 
@@ -662,10 +755,43 @@ def create_kde_plot(df, variable, output_path):
 
 
 # ===== FUNCTION TO CREATE COMBINED GRID PLOT =====
-def get_scale_attributes_sorted_by_ame():
-    """Return scale attributes sorted by descending AME from edited by_type results."""
+def get_scale_attributes_sorted_by_cohens_d(data_split):
+    """Return scale attributes sorted by descending Cohen's d from split-specific by_type results."""
 
-    results_dir = os.path.join("results", "followup_mitigation_phase_2_distortion", "edited")
+    results_dir = os.path.join("results", "followup_mitigation_phase_2_distribution", data_split)
+    d_rows = []
+
+    for variable in SCALE_ATTRIBUTES:
+        file_path = os.path.join(results_dir, f"{variable}_by_type.csv")
+        if not os.path.exists(file_path):
+            continue
+
+        df = pd.read_csv(file_path)
+        if "cohens_d" not in df.columns:
+            continue
+
+        d_rows.append(
+            {
+                "variable": variable,
+                "cohens_d": float(df.iloc[0]["cohens_d"]),
+            }
+        )
+
+    if not d_rows:
+        return SCALE_ATTRIBUTES, {}
+
+    d_df = pd.DataFrame(d_rows).sort_values("cohens_d", ascending=False)
+    ordered = d_df["variable"].tolist()
+    d_lookup = dict(zip(d_df["variable"], d_df["cohens_d"]))
+
+    remaining = [v for v in SCALE_ATTRIBUTES if v not in ordered]
+    return ordered + remaining, d_lookup
+
+
+def get_scale_attributes_sorted_by_ame(data_split):
+    """Return scale attributes sorted by descending AME from split-specific distortion results."""
+
+    results_dir = os.path.join("results", "followup_mitigation_phase_2_distortion", data_split)
     ame_rows = []
 
     for variable in SCALE_ATTRIBUTES:
@@ -674,14 +800,15 @@ def get_scale_attributes_sorted_by_ame():
             continue
 
         df = pd.read_csv(file_path)
-        target = df[df["term"] == "paragraph_type_model"]
-        if target.empty or "ame" not in target.columns:
+        if "ame" not in df.columns:
             continue
 
-        ame_rows.append({
-            "variable": variable,
-            "ame": float(target.iloc[0]["ame"]),
-        })
+        ame_rows.append(
+            {
+                "variable": variable,
+                "ame": float(df.iloc[0]["ame"]),
+            }
+        )
 
     if not ame_rows:
         return SCALE_ATTRIBUTES, {}
@@ -695,10 +822,10 @@ def get_scale_attributes_sorted_by_ame():
     return ordered + remaining, ame_lookup
 
 
-def create_combined_kde_grid():
+def create_combined_kde_grid(df, output_dir, data_split):
     """Create a grid of KDE plots for all scale variables."""
 
-    ordered_scale_attributes, ame_lookup = get_scale_attributes_sorted_by_ame()
+    ordered_scale_attributes, d_lookup = get_scale_attributes_sorted_by_cohens_d(data_split)
 
     # Calculate grid dimensions (try to make roughly square)
     n_vars = len(ordered_scale_attributes)
@@ -714,7 +841,7 @@ def create_combined_kde_grid():
         ax = axes[i]
 
         # Filter data for the variable and remove missing values
-        plot_data = annotations_df[["paragraph_type_", variable]].dropna()
+        plot_data = df[["paragraph_type_", variable]].dropna()
 
         if len(plot_data) == 0:
             ax.text(
@@ -725,10 +852,10 @@ def create_combined_kde_grid():
                 va="center",
                 transform=ax.transAxes,
             )
-            ame_value = ame_lookup.get(variable)
-            ame_label = f"AME: {ame_value:.2f}" if ame_value is not None else "AME: N/A"
+            d_value = d_lookup.get(variable)
+            d_label = f"Cohen's d: {d_value:.2f}" if d_value is not None else "Cohen's d: N/A"
             ax.set_title(
-                f"{variable.replace('_', ' ').title()} ({ame_label})",
+                f"{variable.replace('_', ' ').title()} ({d_label})",
                 fontsize=14,
                 pad=10,
             )
@@ -754,10 +881,10 @@ def create_combined_kde_grid():
         # Customize subplot
         ax.set_xlabel("")  # Remove individual x-labels for cleaner look
         ax.set_ylabel("")  # Remove individual y-labels for cleaner look
-        ame_value = ame_lookup.get(variable)
-        ame_label = f"AME: {ame_value:.2f}" if ame_value is not None else "AME: N/A"
+        d_value = d_lookup.get(variable)
+        d_label = f"Cohen's d: {d_value:.2f}" if d_value is not None else "Cohen's d: N/A"
         ax.set_title(
-            f"{variable.replace('_', ' ').title()} ({ame_label})",
+            f"{variable.replace('_', ' ').title()} ({d_label})",
             fontsize=18,
             pad=10,
         )
@@ -791,87 +918,327 @@ def create_combined_kde_grid():
     print(f"Saved combined KDE plot: {combined_path}")
 
 
-# ===== MAIN EXECUTION =====
-def main():
-    print("=== KDE Distribution Plots for Scale Rating Variables ===")
-    print(f"Output directory: {output_dir}")
-    print(f"Processing {len(SCALE_ATTRIBUTES)} scale variables...")
+def draw_split_violin_with_means(ax, writer_data, model_data, x_min=0, x_max=100):
+    """Draw split violins from KDE densities around y=0 with group mean lines."""
 
-    # Create individual KDE plots
-    print("\nCreating individual KDE plots...")
-    for variable in SCALE_ATTRIBUTES:
-        output_path = os.path.join(output_dir, f"kde_{variable}.pdf")
-        create_kde_plot(annotations_df, variable, output_path)
+    writer_vals = np.asarray(writer_data, dtype=float)
+    model_vals = np.asarray(model_data, dtype=float)
 
-    # Create combined grid plot
-    print("\nCreating combined KDE grid plot...")
-    create_combined_kde_grid()
+    if len(writer_vals) < 2 or len(model_vals) < 2:
+        return False
 
-    # Prepare categorical data and create categorical barplots
-    print("\nPreparing categorical data...")
-    categorical_df = prepare_categorical_data(annotations_df)
+    x_grid = np.linspace(x_min, x_max, 512)
 
-    print("\nCreating categorical barplots...")
-    for variable in CATEGORICAL_VARS:
-        output_path = os.path.join(categorical_output_dir, f"barplot_{variable}.pdf")
-        create_categorical_barplot(categorical_df, variable, output_path)
+    writer_kde = gaussian_kde(writer_vals)
+    model_kde = gaussian_kde(model_vals)
 
-    print("\nCreating combined categorical barplot grid...")
-    create_combined_categorical_grid(categorical_df)
+    writer_density = writer_kde(x_grid)
+    model_density = model_kde(x_grid)
 
-    print("\nCreating combined categorical heatmap...")
-    create_combined_categorical_heatmap(categorical_df)
+    writer_y = np.minimum(writer_density, VIOLIN_DENSITY_MAX)
+    model_y = np.minimum(model_density, VIOLIN_DENSITY_MAX)
 
-    # Create summary statistics table
-    print("\nGenerating summary statistics...")
-    summary_stats = []
+    writer_fill = mcolors.to_rgba(colors["writer"], alpha=0.45)
+    model_fill = mcolors.to_rgba(colors["model"], alpha=0.45)
 
-    for variable in SCALE_ATTRIBUTES:
-        writer_data = annotations_df[annotations_df["paragraph_type_"] == "writer"][
+    ax.fill_between(x_grid, -writer_y, 0, color=writer_fill, linewidth=0)
+    ax.fill_between(x_grid, 0, model_y, color=model_fill, linewidth=0)
+
+    writer_mean = float(np.mean(writer_vals))
+    model_mean = float(np.mean(model_vals))
+
+    ax.vlines(
+        writer_mean,
+        ymin=-VIOLIN_DENSITY_MAX,
+        ymax=0,
+        colors=colors["writer"],
+        linewidth=2.2,
+    )
+    ax.vlines(
+        model_mean,
+        ymin=0,
+        ymax=VIOLIN_DENSITY_MAX,
+        colors=colors["model"],
+        linewidth=2.2,
+    )
+
+    ax.axhline(0, color="#666666", linewidth=1)
+
+    ax.set_xlim(x_min, x_max)
+    ax.set_ylim(-VIOLIN_DENSITY_MAX, VIOLIN_DENSITY_MAX)
+    return True
+
+
+def create_combined_violin_grid(df, output_dir, data_split):
+    """Create a single-column stack of split violin plots for all scale variables."""
+
+    ordered_scale_attributes, ame_lookup = get_scale_attributes_sorted_by_ame(data_split)
+
+    n_cols = 1
+    n_rows = len(ordered_scale_attributes)
+
+    fig, axes = plt.subplots(
+        n_rows,
+        n_cols,
+        figsize=(5, max(2.2 * n_rows, 12)),
+        sharex=True,
+        squeeze=False,
+    )
+    fig.patch.set_facecolor("#EBEBEB")
+    axes = axes.flatten()
+
+    for i, variable in enumerate(ordered_scale_attributes):
+        ax = axes[i]
+        ax.set_facecolor("#EBEBEB")
+
+        plot_data = df[["paragraph_type_", variable]].dropna()
+
+        if len(plot_data) == 0:
+            ax.text(
+                0.5,
+                0.5,
+                f"No data\nfor {variable}",
+                ha="center",
+                va="center",
+                transform=ax.transAxes,
+            )
+            ame_value = ame_lookup.get(variable)
+            ame_label = f"AME: {ame_value:.2f}" if ame_value is not None else "AME: N/A"
+            ax.set_title(
+                f"{variable.replace('_', ' ').title()} ({ame_label})",
+                fontsize=12,
+                pad=10,
+            )
+            ax.set_xlim(0, 100)
+            ax.set_ylim(-VIOLIN_DENSITY_MAX, VIOLIN_DENSITY_MAX)
+            ax.set_xticks([])
+            ax.set_yticks([])
+            for spine in ax.spines.values():
+                spine.set_visible(False)
+            ax.tick_params(left=False, labelleft=False, bottom=False, labelbottom=False)
+            continue
+
+        writer_data = plot_data[plot_data["paragraph_type_"] == "writer"][
             variable
-        ].dropna()
-        model_data = annotations_df[annotations_df["paragraph_type_"] == "model"][
+        ].to_numpy()
+        model_data = plot_data[plot_data["paragraph_type_"] == "model"][
             variable
-        ].dropna()
+        ].to_numpy()
 
-        if len(writer_data) > 0 and len(model_data) > 0:
-            summary_stats.append(
-                {
-                    "variable": variable,
-                    "writer_n": len(writer_data),
-                    "writer_mean": writer_data.mean(),
-                    "writer_std": writer_data.std(),
-                    "writer_median": writer_data.median(),
-                    "model_n": len(model_data),
-                    "model_mean": model_data.mean(),
-                    "model_std": model_data.std(),
-                    "model_median": model_data.median(),
-                    "mean_diff": model_data.mean() - writer_data.mean(),
-                }
+        drew = draw_split_violin_with_means(
+            ax, writer_data, model_data, x_min=0, x_max=100
+        )
+        if not drew:
+            ax.text(
+                0.5,
+                0.5,
+                "Insufficient data",
+                ha="center",
+                va="center",
+                transform=ax.transAxes,
             )
 
-    # Save summary statistics
-    summary_df = pd.DataFrame(summary_stats)
-    summary_path = os.path.join(output_dir, "kde_summary_statistics.csv")
-    summary_df.to_csv(summary_path, index=False)
-    print(f"Saved summary statistics: {summary_path}")
+        ax.set_xlim(0, 100)
+        ax.set_ylim(-VIOLIN_DENSITY_MAX, VIOLIN_DENSITY_MAX)
 
-    # Print brief summary
-    print(f"\n=== Summary ===")
-    print(f"Generated KDE plots for {len(SCALE_ATTRIBUTES)} scale variables")
-    print(f"Total annotations processed: {len(annotations_df):,}")
-    print(
-        f"Writer paragraphs: {len(annotations_df[annotations_df['paragraph_type_'] == 'writer']):,}"
-    )
-    print(
-        f"Model paragraphs: {len(annotations_df[annotations_df['paragraph_type_'] == 'model']):,}"
-    )
-    print(f"Figures saved to: {output_dir}/")
+        ame_value = ame_lookup.get(variable)
+        ame_label = f"AME: {ame_value:.2f}" if ame_value is not None else "AME: N/A"
+        ax.set_title(
+            f"{variable.replace('_', ' ').title()} ({ame_label})", fontsize=12, pad=10
+        )
 
-    print("\n=== Top 5 Largest Mean Differences (Model - Writer) ===")
-    top_diffs = summary_df.nlargest(5, "mean_diff")[["variable", "mean_diff"]]
-    for _, row in top_diffs.iterrows():
-        print(f"{row['variable']:.<30} {row['mean_diff']:+6.2f}")
+        ax.set_xticks([])
+        ax.set_yticks([])
+        ax.set_xlabel("")
+        ax.set_ylabel("")
+        ax.grid(False)
+        for spine in ax.spines.values():
+            spine.set_visible(False)
+        ax.tick_params(left=False, labelleft=False, bottom=False, labelbottom=False)
+
+    for i in range(len(ordered_scale_attributes), len(axes)):
+        axes[i].set_visible(False)
+
+    plt.tight_layout(rect=[0.03, 0.03, 0.99, 0.98], h_pad=1.0)
+
+    combined_path = os.path.join(output_dir, "violin_all_scale_variables_combined.pdf")
+    plt.savefig(combined_path, dpi=300, bbox_inches="tight")
+    plt.close()
+
+    print(f"Saved combined violin plot: {combined_path}")
+
+
+def _significance_stars(p_value):
+    """Return significance stars for a p-value."""
+    if p_value < 0.001:
+        return "***"
+    if p_value < 0.01:
+        return "**"
+    if p_value < 0.05:
+        return "*"
+    return ""
+
+
+def report_bonferroni_corrected_scale_pvalues(output_dir, data_split):
+    """Load split-specific test p-values for scale + categorical vars and print Bonferroni-corrected results."""
+
+    results_dir = os.path.join("results", "followup_mitigation_phase_2_distribution", data_split)
+    all_variables = SCALE_ATTRIBUTES + CATEGORICAL_VARS
+    rows = []
+    missing_files = []
+    missing_terms = []
+
+    for variable in all_variables:
+        file_path = os.path.join(results_dir, f"{variable}_by_type.csv")
+
+        if not os.path.exists(file_path):
+            missing_files.append(variable)
+            continue
+
+        res_df = pd.read_csv(file_path)
+        p_col = None
+        if "p_value" in res_df.columns:
+            p_col = "p_value"
+        elif "p" in res_df.columns:
+            p_col = "p"
+
+        if p_col is None or res_df.empty:
+            missing_terms.append(variable)
+            continue
+
+        rows.append(
+            {
+                "variable": variable,
+                "variable_type": "scale" if variable in SCALE_ATTRIBUTES else "categorical",
+                "p_raw": float(res_df.iloc[0][p_col]),
+            }
+        )
+
+    print(
+        f"\n=== Bonferroni-corrected p-values ({data_split} tests: scale + categorical) ==="
+    )
+
+    if not rows:
+        print("No usable p-values found.")
+        return
+
+    m_tests = len(all_variables)
+    pvals_df = pd.DataFrame(rows)
+    pvals_df["p_bonferroni"] = np.minimum(pvals_df["p_raw"] * m_tests, 1.0)
+    pvals_df["sig"] = pvals_df["p_bonferroni"].apply(_significance_stars)
+
+    pvals_df["variable"] = pd.Categorical(
+        pvals_df["variable"], categories=all_variables, ordered=True
+    )
+    pvals_df = pvals_df.sort_values("variable")
+
+    print(f"Correction factor (m): {m_tests}")
+    print("Significance: * < 0.05, ** < 0.01, *** < 0.001")
+    print("")
+
+    for _, row in pvals_df.iterrows():
+        print(
+            f"{row['variable']:.<30} corrected={row['p_bonferroni']:.4g} {row['sig']}"
+        )
+
+    if missing_files:
+        print("\nMissing result files:")
+        for variable in missing_files:
+            print(f"- {variable}")
+
+    if missing_terms:
+        print("\nMissing t-test p-value column (`p_value`/`p`) in results file:")
+        for variable in missing_terms:
+            print(f"- {variable}")
+
+    save_path = os.path.join(output_dir, f"{data_split}_all_bonferroni_ttest_pvalues.csv")
+    pvals_df.to_csv(save_path, index=False)
+    print(f"\nSaved Bonferroni p-value table: {save_path}")
+
+
+# ===== MAIN EXECUTION =====
+def main():
+    print("=== Distribution Plots for Phase 2 Variables ===")
+    print(f"Output base directory: {OUTPUT_BASE_DIR}")
+    print(f"Processing {len(SCALE_ATTRIBUTES)} scale variables across {len(ALL_SPLITS)} splits...")
+
+    for data_split in ALL_SPLITS:
+        split_df = split_datasets[data_split]
+        output_dir = get_split_output_dir(data_split)
+
+        print(f"\n=== Processing split: {data_split} ===")
+        print(f"Output directory: {output_dir}")
+
+        print("\nCreating individual KDE plots...")
+        for variable in SCALE_ATTRIBUTES:
+            output_path = os.path.join(output_dir, f"kde_{variable}.pdf")
+            create_kde_plot(split_df, variable, output_path)
+
+        print("\nCreating combined KDE grid plot...")
+        create_combined_kde_grid(split_df, output_dir, data_split)
+
+        print("\nCreating combined violin grid plot...")
+        create_combined_violin_grid(split_df, output_dir, data_split)
+
+        print("\nPreparing categorical data...")
+        categorical_df = prepare_categorical_data(split_df)
+
+        print("\nCreating categorical barplots...")
+        for variable in CATEGORICAL_VARS:
+            output_path = os.path.join(output_dir, f"barplot_{variable}.pdf")
+            create_categorical_barplot(categorical_df, variable, output_path)
+
+        print("\nCreating combined categorical barplot grid...")
+        create_combined_categorical_grid(categorical_df, output_dir)
+
+        print("\nCreating combined categorical heatmap...")
+        create_combined_categorical_heatmap(categorical_df, output_dir)
+
+        print("\nGenerating summary statistics...")
+        summary_stats = []
+
+        for variable in SCALE_ATTRIBUTES:
+            writer_data = split_df[split_df["paragraph_type_"] == "writer"][variable].dropna()
+            model_data = split_df[split_df["paragraph_type_"] == "model"][variable].dropna()
+
+            if len(writer_data) > 0 and len(model_data) > 0:
+                summary_stats.append(
+                    {
+                        "variable": variable,
+                        "writer_n": len(writer_data),
+                        "writer_mean": writer_data.mean(),
+                        "writer_std": writer_data.std(),
+                        "writer_median": writer_data.median(),
+                        "model_n": len(model_data),
+                        "model_mean": model_data.mean(),
+                        "model_std": model_data.std(),
+                        "model_median": model_data.median(),
+                        "mean_diff": model_data.mean() - writer_data.mean(),
+                    }
+                )
+
+        summary_df = pd.DataFrame(summary_stats)
+        summary_path = os.path.join(output_dir, "kde_summary_statistics.csv")
+        summary_df.to_csv(summary_path, index=False)
+        print(f"Saved summary statistics: {summary_path}")
+
+        print("\n=== Summary ===")
+        print(f"Generated KDE plots for {len(SCALE_ATTRIBUTES)} scale variables")
+        print(f"Total annotations processed: {len(split_df):,}")
+        print(
+            f"Writer paragraphs: {len(split_df[split_df['paragraph_type_'] == 'writer']):,}"
+        )
+        print(
+            f"Model paragraphs: {len(split_df[split_df['paragraph_type_'] == 'model']):,}"
+        )
+        print(f"Figures saved to: {output_dir}/")
+
+        print("\n=== Top 5 Largest Mean Differences (Model - Writer) ===")
+        top_diffs = summary_df.nlargest(5, "mean_diff")[["variable", "mean_diff"]]
+        for _, row in top_diffs.iterrows():
+            print(f"{row['variable']:.<30} {row['mean_diff']:+6.2f}")
+
+        report_bonferroni_corrected_scale_pvalues(output_dir, data_split)
 
 
 if __name__ == "__main__":

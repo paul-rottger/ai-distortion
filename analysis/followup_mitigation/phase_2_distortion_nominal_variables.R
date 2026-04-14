@@ -12,7 +12,7 @@ setwd("~/Documents/Repos/ai-distortion")
 data <- read_csv("./data/followup_mitigation_phase_2/annotations.csv", show_col_types = FALSE)
 phase_1_preferences <- read_csv("./data/followup_mitigation_phase_1/proposition_responses.csv", show_col_types = FALSE)
 
-mitigation_reference_level <- "none"
+mitigation_reference_level <- "writer"
 
 relevel_if_present <- function(x, ref) {
 	if (ref %in% levels(x)) {
@@ -28,11 +28,21 @@ data <- data %>%
 		rater_id = as.factor(rater_id),
 		writer_id = as.factor(writer_id),
 		proposition_id = as.factor(proposition_id),
+		model_ = factor(ifelse(
+			paragraph_type == "writer", "writer", model_name
+		)),
 		mitigation_condition_ = factor(ifelse(
 			paragraph_type == "writer", "writer", model_mitigation_condition
+		)),
+		model_and_mitigation_ = factor(ifelse(
+			paragraph_type == "writer",
+			"writer",
+			paste(model_name, model_mitigation_condition, sep = "__")
 		))
 	)
+data$model_ <- relevel_if_present(data$model_, ref = mitigation_reference_level)
 data$mitigation_condition_ <- relevel_if_present(data$mitigation_condition_, ref = mitigation_reference_level)
+data$model_and_mitigation_ <- relevel_if_present(data$model_and_mitigation_, ref = mitigation_reference_level)
 
 data_unedited <- data %>%
 	filter(paragraph_type %in% c("writer", "model")) %>%
@@ -66,7 +76,7 @@ rm(data, phase_1_preferences, preferred_exclusions)
 
 # ===== NOMINAL VARIABLES / REFERENCE CATEGORIES ----
 nominal_vars <- c(
-	#"writer_gender",
+	"writer_gender",
 	"writer_race",
 	"writer_politicalParty",
 	"writer_politicalIdeology"
@@ -97,20 +107,20 @@ empty_nominal_results <- function() {
 # ===== MULTINOMIAL LOGISTIC REGRESSION (BY MITIGATION) ----
 fit_multinomial_logit_model <- function(df,
 																				outcome,
-																				predictor = "mitigation_condition_",
+																		predictor = "model_and_mitigation_",
 																				random_effects = ~ 1 | rater_id,
 																				outcome_ref = NULL) {
 	model_df <- df %>%
 		filter(!is.na(.data[[outcome]]), !is.na(.data[[predictor]])) %>%
 		mutate(
-			rater_id = as.factor(rater_id),
-			mitigation_condition_ = droplevels(as.factor(mitigation_condition_))
+			rater_id = as.factor(rater_id)
 		)
 
 	if (nrow(model_df) == 0 || nlevels(model_df[[predictor]]) < 2) {
 		return(NULL)
 	}
 
+	model_df[[predictor]] <- droplevels(as.factor(model_df[[predictor]]))
 	model_df[[predictor]] <- relevel_if_present(model_df[[predictor]], ref = mitigation_reference_level)
 
 	model_df[[outcome]] <- as.factor(model_df[[outcome]])
@@ -149,7 +159,7 @@ fit_multinomial_logit_model <- function(df,
 }
 
 calculate_total_variation_distance <- function(model_fit,
-																							 predictor = "mitigation_condition_") {
+																	 predictor = "model_and_mitigation_") {
 	predictor_levels <- levels(model_fit$model_df[[predictor]])
 
 	if (!(mitigation_reference_level %in% predictor_levels)) {
@@ -194,7 +204,7 @@ calculate_total_variation_distance <- function(model_fit,
 
 fit_multinomial_logit <- function(df,
 																	outcome,
-																	predictor = "mitigation_condition_",
+																predictor = "model_and_mitigation_",
 																	random_effects = ~ 1 | rater_id,
 																	outcome_ref = NULL) {
 	model_fit <- fit_multinomial_logit_model(
@@ -244,7 +254,7 @@ debug_data <- data_preferred %>% slice_sample(n = debug_sample_size)
 debug_results <- fit_multinomial_logit(
 	debug_data,
 	outcome = "writer_gender",
-	predictor = "mitigation_condition_",
+	predictor = "model_and_mitigation_",
 	outcome_ref = reference_levels[["writer_gender"]]
 )
 print(debug_results)
@@ -252,7 +262,7 @@ print(debug_results)
 run_nominal_regressions <- function(attribute) {
 	print(paste("running multinomial logistic regression for:", attribute))
 
-	for (data_split in c("preferred")) {
+	for (data_split in c("preferred", "edited", "unedited")) {
 		split_data <- switch(data_split,
 			unedited = data_unedited,
 			edited = data_edited,
@@ -268,13 +278,13 @@ run_nominal_regressions <- function(attribute) {
 		results <- fit_multinomial_logit(
 			split_data,
 			outcome = attribute,
-			predictor = "mitigation_condition_",
+			predictor = "model_and_mitigation_",
 			outcome_ref = reference_levels[[attribute]]
 		)
 
 		write_csv(
 			results,
-			paste0("./results/followup_mitigation_phase_2_distortion/", data_split, "/", attribute, "_by_mitigation.csv")
+			paste0("./results/followup_mitigation_phase_2_distortion/", data_split, "/", attribute, "_by_model_and_mitigation.csv")
 		)
 	}
 }

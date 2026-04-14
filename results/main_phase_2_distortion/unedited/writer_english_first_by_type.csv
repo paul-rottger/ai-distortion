@@ -1,2 +1,2 @@
-term,statistic,p_value,cramers_v,cramers_v_ci_low,cramers_v_ci_high
-paragraph_type_model,1942.1698214167147,0,0.14759635074184674,0.14208609123487287,0.15345153977111797
+term,odds_ratio,or_low,or_high,statistic,p,p_value
+paragraph_type_model,4.005649092345505,3.7636675090138607,4.2631886617456445,43.64991918574325,0,0

@@ -161,7 +161,6 @@ create_correlation_heatmap <- function(correlation_results, data_split) {
       title = paste("Scale Attribute Correlations:", str_to_title(data_split)),
       x = NULL,
       y = NULL,
-      caption = "Cells show Pearson correlation coefficients rounded to two decimals. Cells are masked unless p < .001."
     ) +
     theme_minimal(base_size = 11) +
     theme(

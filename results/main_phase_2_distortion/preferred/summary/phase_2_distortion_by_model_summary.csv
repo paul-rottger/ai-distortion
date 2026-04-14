@@ -1,0 +1,7 @@
+split,variable_type,model,n_attributes,average_effect,summary_metric
+preferred,scale,anthropic/claude-sonnet-4,20,8.442,average_absolute_ame
+preferred,scale,deepseek/deepseek-chat-v3-0324,20,8.44,average_absolute_ame
+preferred,scale,openai/chatgpt-4o-latest,20,8.313,average_absolute_ame
+preferred,ordinal,anthropic/claude-sonnet-4,5,4.94,average_odds_ratio
+preferred,ordinal,deepseek/deepseek-chat-v3-0324,5,4.528,average_odds_ratio
+preferred,ordinal,openai/chatgpt-4o-latest,5,4.274,average_odds_ratio

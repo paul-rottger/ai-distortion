@@ -1,0 +1,9 @@
+split,variable_type,input_condition,n_attributes,average_effect,summary_metric
+preferred,scale,stance-based,20,10.273,average_absolute_ame
+preferred,scale,bullets-based,20,9.773,average_absolute_ame
+preferred,scale,improve,20,5.907,average_absolute_ame
+preferred,scale,rewrite,20,4.548,average_absolute_ame
+preferred,ordinal,stance-based,5,5.864,average_odds_ratio
+preferred,ordinal,bullets-based,5,5.355,average_odds_ratio
+preferred,ordinal,improve,5,3.614,average_odds_ratio
+preferred,ordinal,rewrite,5,2.874,average_odds_ratio

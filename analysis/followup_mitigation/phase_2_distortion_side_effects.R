@@ -7,7 +7,6 @@ suppressPackageStartupMessages({
 setwd("~/Documents/Repos/ai-distortion")
 
 preferred_results_dir <- "./results/followup_mitigation_phase_2_distortion/preferred"
-summary_output_path <- file.path(preferred_results_dir, "mitigation_significance_counts.csv")
 detail_output_path <- file.path(preferred_results_dir, "mitigation_significance_details.csv")
 alpha <- 0.05
 distortion_attributes <- c(
@@ -32,7 +31,6 @@ distortion_attributes <- c(
 	"writer_friendliness",
 	"writer_openness"
 )
-count_summary_exclusions <- c("writer_stance_polarity")
 
 # ===== HELPERS ----
 get_p_value_column <- function(df) {
@@ -52,6 +50,42 @@ extract_attribute_name <- function(file_path) {
 		stringr::str_remove("_by_mitigation\\.csv$")
 }
 
+get_absolute_interval <- function(lower, upper) {
+	if (is.na(lower) || is.na(upper)) {
+		return(c(low = NA_real_, high = NA_real_))
+	}
+
+	if (lower > upper) {
+		tmp <- lower
+		lower <- upper
+		upper <- tmp
+	}
+
+	if (lower <= 0 && upper >= 0) {
+		return(c(low = 0, high = max(abs(lower), abs(upper))))
+	}
+
+	absolute_bounds <- abs(c(lower, upper))
+	c(low = min(absolute_bounds), high = max(absolute_bounds))
+}
+
+get_relative_magnitude_interval <- function(numerator_low, numerator_high, denominator_low, denominator_high) {
+	numerator_interval <- get_absolute_interval(numerator_low, numerator_high)
+	denominator_interval <- get_absolute_interval(denominator_low, denominator_high)
+
+	if (
+		any(is.na(c(numerator_interval, denominator_interval))) ||
+		denominator_interval[["low"]] == 0
+	) {
+		return(c(low = NA_real_, high = NA_real_))
+	}
+
+	c(
+		low = numerator_interval[["low"]] / denominator_interval[["high"]],
+		high = numerator_interval[["high"]] / denominator_interval[["low"]]
+	)
+}
+
 load_mitigation_results <- function(file_path) {
 	regression_results <- read_csv(file_path, show_col_types = FALSE)
 	p_value_column <- get_p_value_column(regression_results)
@@ -68,12 +102,27 @@ load_mitigation_results <- function(file_path) {
 	}
 
 	writer_ame <- writer_rows$ame[[1]]
+	writer_ame_low <- writer_rows$ame_low[[1]]
+	writer_ame_high <- writer_rows$ame_high[[1]]
 	regression_results$writer_ame <- writer_ame
+	regression_results$writer_ame_low <- writer_ame_low
+	regression_results$writer_ame_high <- writer_ame_high
 
 	if (is.na(writer_ame) || writer_ame == 0) {
 		regression_results$relative_ame_magnitude_vs_writer <- NA_real_
+		regression_results$relative_ame_magnitude_vs_writer_low <- NA_real_
+		regression_results$relative_ame_magnitude_vs_writer_high <- NA_real_
 	} else {
 		regression_results$relative_ame_magnitude_vs_writer <- abs(regression_results$ame) / abs(writer_ame)
+		relative_intervals <- mapply(
+			get_relative_magnitude_interval,
+			regression_results$ame_low,
+			regression_results$ame_high,
+			writer_ame_low,
+			writer_ame_high
+		)
+		regression_results$relative_ame_magnitude_vs_writer_low <- relative_intervals["low", ]
+		regression_results$relative_ame_magnitude_vs_writer_high <- relative_intervals["high", ]
 	}
 
 	regression_results <- regression_results[regression_results$term %in% target_terms, , drop = FALSE]
@@ -85,7 +134,11 @@ load_mitigation_results <- function(file_path) {
 		"p_value",
 		"significant",
 		"writer_ame",
-		"relative_ame_magnitude_vs_writer"
+		"writer_ame_low",
+		"writer_ame_high",
+		"relative_ame_magnitude_vs_writer",
+		"relative_ame_magnitude_vs_writer_low",
+		"relative_ame_magnitude_vs_writer_high"
 	)
 	remaining_columns <- setdiff(names(regression_results), ordered_columns)
 
@@ -114,34 +167,11 @@ if (length(missing_result_files) > 0) {
 }
 
 mitigation_results <- purrr::map_dfr(result_files, load_mitigation_results)
-mitigation_results_for_counts <- mitigation_results[
-	!(mitigation_results$attribute %in% count_summary_exclusions),
-	,
-	drop = FALSE
-]
-
-# ===== COUNT SIGNIFICANT EFFECTS ----
-significance_counts <- mitigation_results_for_counts |>
-	dplyr::group_by(.data$mitigation) |>
-	dplyr::summarise(
-		n_significant = sum(.data$significant, na.rm = TRUE),
-		n_total = dplyr::n(),
-		proportion_significant = n_significant / n_total,
-		mean_relative_ame_magnitude_vs_writer_significant = mean(
-			.data$relative_ame_magnitude_vs_writer[.data$significant],
-			na.rm = TRUE
-		),
-		.groups = "drop"
-	) |>
-	dplyr::arrange(.data$mitigation)
 
 significance_details <- mitigation_results |>
 	dplyr::arrange(.data$mitigation, .data$p_value, .data$attribute)
 
-write_csv(significance_counts, summary_output_path)
 write_csv(significance_details, detail_output_path)
-
-print(significance_counts)
 
 cat("\nSignificant outcomes by mitigation:\n")
 print(

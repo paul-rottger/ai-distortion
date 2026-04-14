@@ -1,16 +1,9 @@
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
   library(tidyverse)
-  library(showtext)
-  library(systemfonts)
   library(mclogit)
   library(lme4)
 })
-
-# ===== PLOTTING DEFAULTS ----
-font_add(family = "CMU Serif", regular = "~/Library/Fonts/cmunrm.ttf")
-showtext_auto()
-theme_set(theme_minimal(base_family = "CMU Serif", base_size = 14))
 
 # ===== RANDOM SEED ----
 set.seed(123)
@@ -94,6 +87,28 @@ empty_nominal_results <- function() {
   )
 }
 
+relevel_if_present <- function(x, ref) {
+  if (ref %in% levels(x)) {
+    return(relevel(x, ref = ref))
+  }
+
+  x
+}
+
+prepare_predictor <- function(model_df, predictor) {
+  model_df[[predictor]] <- droplevels(as.factor(model_df[[predictor]]))
+  model_df[[predictor]] <- relevel_if_present(model_df[[predictor]], ref = "writer")
+  model_df
+}
+
+get_multinomial_random_effects <- function(attribute) {
+  if (attribute %in% c("writer_politicalParty", "writer_politicalIdeology")) {
+    return(NULL)
+  }
+
+  ~ 1 | rater_id
+}
+
 # ===== MULTINOMIAL LOGISTIC REGRESSION (BY TYPE) ----
 fit_multinomial_logit_model <- function(df,
                                         outcome,
@@ -103,11 +118,12 @@ fit_multinomial_logit_model <- function(df,
   model_df <- df %>%
     filter(!is.na(.data[[outcome]]), !is.na(.data[[predictor]])) %>%
     mutate(
-      rater_id = as.factor(rater_id),
-      paragraph_type_ = relevel(as.factor(paragraph_type_), ref = "writer")
+      rater_id = as.factor(rater_id)
     )
 
-  if (nrow(model_df) == 0) {
+  model_df <- prepare_predictor(model_df, predictor)
+
+  if (nrow(model_df) == 0 || nlevels(model_df[[predictor]]) < 2) {
     return(NULL)
   }
 
@@ -124,17 +140,17 @@ fit_multinomial_logit_model <- function(df,
 
   form <- as.formula(paste0(outcome, " ~ ", predictor))
 
-  fit <- tryCatch(
-    suppressWarnings(
-      mclogit::mblogit(
-        form,
-        random = random_effects,
-        data = model_df,
-        estimator = "ML"
-      )
-    ),
-    error = function(e) NULL
+  fit_args <- list(
+    formula = form,
+    data = model_df,
+    estimator = "ML"
   )
+
+  if (!is.null(random_effects)) {
+    fit_args$random <- random_effects
+  }
+
+  fit <- suppressWarnings(do.call(mclogit::mblogit, fit_args))
 
   if (is.null(fit)) {
     return(NULL)
@@ -172,33 +188,33 @@ fit_multinomial_logit <- function(df,
     rownames(coefs) <- paste0(levels(model_fit$model_df[[outcome]])[2], "~(Intercept)")
   }
 
-  target_levels <- rownames(coefs)
-  if (is.null(target_levels)) {
-    target_levels <- setdiff(
-      levels(model_fit$model_df[[outcome]]),
-      levels(model_fit$model_df[[outcome]])[1]
-    )
-  }
-
-  term_name <- paste0(predictor, "model")
   coef_table <- as_tibble(coefs, rownames = "row_id") %>%
     separate(row_id, into = c("target_level", "term"), sep = "~", remove = TRUE) %>%
-    filter(term == term_name)
+    filter(str_starts(term, predictor))
 
   if (nrow(coef_table) == 0) {
     reference_level <- levels(model_fit$model_df[[outcome]])[1]
+    predictor_levels <- levels(model_fit$model_df[[predictor]])
+    predictor_terms <- paste0(predictor, predictor_levels[predictor_levels != predictor_levels[1]])
+    target_levels <- setdiff(levels(model_fit$model_df[[outcome]]), reference_level)
 
-    return(tibble(
-      term = term_name,
-      target_level = setdiff(levels(model_fit$model_df[[outcome]]), reference_level),
-      reference_level = reference_level,
-      odds_ratio = NA_real_,
-      or_low = NA_real_,
-      or_high = NA_real_,
-      statistic = NA_real_,
-      p = NA_real_,
-      p_value = NA_real_
-    ))
+    if (length(predictor_terms) == 0 || length(target_levels) == 0) {
+      return(empty_nominal_results())
+    }
+
+    return(expand_grid(
+      term = predictor_terms,
+      target_level = target_levels
+    ) %>%
+      mutate(
+        reference_level = reference_level,
+        odds_ratio = NA_real_,
+        or_low = NA_real_,
+        or_high = NA_real_,
+        statistic = NA_real_,
+        p = NA_real_,
+        p_value = NA_real_
+      ))
   }
 
   coef_table %>%
@@ -218,7 +234,7 @@ fit_multinomial_logit <- function(df,
 fit_ova_logit <- function(df,
                           outcome,
                           predictor = "paragraph_type_",
-                          predictor_level = "model",
+                          predictor_ref = "writer",
                           random_effect = "rater_id") {
   model_df <- df %>%
     filter(!is.na(.data[[outcome]]), !is.na(.data[[predictor]]), !is.na(.data[[random_effect]])) %>%
@@ -228,28 +244,37 @@ fit_ova_logit <- function(df,
       random_effect_factor = as.factor(.data[[random_effect]])
     )
 
-  if (nrow(model_df) == 0 || !(predictor_level %in% levels(model_df$predictor_factor))) {
+  model_df$predictor_factor <- relevel_if_present(model_df$predictor_factor, ref = predictor_ref)
+
+  if (nrow(model_df) == 0 || nlevels(model_df$predictor_factor) < 2) {
     return(empty_nominal_results())
   }
 
   target_levels <- levels(model_df$outcome_factor)
+  comparison_levels <- setdiff(levels(model_df$predictor_factor), predictor_ref)
+
+  if (length(comparison_levels) == 0) {
+    return(empty_nominal_results())
+  }
 
   map_dfr(target_levels, function(target_level) {
     binary_df <- model_df %>%
       mutate(target_flag = as.integer(outcome_factor == target_level))
 
     if (n_distinct(binary_df$target_flag) < 2 || nlevels(binary_df$predictor_factor) < 2) {
-      return(tibble(
-        term = paste0(predictor, predictor_level),
-        target_level = target_level,
-        reference_level = "all_other_levels",
-        odds_ratio = NA_real_,
-        or_low = NA_real_,
-        or_high = NA_real_,
-        statistic = NA_real_,
-        p = NA_real_,
-        p_value = NA_real_
-      ))
+      return(map_dfr(comparison_levels, function(predictor_level) {
+        tibble(
+          term = paste0(predictor, predictor_level),
+          target_level = target_level,
+          reference_level = "all_other_levels",
+          odds_ratio = NA_real_,
+          or_low = NA_real_,
+          or_high = NA_real_,
+          statistic = NA_real_,
+          p = NA_real_,
+          p_value = NA_real_
+        )
+      }))
     }
 
     fit <- tryCatch(
@@ -264,78 +289,73 @@ fit_ova_logit <- function(df,
     )
 
     if (is.null(fit)) {
-      return(tibble(
-        term = paste0(predictor, predictor_level),
-        target_level = target_level,
-        reference_level = "all_other_levels",
-        odds_ratio = NA_real_,
-        or_low = NA_real_,
-        or_high = NA_real_,
-        statistic = NA_real_,
-        p = NA_real_,
-        p_value = NA_real_
-      ))
+      return(map_dfr(comparison_levels, function(predictor_level) {
+        tibble(
+          term = paste0(predictor, predictor_level),
+          target_level = target_level,
+          reference_level = "all_other_levels",
+          odds_ratio = NA_real_,
+          or_low = NA_real_,
+          or_high = NA_real_,
+          statistic = NA_real_,
+          p = NA_real_,
+          p_value = NA_real_
+        )
+      }))
     }
 
     fit_summary <- coef(summary(fit))
-    term_name <- paste0("predictor_factor", predictor_level)
+    map_dfr(comparison_levels, function(predictor_level) {
+      term_name <- paste0("predictor_factor", predictor_level)
 
-    if (!(term_name %in% rownames(fit_summary))) {
-      return(tibble(
+      if (!(term_name %in% rownames(fit_summary))) {
+        return(tibble(
+          term = paste0(predictor, predictor_level),
+          target_level = target_level,
+          reference_level = "all_other_levels",
+          odds_ratio = NA_real_,
+          or_low = NA_real_,
+          or_high = NA_real_,
+          statistic = NA_real_,
+          p = NA_real_,
+          p_value = NA_real_
+        ))
+      }
+
+      estimate <- fit_summary[term_name, "Estimate"]
+      std_error <- fit_summary[term_name, "Std. Error"]
+      statistic <- fit_summary[term_name, "z value"]
+      p_value <- fit_summary[term_name, "Pr(>|z|)"]
+
+      tibble(
         term = paste0(predictor, predictor_level),
         target_level = target_level,
         reference_level = "all_other_levels",
-        odds_ratio = NA_real_,
-        or_low = NA_real_,
-        or_high = NA_real_,
-        statistic = NA_real_,
-        p = NA_real_,
-        p_value = NA_real_
-      ))
-    }
-
-    estimate <- fit_summary[term_name, "Estimate"]
-    std_error <- fit_summary[term_name, "Std. Error"]
-    statistic <- fit_summary[term_name, "z value"]
-    p_value <- fit_summary[term_name, "Pr(>|z|)"]
-
-    tibble(
-      term = paste0(predictor, predictor_level),
-      target_level = target_level,
-      reference_level = "all_other_levels",
-      odds_ratio = exp(estimate),
-      or_low = exp(estimate - 1.96 * std_error),
-      or_high = exp(estimate + 1.96 * std_error),
-      statistic = statistic,
-      p = p_value,
-      p_value = p_value
-    )
+        odds_ratio = exp(estimate),
+        or_low = exp(estimate - 1.96 * std_error),
+        or_high = exp(estimate + 1.96 * std_error),
+        statistic = statistic,
+        p = p_value,
+        p_value = p_value
+      )
+    })
   })
 }
 
 run_nominal_regressions <- function(attribute) {
   print(paste("running multinomial logistic regression for:", attribute))
 
-  for (data_split in c("preferred")) {
+  multinomial_random_effects <- get_multinomial_random_effects(attribute)
+
+  if (is.null(multinomial_random_effects)) {
+    print(paste("using fixed-effects multinomial fallback for:", attribute))
+  }
+
+  for (data_split in c("preferred", "edited", "unedited")) {
     split_data <- switch(data_split,
-        unedited = data_unedited,
-        edited = data_edited,
-        preferred = data_preferred
-      )
-
-    multinomial_results <- fit_multinomial_logit(
-      split_data,
-      outcome = attribute,
-      predictor = "paragraph_type_",
-      outcome_ref = reference_levels[[attribute]]
-    )
-
-    ova_results <- fit_ova_logit(
-      split_data,
-      outcome = attribute,
-      predictor = "paragraph_type_",
-      predictor_level = "model",
-      random_effect = "rater_id"
+      unedited = data_unedited,
+      edited = data_edited,
+      preferred = data_preferred
     )
 
     dir.create(
@@ -350,21 +370,45 @@ run_nominal_regressions <- function(attribute) {
       showWarnings = FALSE
     )
 
-    write_csv(
-      multinomial_results,
-      paste0("./results/main_phase_2_distortion/", data_split, "/", attribute, "_by_type.csv")
-    )
-
-    write_csv(
-      ova_results,
-      paste0(
-        "./results/main_phase_2_distortion/",
-        data_split,
-        "/ova_logistic_results/",
-        attribute,
-        "_by_type.csv"
+    for (predictor in list(
+      #c("paragraph_type_", "by_type"),
+      c("model_", "by_model"),
+      c("input_condition_", "by_input")
+    )) {
+      multinomial_results <- fit_multinomial_logit(
+        split_data,
+        predictor = predictor[1],
+        outcome = attribute,
+        random_effects = multinomial_random_effects,
+        outcome_ref = reference_levels[[attribute]]
       )
-    )
+
+      ova_results <- fit_ova_logit(
+        split_data,
+        outcome = attribute,
+        predictor = predictor[1],
+        predictor_ref = "writer",
+        random_effect = "rater_id"
+      )
+
+      write_csv(
+        multinomial_results,
+        paste0("./results/main_phase_2_distortion/", data_split, "/", attribute, "_", predictor[2], ".csv")
+      )
+
+      write_csv(
+        ova_results,
+        paste0(
+          "./results/main_phase_2_distortion/",
+          data_split,
+          "/ova_logistic_results/",
+          attribute,
+          "_",
+          predictor[2],
+          ".csv"
+        )
+      )
+    }
   }
 }
 

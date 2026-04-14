@@ -1,17 +1,9 @@
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
   library(tidyverse)
-  library(showtext)
-  library(systemfonts)
   library(glmmTMB)
   library(broom.mixed)
-  library(marginaleffects)
 })
-
-# ===== PLOTTING DEFAULTS ----
-font_add(family = "CMU Serif", regular = "~/Library/Fonts/cmunrm.ttf")
-showtext_auto()
-theme_set(theme_minimal(base_family = "CMU Serif", base_size = 14))
 
 # ===== RANDOM SEED ----
 set.seed(123)
@@ -36,6 +28,7 @@ data <- data %>%
   )
 
 data$mitigation_condition_ <- relevel(data$mitigation_condition_, ref = "none")
+data$model_ <- relevel(data$model_, ref = "anthropic/claude-sonnet-4")
 
 mitigation_group_levels <- c(
   "reranking | deepseek/deepseek-chat-v3-0324",
@@ -122,7 +115,12 @@ bootstrap_preference_summary <- function(data,
          y = NULL,
     ) +
     geom_hline(yintercept = c(3.5, 6.5, 9.5), linetype = "dotted")+
-    scale_x_continuous(limits = c(0, 1), expand = c(0, 0), labels = scales::label_percent(accuracy = 1))
+    scale_x_continuous(
+      limits = c(0, 1),
+      breaks = seq(0, 1, by = 0.1),
+      expand = c(0, 0),
+      labels = scales::label_percent(accuracy = 1)
+    )
   
   list(table = table, plot = plot)
 }
@@ -131,7 +129,6 @@ bootstrap_preference_summary <- function(data,
 produce_results <- function(data, var) {
   summary <- bootstrap_preference_summary(data, var)
   print(summary$table)
-  print(summary$plot)
   plot_height <- max(4, 0.45 * nrow(summary$table) + 1)
   ggsave(
     paste0("./figures/followup_mitigation_phase_1/", var, ".pdf"),
@@ -152,29 +149,21 @@ for (var in c("made_edits",
 fit_mitigation_mixed_logit <- function(df,
                                        outcome,
                                        random_effects = "(1 | writer_id)") {
-  form <- as.formula(paste0(outcome, " ~ mitigation_condition_ + ", random_effects))
+  fixed_effects <- c("mitigation_condition_", "model_")
+
+  if (n_distinct(df$input_condition_) > 1) {
+    fixed_effects <- c(fixed_effects, "input_condition_")
+  }
+
+  form <- as.formula(
+    paste0(outcome, " ~ ", paste(fixed_effects, collapse = " + "), " + ", random_effects)
+  )
 
   model <- glmmTMB(
     form,
     data = df,
     family = binomial(link = "logit")
   )
-
-  ame <- avg_comparisons(
-    model,
-    variables = list(mitigation_condition_ = "reference"),
-    type = "response",
-    re.form = NA
-  ) %>%
-    as_tibble() %>%
-    mutate(
-      term = paste0("mitigation_condition_", sub(" .*", "", contrast)),
-      ame = estimate,
-      ame_low = conf.low,
-      ame_high = conf.high,
-      ame_p_value = p.value
-    ) %>%
-    select(term, ame, ame_low, ame_high, ame_p_value)
 
   broom.mixed::tidy(model, effects = "fixed", conf.int = TRUE) %>%
     filter(term != "(Intercept)") %>%
@@ -185,7 +174,6 @@ fit_mitigation_mixed_logit <- function(df,
       or_high = exp(conf.high),
       p_value = p.value,
     ) %>%
-    left_join(ame, by = "term") %>%
     select(
       outcome,
       term,
@@ -197,11 +185,7 @@ fit_mitigation_mixed_logit <- function(df,
       conf.high,
       odds_ratio,
       or_low,
-      or_high,
-      ame,
-      ame_low,
-      ame_high,
-      ame_p_value
+      or_high
     )
 }
 
