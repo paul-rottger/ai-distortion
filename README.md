@@ -1,17 +1,22 @@
 # AI Distortion
 
-Code and data for the paper:
+Code and data for our paper:
 
 > **Measuring and mitigating persona distortions from AI writing assistance**
 >
 > Paul Röttger, Kobi Hackenburg, Hannah Rose Kirk, and Christopher Summerfield
 
-
 ## Overview
 
 This repository contains the analysis code and analysis-ready datasets for our paper on persona distortions from AI writing assistance.
 
-**The repo is currently being updated to allow for easy reproduction of the analyses and figures from our paper. Please check back soon for updates!**
+| Folder | Description |
+|--------|-------------|
+| `analysis/` | Python and R scripts for data analysis and figure generation |
+| `data/` | Analysis-ready datasets |
+| `figures/` | Figures generated from the analyses in the paper |
+| `results/` | Results derived from the analyses, including model outputs and statistical test results |
+| `reranking/` | Code for the Reranking method used in the mitigation study |
 
 ## Requirements
 
@@ -21,19 +26,29 @@ This repository contains the analysis code and analysis-ready datasets for our p
 
 ## Reproducing Results
 
-To reproduce the statistical analyses and figures from the paper: `[TODO]`
+To reproduce the statistical analyses and figures from our paper, please run the following commands from the root of the repository:
+
+```bash
+# Create and activate virtual environment
+python -m venv .venv_analysis
+source .venv_analysis/bin/activate
+
+# Install Python packages
+pip install -r requirements_python.txt
+
+# Install R packages
+Rscript requirements_r.R
+
+# Run all analyses and plotting scripts
+./run_all.sh 
+```
+
+Details on each analysis script are listed in `analysis/README.md`.
 
 ## Data Availability
 
-| Resource | Description | Location |
-|----------|-------------|----------|
-| Main study - writer data | [TO ADD] | `data/main_phase_1/` |
-| Main study - reader data | [TO ADD] | `data/main_phase_2/` |
-| Disclaimer study - writer data | [TO ADD] | `data/followup_disclaimer_phase_1/` |
-| Mitigation study - writer data | [TO ADD] | `data/followup_mitigation_phase_1/` |
-| Mitigation study - reader data | [TO ADD] | `data/followup_mitigation_phase_2/` |
-
-For more details, see `data/README.md`.
+All data used in the analyses for our paper is included in the `data/` directory of this repository.
+Details are described in `data/README.md`.
 
 ## License
 

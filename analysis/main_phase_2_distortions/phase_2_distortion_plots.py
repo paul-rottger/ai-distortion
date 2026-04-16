@@ -29,7 +29,7 @@ DISTORTION_TOLERANCE_PATH = os.path.normpath(
 
 # Internal imports
 sys.path.insert(0, UTILS_DIR)
-from variable_definitions import SCALE_ATTRIBUTES, ORDINAL_VARS as ORDINAL_ATTRIBUTES, NOMINAL_VARS as NOMINAL_ATTRIBUTES  # noqa: E402
+from variable_definitions import SCALE_ATTRIBUTES, ORDINAL_VARS as ORDINAL_ATTRIBUTES, NOMINAL_VARS as NOMINAL_ATTRIBUTES
 
 # Plot configuration
 ALL_SPLITS = ["unedited", "edited", "preferred"]

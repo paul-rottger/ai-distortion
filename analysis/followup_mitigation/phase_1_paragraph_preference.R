@@ -1,18 +1,41 @@
-# ===== PACKAGES ----
+#!/usr/bin/env Rscript
+
+# =============================================================================
+# FOLLOWUP MITIGATION STUDY - PHASE 1 ANALYSIS: PARAGRAPH PREFERENCE
+#
+# - Preference and edit rates + bootstrap CIs by mitigation condition and model
+# - Mixed-effects logistic regressions for binarised preference and editing
+#   outcomes
+#
+# =============================================================================
+
+# =============================================================================
+# SETUP
+# =============================================================================
+
+# Load libraries
 suppressPackageStartupMessages({
   library(tidyverse)
   library(glmmTMB)
   library(broom.mixed)
 })
 
-# ===== RANDOM SEED ----
+# Set random seed for reproducibility
 set.seed(123)
 
-# ===== DATA IMPORTS ----
-data <- read_csv("./data/followup_mitigation_phase_1/proposition_responses.csv",
-                 show_col_types = FALSE)
+# =============================================================================
+# DATA LOADING
+# =============================================================================
 
-# ===== DATA PROCESSING ----
+data <- read_csv(
+  "./data/followup_mitigation_phase_1/proposition_responses.csv",
+  show_col_types = FALSE
+)
+
+# =============================================================================
+# DATA PROCESSING
+# =============================================================================
+
 data <- data %>%
   mutate(
     model_ = as.factor(model_name),
@@ -83,18 +106,21 @@ add_mitigation_group_labels <- function(table) {
     )
 }
 
-# ===== PREFERENCE RATES + CIs ----
+# =============================================================================
+# ANALYSIS: PREFERENCE RATES + BOOTSTRAP CONFIDENCE INTERVALS
+# =============================================================================
+
 bootstrap_preference_summary <- function(data,
                                          pref_var,
                                          n_boot = 1000,
                                          conf = 0.95) {
   alpha <- (1 - conf) / 2
-  
+
   summarize_group <- function(df) {
     n <- nrow(df)
-    
+
     boot_means <- replicate(n_boot, mean(df[[pref_var]][sample.int(nrow(df), replace = TRUE)]))
-    
+
     tibble(
       n = n,
       prop_preferred = mean(df[[pref_var]]),
@@ -102,28 +128,28 @@ bootstrap_preference_summary <- function(data,
       ci_high = quantile(boot_means, probs = 1 - alpha)
     )
   }
-  
+
   table <- summarize_mitigation_groups(data, summarize_group) %>%
-    select(group, n, prop_preferred, ci_low, ci_high) %>%
+    dplyr::select(group, n, prop_preferred, ci_low, ci_high) %>%
     add_mitigation_group_labels()
-  
+
   plot <- ggplot(table, aes(x = prop_preferred, y = group_label)) +
     geom_point() +
     geom_errorbar(aes(xmin = ci_low, xmax = ci_high), width = 0.2) +
-    labs(x = paste0("% ", pref_var, " with 95% bootstrap CI"),
-         y = NULL,
+    labs(
+      x = paste0("% ", pref_var, " with 95% bootstrap CI"),
+      y = NULL,
     ) +
-    geom_hline(yintercept = c(3.5, 6.5, 9.5), linetype = "dotted")+
+    geom_hline(yintercept = c(3.5, 6.5, 9.5), linetype = "dotted") +
     scale_x_continuous(
       limits = c(0, 1),
       breaks = seq(0, 1, by = 0.1),
       expand = c(0, 0),
       labels = scales::label_percent(accuracy = 1)
     )
-  
+
   list(table = table, plot = plot)
 }
-
 
 produce_results <- function(data, var) {
   summary <- bootstrap_preference_summary(data, var)
@@ -138,11 +164,17 @@ produce_results <- function(data, var) {
   )
 }
 
-for (var in c("made_edits",
-              "weak_preference_model",
-              "strict_preference_model")) {
+for (var in c(
+  "made_edits",
+  "weak_preference_model",
+  "strict_preference_model"
+)) {
   produce_results(data, var)
 }
+
+# =============================================================================
+# ANALYSIS: LOGISTIC REGRESSIONS FOR BINARY OUTCOMES (PREFERENCE + EDITING)
+# =============================================================================
 
 # ===== MIXED-EFFECTS LOGISTIC REGRESSIONS ----
 fit_mitigation_mixed_logit <- function(df,
@@ -173,7 +205,7 @@ fit_mitigation_mixed_logit <- function(df,
       or_high = exp(conf.high),
       p_value = p.value,
     ) %>%
-    select(
+    dplyr::select(
       outcome,
       term,
       estimate,

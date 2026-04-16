@@ -24,7 +24,7 @@ os.chdir(REPO_ROOT)
 
 # Internal imports
 sys.path.insert(0, os.path.join(REPO_ROOT, "analysis", "utils_py"))
-from variable_definitions import SCALE_ATTRIBUTES, CATEGORICAL_VARS, CATEGORICAL_LEVELS  # noqa: E402
+from variable_definitions import SCALE_ATTRIBUTES, CATEGORICAL_VARS, CATEGORICAL_LEVELS
 
 # Plot configuration
 ANNOTATIONS_PATH = os.path.join(REPO_ROOT, "data", "followup_mitigation_phase_2", "annotations.csv")

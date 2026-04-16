@@ -17,7 +17,7 @@ SUMMARY_DIR_NAME = "summary"
 
 # Internal imports
 sys.path.insert(0, str(BASE_DIR / "analysis" / "utils_py"))
-from variable_definitions import SCALE_ATTRIBUTES, ORDINAL_VARS as ORDINAL_ATTRIBUTES  # noqa: E402
+from variable_definitions import SCALE_ATTRIBUTES, ORDINAL_VARS as ORDINAL_ATTRIBUTES
 
 # Analysis configuration
 DATA_SPLITS = ["preferred", "edited", "unedited"]

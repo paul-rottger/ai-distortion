@@ -1,4 +1,19 @@
-# ===== PACKAGES ----
+#!/usr/bin/env Rscript
+
+# =============================================================================
+# MAIN STUDY - PHASE 2 DISTORTION ANALYSIS: SCALE VARIABLES
+# 
+# - Beta regressions for scale outcomes
+# - Average marginal effects for model and input-condition comparisons
+# - Unedited, edited, and preferred analysis subsets
+# 
+# =============================================================================
+
+# =============================================================================
+# SETUP
+# =============================================================================
+
+# Load libraries
 suppressPackageStartupMessages({
   library(tidyverse)
   library(glmmTMB)
@@ -8,14 +23,20 @@ suppressPackageStartupMessages({
 
 source("./analysis/utils_r/variable_definitions.R")
 
-# ===== RANDOM SEED ----
+# Set random seed for reproducibility
 set.seed(123)
 
-# ===== DATA IMPORTS ----
+# =============================================================================
+# DATA LOADING
+# =============================================================================
+
 data <- read_csv("./data/main_phase_2/annotations.csv", show_col_types = FALSE)
 phase_1_preferences <- read_csv("./data/main_phase_1/proposition_responses.csv", show_col_types = FALSE)
 
-# ===== DATA PROCESSING ----
+# =============================================================================
+# DATA PROCESSING
+# =============================================================================
+
 data <- data %>%
   mutate(
     rater_id = as.factor(rater_id),
@@ -62,7 +83,9 @@ data_preferred <- data_edited %>%
 
 rm(data, phase_1_preferences, preferred_exclusions)
 
-# ===== BETA REGRESSION SETUP for SCALE VARIABLES ----
+# =============================================================================
+# ANALYSIS: BETA REGRESSIONS FOR SCALE VARIABLES
+# =============================================================================
 
 # Helper function: squeeze 0..1 for beta regression
 # Source: https://pubmed.ncbi.nlm.nih.gov/16594767/
@@ -71,7 +94,6 @@ squeeze01 <- function(y) {
   (y * (n - 1) + 0.5) / n
 }
 
-# Beta regression function
 fit_beta <- function(df, outcome, predictor, random) {
   # 0–100 -> proportion, then squeeze to (0,1)
   y <- df[[outcome]] / 100
@@ -114,12 +136,12 @@ fit_beta <- function(df, outcome, predictor, random) {
   list(model = model, tidy_fixed = tidy_fixed)
 }
 
-# ===== RUN SINGLE REGRESSION FOR DEBUGGING ----
+# =============================================================================
+# ANALYSIS: DEBUG REGRESSION
+# =============================================================================
 
-# Select subset of data for debugging
 data_small <- data_unedited %>% slice_sample(n = 1000)
 
-# Run regression
 results <- fit_beta(data_small,
   outcome = "writer_knowledge",
   predictor = "paragraph_type_",
@@ -127,9 +149,10 @@ results <- fit_beta(data_small,
 )
 results$tidy_fixed
 
-# ===== RUN ALL REGRESSIONS ----
+# =============================================================================
+# ANALYSIS: RUN SCALE VARIABLE REGRESSIONS
+# =============================================================================
 
-# Function to go through all combinations of data splits and predictors for a given attribute
 run_regressions <- function(attribute) {
   print(paste("running regressions for:", attribute))
 

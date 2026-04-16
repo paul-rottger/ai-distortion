@@ -1,14 +1,33 @@
-# ===== PACKAGES ----
+#!/usr/bin/env Rscript
+
+# =============================================================================
+# MAIN STUDY - PHASE 1 ANALYSIS: PARAGRAPH PREFERENCE
+# 
+# - Preference and edit rates + bootstrap CIs
+# - Preference reasons
+# - Logistic regressions for binarised preference and editing outcomes
+# - Linear regressions for continuous editing outcomes
+# 
+# =============================================================================
+
+# =============================================================================
+# SETUP
+# =============================================================================
+
+# Load libraries
 suppressPackageStartupMessages({
   library(tidyverse)
   library(glmmTMB)
   library(broom.mixed)
 })
 
-# ===== RANDOM SEED ----
+# Set random seed for reproducibility
 set.seed(123)
 
-# ===== DATA IMPORTS ----
+# =============================================================================
+# DATA LOADING
+# =============================================================================
+
 data <- read_csv("./data/main_phase_1/proposition_responses.csv",
   show_col_types = FALSE
 )
@@ -17,7 +36,10 @@ edit_metrics <- read_csv("./results/main_phase_1/paragraph_edit_ratio_by_writer_
 ) %>%
   dplyr::select(writer_id, proposition_id, edit_ratio, edit_distance)
 
-# ===== DATA PROCESSING ----
+# =============================================================================
+# DATA PROCESSING
+# =============================================================================
+
 data <- data %>%
   left_join(edit_metrics, by = c("writer_id", "proposition_id")) %>%
   mutate(
@@ -93,7 +115,10 @@ add_main_phase_1_group_labels <- function(table) {
     )
 }
 
-# ===== PREFERENCE RATES + CIs ----
+# =============================================================================
+# ANALYSIS: PREFERENCE RATES + BOOTSTRAP CONFIDENCE INTERVALS
+# =============================================================================
+
 bootstrap_preference_summary <- function(data,
                                          pref_var,
                                          n_boot = 1000,
@@ -207,7 +232,10 @@ for (var in c(
   produce_results(data, var)
 }
 
-# ===== STRICT AI PREFERENCE REASONS ----
+# =============================================================================
+# ANALYSIS: PREFERENCE REASONS
+# =============================================================================
+
 summarize_strict_preference_reasons <- function(df,
                                                 output_path = "./results/main_phase_1/strict_preference_reason_summary.csv",
                                                 overview_path = "./results/main_phase_1/strict_preference_reason_overview.csv") {
@@ -269,6 +297,10 @@ summarize_strict_preference_reasons <- function(df,
 }
 
 strict_preference_reason_summary <- summarize_strict_preference_reasons(data)
+
+# =============================================================================
+# ANALYSIS: LOGISTIC REGRESSIONS FOR BINARY OUTCOMES (PREFERENCE + EDITING)
+# =============================================================================
 
 # ===== MIXED-EFFECTS LOGISTIC REGRESSIONS ----
 fit_main_mixed_logit <- function(df,
@@ -332,7 +364,10 @@ run_main_mixed_models <- function(df,
 mixed_logit_results <- run_main_mixed_models(data)
 print(mixed_logit_results)
 
-# ===== MIXED-EFFECTS LINEAR REGRESSIONS ----
+# =============================================================================
+# ANALYSIS: LINEAR REGRESSIONS FOR CONTINUOUS OUTCOMES (EDITING)
+# =============================================================================
+
 fit_main_mixed_linear <- function(df,
                                   outcome,
                                   random_effects = "(1 | writer_id)") {
