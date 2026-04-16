@@ -1,7 +1,7 @@
 # Analysis
 
 This directory contains the analysis scripts used for the main study and the two follow-up studies.
-Each study-phase combination has its own subdirectory, alongside shared overview and preprocessing scripts.
+Each study has its own subdirectory, alongside shared overview and preprocessing scripts.
 
 - Root-level scripts contain cross-study summaries and shared preprocessing steps.
 - Study-specific subdirectories contain phase-specific statistical analyses and plotting scripts.
@@ -11,11 +11,9 @@ Each study-phase combination has its own subdirectory, alongside shared overview
 | Directory | Description |
 |------|-------------|
 | `.` | TODO |
-| `followup_disclaimer` | TODO |
-| `followup_mitigation` | TODO |
-| `main_phase_1` | TODO |
-| `main_phase_2_distortions` | TODO |
-| `main_phase_2_distributions` | TODO |
+| `1_main_study` | TODO |
+| `2_disclaimer_study` | TODO |
+| `3_mitigation_study` | TODO |
 | `utils_py` | TODO |
 | `utils_r` | TODO |
 
@@ -31,9 +29,9 @@ Top-level analysis scripts and shared entry points.
 
 ## Main Study
 
-### `main_phase_1`
+### `1_main_study`
 
-Scripts for the main study writer-side analyses.
+Scripts for the main study analyses.
 
 | File | Description |
 |------|-------------|
@@ -42,7 +40,7 @@ Scripts for the main study writer-side analyses.
 | `phase_1_paragraph_preference.R` | TODO |
 | `phase_1_writer_engagement.py` | TODO |
 
-### `main_phase_2_distortions`
+### Phase 2 Distortions
 
 Scripts for the main study reader-side distortion analyses.
 
@@ -56,7 +54,7 @@ Scripts for the main study reader-side distortion analyses.
 | `phase_2_distortion_plots.py` | TODO |
 | `phase_2_distortion_scale_variables.R` | TODO |
 
-### `main_phase_2_distributions`
+### Phase 2 Distributions
 
 Scripts for the main study reader-side distribution analyses.
 
@@ -70,7 +68,7 @@ Scripts for the main study reader-side distribution analyses.
 
 ## Follow-Up Studies
 
-### `followup_disclaimer`
+### `2_disclaimer_study`
 
 Scripts for the disclaimer-condition follow-up analyses.
 
@@ -79,7 +77,7 @@ Scripts for the disclaimer-condition follow-up analyses.
 | `phase_1_distortion_tolerance.py` | TODO |
 | `phase_1_paragraph_preference.R` | TODO |
 
-### `followup_mitigation`
+### `3_mitigation_study`
 
 Scripts for the mitigation-strategy follow-up analyses.
 
