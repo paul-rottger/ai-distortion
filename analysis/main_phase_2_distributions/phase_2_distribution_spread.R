@@ -3,12 +3,11 @@ suppressPackageStartupMessages({
 	library(tidyverse)
 })
 
+source("./analysis/utils_r/variable_definitions.R")
+source("./analysis/utils_r/data_loading.R")
+
 # ===== RANDOM SEED ----
 set.seed(123)
-
-# ===== DATA IMPORTS ----
-data <- read_csv("./data/main_phase_2/annotations.csv", show_col_types = FALSE)
-phase_1_preferences <- read_csv("./data/main_phase_1/proposition_responses.csv", show_col_types = FALSE)
 
 # ===== ANALYSIS CONFIG ----
 RESULTS_DIR <- "./results/main_phase_2_distribution"
@@ -19,59 +18,15 @@ DATA_SPLITS <- c(
 	"preferred"
 )
 
-# ===== DATA PROCESSING ----
-data <- data %>%
-	mutate(
-		rater_id = as.factor(rater_id),
-		writer_id = as.factor(writer_id),
-		proposition_id = as.factor(proposition_id),
-		paragraph_type_ = factor(paragraph_type),
-		writer_age_binned = factor(writer_age_binned, levels = c("18-29", "30-39", "40-49", "50-59", "60-69", "70+"), ordered = TRUE),
-		writer_english_first = factor(writer_english_first, levels = c("No", "Yes"), ordered = TRUE),
-		writer_english_skills = factor(writer_english_skills, levels = c("Basic", "Intermediate", "Advanced", "Expert"), ordered = TRUE),
-		writer_education = factor(writer_education, levels = c("GCSEs or equivalent", "A-levels or equivalent", "Vocational qualification", "Undergraduate degree", "Postgraduate degree (Master's)", "Doctorate (PhD)", "Other"), ordered = TRUE),
-		writer_income = factor(writer_income, levels = c("Under £15,000", "£15,000-£24,999", "£25,000-£34,999", "£35,000-£49,999", "£50,000-£74,999", "£75,000-£99,999", "£100,000+"), ordered = TRUE)
-	)
-
-# ===== DATA SPLITS ----
-data_unedited <- data %>%
-	filter(paragraph_type %in% c("writer", "model")) %>%
-	mutate(
-		paragraph_type_ = factor(paragraph_type),
-		paragraph_type_ = relevel(paragraph_type_, ref = "writer")
-	)
-
-data_edited <- data %>%
-	group_by(writer_id, proposition_id) %>%
-	filter(!(paragraph_type == "model" & any(paragraph_type == "edited"))) %>%
-	mutate(
-		paragraph_type = if_else(paragraph_type == "edited", "model", paragraph_type),
-		paragraph_type_ = factor(paragraph_type)
-	) %>%
-	ungroup() %>%
-	filter(paragraph_type_ %in% c("writer", "model")) %>%
-	mutate(paragraph_type_ = relevel(paragraph_type_, ref = "writer"))
-
-preferred_exclusions <- phase_1_preferences %>%
-	filter(writer_preference == "original") %>%
-	mutate(
-		writer_id = as.factor(writer_id),
-		proposition_id = as.factor(proposition_id)
-	) %>%
-	distinct(writer_id, proposition_id)
-
-data_preferred <- data_edited %>%
-	anti_join(preferred_exclusions, by = c("writer_id", "proposition_id"))
-
-rm(data, phase_1_preferences, preferred_exclusions)
-
-get_split_data <- function(data_split) {
-	switch(data_split,
-		unedited = data_unedited,
-		edited = data_edited,
-		preferred = data_preferred
-	)
-}
+# ===== DATA IMPORTS AND PROCESSING ----
+list2env(load_phase2_splits(
+	"./data/main_phase_2/annotations.csv",
+	"./data/main_phase_1/proposition_responses.csv",
+	extra_mutate = function(data) {
+		data %>%
+			mutate(across(all_of(ordinal_vars), ~ factor(.x, levels = ordinal_levels[[cur_column()]], ordered = TRUE)))
+	}
+), envir = environment())
 
 # ===== ATTRIBUTE LISTS ----
 scale_attributes <- c(

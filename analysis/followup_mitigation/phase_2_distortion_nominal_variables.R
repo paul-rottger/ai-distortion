@@ -5,13 +5,10 @@ suppressPackageStartupMessages({
 })
 
 source("./analysis/utils_r/variable_definitions.R")
+source("./analysis/utils_r/data_loading.R")
 
 # ===== RANDOM SEED ----
 set.seed(123)
-
-# ===== DATA IMPORTS ----
-data <- read_csv("./data/followup_mitigation_phase_2/annotations.csv", show_col_types = FALSE)
-phase_1_preferences <- read_csv("./data/followup_mitigation_phase_1/proposition_responses.csv", show_col_types = FALSE)
 
 mitigation_reference_level <- "writer"
 
@@ -23,57 +20,19 @@ relevel_if_present <- function(x, ref) {
 	}
 }
 
-# ===== DATA PROCESSING ----
-data <- data %>%
-	mutate(
-		rater_id = as.factor(rater_id),
-		writer_id = as.factor(writer_id),
-		proposition_id = as.factor(proposition_id),
-		model_ = factor(ifelse(
-			paragraph_type == "writer", "writer", model_name
-		)),
-		mitigation_condition_ = factor(ifelse(
-			paragraph_type == "writer", "writer", model_mitigation_condition
-		)),
-		model_and_mitigation_ = factor(ifelse(
-			paragraph_type == "writer",
-			"writer",
-			paste(model_name, model_mitigation_condition, sep = "__")
-		))
-	)
-data$model_ <- relevel_if_present(data$model_, ref = mitigation_reference_level)
-data$mitigation_condition_ <- relevel_if_present(data$mitigation_condition_, ref = mitigation_reference_level)
-data$model_and_mitigation_ <- relevel_if_present(data$model_and_mitigation_, ref = mitigation_reference_level)
-
-data_unedited <- data %>%
-	filter(paragraph_type %in% c("writer", "model")) %>%
-	mutate(
-		paragraph_type_ = as.factor(paragraph_type),
-		paragraph_type_ = relevel(paragraph_type_, ref = "writer")
-	)
-
-data_edited <- data %>%
-	group_by(writer_id, proposition_id) %>%
-	filter(!(paragraph_type == "model" & any(paragraph_type == "edited"))) %>%
-	mutate(
-		paragraph_type = if_else(paragraph_type == "edited", "model", paragraph_type),
-		paragraph_type_ = as.factor(paragraph_type),
-		paragraph_type_ = relevel(paragraph_type_, ref = "writer")
-	) %>%
-	ungroup()
-
-preferred_exclusions <- phase_1_preferences %>%
-	filter(writer_preference == "original") %>%
-	mutate(
-		writer_id = as.factor(writer_id),
-		proposition_id = as.factor(proposition_id)
-	) %>%
-	distinct(writer_id, proposition_id)
-
-data_preferred <- data_edited %>%
-	anti_join(preferred_exclusions, by = c("writer_id", "proposition_id"))
-
-rm(data, phase_1_preferences, preferred_exclusions)
+# ===== DATA IMPORTS AND PROCESSING ----
+list2env(load_phase2_splits(
+	"./data/followup_mitigation_phase_2/annotations.csv",
+	"./data/followup_mitigation_phase_1/proposition_responses.csv",
+	extra_mutate = function(data) {
+		data %>%
+			mutate(
+				model_                = relevel(factor(ifelse(paragraph_type == "writer", "writer", model_name)), ref = "writer"),
+				mitigation_condition_ = relevel(factor(ifelse(paragraph_type == "writer", "writer", model_mitigation_condition)), ref = "writer"),
+				model_and_mitigation_ = relevel(factor(ifelse(paragraph_type == "writer", "writer", paste(model_name, model_mitigation_condition, sep = "__"))), ref = "writer")
+			)
+	}
+), envir = environment())
 
 # ===== NOMINAL VARIABLES / REFERENCE CATEGORIES ----
 reference_levels <- c(

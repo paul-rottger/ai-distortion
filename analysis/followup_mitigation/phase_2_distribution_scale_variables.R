@@ -4,72 +4,21 @@ suppressPackageStartupMessages({
 })
 
 source("./analysis/utils_r/variable_definitions.R")
+source("./analysis/utils_r/data_loading.R")
 
 # ===== RANDOM SEED ----
 set.seed(123)
-
-# ===== DATA IMPORTS ----
-data <- read_csv("./data/followup_mitigation_phase_2/annotations.csv", show_col_types = FALSE)
-phase_1_preferences <- read_csv("./data/followup_mitigation_phase_1/proposition_responses.csv", show_col_types = FALSE)
 
 # ===== ANALYSIS CONFIG ----
 RESULTS_DIR <- "./results/followup_mitigation_phase_2_distribution"
 FIGURES_DIR <- "./figures/followup_mitigation_phase_2_distributions"
 DATA_SPLITS <- c("unedited", "edited", "preferred")
 
-# ===== DATA PROCESSING ----
-data <- data %>%
-  mutate(
-    rater_id = as.factor(rater_id),
-    writer_id = as.factor(writer_id),
-    proposition_id = as.factor(proposition_id),
-    paragraph_type_ = factor(paragraph_type)
-  )
-
-data$paragraph_type_ <- relevel(data$paragraph_type_, ref = "writer")
-
-# ===== DATA SPLITS ----
-data_unedited <- data %>%
-  filter(paragraph_type %in% c("writer", "model")) %>%
-  mutate(
-    paragraph_type_ = factor(paragraph_type),
-    paragraph_type_ = relevel(paragraph_type_, ref = "writer")
-  )
-
-data_edited <- data %>%
-  group_by(writer_id, proposition_id) %>%
-  filter(!(paragraph_type == "model" &
-             any(paragraph_type == "edited"))) %>%
-  mutate(
-    paragraph_type = if_else(paragraph_type == "edited",
-                             "model",
-                             paragraph_type),
-    paragraph_type_ = factor(paragraph_type)
-  ) %>%
-  ungroup()
-
-data_edited$paragraph_type_ <- relevel(data_edited$paragraph_type_, ref = "writer")
-
-preferred_exclusions <- phase_1_preferences %>%
-  filter(writer_preference == "original") %>%
-  mutate(
-    writer_id = as.factor(writer_id),
-    proposition_id = as.factor(proposition_id)
-  ) %>%
-  distinct(writer_id, proposition_id)
-
-data_preferred <- data_edited %>%
-  anti_join(preferred_exclusions, by = c("writer_id", "proposition_id"))
-
-rm(data, phase_1_preferences, preferred_exclusions)
-
-get_split_data <- function(data_split) {
-  switch(data_split,
-    unedited = data_unedited,
-    edited = data_edited,
-    preferred = data_preferred
-  )
-}
+# ===== DATA IMPORTS AND PROCESSING ----
+list2env(load_phase2_splits(
+  "./data/followup_mitigation_phase_2/annotations.csv",
+  "./data/followup_mitigation_phase_1/proposition_responses.csv"
+), envir = environment())
 
 # ===== CORRELATION HELPERS ----
 

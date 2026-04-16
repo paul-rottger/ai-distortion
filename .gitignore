@@ -21,6 +21,11 @@ participant_study_membership.csv
 .github/
 .claude/
 
+# Reranking outputs
+/reranking/finetuning_data/
+/reranking/rm_scores/
+/reranking/rm_evaluations/
+
 # Ignore Python bytecode and cache directories
 *.pyc
 __pycache__/

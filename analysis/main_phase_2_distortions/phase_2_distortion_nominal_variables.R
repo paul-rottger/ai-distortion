@@ -6,58 +6,23 @@ suppressPackageStartupMessages({
 })
 
 source("./analysis/utils_r/variable_definitions.R")
+source("./analysis/utils_r/data_loading.R")
 
 # ===== RANDOM SEED ----
 set.seed(123)
 
-# ===== DATA IMPORTS ----
-data <- read_csv("./data/main_phase_2/annotations.csv", show_col_types = FALSE)
-phase_1_preferences <- read_csv("./data/main_phase_1/proposition_responses.csv", show_col_types = FALSE)
-
-# ===== DATA PROCESSING ----
-data <- data %>%
-  mutate(
-    rater_id = as.factor(rater_id),
-    writer_id = as.factor(writer_id),
-    proposition_id = as.factor(proposition_id),
-    model_ = factor(ifelse(paragraph_type == "writer", "writer", model_name)),
-    input_condition_ = factor(ifelse(paragraph_type == "writer", "writer", model_input_condition))
-  )
-
-# Set reference category for predictors
-data$model_ <- relevel(data$model_, ref = "writer")
-data$input_condition_ <- relevel(data$input_condition_, ref = "writer")
-
-# Create unedited and edited subsets of data for later analyses
-data_unedited <- data %>%
-  filter(paragraph_type %in% c("writer", "model")) %>%
-  mutate(
-    paragraph_type_ = as.factor(paragraph_type),
-    paragraph_type_ = relevel(paragraph_type_, ref = "writer")
-  )
-
-data_edited <- data %>%
-  group_by(writer_id, proposition_id) %>%
-  filter(!(paragraph_type == "model" & any(paragraph_type == "edited"))) %>%
-  mutate(
-    paragraph_type = if_else(paragraph_type == "edited", "model", paragraph_type),
-    paragraph_type_ = as.factor(paragraph_type),
-    paragraph_type_ = relevel(paragraph_type_, ref = "writer")
-  ) %>%
-  ungroup()
-
-preferred_exclusions <- phase_1_preferences %>%
-  filter(writer_preference == "original") %>%
-  mutate(
-    writer_id = as.factor(writer_id),
-    proposition_id = as.factor(proposition_id)
-  ) %>%
-  distinct(writer_id, proposition_id)
-
-data_preferred <- data_edited %>%
-  anti_join(preferred_exclusions, by = c("writer_id", "proposition_id"))
-
-rm(data, phase_1_preferences, preferred_exclusions)
+# ===== DATA IMPORTS AND PROCESSING ----
+list2env(load_phase2_splits(
+  "./data/main_phase_2/annotations.csv",
+  "./data/main_phase_1/proposition_responses.csv",
+  extra_mutate = function(data) {
+    data %>%
+      mutate(
+        model_           = relevel(factor(ifelse(paragraph_type == "writer", "writer", model_name)), ref = "writer"),
+        input_condition_ = relevel(factor(ifelse(paragraph_type == "writer", "writer", model_input_condition)), ref = "writer")
+      )
+  }
+), envir = environment())
 
 # ===== NOMINAL VARIABLES / REFERENCE CATEGORIES ----
 reference_levels <- c(
