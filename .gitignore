@@ -12,13 +12,15 @@
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
-# specific files
+# Ignore specific files
 transfer_data.ipynb
 anonymise.py
 participant_study_membership.csv
 
+# Ignore directories
 .github/
+.claude/
 
 # Ignore Python bytecode and cache directories
 *.pyc
-__pycache__
+__pycache__/

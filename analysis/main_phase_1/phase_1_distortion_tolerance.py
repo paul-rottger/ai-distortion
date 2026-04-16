@@ -262,7 +262,7 @@ def create_tolerance_whisker_plot(
     return fig, ax
 
 
-for statistic in ["mean", "median"]:
+for statistic in ["mean"]:
     fig, ax = create_tolerance_whisker_plot(
         summary_df,
         statistic=statistic,  # or "median"
