@@ -4,6 +4,8 @@ suppressPackageStartupMessages({
 	library(mclogit)
 })
 
+source("./analysis/utils_r/variable_definitions.R")
+
 # ===== RANDOM SEED ----
 set.seed(123)
 
@@ -75,13 +77,6 @@ data_preferred <- data_edited %>%
 rm(data, phase_1_preferences, preferred_exclusions)
 
 # ===== NOMINAL VARIABLES / REFERENCE CATEGORIES ----
-nominal_vars <- c(
-	"writer_gender",
-	"writer_race",
-	"writer_politicalParty",
-	"writer_politicalIdeology"
-)
-
 reference_levels <- c(
 	writer_race = "White",
 	writer_gender = "Male",

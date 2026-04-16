@@ -6,6 +6,8 @@ suppressPackageStartupMessages({
   library(marginaleffects)
 })
 
+source("./analysis/utils_r/variable_definitions.R")
+
 # ===== RANDOM SEED ----
 set.seed(123)
 
@@ -162,31 +164,6 @@ run_regressions <- function(attribute) {
     }
   }
 }
-
-# Set scale rating attributes to analyse
-rating_attributes <- c(
-  "paragraph_formality",
-  "paragraph_clarity",
-  "paragraph_informativeness",
-  "paragraph_originality",
-  "paragraph_relevance",
-  "writer_knowledge",
-  "writer_importance",
-  "writer_confidence",
-  "writer_stance_polarity",
-  "paragraph_hope",
-  "paragraph_excitement",
-  "paragraph_fear",
-  "paragraph_disgust",
-  "paragraph_anger",
-  "writer_affect_x",
-  "writer_affect_y",
-  "writer_optimism",
-  "writer_optimism",
-  "writer_community",
-  "writer_friendliness",
-  "writer_openness"
-)
 
 # Loop through all rating attributes
 for (attr in rating_attributes) {

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
 import pandas as pd
@@ -9,36 +10,8 @@ BASE_DIR = Path(__file__).resolve().parents[2]
 RESULTS_BASE_DIR = BASE_DIR / "results" / "main_phase_2_distortion"
 SUMMARY_DIR_NAME = "summary"
 
-SCALE_ATTRIBUTES = [
-	"paragraph_formality",
-	"paragraph_clarity",
-	"paragraph_informativeness",
-	"paragraph_originality",
-	"paragraph_relevance",
-	"writer_knowledge",
-	"writer_importance",
-	"writer_confidence",
-	"writer_stance_polarity",
-	"paragraph_hope",
-	"paragraph_excitement",
-	"paragraph_fear",
-	"paragraph_disgust",
-	"paragraph_anger",
-	"writer_affect_x",
-	"writer_affect_y",
-	"writer_optimism",
-	"writer_community",
-	"writer_friendliness",
-	"writer_openness",
-]
-
-ORDINAL_ATTRIBUTES = [
-	"writer_english_first",
-	"writer_education",
-	"writer_english_skills",
-	"writer_income",
-	"writer_age_binned",
-]
+sys.path.insert(0, str(BASE_DIR / "analysis" / "utils_py"))
+from variable_definitions import SCALE_ATTRIBUTES, ORDINAL_VARS as ORDINAL_ATTRIBUTES  # noqa: E402
 
 DATA_SPLITS = ["preferred", "edited", "unedited"]
 

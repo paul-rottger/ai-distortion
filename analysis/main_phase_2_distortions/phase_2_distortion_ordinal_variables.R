@@ -6,6 +6,8 @@ suppressPackageStartupMessages({
   library(parallel)
 })
 
+source("./analysis/utils_r/variable_definitions.R")
+
 # ===== RANDOM SEED ----
 set.seed(123)
 
@@ -24,11 +26,7 @@ data <- data %>%
     writer_id = as.factor(writer_id),
     model_ = factor(ifelse(paragraph_type == "writer", "writer", model_name)),
     input_condition_ = factor(ifelse(paragraph_type == "writer", "writer", model_input_condition)),
-    writer_age_binned = factor(writer_age_binned, levels = c("18-29", "30-39", "40-49", "50-59", "60-69", "70+"), ordered = TRUE),
-    writer_english_first = factor(writer_english_first, levels = c("No", "Yes"), ordered = TRUE),
-    writer_english_skills = factor(writer_english_skills, levels = c("Basic", "Intermediate", "Advanced", "Expert"), ordered = TRUE),
-    writer_education = factor(writer_education, levels = c("GCSEs or equivalent", "A-levels or equivalent", "Vocational qualification", "Undergraduate degree", "Postgraduate degree (Master's)", "Doctorate (PhD)", "Other"), ordered = TRUE),
-    writer_income = factor(writer_income, levels = c("Under £15,000", "£15,000-£24,999", "£25,000-£34,999", "£35,000-£49,999", "£50,000-£74,999", "£75,000-£99,999", "£100,000+"), ordered = TRUE)
+    across(all_of(ordinal_vars), ~ factor(.x, levels = ordinal_levels[[cur_column()]], ordered = TRUE))
   )
 
 # Set reference category for predictors
@@ -66,13 +64,6 @@ data_preferred <- data_edited %>%
 
 rm(data, phase_1_preferences, preferred_exclusions)
 
-ordinal_vars <- c(
-  #"writer_english_first",
-  #"writer_education",
-  "writer_english_skills",
-  "writer_income",
-  "writer_age_binned"
-)
 
 # Create random data sample for debugging
 data_small <- data_unedited %>%

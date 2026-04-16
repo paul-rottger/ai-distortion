@@ -5,6 +5,8 @@ suppressPackageStartupMessages({
   library(ordinal)
 })
 
+source("./analysis/utils_r/variable_definitions.R")
+
 # ===== RANDOM SEED ----
 set.seed(123)
 
@@ -24,11 +26,7 @@ data <- data %>%
     writer_id = as.factor(writer_id),
     proposition_id = as.factor(proposition_id),
     paragraph_type_ = factor(paragraph_type),
-    writer_age_binned = factor(writer_age_binned, levels = c("18-29", "30-39", "40-49", "50-59", "60-69", "70+"), ordered = TRUE),
-    writer_english_first = factor(writer_english_first, levels = c("No", "Yes"), ordered = TRUE),
-    writer_english_skills = factor(writer_english_skills, levels = c("Basic", "Intermediate", "Advanced", "Expert"), ordered = TRUE),
-    writer_education = factor(writer_education, levels = c("GCSEs or equivalent", "A-levels or equivalent", "Vocational qualification", "Undergraduate degree", "Postgraduate degree (Master's)", "Doctorate (PhD)", "Other"), ordered = TRUE),
-    writer_income = factor(writer_income, levels = c("Under £15,000", "£15,000-£24,999", "£25,000-£34,999", "£35,000-£49,999", "£50,000-£74,999", "£75,000-£99,999", "£100,000+"), ordered = TRUE)
+    across(all_of(ordinal_vars), ~ factor(.x, levels = ordinal_levels[[cur_column()]], ordered = TRUE))
   )
 
 # Drop "other" category for writer_education - almost equal proportion <1% across groups, dropping fixes ordinality
@@ -132,14 +130,6 @@ run_all_ordinal_tests <- function(attribute) {
     )
   }
 }
-
-ordinal_vars <- c(
-  "writer_income",
-  "writer_age_binned",
-  "writer_english_first",
-  "writer_english_skills",
-  "writer_education"
-)
 
 # Loop through all rating attributes
 for (attr in ordinal_vars) {

@@ -1,4 +1,5 @@
 import os
+import sys
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -9,6 +10,9 @@ from matplotlib.lines import Line2D
 from scipy.stats import pearsonr, spearmanr
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+sys.path.insert(0, os.path.join(BASE_DIR, "..", "utils_py"))
+from variable_definitions import SCALE_ATTRIBUTES  # noqa: E402
 RESULTS_DIR = os.path.normpath(
 	os.path.join(BASE_DIR, "../../results/followup_mitigation_phase_2_distortion")
 )
@@ -34,28 +38,6 @@ BEST_FIT_LINE_COLOR = "#4c5c68"
 CHANGE_GROUP_OVERRIDES = {
 	"writer_openness": "liked",
 }
-SCALE_ATTRIBUTES = [
-	"paragraph_formality",
-	"paragraph_clarity",
-	"paragraph_informativeness",
-	"paragraph_originality",
-	"paragraph_relevance",
-	"writer_knowledge",
-	"writer_importance",
-	"writer_confidence",
-	"writer_stance_polarity",
-	"paragraph_hope",
-	"paragraph_excitement",
-	"paragraph_fear",
-	"paragraph_disgust",
-	"paragraph_anger",
-	"writer_affect_x",
-	"writer_affect_y",
-	"writer_optimism",
-	"writer_community",
-	"writer_friendliness",
-	"writer_openness",
-]
 
 DISTORTION_TOLERANCE_BAND_COLORS = {
 	"0_25": "#cc0000",

@@ -7,6 +7,7 @@ import seaborn as sns
 import numpy as np
 import matplotlib.colors as mcolors
 from scipy.stats import gaussian_kde
+import sys
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -15,6 +16,9 @@ warnings.filterwarnings("ignore")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.join(BASE_DIR, "..", "..")
 os.chdir(REPO_ROOT)
+
+sys.path.insert(0, os.path.join(REPO_ROOT, "analysis", "utils_py"))
+from variable_definitions import SCALE_ATTRIBUTES, CATEGORICAL_VARS, CATEGORICAL_LEVELS  # noqa: E402
 
 # Set plotting parameters
 plt.rcParams["font.size"] = 12
@@ -116,97 +120,6 @@ def build_split_datasets(annotations, preferences):
         "edited": data_edited,
         "preferred": data_preferred,
     }, dropped_model_rows
-
-# ===== SCALE VARIABLES DEFINITION =====
-SCALE_ATTRIBUTES = [
-    # Text quality
-    "paragraph_formality",
-    "paragraph_clarity",
-    "paragraph_informativeness",
-    "paragraph_originality",
-    "paragraph_relevance",
-    # Writer perception
-    "writer_knowledge",
-    "writer_importance",
-    "writer_confidence",
-    "writer_stance_polarity",
-    # Emotion scales
-    "paragraph_hope",
-    "paragraph_excitement",
-    "paragraph_fear",
-    "paragraph_disgust",
-    "paragraph_anger",
-    # Affect dimensions
-    "writer_affect_x",
-    "writer_affect_y",
-    # Social perception
-    "writer_optimism",
-    "writer_community",
-    "writer_friendliness",
-    "writer_openness",
-]
-
-# ===== CATEGORICAL VARIABLES DEFINITION =====
-CATEGORICAL_VARS = [
-    "writer_education",
-    "writer_english_skills",
-    "writer_income",
-    "writer_politicalParty",
-    "writer_age_binned",
-    "writer_english_first",
-    "writer_politicalIdeology",
-    "writer_gender",
-    "writer_race",
-]
-
-CATEGORICAL_LEVELS = {
-    "writer_age_binned": ["18-29", "30-39", "40-49", "50-59", "60-69", "70+"],
-    "writer_english_first": ["No", "Yes"],
-    "writer_english_skills": ["Basic", "Intermediate", "Advanced", "Expert"],
-    "writer_education": [
-        "GCSEs or equivalent",
-        "A-levels or equivalent",
-        "Vocational qualification",
-        "Undergraduate degree",
-        "Postgraduate degree (Master's)",
-        "Doctorate (PhD)",
-    ],
-    "writer_income": [
-        "Under £15,000",
-        "£15,000-£24,999",
-        "£25,000-£34,999",
-        "£35,000-£49,999",
-        "£50,000-£74,999",
-        "£75,000-£99,999",
-        "£100,000+",
-    ],
-    "writer_politicalIdeology": [
-        "Very Left-Wing",
-        "Moderately Left-Wing",
-        "Centrist",
-        "Moderately Right-Wing",
-        "Very Right-Wing",
-        "Other",
-    ],
-    "writer_politicalParty": [
-        "Labour",
-        "Conservative",
-        "Liberal Democrats",
-        "Greens",
-        "Scottish National Party",
-        "Did not vote",
-        "Not eligible to vote",
-        "Other",
-    ],
-    "writer_gender": ["Male", "Female", "Other"],
-    "writer_race": [
-        "White",
-        "Black",
-        "Asian",
-        "Mixed",
-        "Other",
-    ],
-}
 
 split_datasets, dropped_model_rows = build_split_datasets(
     annotations_df,
