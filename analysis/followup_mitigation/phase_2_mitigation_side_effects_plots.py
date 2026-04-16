@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+
+
+# =============================================================================
+# SETUP
+# =============================================================================
+
+# Package imports
 import os
 import sys
 
@@ -12,7 +20,6 @@ from scipy.stats import pearsonr, spearmanr
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 sys.path.insert(0, os.path.join(BASE_DIR, "..", "utils_py"))
-from variable_definitions import SCALE_ATTRIBUTES  # noqa: E402
 RESULTS_DIR = os.path.normpath(
 	os.path.join(BASE_DIR, "../../results/followup_mitigation_phase_2_distortion")
 )
@@ -25,6 +32,10 @@ FIGURES_DIR = os.path.normpath(
 DISTORTION_TOLERANCE_PATH = os.path.normpath(
 	os.path.join(BASE_DIR, "../../data/main_phase_1/distortion_responses_summary.csv")
 )
+
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
 
 PREFERRED_PARA_TYPE = "preferred"
 MITIGATIONS = ["prompting", "reranking"]
@@ -81,6 +92,13 @@ CORRELATION_RESULTS_PATH = os.path.join(
 	"scale_attribute_correlations.csv",
 )
 
+DISTORTION_TOLERANCE_LOOKUP: dict[str, float] = {}
+
+
+# =============================================================================
+# LOAD DATA
+# =============================================================================
+
 
 def load_significance_details(significance_details_path=SIGNIFICANCE_DETAILS_PATH):
 	if not os.path.exists(significance_details_path):
@@ -92,6 +110,18 @@ def load_correlation_data(correlation_results_path=CORRELATION_RESULTS_PATH):
 	if not os.path.exists(correlation_results_path):
 		return pd.DataFrame()
 	return pd.read_csv(correlation_results_path)
+
+
+def load_distortion_tolerance_lookup(
+	distortion_tolerance_path=DISTORTION_TOLERANCE_PATH,
+):
+	distortion_tolerance_df = pd.read_csv(distortion_tolerance_path)
+	return distortion_tolerance_df.set_index("distortion")["mean"].to_dict()
+
+
+# =============================================================================
+# ANALYSIS
+# =============================================================================
 
 
 def format_p_value(p_value):
@@ -250,11 +280,6 @@ def get_change_group(attribute, background_color, effect_value):
 
 	return None
 
-
-distortion_tolerance_df = pd.read_csv(DISTORTION_TOLERANCE_PATH)
-distortion_tolerance_lookup = distortion_tolerance_df.set_index("distortion")["mean"].to_dict()
-
-
 def build_side_effect_correlation_rows(
 	significance_details_df,
 	correlation_df,
@@ -297,7 +322,7 @@ def build_side_effect_correlation_rows(
 
 	plot_df["background_color"] = plot_df.apply(
 		lambda row: get_tolerance_band_color(
-			distortion_tolerance_lookup.get(
+			DISTORTION_TOLERANCE_LOOKUP.get(
 				get_distortion_label(row["attribute"], row["writer_ame"])
 			)
 		),
@@ -344,7 +369,7 @@ def build_mitigation_reduction_rows(significance_details_df, mitigation):
 
 	plot_df["background_color"] = plot_df.apply(
 		lambda row: get_tolerance_band_color(
-			distortion_tolerance_lookup.get(
+			DISTORTION_TOLERANCE_LOOKUP.get(
 				get_distortion_label(row["attribute"], row["writer_ame"])
 			)
 		),
@@ -639,9 +664,16 @@ def create_change_vs_stance_correlation_plot_from_significance_details(
 	return fig, ax
 
 
+# =============================================================================
+# OUTPUTS
+# =============================================================================
+
 def main():
+	global DISTORTION_TOLERANCE_LOOKUP
+
 	significance_details_df = load_significance_details()
 	correlation_df = load_correlation_data()
+	DISTORTION_TOLERANCE_LOOKUP = load_distortion_tolerance_lookup()
 
 	if not significance_details_df.empty and not correlation_df.empty:
 		preferred_figure_dir = os.path.join(FIGURES_DIR, PREFERRED_PARA_TYPE)

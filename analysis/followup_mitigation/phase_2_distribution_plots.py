@@ -1,24 +1,35 @@
 #!/usr/bin/env python3
 
+# =============================================================================
+# SETUP
+# =============================================================================
+
+# Package imports
 import os
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import numpy as np
 import matplotlib.colors as mcolors
-from scipy.stats import gaussian_kde
 import sys
 import warnings
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+from scipy.stats import gaussian_kde
 
 warnings.filterwarnings("ignore")
 
-# ===== SETUP =====
+# Path configuration
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-REPO_ROOT = os.path.join(BASE_DIR, "..", "..")
+REPO_ROOT = os.path.normpath(os.path.join(BASE_DIR, "..", ".."))
 os.chdir(REPO_ROOT)
 
+# Internal imports
 sys.path.insert(0, os.path.join(REPO_ROOT, "analysis", "utils_py"))
 from variable_definitions import SCALE_ATTRIBUTES, CATEGORICAL_VARS, CATEGORICAL_LEVELS  # noqa: E402
+
+# Plot configuration
+ANNOTATIONS_PATH = os.path.join(REPO_ROOT, "data", "followup_mitigation_phase_2", "annotations.csv")
+PREFERENCES_PATH = os.path.join(REPO_ROOT, "data", "followup_mitigation_phase_1", "proposition_responses.csv")
+OUTPUT_BASE_DIR = os.path.join(REPO_ROOT, "figures", "followup_mitigation_phase_2_distributions")
 
 # Set plotting parameters
 plt.rcParams["font.size"] = 12
@@ -33,12 +44,21 @@ colors = {
     "model": "#7030A0",  # Purple
 }
 ALL_SPLITS = ["unedited", "edited", "preferred"]
-OUTPUT_BASE_DIR = "figures/followup_mitigation_phase_2_distributions"
 
-# ===== DATA LOADING =====
-print("Loading phase 2 annotations data...")
-annotations_df = pd.read_csv("data/followup_mitigation_phase_2/annotations.csv")
-phase_1_preferences = pd.read_csv("data/followup_mitigation_phase_1/proposition_responses.csv")
+
+# =============================================================================
+# LOAD DATA
+# =============================================================================
+
+def load_phase_2_inputs() -> tuple[pd.DataFrame, pd.DataFrame]:
+    annotations_df = pd.read_csv(ANNOTATIONS_PATH)
+    phase_1_preferences_df = pd.read_csv(PREFERENCES_PATH)
+    return annotations_df, phase_1_preferences_df
+
+
+# =============================================================================
+# ANALYSIS
+# =============================================================================
 
 
 def prepare_annotations_data(df):
@@ -55,6 +75,7 @@ def prepare_annotations_data(df):
     # Match the R analysis scripts.
     data = data[data["writer_education"] != "Other"].copy()
     return data
+
 
 def replace_model_with_edited(df):
     """R-equivalent preprocessing:
@@ -121,17 +142,10 @@ def build_split_datasets(annotations, preferences):
         "preferred": data_preferred,
     }, dropped_model_rows
 
-split_datasets, dropped_model_rows = build_split_datasets(
-    annotations_df,
-    phase_1_preferences,
-)
-print(f"Loaded {len(annotations_df):,} raw annotations")
-print(f"Dropped {dropped_model_rows:,} model rows where edited rows existed")
-for split_name, split_df in split_datasets.items():
-    print(f"Prepared {split_name} split with {len(split_df):,} annotations")
 
-# ===== FIGURE OUTPUT DIRECTORY =====
-os.makedirs(OUTPUT_BASE_DIR, exist_ok=True)
+# =============================================================================
+# OUTPUTS
+# =============================================================================
 
 
 def get_split_output_dir(split_name):
@@ -1069,8 +1083,25 @@ def report_bonferroni_corrected_scale_pvalues(output_dir, data_split):
     print(f"\nSaved Bonferroni p-value table: {save_path}")
 
 
-# ===== MAIN EXECUTION =====
+# =============================================================================
+# MAIN EXECUTION
+# =============================================================================
+
 def main():
+    print("Loading phase 2 annotations data...")
+    annotations_df, phase_1_preferences = load_phase_2_inputs()
+    split_datasets, dropped_model_rows = build_split_datasets(
+        annotations_df,
+        phase_1_preferences,
+    )
+
+    print(f"Loaded {len(annotations_df):,} raw annotations")
+    print(f"Dropped {dropped_model_rows:,} model rows where edited rows existed")
+    for split_name, split_df in split_datasets.items():
+        print(f"Prepared {split_name} split with {len(split_df):,} annotations")
+
+    os.makedirs(OUTPUT_BASE_DIR, exist_ok=True)
+
     print("=== Distribution Plots for Phase 2 Variables ===")
     print(f"Output base directory: {OUTPUT_BASE_DIR}")
     print(f"Processing {len(SCALE_ATTRIBUTES)} scale variables across {len(ALL_SPLITS)} splits...")

@@ -1,22 +1,36 @@
-from __future__ import annotations
+#!/usr/bin/env python3
 
+# =============================================================================
+# SETUP
+# =============================================================================
+
+# Package imports
 from pathlib import Path
-
 import matplotlib
 import pandas as pd
 from Levenshtein import distance as levenshtein_distance
 from Levenshtein import ratio as levenshtein_ratio
-
-
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-
+# Path configuration
 BASE_DIR = Path(__file__).resolve().parents[2]
 DATA_PATH = BASE_DIR / "data" / "main_phase_1" / "proposition_responses.csv"
 FIGURES_DIR = BASE_DIR / "figures" / "main_phase_1"
 RESULTS_DIR = BASE_DIR / "results" / "main_phase_1"
 
+
+# =============================================================================
+# LOAD DATA
+# =============================================================================
+
+def load_responses() -> pd.DataFrame:
+	return pd.read_csv(DATA_PATH)
+
+
+# =============================================================================
+# ANALYSIS
+# =============================================================================
 
 def parse_made_edits(value: object) -> bool:
 	if pd.isna(value):
@@ -45,6 +59,10 @@ def build_writer_edit_count_table(df: pd.DataFrame) -> pd.DataFrame:
 
 	return counts[["edited_paragraph_count", "edited_paragraphs_label", "n_writers"]]
 
+
+# =============================================================================
+# OUTPUTS
+# =============================================================================
 
 def save_histogram(
 	values: pd.Series,
@@ -100,10 +118,6 @@ def save_histograms(edited_df: pd.DataFrame) -> None:
 		bins=50,
 		xlim=(0, 1),
 	)
-
-
-def load_responses() -> pd.DataFrame:
-	return pd.read_csv(DATA_PATH)
 
 
 def build_edit_metrics_table(df: pd.DataFrame) -> pd.DataFrame:
@@ -175,7 +189,7 @@ def write_outputs(
 	df: pd.DataFrame,
 	edited_df: pd.DataFrame,
 	edit_metrics_table: pd.DataFrame,
-) -> pd.DataFrame:
+) -> None:
 	RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 	save_histograms(edited_df)
 	edit_metrics_table.to_csv(
@@ -189,39 +203,12 @@ def write_outputs(
 		index=False,
 	)
 
-	return writer_edit_count_table
-
-
-def print_console_summary(edited_df: pd.DataFrame, writer_edit_count_table: pd.DataFrame) -> None:
-	distance_series = edited_df["levenshtein_distance"]
-	ratio_series = edited_df["levenshtein_ratio"]
-
-	print(f"Edited responses analyzed: {len(edited_df)}")
-	print(
-		"Levenshtein distance "
-		f"mean={distance_series.mean():.2f}, "
-		f"median={distance_series.median():.2f}, "
-		f"min={distance_series.min():.0f}, "
-		f"max={distance_series.max():.0f}"
-	)
-	print(
-		"Levenshtein ratio "
-		f"mean={ratio_series.mean():.4f}, "
-		f"median={ratio_series.median():.4f}, "
-		f"min={ratio_series.min():.4f}, "
-		f"max={ratio_series.max():.4f}"
-	)
-	print("Writer edit counts:")
-	for row in writer_edit_count_table.itertuples(index=False):
-		print(f"  {row.edited_paragraphs_label}: {row.n_writers}")
-
 
 def main() -> None:
 	df = load_responses()
 	edit_metrics_table = build_edit_metrics_table(df)
 	edited_df = load_edited_responses(df)
-	writer_edit_count_table = write_outputs(df, edited_df, edit_metrics_table)
-	print_console_summary(edited_df, writer_edit_count_table)
+	write_outputs(df, edited_df, edit_metrics_table)
 
 
 if __name__ == "__main__":

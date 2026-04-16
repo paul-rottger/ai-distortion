@@ -1,18 +1,25 @@
-from __future__ import annotations
+#!/usr/bin/env python3
 
+# =============================================================================
+# SETUP
+# =============================================================================
+
+# Package imports
 import sys
 from pathlib import Path
 
 import pandas as pd
 
-
+# Path configuration
 BASE_DIR = Path(__file__).resolve().parents[2]
 RESULTS_BASE_DIR = BASE_DIR / "results" / "main_phase_2_distortion"
 SUMMARY_DIR_NAME = "summary"
 
+# Internal imports
 sys.path.insert(0, str(BASE_DIR / "analysis" / "utils_py"))
 from variable_definitions import SCALE_ATTRIBUTES, ORDINAL_VARS as ORDINAL_ATTRIBUTES  # noqa: E402
 
+# Analysis configuration
 DATA_SPLITS = ["preferred", "edited", "unedited"]
 
 INPUT_CONDITION_TERMS = [
@@ -41,6 +48,10 @@ VARIABLE_GROUPS = {
 	},
 }
 
+
+# =============================================================================
+# LOAD DATA
+# =============================================================================
 
 def resolve_results_path(data_split: str, attribute: str) -> Path:
 	candidates = [
@@ -83,6 +94,10 @@ def load_attribute_results(data_split: str, attribute: str, metric_column: str) 
 	input_df["p_selected"] = input_df[p_column]
 	return input_df[["term", "p_selected", metric_column]].sort_values("term")
 
+
+# =============================================================================
+# ANALYSIS
+# =============================================================================
 
 def summarize_direction(metric_series: pd.Series, null_value: float) -> pd.Series:
 	if null_value == 0.0:
@@ -198,6 +213,10 @@ def build_group_summary(data_split: str, variable_type: str) -> tuple[pd.DataFra
 
 	return summary_table, pd.DataFrame(attribute_statuses)
 
+
+# =============================================================================
+# OUTPUTS
+# =============================================================================
 
 def main() -> None:
 	for data_split in DATA_SPLITS:

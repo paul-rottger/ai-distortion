@@ -9,7 +9,6 @@ source("./analysis/utils_r/variable_definitions.R")
 set.seed(123)
 
 # ===== DATA IMPORTS ----
-setwd("~/Documents/Repos/ai-distortion")
 data <- read_csv("./data/main_phase_2/annotations.csv", show_col_types = FALSE)
 phase_1_preferences <- read_csv("./data/main_phase_1/proposition_responses.csv", show_col_types = FALSE)
 
@@ -187,8 +186,6 @@ create_correlation_heatmap <- function(correlation_results, data_split) {
 
 run_test_by_type <- function(df, attribute) {
   
-  message("Running test for: ", attribute)
-  
   df_sub <- df %>%
     select(paragraph_type_, all_of(attribute)) %>%
     drop_na()
@@ -233,7 +230,6 @@ correlation_attributes <- rating_attributes
 # ===== RUN ALL TESTS ----
 
 for (attr in rating_attributes) {
-  message("Running tests for: ", attr)
 
   for (data_split in DATA_SPLITS) {
     dir.create(
@@ -257,7 +253,6 @@ for (attr in rating_attributes) {
 # ===== RUN CORRELATION ANALYSIS ----
 
 for (data_split in DATA_SPLITS) {
-  message("Running correlation analysis for: ", data_split)
 
   split_data <- get_split_data(data_split)
 

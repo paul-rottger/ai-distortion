@@ -4,8 +4,6 @@ suppressPackageStartupMessages({
 })
 
 # ===== SETTINGS ----
-setwd("~/Documents/Repos/ai-distortion")
-
 preferred_results_dir <- "./results/followup_mitigation_phase_2_distortion/preferred"
 detail_output_path <- file.path(preferred_results_dir, "mitigation_significance_details.csv")
 alpha <- 0.05

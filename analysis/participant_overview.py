@@ -1,14 +1,22 @@
+#!/usr/bin/env python3
+
+# =============================================================================
+# SETUP
+# =============================================================================
+
+# Package imports
 from pathlib import Path
 
 import pandas as pd
 
-
+# Path configuration
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "data"
 CENSUS_PATH = DATA_DIR / "ext" / "uk_census_2021.csv"
 RESULTS_DIR = BASE_DIR / "results" / "participant_demographics"
 ASSIGNMENT_RESULTS_DIR = BASE_DIR / "results" / "participant_assignment"
 
+# Study configuration
 STUDIES = [
     "main_phase_1",
     "main_phase_2",
@@ -79,34 +87,9 @@ ATTRIBUTE_CONFIG = {
 }
 
 
-def format_count_percent(counts: pd.Series, total_n: int) -> list[str]:
-    percents = (counts / total_n) * 100
-    return [
-        f"{count} ({percent:.1f}%)"
-        for count, percent in zip(counts.tolist(), percents.tolist())
-    ]
-
-
-def census_age_to_binned(age_label: str) -> str:
-    age_mapping = {
-        "18-19": "18-29",
-        "20-24": "18-29",
-        "25-29": "18-29",
-        "30-34": "30-39",
-        "35-39": "30-39",
-        "40-44": "40-49",
-        "45-49": "40-49",
-        "50-54": "50-59",
-        "55-59": "50-59",
-        "60-64": "60-69",
-        "65-69": "60-69",
-        "70-74": "70+",
-        "75-79": "70+",
-        "80-84": "70+",
-        "85+": "70+",
-    }
-    return age_mapping[age_label]
-
+# =============================================================================
+# LOAD DATA
+# =============================================================================
 
 def load_census_summaries() -> dict[str, pd.Series]:
     census_df = pd.read_csv(CENSUS_PATH)
@@ -172,6 +155,39 @@ def load_phase_2_annotations_by_study() -> dict[str, pd.DataFrame]:
         annotations_by_study[study] = pd.read_csv(annotations_path)
 
     return annotations_by_study
+
+
+# =============================================================================
+# ANALYSIS
+# =============================================================================
+
+def format_count_percent(counts: pd.Series, total_n: int) -> list[str]:
+    percents = (counts / total_n) * 100
+    return [
+        f"{count} ({percent:.1f}%)"
+        for count, percent in zip(counts.tolist(), percents.tolist())
+    ]
+
+
+def census_age_to_binned(age_label: str) -> str:
+    age_mapping = {
+        "18-19": "18-29",
+        "20-24": "18-29",
+        "25-29": "18-29",
+        "30-34": "30-39",
+        "35-39": "30-39",
+        "40-44": "40-49",
+        "45-49": "40-49",
+        "50-54": "50-59",
+        "55-59": "50-59",
+        "60-64": "60-69",
+        "65-69": "60-69",
+        "70-74": "70+",
+        "75-79": "70+",
+        "80-84": "70+",
+        "85+": "70+",
+    }
+    return age_mapping[age_label]
 
 
 def ordered_categories(series: pd.Series, attribute: str) -> list[str]:
@@ -363,6 +379,10 @@ def write_assignment_summaries(annotations_by_study: dict[str, pd.DataFrame]) ->
             index=False,
         )
 
+
+# =============================================================================
+# OUTPUTS
+# =============================================================================
 
 def main() -> None:
     participants_by_study = load_participants_by_study()

@@ -1,7 +1,15 @@
-import pandas as pd
+#!/usr/bin/env python3
+
+# =============================================================================
+# SETUP
+# =============================================================================
+
+# Package imports
 import os
 import sys
+
 import matplotlib
+import pandas as pd
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -9,12 +17,21 @@ from matplotlib.patches import Rectangle
 from adjustText import adjust_text
 from scipy.stats import linregress, pearsonr, spearmanr
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "utils_py"))
+# Path configuration
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+UTILS_DIR = os.path.normpath(os.path.join(BASE_DIR, "..", "utils_py"))
+RESULTS_DIR = os.path.normpath(os.path.join(BASE_DIR, "../../results/main_phase_2_distortion"))
+DISTRIBUTION_RESULTS_DIR = os.path.normpath(os.path.join(BASE_DIR, "../../results/main_phase_2_distribution"))
+FIGURES_DIR = os.path.normpath(os.path.join(BASE_DIR, "../../figures/main_phase_2_distortion"))
+DISTORTION_TOLERANCE_PATH = os.path.normpath(
+    os.path.join(BASE_DIR, "../../data/main_phase_1/distortion_responses_summary.csv")
+)
+
+# Internal imports
+sys.path.insert(0, UTILS_DIR)
 from variable_definitions import SCALE_ATTRIBUTES, ORDINAL_VARS as ORDINAL_ATTRIBUTES, NOMINAL_VARS as NOMINAL_ATTRIBUTES  # noqa: E402
 
-RESULTS_DIR = "../../results/main_phase_2_distortion/"
-DISTRIBUTION_RESULTS_DIR = "../../results/main_phase_2_distribution/"
-FIGURES_DIR = "../../figures/main_phase_2_distortion/"
+# Plot configuration
 ALL_SPLITS = ["unedited", "edited", "preferred"]
 DEFAULT_PLOT_SPLITS = ["preferred"]
 SUBSET_FILE_ALIASES = {
@@ -71,6 +88,10 @@ TERM_ORDERS = {
 
 SCALE_GROUP_BOUNDARIES = [2.5, 4.5, 9.5, 14.5]
 
+
+# =============================================================================
+# LOAD DATA
+# =============================================================================
 
 def load_results_by_attribute(attributes, subset_names, splits=None, results_dir=RESULTS_DIR):
     if splits is None:
@@ -133,6 +154,10 @@ def load_results_by_proposition_leaning(attributes, results_dir=RESULTS_DIR):
     return loaded_results
 
 
+# =============================================================================
+# OUTPUTS
+# =============================================================================
+
 def build_split_figure_path(split, filename):
     return os.path.join(FIGURES_DIR, split, filename)
 
@@ -141,6 +166,10 @@ def save_figure(fig, save_path):
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
     fig.savefig(save_path, dpi=300, bbox_inches="tight")
 
+
+# =============================================================================
+# ANALYSIS
+# =============================================================================
 
 def split_has_required_columns(
     results_dict,
@@ -519,6 +548,11 @@ def create_horizontal_odds_ratio_plot_nominal_grouped(
 
     return fig, ax
 
+
+# =============================================================================
+# MAIN EXECUTION
+# =============================================================================
+
 ################################
 # SCALE ATTRIBUTES - AME PLOTS
 ################################
@@ -771,9 +805,7 @@ def match_outcome_distortion_scale(row):
     return labels[0] if row.ame > 0 else labels[1]
 
 
-distortion_tolerance_df = pd.read_csv(
-    "../../data/main_phase_1/distortion_responses_summary.csv"
-)
+distortion_tolerance_df = pd.read_csv(DISTORTION_TOLERANCE_PATH)
 
 
 def create_ame_tolerance_scatterplot(

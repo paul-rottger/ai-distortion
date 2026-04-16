@@ -1,16 +1,29 @@
+#!/usr/bin/env python3
+
+# =============================================================================
+# SETUP
+# =============================================================================
+
+# Package imports
 from pathlib import Path
 
 import pandas as pd
 from pandas.api.types import is_numeric_dtype
 
-
+# Path configuration
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "data"
+
+# Aggregation configuration
 GROUP_COLUMNS = ["writer_id", "proposition_id", "paragraph_type"]
 EXCLUDED_COLUMNS = {"rater_id"}
 SOURCE_FILE_NAME = "annotations.csv"
 OUTPUT_FILE_NAME = "annotations_aggregated.csv"
 
+
+# =============================================================================
+# LOAD DATA
+# =============================================================================
 
 def phase_2_annotation_paths() -> list[Path]:
 	return sorted(
@@ -19,6 +32,10 @@ def phase_2_annotation_paths() -> list[Path]:
 		if "phase_2" in path.parent.name
 	)
 
+
+# =============================================================================
+# ANALYSIS
+# =============================================================================
 
 def modal_value(series: pd.Series):
 	non_null_values = [value for value in series.tolist() if pd.notna(value)]
@@ -68,6 +85,10 @@ def aggregate_file(source_path: Path) -> Path:
 	aggregated_df.to_csv(output_path, index=False)
 	return output_path
 
+
+# =============================================================================
+# OUTPUTS
+# =============================================================================
 
 def main() -> None:
 	annotation_paths = phase_2_annotation_paths()

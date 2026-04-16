@@ -4,8 +4,6 @@ suppressPackageStartupMessages({
 })
 
 # ===== DATA IMPORTS ----
-setwd("~/Documents/Repos/ai-distortion")
-
 studies <- c(
   "main_phase_1",
   "main_phase_2",

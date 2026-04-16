@@ -1,39 +1,90 @@
-import pandas as pd
-import numpy as np
-import os
+#!/usr/bin/env python3
+
+# =============================================================================
+# SETUP
+# =============================================================================
+
+# Package imports
+from pathlib import Path
 import matplotlib
+import numpy as np
+import pandas as pd
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
-# set up plot format: latex fonts
-from matplotlib import rc, font_manager
+# Path configuration
+BASE_DIR = Path(__file__).resolve().parents[2]
+DATA_PATH = BASE_DIR / "data" / "followup_disclaimer_phase_1" / "distortion_responses.csv"
+SUMMARY_OUTPUT_PATH = BASE_DIR / "data" / "followup_disclaimer_phase_1" / "distortion_responses_summary.csv"
+FIGURES_DIR = BASE_DIR / "figures" / "followup_disclaimer_phase_1"
+FIGURE_OUTPUT_TEMPLATE = "distortion_tolerance_{statistic}.pdf"
 
-font_files = font_manager.findSystemFonts(
-    fontpaths="/Users/paul/Library/Fonts", fontext="ttf"
-)
+DISTORTION_LABEL_MAPPING = {
+    "extreme_more": "[...] my opinion on an issue seem more extreme [...]",
+    "moderate_more": "[...] my opinion on an issue seem more moderate [...]",
+    "confidence_more": "[...] me seem more confident in my opinion [...]",
+    "confidence_less": "[...] me seem less confident in my opinion [...]",
+    "knowledge_more": "[...] me seem more knowledgeable about an issue [...]",
+    "knowledge_less": "[...] me seem less knowledgeable about an issue [...]",
+    "importance_more": "[...] an issue seem more important to me [...]",
+    "importance_less": "[...] an issue seem less important to me [...]",
+    "relevance_more": "[...] my writing seem more relevant or on-topic [...]",
+    "relevance_less": "[...] my writing seem less relevant or on-topic [...]",
+    "clarity_more": "[...] my opinion clearer to others [...]",
+    "clarity_less": "[...] my opinion less clear others [...]",
+    "formality_more": "[...] my writing seem more formal [...]",
+    "formality_less": "[...] my writing seem less formal [...]",
+    "informative_more": "[...] my writing seem more informative or educational [...]",
+    "informative_less": "[...] my writing seem less informative or educational [...]",
+    "originality_more": "[...] my writing seem more original or novel [...]",
+    "originality_less": "[...] my writing seem less original or novel [...]",
+    "friendliness_more": "[...] me seem more friendly [...]",
+    "friendliness_less": "[...] me seem less friendly [...]",
+    "optimism_more": "[...] me seem more optimistic [...]",
+    "optimism_less": "[...] me seem less optimistic [...]",
+    "community_more": "[...] me seem more community-oriented [...]",
+    "community_less": "[...] me seem less community-oriented [...]",
+    "open_views_more": "[...] me seem more open to reconsidering my views [...]",
+    "open_views_less": "[...] me seem less open to reconsidering my views [...]",
+    "hope_more": "[...] my writing express more hope [...]",
+    "hope_less": "[...] my writing express less hope [...]",
+    "excitement_more": "[...] my writing express more excitement [...]",
+    "excitement_less": "[...] my writing express less excitement [...]",
+    "fear_more": "[...] my writing express more fear [...]",
+    "fear_less": "[...] my writing express less fear [...]",
+    "disgust_more": "[...] my writing express more disgust [...]",
+    "disgust_less": "[...] my writing express less disgust [...]",
+    "anger_more": "[...] my writing express more anger [...]",
+    "anger_less": "[...] my writing express less anger [...]",
+    "age_older": "[...] me seem older [...]",
+    "age_younger": "[...] me seem younger [...]",
+    "gender_different": "[...] my gender seem different [...]",
+    "race_different": "[...] my race or ethnicity seem different [...]",
+    "english_better": "[...] my English language skills seem better [...]",
+    "english_worse": "[...] my English language skills seem worse [...]",
+    "education_more": "[...] me seem more educated [...]",
+    "education_less": "[...] me seem less educated [...]",
+    "income_higher": "[...] my income seem higher [...]",
+    "income_lower": "[...] my income seem lower [...]",
+    "politics_party_different": "[...] it seem like I voted for a different political party [...]",
+    "politics_extreme": "[...] me seem more politically extreme [...]",
+    "politics_moderate": "[...] me seem more politically moderate / centrist [...]",
+}
 
-for font_file in font_files:
-    font_manager.fontManager.addfont(font_file)
 
-rc("font", **{"family": "serif", "serif": ["CMU Serif"]})
-rc("text", usetex=False)
-plt.rcParams.update({"text.color": "black"})
-plt.rcParams.update({"font.size": 12})
+# =============================================================================
+# LOAD DATA
+# =============================================================================
 
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.normpath(
-    os.path.join(BASE_DIR, "../../data/followup_disclaimer_phase_1")
-)
-FIGURES_DIR = os.path.normpath(
-    os.path.join(BASE_DIR, "../../figures/followup_disclaimer_phase_1")
-)
+def load_distortion_responses() -> pd.DataFrame:
+    return pd.read_csv(DATA_PATH)
 
 
-# load data
-distortion_df = pd.read_csv(os.path.join(DATA_DIR, "distortion_responses.csv"))
+# =============================================================================
+# ANALYSIS
+# =============================================================================
 
 
 def create_summary_with_bootstrap_ci(
@@ -91,72 +142,9 @@ def create_summary_with_bootstrap_ci(
             }
         )
 
-    if save_path is not None:
-        pd.DataFrame(results).to_csv(save_path, index=False)
-
     return pd.DataFrame(results)
 
 
-summary_df = create_summary_with_bootstrap_ci(
-    distortion_df,
-    id_col="writer_id",
-    n_boot=1000,
-    ci=0.95,
-    random_state=42,
-    save_path=os.path.join(DATA_DIR, "distortion_responses_summary.csv"),
-)
-
-distortion_label_mapping = {
-    "extreme_more": "[...] my opinion on an issue seem more extreme [...]",
-    "moderate_more": "[...] my opinion on an issue seem more moderate [...]",
-    "confidence_more": "[...] me seem more confident in my opinion [...]",
-    "confidence_less": "[...] me seem less confident in my opinion [...]",
-    "knowledge_more": "[...] me seem more knowledgeable about an issue [...]",
-    "knowledge_less": "[...] me seem less knowledgeable about an issue [...]",
-    "importance_more": "[...] an issue seem more important to me [...]",
-    "importance_less": "[...] an issue seem less important to me [...]",
-    "relevance_more": "[...] my writing seem more relevant or on-topic [...]",
-    "relevance_less": "[...] my writing seem less relevant or on-topic [...]",
-    "clarity_more": "[...] my opinion clearer to others [...]",
-    "clarity_less": "[...] my opinion less clear others [...]",
-    "formality_more": "[...] my writing seem more formal [...]",
-    "formality_less": "[...] my writing seem less formal [...]",
-    "informative_more": "[...] my writing seem more informative or educational [...]",
-    "informative_less": "[...] my writing seem less informative or educational [...]",
-    "originality_more": "[...] my writing seem more original or novel [...]",
-    "originality_less": "[...] my writing seem less original or novel [...]",
-    "friendliness_more": "[...] me seem more friendly [...]",
-    "friendliness_less": "[...] me seem less friendly [...]",
-    "optimism_more": "[...] me seem more optimistic [...]",
-    "optimism_less": "[...] me seem less optimistic [...]",
-    "community_more": "[...] me seem more community-oriented [...]",
-    "community_less": "[...] me seem less community-oriented [...]",
-    "open_views_more": "[...] me seem more open to reconsidering my views [...]",
-    "open_views_less": "[...] me seem less open to reconsidering my views [...]",
-    "hope_more": "[...] my writing express more hope [...]",
-    "hope_less": "[...] my writing express less hope [...]",
-    "excitement_more": "[...] my writing express more excitement [...]",
-    "excitement_less": "[...] my writing express less excitement [...]",
-    "fear_more": "[...] my writing express more fear [...]",
-    "fear_less": "[...] my writing express less fear [...]",
-    "disgust_more": "[...] my writing express more disgust [...]",
-    "disgust_less": "[...] my writing express less disgust [...]",
-    "anger_more": "[...] my writing express more anger [...]",
-    "anger_less": "[...] my writing express less anger [...]",
-    "age_older": "[...] me seem older [...]",
-    "age_younger": "[...] me seem younger [...]",
-    "gender_different": "[...] my gender seem different [...]",
-    "race_different": "[...] my race or ethnicity seem different [...]",
-    "english_better": "[...] my English language skills seem better [...]",
-    "english_worse": "[...] my English language skills seem worse [...]",
-    "education_more": "[...] me seem more educated [...]",
-    "education_less": "[...] me seem less educated [...]",
-    "income_higher": "[...] my income seem higher [...]",
-    "income_lower": "[...] my income seem lower [...]",
-    "politics_party_different": "[...] it seem like I voted for a different political party [...]",
-    "politics_extreme": "[...] me seem more politically extreme [...]",
-    "politics_moderate": "[...] me seem more politically moderate / centrist [...]",
-}
 
 
 def create_tolerance_whisker_plot(
@@ -273,15 +261,42 @@ def create_tolerance_whisker_plot(
     return fig, ax
 
 
-for statistic in ["mean"]:
-    fig, ax = create_tolerance_whisker_plot(
-        summary_df,
-        statistic=statistic,  # or "median"
-        label_mapping=distortion_label_mapping,
-        save_path=os.path.join(
-            FIGURES_DIR, f"distortion_tolerance_{statistic}.pdf"
-        ),
-    )
-    plt.close(fig)
+# =============================================================================
+# OUTPUTS
+# =============================================================================
 
-plt.close("all")
+def write_summary(summary_df: pd.DataFrame) -> None:
+    summary_df.to_csv(SUMMARY_OUTPUT_PATH, index=False)
+
+
+def save_tolerance_plots(summary_df: pd.DataFrame) -> None:
+    FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+
+    for statistic in ["mean"]:
+        figure_path = FIGURES_DIR / FIGURE_OUTPUT_TEMPLATE.format(statistic=statistic)
+        fig, _ = create_tolerance_whisker_plot(
+            summary_df,
+            statistic=statistic,
+            label_mapping=DISTORTION_LABEL_MAPPING,
+            save_path=str(figure_path),
+        )
+        plt.close(fig)
+
+    plt.close("all")
+
+
+def main() -> None:
+    distortion_df = load_distortion_responses()
+    summary_df = create_summary_with_bootstrap_ci(
+        distortion_df,
+        id_col="writer_id",
+        n_boot=1000,
+        ci=0.95,
+        random_state=42,
+    )
+    write_summary(summary_df)
+    save_tolerance_plots(summary_df)
+
+
+if __name__ == "__main__":
+    main()

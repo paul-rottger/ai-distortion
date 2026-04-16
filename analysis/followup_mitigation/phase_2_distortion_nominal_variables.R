@@ -10,7 +10,6 @@ source("./analysis/utils_r/variable_definitions.R")
 set.seed(123)
 
 # ===== DATA IMPORTS ----
-setwd("~/Documents/Repos/ai-distortion")
 data <- read_csv("./data/followup_mitigation_phase_2/annotations.csv", show_col_types = FALSE)
 phase_1_preferences <- read_csv("./data/followup_mitigation_phase_1/proposition_responses.csv", show_col_types = FALSE)
 
@@ -95,7 +94,6 @@ empty_nominal_results <- function() {
 		statistic = numeric(),
 		p = numeric(),
 		p_value = numeric(),
-		total_variation_distance = numeric()
 	)
 }
 
@@ -153,49 +151,6 @@ fit_multinomial_logit_model <- function(df,
 	)
 }
 
-calculate_total_variation_distance <- function(model_fit,
-																	 predictor = "model_and_mitigation_") {
-	predictor_levels <- levels(model_fit$model_df[[predictor]])
-
-	if (!(mitigation_reference_level %in% predictor_levels)) {
-		return(tibble(
-			term = character(),
-			total_variation_distance = numeric()
-		))
-	}
-
-	newdata <- setNames(
-		data.frame(factor(predictor_levels, levels = predictor_levels)),
-		predictor
-	)
-
-	if ("rater_id" %in% names(model_fit$model_df)) {
-		newdata$rater_id <- model_fit$model_df$rater_id[[1]]
-	}
-
-	predicted_probs <- tryCatch(
-		predict(model_fit$model, newdata = newdata, type = "response"),
-		error = function(e) NULL
-	)
-
-	if (is.null(predicted_probs) || nrow(predicted_probs) != length(predictor_levels)) {
-		return(tibble(
-			term = character(),
-			total_variation_distance = numeric()
-		))
-	}
-
-	reference_index <- match(mitigation_reference_level, predictor_levels)
-	comparison_levels <- predictor_levels[predictor_levels != mitigation_reference_level]
-
-	tibble(
-		term = paste0(predictor, comparison_levels),
-		total_variation_distance = map_dbl(comparison_levels, function(level_name) {
-			level_index <- match(level_name, predictor_levels)
-			0.5 * sum(abs(predicted_probs[level_index, ] - predicted_probs[reference_index, ]))
-		})
-	)
-}
 
 fit_multinomial_logit <- function(df,
 																	outcome,
@@ -224,7 +179,6 @@ fit_multinomial_logit <- function(df,
 	}
 
 	term_prefix <- paste0("^", predictor)
-	tvd_by_term <- calculate_total_variation_distance(model_fit, predictor = predictor)
 
 	as_tibble(coefs, rownames = "row_id") %>%
 		separate(row_id, into = c("target_level", "term"), sep = "~", remove = TRUE) %>%
@@ -239,8 +193,7 @@ fit_multinomial_logit <- function(df,
 			statistic = `z value`,
 			p = `Pr(>|z|)`,
 			p_value = `Pr(>|z|)`
-		) %>%
-		left_join(tvd_by_term, by = "term")
+		)
 }
 
 # Debug run

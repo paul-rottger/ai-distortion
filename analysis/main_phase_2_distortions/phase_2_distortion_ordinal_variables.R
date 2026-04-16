@@ -15,7 +15,6 @@ set.seed(123)
 RUN_DEBUG_ONLY <- FALSE
 
 # ===== DATA IMPORTS ----
-setwd("~/Documents/Repos/ai-distortion")
 data <- read_csv("./data/main_phase_2/annotations.csv", show_col_types = FALSE)
 phase_1_preferences <- read_csv("./data/main_phase_1/proposition_responses.csv", show_col_types = FALSE)
 

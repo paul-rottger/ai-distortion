@@ -33,6 +33,8 @@ To reproduce the statistical analyses and figures from the paper: `[TODO]`
 | Mitigation study - writer data | [TO ADD] | `data/followup_mitigation_phase_1/` |
 | Mitigation study - reader data | [TO ADD] | `data/followup_mitigation_phase_2/` |
 
+For more details, see `data/README.md`.
+
 ## License
 
 This work is licensed under a Creative Commons Attribution 4.0 International License.

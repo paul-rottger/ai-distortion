@@ -1,6 +1,13 @@
-import pandas as pd
+#!/usr/bin/env python3
+
+# =============================================================================
+# SETUP
+# =============================================================================
+
+# Package imports
 import os
 import sys
+import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
@@ -9,10 +16,11 @@ from matplotlib.lines import Line2D
 from adjustText import adjust_text
 from scipy.stats import pearsonr, spearmanr
 
+# Path configuration
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 sys.path.insert(0, os.path.join(BASE_DIR, "..", "utils_py"))
-from variable_definitions import ORDINAL_VARS as ORDINAL_ATTRIBUTES, NOMINAL_VARS as NOMINAL_ATTRIBUTES  # noqa: E402
+from variable_definitions import ORDINAL_VARS as ORDINAL_ATTRIBUTES, NOMINAL_VARS as NOMINAL_ATTRIBUTES
 RESULTS_DIR = os.path.normpath(os.path.join(BASE_DIR, "../../results/followup_mitigation_phase_2_distortion"))
 FIGURES_DIR = os.path.normpath(os.path.join(BASE_DIR, "../../figures/followup_mitigation_phase_2_distortion"))
 CORRELATION_RESULTS_DIR = os.path.normpath(
@@ -22,6 +30,7 @@ DISTORTION_TOLERANCE_PATH = os.path.normpath(
     os.path.join(BASE_DIR, "../../data/main_phase_1/distortion_responses_summary.csv")
 )
 
+# Plot configuration
 PARA_TYPES = ["unedited", "edited", "preferred"]
 SUBSET = "by_mitigation"
 EXCLUDED_ATTRIBUTES = {"writer_affect_x", "writer_affect_y"}
@@ -104,9 +113,12 @@ OUTCOME_MAP = {
 }
 SIGNIFICANCE_DETAILS_FILENAME = "mitigation_significance_details.csv"
 
-################################
-# SCALE ATTRIBUTES
-################################
+DISTORTION_TOLERANCE_LOOKUP: dict[str, float] = {}
+
+
+# =============================================================================
+# LOAD DATA
+# =============================================================================
 
 def get_scale_attributes(results_dir=RESULTS_DIR, para_type="edited", subset=SUBSET):
     directory = os.path.join(results_dir, para_type)
@@ -126,9 +138,6 @@ def get_scale_attributes(results_dir=RESULTS_DIR, para_type="edited", subset=SUB
             attributes.append(attribute)
 
     return sorted(attributes)
-
-
-SCALE_ATTRIBUTES = get_scale_attributes()
 
 CORRELATION_TARGET_ATTRIBUTE = "writer_stance_polarity"
 
@@ -188,6 +197,17 @@ def load_significance_details(
     return significance_details
 
 
+def load_distortion_tolerance_lookup(
+    distortion_tolerance_path=DISTORTION_TOLERANCE_PATH,
+):
+    distortion_tolerance_df = pd.read_csv(distortion_tolerance_path)
+    return distortion_tolerance_df.set_index("distortion")["mean"].to_dict()
+
+
+# =============================================================================
+# OUTPUTS
+# =============================================================================
+
 def build_split_figure_path(split, filename):
     return os.path.join(FIGURES_DIR, split, filename)
 
@@ -196,6 +216,10 @@ def save_figure(fig, save_path):
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
     fig.savefig(save_path, dpi=300, bbox_inches="tight")
 
+
+# =============================================================================
+# ANALYSIS
+# =============================================================================
 
 def prettify_term_label(term):
     return MITIGATION_TERM_LABELS.get(term, term)
@@ -522,16 +546,6 @@ def create_horizontal_odds_ratio_plot_nominal_grouped(
     return fig, ax
 
 
-regression_data = load_regression_data(SCALE_ATTRIBUTES)
-grouped_scale_data = load_results_by_attribute(GROUPED_SCALE_ATTRIBUTES)
-ordinal_regression_data = load_results_by_attribute(ORDINAL_ATTRIBUTES)
-nominal_regression_data = load_results_by_attribute(NOMINAL_ATTRIBUTES)
-correlation_data = load_correlation_data()
-significance_details_data = load_significance_details()
-distortion_tolerance_df = pd.read_csv(DISTORTION_TOLERANCE_PATH)
-distortion_tolerance_lookup = distortion_tolerance_df.set_index("distortion")["mean"].to_dict()
-
-
 def create_summary_rows(
     regression_data,
     para_type,
@@ -773,7 +787,7 @@ def get_summary_row_backgrounds(summary_df, attribute_order, nonsignificant_attr
             continue
 
         distortion_label = get_distortion_label(attribute, none_df.at[attribute, "ame"])
-        tolerance_mean = distortion_tolerance_lookup.get(distortion_label)
+        tolerance_mean = DISTORTION_TOLERANCE_LOOKUP.get(distortion_label)
         row_backgrounds[attribute] = get_tolerance_band_color(tolerance_mean)
 
     return row_backgrounds
@@ -1294,7 +1308,7 @@ def build_side_effect_correlation_rows(
     plot_df["attribute_label"] = plot_df["attribute"].str.replace("_", " ")
     plot_df["background_color"] = plot_df.apply(
         lambda row: get_tolerance_band_color(
-            distortion_tolerance_lookup.get(
+            DISTORTION_TOLERANCE_LOOKUP.get(
                 get_side_effect_distortion_label(row["attribute"], row["writer_ame"])
             )
         ),
@@ -1336,7 +1350,7 @@ def build_mitigation_reduction_rows(significance_details_df, mitigation):
 
     plot_df["background_color"] = plot_df.apply(
         lambda row: get_tolerance_band_color(
-            distortion_tolerance_lookup.get(
+            DISTORTION_TOLERANCE_LOOKUP.get(
                 get_side_effect_distortion_label(row["attribute"], row["writer_ame"])
             )
         ),
@@ -1630,127 +1644,148 @@ def create_change_vs_stance_correlation_plot_from_significance_details(
 
     return fig, ax
 
-os.makedirs(FIGURES_DIR, exist_ok=True)
 
-for para_type in PARA_TYPES:
-    para_type_figure_dir = os.path.join(FIGURES_DIR, para_type)
-    os.makedirs(para_type_figure_dir, exist_ok=True)
+def main():
+    global DISTORTION_TOLERANCE_LOOKUP
 
-    available_scale_attributes = get_available_attributes(
-        grouped_scale_data,
-        para_type,
-        GROUPED_SCALE_ATTRIBUTES,
-        ["term", "ame", "ame_low", "ame_high"],
-    )
-    if available_scale_attributes:
-        fig, ax = create_horizontal_grouped_effect_plot(
+    scale_attributes = get_scale_attributes()
+    regression_data = load_regression_data(scale_attributes)
+    grouped_scale_data = load_results_by_attribute(GROUPED_SCALE_ATTRIBUTES)
+    ordinal_regression_data = load_results_by_attribute(ORDINAL_ATTRIBUTES)
+    nominal_regression_data = load_results_by_attribute(NOMINAL_ATTRIBUTES)
+    correlation_data = load_correlation_data()
+    significance_details_data = load_significance_details()
+    DISTORTION_TOLERANCE_LOOKUP = load_distortion_tolerance_lookup()
+
+    os.makedirs(FIGURES_DIR, exist_ok=True)
+
+    for para_type in PARA_TYPES:
+        para_type_figure_dir = os.path.join(FIGURES_DIR, para_type)
+        os.makedirs(para_type_figure_dir, exist_ok=True)
+
+        available_scale_attributes = get_available_attributes(
             grouped_scale_data,
-            attributes=GROUPED_SCALE_ATTRIBUTES,
-            split=para_type,
-            estimate_column="ame",
-            lower_column="ame_low",
-            upper_column="ame_high",
-            figsize=(8, 10),
-            xlabel="Average Marginal Effect (AME) for AI vs. Writer Paragraphs.\nLarger = More Distortion from AI.",
-            ylabel=None,
-            reference_line=0,
-            save_path=build_split_figure_path(
-                para_type,
-                "distortion_scale_variables_ame_by_mitigation.pdf",
-            ),
-            group_boundaries=SCALE_GROUP_BOUNDARIES,
+            para_type,
+            GROUPED_SCALE_ATTRIBUTES,
+            ["term", "ame", "ame_low", "ame_high"],
         )
-        plt.close(fig)
+        if available_scale_attributes:
+            fig, _ = create_horizontal_grouped_effect_plot(
+                grouped_scale_data,
+                attributes=GROUPED_SCALE_ATTRIBUTES,
+                split=para_type,
+                estimate_column="ame",
+                lower_column="ame_low",
+                upper_column="ame_high",
+                figsize=(8, 10),
+                xlabel="Average Marginal Effect (AME) for AI vs. Writer Paragraphs.\nLarger = More Distortion from AI.",
+                ylabel=None,
+                reference_line=0,
+                save_path=build_split_figure_path(
+                    para_type,
+                    "distortion_scale_variables_ame_by_mitigation.pdf",
+                ),
+                group_boundaries=SCALE_GROUP_BOUNDARIES,
+            )
+            plt.close(fig)
 
-    available_ordinal_attributes = get_available_attributes(
-        ordinal_regression_data,
-        para_type,
-        ORDINAL_ATTRIBUTES,
-        ["term", "odds_ratio", "or_low", "or_high"],
-    )
-    if available_ordinal_attributes:
-        fig, ax = create_horizontal_grouped_effect_plot(
+        available_ordinal_attributes = get_available_attributes(
             ordinal_regression_data,
-            attributes=ORDINAL_ATTRIBUTES,
-            split=para_type,
-            estimate_column="odds_ratio",
-            lower_column="or_low",
-            upper_column="or_high",
-            figsize=(8, 4),
-            xlabel="Odds Ratio for AI vs. Writer Paragraphs.\nHigher = More Distortion from AI.",
-            ylabel=None,
-            reference_line=1,
-            save_path=build_split_figure_path(
-                para_type,
-                "distortion_ordinal_variables_odds_ratio_by_mitigation.pdf",
-            ),
+            para_type,
+            ORDINAL_ATTRIBUTES,
+            ["term", "odds_ratio", "or_low", "or_high"],
         )
-        plt.close(fig)
+        if available_ordinal_attributes:
+            fig, _ = create_horizontal_grouped_effect_plot(
+                ordinal_regression_data,
+                attributes=ORDINAL_ATTRIBUTES,
+                split=para_type,
+                estimate_column="odds_ratio",
+                lower_column="or_low",
+                upper_column="or_high",
+                figsize=(8, 4),
+                xlabel="Odds Ratio for AI vs. Writer Paragraphs.\nHigher = More Distortion from AI.",
+                ylabel=None,
+                reference_line=1,
+                save_path=build_split_figure_path(
+                    para_type,
+                    "distortion_ordinal_variables_odds_ratio_by_mitigation.pdf",
+                ),
+            )
+            plt.close(fig)
 
-    available_nominal_attributes = get_available_attributes(
-        nominal_regression_data,
-        para_type,
-        NOMINAL_ATTRIBUTES,
-        ["term", "odds_ratio", "or_low", "or_high", "target_level", "reference_level"],
-    )
-    if available_nominal_attributes:
-        fig, ax = create_horizontal_odds_ratio_plot_nominal_grouped(
+        available_nominal_attributes = get_available_attributes(
             nominal_regression_data,
-            split=para_type,
-            ylabel=None,
-            save_path=build_split_figure_path(
-                para_type,
-                "distortion_nominal_variables_odds_ratio_by_mitigation.pdf",
-            ),
+            para_type,
+            NOMINAL_ATTRIBUTES,
+            ["term", "odds_ratio", "or_low", "or_high", "target_level", "reference_level"],
         )
-        plt.close(fig)
+        if available_nominal_attributes:
+            fig, _ = create_horizontal_odds_ratio_plot_nominal_grouped(
+                nominal_regression_data,
+                split=para_type,
+                ylabel=None,
+                save_path=build_split_figure_path(
+                    para_type,
+                    "distortion_nominal_variables_odds_ratio_by_mitigation.pdf",
+                ),
+            )
+            plt.close(fig)
 
-    fig, ax = create_summary_ame_plot(
-        regression_data,
-        para_type=para_type,
-        scale_attributes=SCALE_ATTRIBUTES,
-        save_path=os.path.join(
-            para_type_figure_dir,
-            "ame_summary_by_mitigation.pdf",
-        ),
-    )
-    if fig is not None:
-        plt.close(fig)
-
-    fig, ax = create_change_vs_stance_correlation_plot(
-        regression_data,
-        correlation_data,
-        para_type=para_type,
-        scale_attributes=SCALE_ATTRIBUTES,
-        save_path=os.path.join(
-            para_type_figure_dir,
-            "ame_change_vs_stance_correlation.pdf",
-        ),
-    )
-    if fig is not None:
-        plt.close(fig)
-
-    if para_type in significance_details_data and para_type in correlation_data:
-        fig, ax = create_mitigation_reduction_plot(
-            significance_details_data[para_type],
-            mitigation="reranking",
+        fig, _ = create_summary_ame_plot(
+            regression_data,
+            para_type=para_type,
+            scale_attributes=scale_attributes,
             save_path=os.path.join(
                 para_type_figure_dir,
-                "reranking_distortion_reduction_vs_writer.pdf",
+                "ame_summary_by_mitigation.pdf",
             ),
         )
         if fig is not None:
             plt.close(fig)
 
-        for mitigation in SIDE_EFFECT_CHANGE_VS_STANCE_MITIGATIONS:
-            fig, ax = create_change_vs_stance_correlation_plot_from_significance_details(
+        fig, _ = create_change_vs_stance_correlation_plot(
+            regression_data,
+            correlation_data,
+            para_type=para_type,
+            scale_attributes=scale_attributes,
+            save_path=os.path.join(
+                para_type_figure_dir,
+                "ame_change_vs_stance_correlation.pdf",
+            ),
+        )
+        if fig is not None:
+            plt.close(fig)
+
+        if para_type in significance_details_data and para_type in correlation_data:
+            fig, _ = create_mitigation_reduction_plot(
                 significance_details_data[para_type],
-                correlation_data[para_type],
-                mitigation=mitigation,
+                mitigation="reranking",
                 save_path=os.path.join(
                     para_type_figure_dir,
-                    f"ame_change_vs_stance_correlation_{mitigation}_vs_writer.pdf",
+                    "reranking_distortion_reduction_vs_writer.pdf",
                 ),
             )
             if fig is not None:
                 plt.close(fig)
+
+            for mitigation in SIDE_EFFECT_CHANGE_VS_STANCE_MITIGATIONS:
+                fig, _ = create_change_vs_stance_correlation_plot_from_significance_details(
+                    significance_details_data[para_type],
+                    correlation_data[para_type],
+                    mitigation=mitigation,
+                    save_path=os.path.join(
+                        para_type_figure_dir,
+                        f"ame_change_vs_stance_correlation_{mitigation}_vs_writer.pdf",
+                    ),
+                )
+                if fig is not None:
+                    plt.close(fig)
+
+
+# =============================================================================
+# MAIN EXECUTION
+# =============================================================================
+
+if __name__ == "__main__":
+    main()

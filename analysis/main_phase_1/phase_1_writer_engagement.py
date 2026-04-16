@@ -1,17 +1,20 @@
-from __future__ import annotations
+#!/usr/bin/env python3
 
+# =============================================================================
+# SETUP
+# =============================================================================
+
+# Package imports
 from pathlib import Path
 
 import matplotlib
 import numpy as np
 import pandas as pd
-from matplotlib import font_manager, rc
-
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-
+# Path configuration
 BASE_DIR = Path(__file__).resolve().parents[2]
 DATA_PATH = BASE_DIR / "data" / "main_phase_1" / "proposition_responses.csv"
 PROPOSITIONS_PATH = BASE_DIR / "data" / "main_phase_1" / "propositions.csv"
@@ -20,6 +23,7 @@ ENGAGEMENT_OUTPUT_PATH = FIGURES_DIR / "writer_engagement_histogram.pdf"
 STANCE_OUTPUT_PATH = FIGURES_DIR / "writer_stance_histogram.pdf"
 HISTOGRAM_BINS = np.arange(0, 105, 5)
 
+# Plot labels
 ENGAGEMENT_LABELS = {
 	"writer_knowledge": "Issue knowledge",
 	"writer_importance": "Issue importance",
@@ -32,25 +36,10 @@ LEANING_LABELS = {
 	"neither": "Neither-leaning propositions (n=8)",
 }
 
-def configure_plot_style() -> None:
-	font_files = font_manager.findSystemFonts(
-		fontpaths="/Users/paul/Library/Fonts", fontext="ttf"
-	)
-	for font_file in font_files:
-		font_manager.fontManager.addfont(font_file)
 
-	rc("font", **{"family": "serif", "serif": ["CMU Serif"]})
-	rc("text", usetex=False)
-	plt.rcParams.update(
-		{
-			"text.color": "black",
-			"font.size": 12,
-			"axes.labelsize": 12,
-			"axes.titlesize": 14,
-			"legend.fontsize": 11,
-		}
-	)
-
+# =============================================================================
+# LOAD DATA
+# =============================================================================
 
 def load_phase_1_data() -> pd.DataFrame:
 	responses_df = pd.read_csv(DATA_PATH)
@@ -58,6 +47,10 @@ def load_phase_1_data() -> pd.DataFrame:
 
 	return responses_df.merge(propositions_df, on="proposition_id", how="left")
 
+
+# =============================================================================
+# ANALYSIS
+# =============================================================================
 
 def build_long_df(df: pd.DataFrame, labels: dict[str, str]) -> pd.DataFrame:
 	value_df = df[list(labels)].apply(pd.to_numeric, errors="coerce")
@@ -109,6 +102,10 @@ def draw_summary_lines(ax: plt.Axes, values: pd.Series) -> None:
 	)
 
 
+# =============================================================================
+# OUTPUTS
+# =============================================================================
+
 def save_histogram_row_plot(
 	plot_series: list[tuple[str, pd.Series]],
 	output_path: Path,
@@ -126,7 +123,7 @@ def save_histogram_row_plot(
 			bins=HISTOGRAM_BINS,
 			density=True,
 			color="#838383",
-            edgecolor="#838383", 
+			edgecolor="#838383",
 			linewidth=0.8,
 		)
 
@@ -170,7 +167,6 @@ def save_writer_stance_pre_by_leaning_histogram(df: pd.DataFrame) -> None:
 
 
 def main() -> None:
-	configure_plot_style()
 	phase_1_df = load_phase_1_data()
 	save_writer_engagement_histogram(phase_1_df)
 	save_writer_stance_pre_by_leaning_histogram(phase_1_df)
