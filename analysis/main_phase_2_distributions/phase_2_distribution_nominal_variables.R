@@ -4,6 +4,8 @@ suppressPackageStartupMessages({
   library(ordinal)
 })
 
+source("./analysis/utils_r/variable_definitions.R")
+
 # ===== RANDOM SEED ----
 set.seed(123)
 
@@ -152,13 +154,6 @@ run_all_nominal_tests <- function(attribute) {
     )
   }
 }
-
-nominal_vars <- c(
-  "writer_gender",
-  "writer_race",
-  "writer_politicalParty",
-  "writer_politicalIdeology"
-)
 
 # Loop through all rating attributes
 for (attr in nominal_vars) {

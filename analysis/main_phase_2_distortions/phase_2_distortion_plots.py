@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import sys
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -7,6 +8,9 @@ import seaborn as sns
 from matplotlib.patches import Rectangle
 from adjustText import adjust_text
 from scipy.stats import linregress, pearsonr, spearmanr
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "utils_py"))
+from variable_definitions import SCALE_ATTRIBUTES, ORDINAL_VARS as ORDINAL_ATTRIBUTES, NOMINAL_VARS as NOMINAL_ATTRIBUTES  # noqa: E402
 
 RESULTS_DIR = "../../results/main_phase_2_distortion/"
 DISTRIBUTION_RESULTS_DIR = "../../results/main_phase_2_distribution/"
@@ -518,33 +522,6 @@ def create_horizontal_odds_ratio_plot_nominal_grouped(
 ################################
 # SCALE ATTRIBUTES - AME PLOTS
 ################################
-
-SCALE_ATTRIBUTES = [
-    "paragraph_formality",
-    "paragraph_informativeness",
-    "paragraph_originality",
-    "paragraph_clarity",
-    "paragraph_relevance",
-    #
-    "writer_knowledge",
-    "writer_importance",
-    "writer_confidence",
-    "writer_stance_polarity",
-    "writer_openness",
-    #
-    "paragraph_hope",
-    "paragraph_excitement",
-    "paragraph_fear",
-    "paragraph_disgust",
-    "paragraph_anger",
-    #
-    "writer_affect_x",
-    "writer_affect_y",
-    #
-    "writer_optimism",
-    "writer_community",
-    "writer_friendliness",
-]
 
 regression_dict = load_results_by_attribute(
     SCALE_ATTRIBUTES,
@@ -1169,14 +1146,6 @@ print("Correlation Results:", correlation_results)
 # ORDINAL ATTRIBUTES
 ################################
 
-ORDINAL_ATTRIBUTES = [
-    "writer_english_skills",
-    "writer_education",
-    "writer_income",
-    "writer_english_first",
-    "writer_age_binned",
-]
-
 # Load regression results for each attribute and split
 regression_dict = load_results_by_attribute(
     ORDINAL_ATTRIBUTES,
@@ -1658,13 +1627,6 @@ for split in ALL_SPLITS:
 ################################
 # NOMINAL ATTRIBUTES
 ################################
-
-NOMINAL_ATTRIBUTES = [
-    "writer_politicalParty",
-    "writer_politicalIdeology",
-    "writer_race",
-    "writer_gender",
-]
 
 # Load regression results for each attribute and split
 regression_dict = load_results_by_attribute(

@@ -3,6 +3,8 @@ suppressPackageStartupMessages({
   library(tidyverse)
 })
 
+source("./analysis/utils_r/variable_definitions.R")
+
 # ===== RANDOM SEED ----
 set.seed(123)
 
@@ -226,31 +228,7 @@ run_test_by_type <- function(df, attribute) {
 
 # ===== ATTRIBUTES ----
 
-rating_attributes <- c(
-  "paragraph_formality",
-  "paragraph_clarity",
-  "paragraph_informativeness",
-  "paragraph_originality",
-  "paragraph_relevance",
-  "writer_knowledge",
-  "writer_importance",
-  "writer_confidence",
-  "writer_stance",
-  "writer_stance_polarity",
-  "paragraph_hope",
-  "paragraph_excitement",
-  "paragraph_fear",
-  "paragraph_disgust",
-  "paragraph_anger",
-  "writer_affect_x",
-  "writer_affect_y",
-  "writer_optimism",
-  "writer_community",
-  "writer_friendliness",
-  "writer_openness"
-)
-
-correlation_attributes <- setdiff(rating_attributes, "writer_stance")
+correlation_attributes <- rating_attributes
 
 # ===== RUN ALL TESTS ----
 

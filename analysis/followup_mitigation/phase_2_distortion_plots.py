@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import sys
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
@@ -9,6 +10,9 @@ from adjustText import adjust_text
 from scipy.stats import pearsonr, spearmanr
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+sys.path.insert(0, os.path.join(BASE_DIR, "..", "utils_py"))
+from variable_definitions import ORDINAL_VARS as ORDINAL_ATTRIBUTES, NOMINAL_VARS as NOMINAL_ATTRIBUTES  # noqa: E402
 RESULTS_DIR = os.path.normpath(os.path.join(BASE_DIR, "../../results/followup_mitigation_phase_2_distortion"))
 FIGURES_DIR = os.path.normpath(os.path.join(BASE_DIR, "../../figures/followup_mitigation_phase_2_distortion"))
 CORRELATION_RESULTS_DIR = os.path.normpath(
@@ -40,19 +44,6 @@ GROUPED_SCALE_ATTRIBUTES = [
     "writer_optimism",
     "writer_community",
     "writer_friendliness",
-]
-ORDINAL_ATTRIBUTES = [
-    "writer_english_skills",
-    "writer_education",
-    "writer_income",
-    "writer_english_first",
-    "writer_age_binned",
-]
-NOMINAL_ATTRIBUTES = [
-    "writer_politicalParty",
-    "writer_politicalIdeology",
-    "writer_race",
-    "writer_gender",
 ]
 
 MITIGATION_ORDER = ["reranking", "prompting", "none"]
