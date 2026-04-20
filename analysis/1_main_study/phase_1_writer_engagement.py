@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
 
 # =============================================================================
+# MAIN STUDY - PHASE 1 ANALYSIS: WRITER ENGAGEMENT
+#
+# Describes engagement metrics (issue knowledge, issue importance, confidence in opinion) and stance self-reported by writers in Phase 1
+#
+# - Merges proposition responses with proposition leaning metadata.
+# - Builds histogram visualizations for engagement variables and writer stance.
+# - Saves figures to `figures/main_phase_1/`.
+#
+# =============================================================================
+
+# =============================================================================
 # SETUP
 # =============================================================================
 

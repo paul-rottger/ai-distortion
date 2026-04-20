@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
 
+# =============================================================================
+# MITIGATION STUDY - PHASE 2 VISUALIZATION: MITIGATION SIDE EFFECTS
+#
+# Visualizes trade-offs between mitigation impact and side-effect outcomes.
+#
+# - Loads mitigation distortion outputs and distribution-derived correlation results.
+# - Produces comparison plots for prompting/reranking effects versus key attributes.
+# - Saves side-effect figures to `figures/followup_mitigation_phase_2_distortion/`.
+#
+# =============================================================================
+
 
 # =============================================================================
 # SETUP

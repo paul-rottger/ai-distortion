@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
 
 # =============================================================================
+# MAIN STUDY - PHASE 2 VISUALIZATION: DISTORTION EFFECTS
+#
+# Generates figure outputs for Phase 2 distortion analyses.
+#
+# - Loads distortion and distribution result tables across split/subset variants.
+# - Produces model-, input-, and proposition-leaning comparison visualizations.
+# - Saves publication-style plots to `figures/main_phase_2_distortion/`.
+#
+# =============================================================================
+
+# =============================================================================
 # SETUP
 # =============================================================================
 
@@ -29,7 +40,8 @@ DISTORTION_TOLERANCE_PATH = os.path.normpath(
 
 # Internal imports
 sys.path.insert(0, UTILS_DIR)
-from variable_definitions import SCALE_ATTRIBUTES, ORDINAL_VARS as ORDINAL_ATTRIBUTES, NOMINAL_VARS as NOMINAL_ATTRIBUTES
+from variable_definitions import SCALE_ATTRIBUTES, ORDINAL_VARS as ORDINAL_ATTRIBUTES, NOMINAL_VARS as NOMINAL_ATTRIBUTES, MODEL_TERMS, INPUT_CONDITION_TERMS
+from plotting_utils import get_group_offsets
 
 # Plot configuration
 ALL_SPLITS = ["unedited", "edited", "preferred"]
@@ -43,18 +55,9 @@ PROPOSITION_LEANINGS = ["left", "right"]
 PROPOSITION_LEANING_SPLIT = "preferred"
 PROPOSITION_LEANING_SUBSET = "by_proposition_leaning"
 
-MODEL_TERM_ORDER = [
-    "model_anthropic/claude-sonnet-4",
-    "model_deepseek/deepseek-chat-v3-0324",
-    "model_openai/chatgpt-4o-latest",
-]
+MODEL_TERM_ORDER = MODEL_TERMS
 
-INPUT_TERM_ORDER = [
-    "input_condition_stance-based",
-    "input_condition_bullets-based",
-    "input_condition_rewrite",
-    "input_condition_improve",
-]
+INPUT_TERM_ORDER = INPUT_CONDITION_TERMS
 
 TERM_LABELS = {
     "model_anthropic/claude-sonnet-4": "Claude Sonnet 4",
@@ -259,19 +262,6 @@ def get_available_terms(
 
     common_terms = set.intersection(*term_sets)
     return get_term_order(subset, common_terms)
-
-
-def get_group_offsets(group_names, offset_scale=0.12):
-    if len(group_names) == 1:
-        return {group_names[0]: 0}
-
-    offset_positions = [
-        index - (len(group_names) - 1) / 2 for index in range(len(group_names))
-    ]
-    return {
-        group_name: position * offset_scale
-        for group_name, position in zip(group_names, offset_positions)
-    }
 
 
 def create_horizontal_grouped_effect_plot(

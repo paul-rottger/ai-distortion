@@ -1,3 +1,21 @@
+#!/usr/bin/env Rscript
+
+# =============================================================================
+# MAIN STUDY - PHASE 2 DISTORTION ANALYSIS: ORDINAL VARIABLES
+# 
+# Estimates ordinal distortion effects in writer and model paragraphs.
+#
+# - Fits cumulative link mixed models for ordinal outcomes.
+# - Computes model-level and input-condition contrasts against writer baselines.
+# - Runs analyses on unedited and edited subsets.
+# - Writes ordinal distortion result tables to results/main_phase_2_distortion/.
+# 
+# =============================================================================
+
+# =============================================================================
+# SETUP
+# =============================================================================
+
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
   library(tidyverse)
@@ -9,11 +27,18 @@ suppressPackageStartupMessages({
 source("./analysis/utils_r/variable_definitions.R")
 source("./analysis/utils_r/data_loading.R")
 
+# Set random seed for reproducibility
 # ===== RANDOM SEED ----
 set.seed(123)
 
-# ===== EXECUTION FLAGS ----
-RUN_DEBUG_ONLY <- FALSE
+# Parse command-line flags
+# ===== COMMAND-LINE FLAGS ----
+args <- commandArgs(trailingOnly = TRUE)
+debug_mode <- "debug" %in% args
+
+# =============================================================================
+# DATA LOADING AND PROCESSING
+# =============================================================================
 
 # ===== DATA IMPORTS AND PROCESSING ----
 list2env(load_phase2_splits(
@@ -29,9 +54,9 @@ list2env(load_phase2_splits(
   }
 ), envir = environment())
 
-# Create random data sample for debugging
-data_small <- data_unedited %>%
-  sample_n(1000)
+# =============================================================================
+# ANALYSIS: ORDINAL REGRESSION MODELS
+# =============================================================================
 
 # ===== ORDINAL LOGISTIC REGRESSION (BY TYPE) ----
 
@@ -97,33 +122,6 @@ fit_ordinal_logit <- function(df, outcome, predictor = "paragraph_type_", random
   list(model = model, tidy_fixed = tidy_fixed)
 }
 
-# Debug run
-debug_runs <- list(
-  list(outcome = "writer_income", predictor = "paragraph_type_"),
-  list(outcome = "writer_income", predictor = "model_"),
-  list(outcome = "writer_income", predictor = "input_condition_"),
-  list(outcome = "writer_education", predictor = "model_")
-)
-
-debug_results <- purrr::map(
-  debug_runs,
-  ~ {
-    fit_ordinal_logit(
-      data_small,
-      outcome = .x$outcome,
-      predictor = .x$predictor,
-      random = "(1 | rater_id)"
-    )$tidy_fixed
-  }
-)
-
-names(debug_results) <- purrr::map_chr(
-  debug_runs,
-  ~ paste(.x$outcome, .x$predictor, sep = "__")
-)
-
-print(debug_results)
-
 run_ordinal_regressions <- function(attribute) {
   print(paste("running ordinal logistic regression for:", attribute))
 
@@ -138,6 +136,11 @@ run_ordinal_regressions <- function(attribute) {
         edited = data_edited,
         preferred = data_preferred
       )
+
+      if (debug_mode) {
+        split_data <- split_data %>%
+          slice_sample(n = min(1000, nrow(split_data)))
+      }
 
       dir.create(
         paste0("./results/main_phase_2_distortion/", data_split),
@@ -160,9 +163,11 @@ run_ordinal_regressions <- function(attribute) {
   }
 }
 
-if (!RUN_DEBUG_ONLY) {
-  # Loop through all ordinal attributes and predictors
-  for (attribute in ordinal_vars) {
-    run_ordinal_regressions(attribute)
-  }
+if (debug_mode) {
+  message("Running in debug mode on n=1000 samples from each data split.")
+}
+
+# Loop through all ordinal attributes and predictors
+for (attribute in ordinal_vars) {
+  run_ordinal_regressions(attribute)
 }

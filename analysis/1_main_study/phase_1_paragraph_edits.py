@@ -3,7 +3,16 @@
 # =============================================================================
 # MAIN STUDY - PHASE 1 ANALYSIS: PARAGRAPH EDITS
 # 
-# [TO ADD]
+# Computes edit behavior for model paragraphs revised by writers.
+#
+# - Parses the `made_edits` flag and summarizes how many of each writer's
+#   three paragraphs were edited by the writer.
+# - Calculates Levenshtein ratio and Levenshtein distance between `model_paragraph` and
+#   `edited_paragraph` for edited responses.
+# - Exports per-writer/proposition edit metrics and a writer-level edit-count
+#   table to `results/main_phase_1/`.
+# - Saves histograms for edit distance and edit ratio to
+#   `figures/main_phase_1/`.
 #
 # =============================================================================
 

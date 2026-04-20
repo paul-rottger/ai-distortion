@@ -3,9 +3,12 @@
 # =============================================================================
 # MAIN STUDY - PHASE 2 DISTORTION ANALYSIS: SCALE VARIABLES
 # 
-# - Beta regressions for scale outcomes
-# - Average marginal effects for model and input-condition comparisons
-# - Unedited, edited, and preferred analysis subsets
+# Estimates scale-based distortion effects for writer and model paragraphs.
+#
+# - Fits beta regressions for scale outcomes.
+# - Computes average marginal effects for model and input-condition comparisons.
+# - Runs analyses on unedited, edited, and preferred subsets.
+# - Writes scale distortion result tables to results/main_phase_2_distortion/.
 # 
 # =============================================================================
 
@@ -26,6 +29,10 @@ source("./analysis/utils_r/data_loading.R")
 
 # Set random seed for reproducibility
 set.seed(123)
+
+# Parse command-line flags
+args <- commandArgs(trailingOnly = TRUE)
+debug_mode <- "debug" %in% args
 
 # =============================================================================
 # DATA LOADING AND PROCESSING
@@ -97,19 +104,6 @@ fit_beta <- function(df, outcome, predictor, random) {
 }
 
 # =============================================================================
-# ANALYSIS: DEBUG REGRESSION
-# =============================================================================
-
-data_small <- data_unedited %>% slice_sample(n = 1000)
-
-results <- fit_beta(data_small,
-  outcome = "writer_knowledge",
-  predictor = "paragraph_type_",
-  random = "(1 | rater_id)"
-)
-results$tidy_fixed
-
-# =============================================================================
 # ANALYSIS: RUN SCALE VARIABLE REGRESSIONS
 # =============================================================================
 
@@ -127,6 +121,11 @@ run_regressions <- function(attribute) {
         edited = data_edited,
         preferred = data_preferred
       )
+
+      if (debug_mode) {
+        split_data <- split_data %>%
+          slice_sample(n = min(1000, nrow(split_data)))
+      }
 
       dir.create(
         paste0("./results/main_phase_2_distortion/", data_split),
@@ -148,6 +147,10 @@ run_regressions <- function(attribute) {
 }
 
 # Loop through all rating attributes
+if (debug_mode) {
+  message("Running in debug mode on n=1000 samples from each data split.")
+}
+
 for (attr in rating_attributes) {
   run_regressions(attr)
 }

@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
 
 # =============================================================================
+# MAIN STUDY - PHASE 2 DISTORTION SUMMARY: BY MODEL
+#
+# Compiles per-attribute distortion results into model-level summary tables.
+#
+# - Loads per-attribute regression outputs from `results/main_phase_2_distortion/`.
+# - Extracts model terms, significance flags, and direction-of-effect summaries.
+# - Writes consolidated by-model summaries under the split-specific summary folder.
+#
+# =============================================================================
+
+# =============================================================================
 # SETUP
 # =============================================================================
 
@@ -17,35 +28,10 @@ SUMMARY_DIR_NAME = "summary"
 
 # Internal imports
 sys.path.insert(0, str(BASE_DIR / "analysis" / "utils_py"))
-from variable_definitions import SCALE_ATTRIBUTES, ORDINAL_VARS as ORDINAL_ATTRIBUTES
+from variable_definitions import MODEL_TERMS, VARIABLE_GROUPS
 
 # Analysis configuration
 DATA_SPLITS = ["preferred", "edited", "unedited"]
-
-MODEL_TERMS = [
-	"model_anthropic/claude-sonnet-4",
-	"model_deepseek/deepseek-chat-v3-0324",
-	"model_openai/chatgpt-4o-latest",
-]
-
-VARIABLE_GROUPS = {
-	"scale": {
-		"attributes": SCALE_ATTRIBUTES,
-		"metric_column": "ame",
-		"summary_metric": "average_absolute_ame",
-		"null_value": 0.0,
-		"zero_label": "zero AME(s)",
-		"direction_label": "AME directions",
-	},
-	"ordinal": {
-		"attributes": ORDINAL_ATTRIBUTES,
-		"metric_column": "odds_ratio",
-		"summary_metric": "average_odds_ratio",
-		"null_value": 1.0,
-		"zero_label": "unit odds ratio(s)",
-		"direction_label": "odds-ratio directions",
-	},
-}
 
 
 # =============================================================================

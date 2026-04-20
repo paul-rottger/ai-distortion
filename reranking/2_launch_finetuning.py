@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
 
+# =============================================================================
+# RERANKING PIPELINE - STEP 2: LAUNCH FINETUNING JOBS
+#
+# Starts OpenAI fine-tuning jobs for prepared reward-model datasets.
+#
+# - Validates dataset files and selected training subset size.
+# - Uploads train/validation JSONL files and creates a fine-tuning job.
+# - Prints job identifiers/status metadata for downstream scoring.
+#
+# =============================================================================
+
 import argparse
 import datetime as dt
 import os

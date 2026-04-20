@@ -1,21 +1,17 @@
 rating_attributes <- c(
-  # Writer opinion
   "writer_knowledge",
   "writer_importance",
   "writer_confidence",
   "writer_stance_polarity",
-  # Paragraph quality
   "paragraph_formality",
   "paragraph_clarity",
   "paragraph_informativeness",
   "paragraph_originality",
   "paragraph_relevance",
-  # Writer personality & values
   "writer_optimism",
   "writer_community",
   "writer_friendliness",
   "writer_openness",
-  # Writer emotional state
   "paragraph_hope",
   "paragraph_excitement",
   "paragraph_fear",

@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
 
+# =============================================================================
+# RERANKING PIPELINE - STEP 1: PREPARE FINETUNING DATA
+#
+# Prepares reward-model finetuning datasets from study annotations and text data.
+#
+# - Joins aggregated phase-2 annotation labels with paragraph/bullet-source inputs.
+# - Creates train/validation/test splits and sampled training subsets.
+# - Writes JSONL prompt datasets and CSV metadata under `reranking/finetuning_data/`.
+#
+# =============================================================================
+
 import json
 import random
 from numbers import Real

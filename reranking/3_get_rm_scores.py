@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
 
+# =============================================================================
+# RERANKING PIPELINE - STEP 3: GENERATE REWARD-MODEL SCORES
+#
+# Scores reward-model test examples using a base or fine-tuned OpenAI model.
+#
+# - Loads test prompts from `reranking/finetuning_data/` for the selected dataset.
+# - Sends concurrent API requests and parses structured stance predictions.
+# - Writes per-model score outputs to `reranking/rm_scores/`.
+#
+# =============================================================================
+
 import argparse
 import os
 import re

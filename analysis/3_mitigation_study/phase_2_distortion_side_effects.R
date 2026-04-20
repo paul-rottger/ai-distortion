@@ -1,3 +1,17 @@
+#!/usr/bin/env Rscript
+
+# =============================================================================
+# FOLLOWUP MITIGATION STUDY - PHASE 2 DISTORTION ANALYSIS: SIDE EFFECTS
+#
+# Summarizes mitigation side effects from preferred-subset distortion regressions.
+#
+# - Aggregates per-attribute significance outcomes from mitigation contrast tables.
+# - Computes absolute and relative magnitude intervals for effect interpretation.
+# - Identifies mitigation conditions with potential side effects under alpha thresholds.
+# - Writes detailed side-effect summaries to results/followup_mitigation_phase_2_distortion/preferred/.
+#
+# =============================================================================
+
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
 	library(readr)

@@ -1,3 +1,21 @@
+#!/usr/bin/env Rscript
+
+# =============================================================================
+# MAIN STUDY - PHASE 2 HOMOGENISATION ANALYSIS
+# 
+# Quantifies homogenisation by comparing response spread across writer and model text.
+#
+# - Computes spread metrics for scale and non-scale outcomes.
+# - Estimates bootstrap uncertainty and Bonferroni-adjusted significance.
+# - Produces distributional comparison plots for configured data subsets.
+# - Writes homogenisation outputs to main_phase_2_distribution results and figures directories.
+# 
+# =============================================================================
+
+# =============================================================================
+# SETUP
+# =============================================================================
+
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
 	library(tidyverse)
@@ -6,6 +24,7 @@ suppressPackageStartupMessages({
 source("./analysis/utils_r/variable_definitions.R")
 source("./analysis/utils_r/data_loading.R")
 
+# Set random seed for reproducibility
 # ===== RANDOM SEED ----
 set.seed(123)
 
@@ -17,6 +36,10 @@ DATA_SPLITS <- c(
 	# "edited",
 	"preferred"
 )
+
+# =============================================================================
+# DATA LOADING AND PROCESSING
+# =============================================================================
 
 # ===== DATA IMPORTS AND PROCESSING ----
 list2env(load_phase2_splits(
@@ -69,6 +92,10 @@ nominal_attributes <- c(
 
 all_attributes <- c(scale_attributes, ordinal_attributes, nominal_attributes)
 n_tests <- length(all_attributes)
+
+# =============================================================================
+# ANALYSIS SETUP
+# =============================================================================
 
 # ===== BOOTSTRAP SETTINGS ----
 n_boot <- 1000

@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
 
 # =============================================================================
+# DISCLAIMER STUDY - PHASE 1 ANALYSIS: DISTORTION TOLERANCE
+#
+# Summarizes writer-reported perceived distortion effects under disclaimer prompts.
+#
+# - Aggregates followup disclaimer phase-1 distortion-response items.
+# - Writes a summary table to `data/followup_disclaimer_phase_1/distortion_responses_summary.csv`.
+# - Produces distortion-tolerance figures in `figures/followup_disclaimer_phase_1/`.
+#
+# =============================================================================
+
+# =============================================================================
 # SETUP
 # =============================================================================
 

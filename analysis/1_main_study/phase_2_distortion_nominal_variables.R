@@ -1,3 +1,21 @@
+#!/usr/bin/env Rscript
+
+# =============================================================================
+# MAIN STUDY - PHASE 2 DISTORTION ANALYSIS: NOMINAL VARIABLES
+# 
+# Estimates nominal distortion patterns across model-generated and writer text.
+#
+# - Fits multinomial and one-vs-all logistic models for nominal outcomes.
+# - Computes model-level and input-condition contrasts against writer baselines.
+# - Runs analyses on unedited and edited subsets.
+# - Writes nominal distortion result tables to results/main_phase_2_distortion/.
+# 
+# =============================================================================
+
+# =============================================================================
+# SETUP
+# =============================================================================
+
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
   library(tidyverse)
@@ -8,8 +26,18 @@ suppressPackageStartupMessages({
 source("./analysis/utils_r/variable_definitions.R")
 source("./analysis/utils_r/data_loading.R")
 
+# Set random seed for reproducibility
 # ===== RANDOM SEED ----
 set.seed(123)
+
+# Parse command-line flags
+# ===== COMMAND-LINE FLAGS ----
+args <- commandArgs(trailingOnly = TRUE)
+debug_mode <- "debug" %in% args
+
+# =============================================================================
+# DATA LOADING AND PROCESSING
+# =============================================================================
 
 # ===== DATA IMPORTS AND PROCESSING ----
 list2env(load_phase2_splits(
@@ -23,6 +51,10 @@ list2env(load_phase2_splits(
       )
   }
 ), envir = environment())
+
+# =============================================================================
+# ANALYSIS SETUP
+# =============================================================================
 
 # ===== NOMINAL VARIABLES / REFERENCE CATEGORIES ----
 reference_levels <- c(
@@ -317,6 +349,11 @@ run_nominal_regressions <- function(attribute) {
       preferred = data_preferred
     )
 
+    if (debug_mode) {
+      split_data <- split_data %>%
+        slice_sample(n = min(1000, nrow(split_data)))
+    }
+
     dir.create(
       paste0("./results/main_phase_2_distortion/", data_split),
       recursive = TRUE,
@@ -372,6 +409,10 @@ run_nominal_regressions <- function(attribute) {
 }
 
 # loop through nominal variables and run regressions
+if (debug_mode) {
+  message("Running in debug mode on n=1000 samples from each data split.")
+}
+
 for (attribute in nominal_vars) {
   run_nominal_regressions(attribute)
 }

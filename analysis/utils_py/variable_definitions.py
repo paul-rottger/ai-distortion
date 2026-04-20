@@ -1,21 +1,17 @@
 SCALE_ATTRIBUTES = [
-    # Writer opinion
     "writer_knowledge",
     "writer_importance",
     "writer_confidence",
     "writer_stance_polarity",
-    # Paragraph quality
     "paragraph_formality",
     "paragraph_clarity",
     "paragraph_informativeness",
     "paragraph_originality",
     "paragraph_relevance",
-    # Writer personality & values
     "writer_optimism",
     "writer_community",
     "writer_friendliness",
     "writer_openness",
-    # Writer emotional state
     "paragraph_hope",
     "paragraph_excitement",
     "paragraph_fear",
@@ -41,6 +37,38 @@ NOMINAL_VARS = [
 ]
 
 CATEGORICAL_VARS = ORDINAL_VARS + NOMINAL_VARS
+
+MODEL_TERMS = [
+    "model_anthropic/claude-sonnet-4",
+    "model_deepseek/deepseek-chat-v3-0324",
+    "model_openai/chatgpt-4o-latest",
+]
+
+INPUT_CONDITION_TERMS = [
+    "input_condition_stance-based",
+    "input_condition_bullets-based",
+    "input_condition_rewrite",
+    "input_condition_improve",
+]
+
+VARIABLE_GROUPS = {
+    "scale": {
+        "attributes": SCALE_ATTRIBUTES,
+        "metric_column": "ame",
+        "summary_metric": "average_absolute_ame",
+        "null_value": 0.0,
+        "zero_label": "zero AME(s)",
+        "direction_label": "AME directions",
+    },
+    "ordinal": {
+        "attributes": ORDINAL_VARS,
+        "metric_column": "odds_ratio",
+        "summary_metric": "average_odds_ratio",
+        "null_value": 1.0,
+        "zero_label": "unit odds ratio(s)",
+        "direction_label": "odds-ratio directions",
+    },
+}
 
 CATEGORICAL_LEVELS = {
     "writer_age_binned": ["18-29", "30-39", "40-49", "50-59", "60-69", "70+"],

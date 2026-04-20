@@ -1,3 +1,21 @@
+#!/usr/bin/env Rscript
+
+# =============================================================================
+# MAIN STUDY - PHASE 2 DISTORTION ANALYSIS: BY PROPOSITION LEANING
+# 
+# Runs distortion analyses within the preferred subset, split by proposition leaning.
+#
+# - Splits preferred responses into left- and right-leaning proposition groups.
+# - Fits scale, ordinal, and nominal outcome models for each leaning subset.
+# - Produces model and input-condition comparisons stratified by proposition leaning.
+# - Writes leaning-specific output tables to results/main_phase_2_distortion/.
+# 
+# =============================================================================
+
+# =============================================================================
+# SETUP
+# =============================================================================
+
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
 	library(tidyverse)
@@ -12,8 +30,18 @@ suppressPackageStartupMessages({
 source("./analysis/utils_r/variable_definitions.R")
 source("./analysis/utils_r/data_loading.R")
 
+# Set random seed for reproducibility
 # ===== RANDOM SEED ----
 set.seed(123)
+
+# Parse command-line flags
+# ===== COMMAND-LINE FLAGS ----
+args <- commandArgs(trailingOnly = TRUE)
+debug_mode <- "debug" %in% args
+
+# =============================================================================
+# DATA LOADING AND PROCESSING
+# =============================================================================
 
 # ===== DATA IMPORTS AND PROCESSING ----
 list2env(load_phase2_splits(
@@ -56,6 +84,10 @@ preferred_leaning_counts %>%
 output_dir <- "./results/main_phase_2_distortion/preferred/by_proposition_leaning"
 
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
+
+# =============================================================================
+# ANALYSIS SETUP
+# =============================================================================
 
 # ===== BETA REGRESSION SETUP for SCALE VARIABLES ----
 
@@ -319,6 +351,11 @@ run_scale_regressions <- function(attribute) {
 		split_data <- data_preferred %>%
 			filter(proposition_leaning == leaning)
 
+		if (debug_mode) {
+			split_data <- split_data %>%
+				slice_sample(n = min(1000, nrow(split_data)))
+		}
+
 		results <- fit_beta(split_data,
 			outcome = attribute,
 			predictor = "paragraph_type_",
@@ -338,6 +375,11 @@ run_ordinal_regressions <- function(attribute) {
 	for (leaning in c("left", "right")) {
 		split_data <- data_preferred %>%
 			filter(proposition_leaning == leaning)
+
+		if (debug_mode) {
+			split_data <- split_data %>%
+				slice_sample(n = min(1000, nrow(split_data)))
+		}
 
 		results <- fit_ordinal_logit(
 			split_data,
@@ -361,6 +403,11 @@ run_nominal_regressions <- function(attribute) {
 	for (leaning in c("left", "right")) {
 		split_data <- data_preferred %>%
 			filter(proposition_leaning == leaning)
+
+		if (debug_mode) {
+			split_data <- split_data %>%
+				slice_sample(n = min(1000, nrow(split_data)))
+		}
 
 		multinomial_results <- fit_multinomial_logit(
 			split_data,
@@ -417,6 +464,10 @@ ordinal_attributes <- c(
 	"writer_income",
 	"writer_age_binned"
 )
+
+if (debug_mode) {
+	message("Running in debug mode on n=1000 samples from each proposition-leaning subset.")
+}
 
 for (attr in scale_attributes) {
 	run_scale_regressions(attr)

@@ -1,6 +1,18 @@
 #!/usr/bin/env python3
 
 # =============================================================================
+# ANALYSIS OVERVIEW: PARTICIPANT DEMOGRAPHICS AND ASSIGNMENT
+#
+# Builds participant-level demographic and assignment summaries across studies.
+#
+# - Loads participant, response, and annotation datasets for main and followup studies.
+# - Computes distributions and coverage summaries for key demographic attributes.
+# - Writes outputs under `results/participant_demographics/` and
+#   `results/participant_assignment/`.
+#
+# =============================================================================
+
+# =============================================================================
 # SETUP
 # =============================================================================
 

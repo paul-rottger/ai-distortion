@@ -43,6 +43,24 @@ Rscript requirements_r.R
 ./run_all.sh 
 ```
 
+`run_all.sh` supports a small set of optional flags:
+
+- `--run_regressions`: also run the phase 2 distortion regression scripts, which are skipped by default.
+- `--debug`: run supported R scripts in debug mode, using `n = 1000` samples instead of the full data. This is most useful together with `--run_regressions`.
+
+Examples:
+
+```bash
+# Default pipeline without the phase 2 distortion regressions
+./run_all.sh
+
+# Full pipeline including the phase 2 distortion regressions
+./run_all.sh --run_regressions
+
+# Faster debug run for supported R scripts, including regression scripts
+./run_all.sh --run_regressions --debug
+```
+
 Details on each analysis script are listed in `analysis/README.md`.
 
 ## Data Availability

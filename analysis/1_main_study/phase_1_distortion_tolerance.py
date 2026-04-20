@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
 
 # =============================================================================
+# MAIN STUDY - PHASE 1 ANALYSIS: DISTORTION TOLERANCE
+#
+# Summarises writer-reported tolerance for different distortions from AI writing assistance.
+#
+# - Aggregates phase-1 distortion-response items and computes summary statistics.
+# - Writes a tabular summary to `data/main_phase_1/distortion_responses_summary.csv`.
+# - Produces distortion-tolerance figures in `figures/main_phase_1/`.
+#
+# =============================================================================
+
+# =============================================================================
 # SETUP
 # =============================================================================
 

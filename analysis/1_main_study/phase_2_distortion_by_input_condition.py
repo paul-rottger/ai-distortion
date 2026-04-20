@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
 
 # =============================================================================
+# MAIN STUDY - PHASE 2 DISTORTION SUMMARY: BY INPUT CONDITION
+#
+# Compiles per-attribute distortion results into input-condition summaries.
+#
+# - Loads per-attribute regression outputs from `results/main_phase_2_distortion/`.
+# - Extracts input-condition terms, significance flags, and effect direction.
+# - Writes consolidated by-input-condition summaries for each analysis split.
+#
+# =============================================================================
+
+# =============================================================================
 # SETUP
 # =============================================================================
 
@@ -17,36 +28,10 @@ SUMMARY_DIR_NAME = "summary"
 
 # Internal imports
 sys.path.insert(0, str(BASE_DIR / "analysis" / "utils_py"))
-from variable_definitions import SCALE_ATTRIBUTES, ORDINAL_VARS as ORDINAL_ATTRIBUTES
+from variable_definitions import INPUT_CONDITION_TERMS, VARIABLE_GROUPS
 
 # Analysis configuration
 DATA_SPLITS = ["preferred", "edited", "unedited"]
-
-INPUT_CONDITION_TERMS = [
-	"input_condition_bullets-based",
-	"input_condition_improve",
-	"input_condition_rewrite",
-	"input_condition_stance-based",
-]
-
-VARIABLE_GROUPS = {
-	"scale": {
-		"attributes": SCALE_ATTRIBUTES,
-		"metric_column": "ame",
-		"summary_metric": "average_absolute_ame",
-		"null_value": 0.0,
-		"zero_label": "zero AME(s)",
-		"direction_label": "AME directions",
-	},
-	"ordinal": {
-		"attributes": ORDINAL_ATTRIBUTES,
-		"metric_column": "odds_ratio",
-		"summary_metric": "average_odds_ratio",
-		"null_value": 1.0,
-		"zero_label": "unit odds ratio(s)",
-		"direction_label": "odds-ratio directions",
-	},
-}
 
 
 # =============================================================================

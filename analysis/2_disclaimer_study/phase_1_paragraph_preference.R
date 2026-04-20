@@ -3,9 +3,12 @@
 # =============================================================================
 # FOLLOWUP DISCLAIMER STUDY - PHASE 1 ANALYSIS: PARAGRAPH PREFERENCE
 #
-# - Preference and edit rates + bootstrap CIs by disclaimer condition
-# - Mixed-effects logistic regressions for binarised preference and editing
-#   outcomes
+# Summarizes writer preferences between original and disclaimer-conditioned model paragraphs.
+#
+# - Computes preference and edit rates with bootstrap confidence intervals by disclaimer condition.
+# - Fits mixed-effects logistic regressions for binary preference and editing outcomes.
+# - Produces condition-specific summary tables for paragraph preferences and edits.
+# - Writes outputs to results/followup_disclaimer_phase_1/ and figures/followup_disclaimer_phase_1/.
 #
 # =============================================================================
 

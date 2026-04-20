@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
 
+# =============================================================================
+# RERANKING PIPELINE - STEP 4: EVALUATE REWARD-MODEL SCORES
+#
+# Evaluates score CSVs against held-out reward-model test labels.
+#
+# - Loads dataset test rows and one or more score files.
+# - Joins predictions to ground-truth targets and computes error metrics.
+# - Saves evaluation summaries under `reranking/rm_evaluations/`.
+#
+# =============================================================================
+
 from __future__ import annotations
 
 import argparse

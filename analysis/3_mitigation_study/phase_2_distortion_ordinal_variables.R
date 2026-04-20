@@ -1,3 +1,17 @@
+#!/usr/bin/env Rscript
+
+# =============================================================================
+# FOLLOWUP MITIGATION STUDY - PHASE 2 DISTORTION ANALYSIS: ORDINAL VARIABLES
+#
+# Estimates ordinal distortion effects across mitigation-conditioned model output.
+#
+# - Fits cumulative link mixed models for ordinal outcomes.
+# - Compares model-by-mitigation combinations against writer baselines.
+# - Runs analyses on unedited, edited, and preferred subsets.
+# - Writes ordinal distortion result tables to results/followup_mitigation_phase_2_distortion/.
+#
+# =============================================================================
+
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
 	library(tidyverse)
@@ -9,6 +23,10 @@ source("./analysis/utils_r/data_loading.R")
 
 # ===== RANDOM SEED ----
 set.seed(123)
+
+# ===== COMMAND-LINE FLAGS ----
+args <- commandArgs(trailingOnly = TRUE)
+debug_mode <- "debug" %in% args
 
 # ===== DATA IMPORTS AND PROCESSING ----
 list2env(load_phase2_splits(
@@ -99,16 +117,6 @@ fit_ordinal_logit <- function(df, outcome, predictor = "model_and_mitigation_", 
 	list(model = model, tidy_fixed = tidy_fixed)
 }
 
-# Debug run
-debug_sample_size <- min(1000, nrow(data_preferred))
-debug_data <- data_preferred %>% slice_sample(n = debug_sample_size)
-debug_results <- fit_ordinal_logit(debug_data,
-	outcome = "writer_income",
-	predictor = "model_and_mitigation_",
-	random = "(1 | rater_id)"
-)
-print(debug_results$tidy_fixed)
-
 run_ordinal_regressions <- function(attribute) {
 	print(paste("running ordinal logistic regression for:", attribute))
 
@@ -118,6 +126,11 @@ run_ordinal_regressions <- function(attribute) {
 			edited = data_edited,
 			preferred = data_preferred
 		)
+
+		if (debug_mode) {
+			split_data <- split_data %>%
+				slice_sample(n = min(1000, nrow(split_data)))
+		}
 
 		dir.create(
 			paste0("./results/followup_mitigation_phase_2_distortion/", data_split),
@@ -137,6 +150,10 @@ run_ordinal_regressions <- function(attribute) {
 			paste0("./results/followup_mitigation_phase_2_distortion/", data_split, "/", attribute, "_by_model_and_mitigation.csv")
 		)
 	}
+}
+
+if (debug_mode) {
+	message("Running in debug mode on n=1000 samples from each data split.")
 }
 
 for (attr in ordinal_vars) {

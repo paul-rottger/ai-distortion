@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
 
 # =============================================================================
+# MITIGATION STUDY - PHASE 2 VISUALIZATION: DISTRIBUTIONS
+#
+# Builds distribution plots comparing writer and model annotations by mitigation split.
+#
+# - Loads followup mitigation phase-2 annotations and phase-1 preferences.
+# - Applies preprocessing aligned with distribution analysis conventions.
+# - Exports split-specific figures to `figures/followup_mitigation_phase_2_distributions/`.
+#
+# =============================================================================
+
+# =============================================================================
 # SETUP
 # =============================================================================
 
@@ -261,61 +272,6 @@ def _categorical_percent_wide(plot_data, variable, order):
 
     wide = wide[["writer", "model"]].copy()
     return wide
-
-
-def create_categorical_barplot(df, variable, output_path):
-    """Create side-by-side grouped percentage barplot by paragraph type."""
-
-    plot_data = df[["paragraph_type_", variable]].dropna().copy()
-    if len(plot_data) == 0:
-        print(f"Warning: No data available for {variable}")
-        return
-
-    order = _categorical_order(plot_data, variable)
-    if len(order) == 0:
-        print(f"Warning: No valid categories for {variable}")
-        return
-
-    counts = (
-        plot_data.groupby(["paragraph_type_", variable], observed=True)
-        .size()
-        .reset_index(name="count")
-    )
-    totals = counts.groupby("paragraph_type_", observed=True)["count"].transform("sum")
-    counts["percent"] = (counts["count"] / totals) * 100
-
-    fig, ax = plt.subplots(figsize=(11, 6))
-    ax.set_axisbelow(True)
-    sns.barplot(
-        data=counts,
-        x=variable,
-        y="percent",
-        hue="paragraph_type_",
-        order=order,
-        hue_order=["writer", "model"],
-        palette=[colors["writer"], colors["model"]],
-        dodge=True,
-        ax=ax,
-    )
-
-    ax.set_title(
-        f"Categorical Distribution: {variable.replace('_', ' ').title()}\nWriter vs AI Model Generated Paragraphs",
-        fontsize=14,
-        pad=16,
-    )
-    ax.set_xlabel(variable.replace("_", " ").title(), fontsize=12)
-    ax.set_ylabel("Percentage within paragraph type (%)", fontsize=12)
-    ax.grid(True, axis="y", alpha=0.25, linestyle="-", linewidth=0.5)
-    ax.legend(title="Paragraph type", frameon=True)
-
-    if len(order) > 4:
-        ax.tick_params(axis="x", rotation=30)
-
-    plt.tight_layout()
-    plt.savefig(output_path, dpi=300, bbox_inches="tight")
-    plt.close()
-
-    print(f"Saved categorical barplot for {variable}")
 
 
 def create_combined_categorical_grid(df, output_dir):
@@ -595,90 +551,6 @@ def create_combined_categorical_heatmap(df, output_dir):
     plt.close()
 
     print(f"Saved combined categorical heatmap: {heatmap_path}")
-
-
-# ===== FUNCTION TO CREATE KDE PLOT =====
-def create_kde_plot(df, variable, output_path):
-    """Create KDE plot for a single variable comparing writer vs model paragraphs."""
-
-    # Filter data for the variable and remove missing values
-    plot_data = df[["paragraph_type_", variable]].dropna()
-
-    if len(plot_data) == 0:
-        print(f"Warning: No data available for {variable}")
-        return
-
-    # Create figure
-    fig, ax = plt.subplots(figsize=(10, 6))
-
-    writer_data = plot_data[plot_data["paragraph_type_"] == "writer"][variable].to_numpy()
-    model_data = plot_data[plot_data["paragraph_type_"] == "model"][variable].to_numpy()
-
-    drew_custom = draw_kde_with_overlap_fill(ax, writer_data, model_data)
-    if not drew_custom:
-        # Fallback if a group has too few points
-        for ptype in ["writer", "model"]:
-            data = plot_data[plot_data["paragraph_type_"] == ptype][variable]
-            if len(data) > 0:
-                sns.kdeplot(
-                    data=data,
-                    label=f"{ptype.capitalize()}",
-                    color=colors[ptype],
-                    linewidth=1.5,
-                    ax=ax,
-                )
-
-    # Customize the plot
-    ax.set_xlabel(f"{variable.replace('_', ' ').title()} (0-100 scale)", fontsize=12)
-    ax.set_ylabel("Density", fontsize=12)
-    ax.set_title(
-        f"Distribution of {variable.replace('_', ' ').title()} Ratings\nWriter vs AI Model Generated Paragraphs",
-        fontsize=14,
-        pad=20,
-    )
-
-    # Add legend
-    ax.legend(frameon=True, fancybox=True, shadow=True)
-
-    # Set x-axis limits to 0-100 for scale variables
-    ax.set_xlim(0, 100)
-    ax.set_ylim(KDE_Y_MIN, KDE_Y_MAX)
-
-    # Add grid for better readability
-    ax.grid(True, alpha=0.3, linestyle="-", linewidth=0.5)
-
-    # Add summary statistics as text
-    writer_data = plot_data[plot_data["paragraph_type_"] == "writer"][variable]
-    model_data = plot_data[plot_data["paragraph_type_"] == "model"][variable]
-
-    if len(writer_data) > 0 and len(model_data) > 0:
-        writer_mean = writer_data.mean()
-        model_mean = model_data.mean()
-        writer_std = writer_data.std()
-        model_std = model_data.std()
-
-        # Add text box with summary stats
-        stats_text = f"Writer: μ={writer_mean:.1f}, σ={writer_std:.1f} (n={len(writer_data):,})\n"
-        stats_text += (
-            f"Model: μ={model_mean:.1f}, σ={model_std:.1f} (n={len(model_data):,})"
-        )
-
-        ax.text(
-            0.02,
-            0.98,
-            stats_text,
-            transform=ax.transAxes,
-            fontsize=10,
-            verticalalignment="top",
-            bbox=dict(boxstyle="round", facecolor="wheat", alpha=0.8),
-        )
-
-    # Adjust layout and save
-    plt.tight_layout()
-    plt.savefig(output_path, dpi=300, bbox_inches="tight")
-    plt.close()
-
-    print(f"Saved KDE plot for {variable}")
 
 
 # ===== FUNCTION TO CREATE COMBINED GRID PLOT =====
@@ -995,94 +867,6 @@ def create_combined_violin_grid(df, output_dir, data_split):
     print(f"Saved combined violin plot: {combined_path}")
 
 
-def _significance_stars(p_value):
-    """Return significance stars for a p-value."""
-    if p_value < 0.001:
-        return "***"
-    if p_value < 0.01:
-        return "**"
-    if p_value < 0.05:
-        return "*"
-    return ""
-
-
-def report_bonferroni_corrected_scale_pvalues(output_dir, data_split):
-    """Load split-specific test p-values for scale + categorical vars and print Bonferroni-corrected results."""
-
-    results_dir = os.path.join("results", "followup_mitigation_phase_2_distribution", data_split)
-    all_variables = SCALE_ATTRIBUTES + CATEGORICAL_VARS
-    rows = []
-    missing_files = []
-    missing_terms = []
-
-    for variable in all_variables:
-        file_path = os.path.join(results_dir, f"{variable}_by_type.csv")
-
-        if not os.path.exists(file_path):
-            missing_files.append(variable)
-            continue
-
-        res_df = pd.read_csv(file_path)
-        p_col = None
-        if "p_value" in res_df.columns:
-            p_col = "p_value"
-        elif "p" in res_df.columns:
-            p_col = "p"
-
-        if p_col is None or res_df.empty:
-            missing_terms.append(variable)
-            continue
-
-        rows.append(
-            {
-                "variable": variable,
-                "variable_type": "scale" if variable in SCALE_ATTRIBUTES else "categorical",
-                "p_raw": float(res_df.iloc[0][p_col]),
-            }
-        )
-
-    print(
-        f"\n=== Bonferroni-corrected p-values ({data_split} tests: scale + categorical) ==="
-    )
-
-    if not rows:
-        print("No usable p-values found.")
-        return
-
-    m_tests = len(all_variables)
-    pvals_df = pd.DataFrame(rows)
-    pvals_df["p_bonferroni"] = np.minimum(pvals_df["p_raw"] * m_tests, 1.0)
-    pvals_df["sig"] = pvals_df["p_bonferroni"].apply(_significance_stars)
-
-    pvals_df["variable"] = pd.Categorical(
-        pvals_df["variable"], categories=all_variables, ordered=True
-    )
-    pvals_df = pvals_df.sort_values("variable")
-
-    print(f"Correction factor (m): {m_tests}")
-    print("Significance: * < 0.05, ** < 0.01, *** < 0.001")
-    print("")
-
-    for _, row in pvals_df.iterrows():
-        print(
-            f"{row['variable']:.<30} corrected={row['p_bonferroni']:.4g} {row['sig']}"
-        )
-
-    if missing_files:
-        print("\nMissing result files:")
-        for variable in missing_files:
-            print(f"- {variable}")
-
-    if missing_terms:
-        print("\nMissing t-test p-value column (`p_value`/`p`) in results file:")
-        for variable in missing_terms:
-            print(f"- {variable}")
-
-    save_path = os.path.join(output_dir, f"{data_split}_all_bonferroni_ttest_pvalues.csv")
-    pvals_df.to_csv(save_path, index=False)
-    print(f"\nSaved Bonferroni p-value table: {save_path}")
-
-
 # =============================================================================
 # MAIN EXECUTION
 # =============================================================================
@@ -1113,11 +897,6 @@ def main():
         print(f"\n=== Processing split: {data_split} ===")
         print(f"Output directory: {output_dir}")
 
-        print("\nCreating individual KDE plots...")
-        for variable in SCALE_ATTRIBUTES:
-            output_path = os.path.join(output_dir, f"kde_{variable}.pdf")
-            create_kde_plot(split_df, variable, output_path)
-
         print("\nCreating combined KDE grid plot...")
         create_combined_kde_grid(split_df, output_dir, data_split)
 
@@ -1126,11 +905,6 @@ def main():
 
         print("\nPreparing categorical data...")
         categorical_df = prepare_categorical_data(split_df)
-
-        print("\nCreating categorical barplots...")
-        for variable in CATEGORICAL_VARS:
-            output_path = os.path.join(output_dir, f"barplot_{variable}.pdf")
-            create_categorical_barplot(categorical_df, variable, output_path)
 
         print("\nCreating combined categorical barplot grid...")
         create_combined_categorical_grid(categorical_df, output_dir)
@@ -1181,8 +955,6 @@ def main():
         top_diffs = summary_df.nlargest(5, "mean_diff")[["variable", "mean_diff"]]
         for _, row in top_diffs.iterrows():
             print(f"{row['variable']:.<30} {row['mean_diff']:+6.2f}")
-
-        report_bonferroni_corrected_scale_pvalues(output_dir, data_split)
 
 
 if __name__ == "__main__":

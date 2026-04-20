@@ -3,9 +3,12 @@
 # =============================================================================
 # FOLLOWUP MITIGATION STUDY - PHASE 1 ANALYSIS: PARAGRAPH PREFERENCE
 #
-# - Preference and edit rates + bootstrap CIs by mitigation condition and model
-# - Mixed-effects logistic regressions for binarised preference and editing
-#   outcomes
+# Summarizes writer preferences between original and mitigation-conditioned model paragraphs.
+#
+# - Computes preference and edit rates with bootstrap confidence intervals by mitigation condition and model.
+# - Fits mixed-effects logistic regressions for binary preference and editing outcomes.
+# - Produces model- and condition-specific summary tables for preferences and edits.
+# - Writes outputs to results/followup_mitigation_phase_1/ and figures/followup_mitigation_phase_1/.
 #
 # =============================================================================
 
@@ -22,6 +25,10 @@ suppressPackageStartupMessages({
 
 # Set random seed for reproducibility
 set.seed(123)
+
+# Parse command-line flags
+args <- commandArgs(trailingOnly = TRUE)
+debug_mode <- "debug" %in% args
 
 # =============================================================================
 # DATA LOADING
@@ -48,6 +55,13 @@ data <- data %>%
     weak_preference_model = as.integer(weak_preference_model),
     strict_preference_model = as.integer(strict_preference_model),
   )
+
+if (debug_mode) {
+  data <- data %>%
+    slice_sample(n = min(1000, nrow(data)))
+
+  message("Running in debug mode on an n=1000 sample of the phase 1 data.")
+}
 
 data$mitigation_condition_ <- relevel(data$mitigation_condition_, ref = "none")
 data$model_ <- relevel(data$model_, ref = "anthropic/claude-sonnet-4")

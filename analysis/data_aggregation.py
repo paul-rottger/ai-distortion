@@ -1,6 +1,18 @@
 #!/usr/bin/env python3
 
 # =============================================================================
+# ANALYSIS UTIL: PHASE 2 ANNOTATION AGGREGATION
+#
+# Aggregates rater-level phase-2 annotation rows to paragraph-level summaries.
+#
+# - Loads all `annotations.csv` files from phase-2 study folders.
+# - Groups by writer/proposition/paragraph type and aggregates variables:
+#   numeric columns by mean, non-numeric columns by modal value.
+# - Writes `annotations_aggregated.csv` alongside each source file.
+#
+# =============================================================================
+
+# =============================================================================
 # SETUP
 # =============================================================================
 

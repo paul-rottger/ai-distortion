@@ -3,10 +3,13 @@
 # =============================================================================
 # MAIN STUDY - PHASE 1 ANALYSIS: PARAGRAPH PREFERENCE
 # 
-# - Preference and edit rates + bootstrap CIs
-# - Preference reasons
-# - Logistic regressions for binarised preference and editing outcomes
-# - Linear regressions for continuous editing outcomes
+# Summarizes writer preferences between original and model-edited paragraphs.
+#
+# - Computes preference and edit rates with bootstrap confidence intervals.
+# - Summarizes strict preference reasons for AI vs human selections.
+# - Fits mixed-effects logistic regressions for binary preference/editing outcomes.
+# - Fits mixed-effects linear regressions for continuous edit outcomes.
+# - Writes result tables to results/main_phase_1/ and figures to figures/main_phase_1/.
 # 
 # =============================================================================
 

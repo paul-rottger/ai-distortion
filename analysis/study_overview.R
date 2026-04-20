@@ -1,3 +1,17 @@
+#!/usr/bin/env Rscript
+
+# =============================================================================
+# STUDY OVERVIEW: PARTICIPANT AND ASSIGNMENT SUMMARIES
+#
+# Summarizes participant counts, rating volume, and assignment structure across studies.
+#
+# - Reports participant totals for each phase and followup study dataset.
+# - Reports phase 2 rating counts and unique paragraph coverage when available.
+# - Reports phase 1 assignment breakdowns by study-specific experimental factors.
+# - Prints overview tables to console for quick cross-study validation.
+#
+# =============================================================================
+
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
   library(tidyverse)

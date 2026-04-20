@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
 
 # =============================================================================
+# MITIGATION STUDY - PHASE 2 VISUALIZATION: DISTORTION EFFECTS
+#
+# Generates phase-2 distortion plots across mitigation conditions.
+#
+# - Loads distortion analysis results for edited, unedited, and preferred splits.
+# - Builds mitigation-comparison figures across scale, ordinal, and nominal outcomes.
+# - Saves visual outputs to `figures/followup_mitigation_phase_2_distortion/`.
+#
+# =============================================================================
+
+# =============================================================================
 # SETUP
 # =============================================================================
 
@@ -21,6 +32,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 sys.path.insert(0, os.path.join(BASE_DIR, "..", "utils_py"))
 from variable_definitions import ORDINAL_VARS as ORDINAL_ATTRIBUTES, NOMINAL_VARS as NOMINAL_ATTRIBUTES
+from plotting_utils import get_group_offsets
 RESULTS_DIR = os.path.normpath(os.path.join(BASE_DIR, "../../results/followup_mitigation_phase_2_distortion"))
 FIGURES_DIR = os.path.normpath(os.path.join(BASE_DIR, "../../figures/followup_mitigation_phase_2_distortion"))
 CORRELATION_RESULTS_DIR = os.path.normpath(
@@ -268,19 +280,6 @@ def get_available_terms(
 
     common_terms = set.intersection(*term_sets)
     return get_term_order(common_terms)
-
-
-def get_group_offsets(group_names, offset_scale=0.12):
-    if len(group_names) == 1:
-        return {group_names[0]: 0}
-
-    offset_positions = [
-        index - (len(group_names) - 1) / 2 for index in range(len(group_names))
-    ]
-    return {
-        group_name: position * offset_scale
-        for group_name, position in zip(group_names, offset_positions)
-    }
 
 
 def create_horizontal_grouped_effect_plot(

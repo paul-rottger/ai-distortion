@@ -14,15 +14,16 @@
 
 # Ignore specific files
 transfer_data.ipynb
+data_aggregation.py
 anonymise.py
 participant_study_membership.csv
 
 # Ignore directories
 .github/
 .claude/
+/results_backup/
 
 # Reranking outputs
-/reranking/finetuning_data/
 /reranking/rm_scores/
 /reranking/rm_evaluations/
 

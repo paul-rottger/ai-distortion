@@ -1,3 +1,17 @@
+#!/usr/bin/env Rscript
+
+# =============================================================================
+# FOLLOWUP MITIGATION STUDY - PHASE 2 DISTORTION ANALYSIS: NOMINAL VARIABLES
+#
+# Estimates nominal distortion patterns across mitigation-conditioned model output.
+#
+# - Fits multinomial and one-vs-all logistic models for nominal outcomes.
+# - Compares model-by-mitigation combinations against writer baselines.
+# - Runs analyses on unedited, edited, and preferred subsets.
+# - Writes nominal distortion result tables to results/followup_mitigation_phase_2_distortion/.
+#
+# =============================================================================
+
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
 	library(tidyverse)
@@ -9,6 +23,10 @@ source("./analysis/utils_r/data_loading.R")
 
 # ===== RANDOM SEED ----
 set.seed(123)
+
+# ===== COMMAND-LINE FLAGS ----
+args <- commandArgs(trailingOnly = TRUE)
+debug_mode <- "debug" %in% args
 
 mitigation_reference_level <- "writer"
 
@@ -155,17 +173,6 @@ fit_multinomial_logit <- function(df,
 		)
 }
 
-# Debug run
-debug_sample_size <- min(1000, nrow(data_preferred))
-debug_data <- data_preferred %>% slice_sample(n = debug_sample_size)
-debug_results <- fit_multinomial_logit(
-	debug_data,
-	outcome = "writer_gender",
-	predictor = "model_and_mitigation_",
-	outcome_ref = reference_levels[["writer_gender"]]
-)
-print(debug_results)
-
 run_nominal_regressions <- function(attribute) {
 	print(paste("running multinomial logistic regression for:", attribute))
 
@@ -175,6 +182,11 @@ run_nominal_regressions <- function(attribute) {
 			edited = data_edited,
 			preferred = data_preferred
 		)
+
+		if (debug_mode) {
+			split_data <- split_data %>%
+				slice_sample(n = min(1000, nrow(split_data)))
+		}
 
 		dir.create(
 			paste0("./results/followup_mitigation_phase_2_distortion/", data_split),
@@ -196,7 +208,7 @@ run_nominal_regressions <- function(attribute) {
 	}
 }
 
-requested_attributes <- commandArgs(trailingOnly = TRUE)
+requested_attributes <- setdiff(args, "debug")
 
 if (length(requested_attributes) > 0) {
 	nominal_vars <- intersect(nominal_vars, requested_attributes)
@@ -204,6 +216,10 @@ if (length(requested_attributes) > 0) {
 	if (length(nominal_vars) == 0) {
 		stop("No requested nominal variables matched the supported outcomes.")
 	}
+}
+
+if (debug_mode) {
+	message("Running in debug mode on n=1000 samples from each data split.")
 }
 
 for (attribute in nominal_vars) {
