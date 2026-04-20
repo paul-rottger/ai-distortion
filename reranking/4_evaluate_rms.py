@@ -12,7 +12,7 @@ import pandas as pd
 SCRIPT_DIR = Path(__file__).resolve().parent
 FINETUNING_DATA_DIR = SCRIPT_DIR / "finetuning_data"
 DEFAULT_SCORE_ROOT = SCRIPT_DIR / "rm_scores"
-OUTPUT_ROOT = SCRIPT_DIR / "results" / "rm_evaluations"
+OUTPUT_ROOT = SCRIPT_DIR / "rm_evaluations"
 DATASET_CHOICES = ("bullet_rm", "paragraph_rm")
 JOIN_COLUMNS = [
     "writer_id",
@@ -94,21 +94,6 @@ def resolve_score_files(dataset_name: str, score_root: Path, explicit_paths: lis
 
     return score_files
 
-
-def stance_bucket(value: float) -> str:
-    if value < 33.3333:
-        return "disagree"
-    if value > 66.6667:
-        return "agree"
-    return "ambivalent"
-
-
-def pearson_correlation(y_true: pd.Series, y_pred: pd.Series) -> float:
-    if len(y_true) < 2:
-        return float("nan")
-    return float(y_true.corr(y_pred))
-
-
 def rmse(y_true: pd.Series, y_pred: pd.Series) -> float:
     return math.sqrt(float(((y_true - y_pred) ** 2).mean()))
 
@@ -174,8 +159,6 @@ def evaluate_predictions(merged_df: pd.DataFrame, label: str) -> dict[str, float
 
     y_true = matched_df[TARGET_COLUMN].astype(float)
     y_pred = matched_df[PREDICTION_COLUMN].astype(float)
-    y_true_bucket = y_true.map(stance_bucket)
-    y_pred_bucket = y_pred.map(stance_bucket)
 
     return {
         "model": label,
@@ -184,9 +167,6 @@ def evaluate_predictions(merged_df: pd.DataFrame, label: str) -> dict[str, float
         "n_missing_rows": int(merged_df[PREDICTION_COLUMN].isna().sum()),
         "mae": float(mean_absolute_error(y_true, y_pred)),
         "rmse": rmse(y_true, y_pred),
-        "pearson_r": pearson_correlation(y_true, y_pred),
-        "bucket_accuracy": float(accuracy_score(y_true_bucket, y_pred_bucket)),
-        "bucket_macro_f1": float(macro_f1_score(y_true_bucket, y_pred_bucket)),
     }
 
 
@@ -195,7 +175,7 @@ def main() -> None:
 
     score_root = Path(args.score_root).expanduser().resolve()
     test_df = load_test_df(args.dataset)
-    output_dir = OUTPUT_ROOT / args.dataset
+    output_dir = OUTPUT_ROOT
     default_score_dir = score_root / args.dataset
 
     if args.dry_run:
@@ -217,7 +197,6 @@ def main() -> None:
         return
 
     summaries: list[dict[str, float | int | str]] = []
-    merged_outputs: list[tuple[str, pd.DataFrame]] = []
 
     for score_path in score_files:
         label = score_path.stem
@@ -225,21 +204,16 @@ def main() -> None:
         merged_df = merge_scores(test_df, score_df)
         summary = evaluate_predictions(merged_df, label)
         summaries.append(summary)
-        merged_outputs.append((label, merged_df))
         print(
             f"Evaluated {label}: n={summary['n_scored_rows']}, "
-            f"MAE={summary['mae']:.3f}, RMSE={summary['rmse']:.3f}, r={summary['pearson_r']:.3f}"
+            f"MAE={summary['mae']:.3f}, RMSE={summary['rmse']:.3f}"
         )
 
     output_dir.mkdir(parents=True, exist_ok=True)
     summary_df = pd.DataFrame(summaries).sort_values("mae", ascending=True)
-    summary_path = output_dir / "summary.csv"
+    summary_path = output_dir / f"{args.dataset}_summary.csv"
     summary_df.to_csv(summary_path, index=False)
     print(f"Saved summary: {summary_path}")
-
-    for label, merged_df in merged_outputs:
-        merged_path = output_dir / f"{model_slug(label)}_merged.csv"
-        merged_df.to_csv(merged_path, index=False)
 
 
 if __name__ == "__main__":

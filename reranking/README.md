@@ -69,7 +69,7 @@ Once you have a base model (e.g. `gpt-4.1-nano-2025-04-14`) or fine-tuned model 
 ```bash
 env/bin/python reranking/3_get_rm_scores.py \
 	--dataset paragraph_rm \
-	--model your-finetuned-model
+	--model <your-finetuned-model>
 ```
 
 The score file is written to:
@@ -101,18 +101,6 @@ Outputs are written to:
 reranking/results/rm_evaluations/<dataset>/
 ```
 
-Key outputs:
-
-- `summary.csv` with aggregate metrics for each scored model
-- one merged CSV per model with predictions joined back to the test set
-
-Reported metrics include:
-
-- mean absolute error
-- root mean squared error
-- Pearson correlation
-- three-way stance bucket accuracy
-- three-way stance bucket macro F1
 
 ## Typical End-to-End Run
 
@@ -124,8 +112,29 @@ env/bin/python reranking/3_get_rm_scores.py --dataset paragraph_rm --model your-
 env/bin/python reranking/4_evaluate_rms.py --dataset paragraph_rm
 ```
 
-## Notes
+## Using Reward Models for Reranking
 
-- The preparation step currently targets the `writer_stance` annotation only.
-- Fine-tuning and scoring both require valid OpenAI credentials in the root `.env` file.
-- If you want to inspect paths before making API calls, use the `--dry-run` options on the scoring and evaluation scripts.
+In our mitigation study, we used the `paragraph_rm` and `bullet_rm` scores to implement a Reranking method for selecting least-distorting paragrpaphs from candidate model outputs.
+At inference time, under the Reranking condition, we used verbalised sampling to generate two batches of five candidate paragraphs from the assigned model by appending the following instruction to the standard generation prompt:
+
+```text
+Generate 5 independent paragraphs with their corresponding probabilities, sampled from the full distribution.
+Follow this format: "[probability] paragraph text".
+Each paragraph should account for all the bullet points.
+Reply only with the generated paragraphs, nothing else.
+```
+
+We then scored each candidate paragraph with `paragraph_rm` and scored the writer's bullets with `bullet_rm`. The selected output was the candidate minimizing weighted stance discrepancy:
+
+$$
+y^* = y_{\arg\min_k\; w(\delta_k) \cdot |\delta_k|}
+$$
+
+where
+
+$$
+\delta_k = |f_{\text{para}}(y_k) - 50| - |f_{\text{bullet}}(b) - 50|
+$$
+
+and $w(\delta) = 0.688$ when $\delta > 0$ and $w(\delta) = 0.448$ otherwise.
+This penalizes candidates predicted to be more extreme than the writer more heavily than candidates predicted to be more moderate.
