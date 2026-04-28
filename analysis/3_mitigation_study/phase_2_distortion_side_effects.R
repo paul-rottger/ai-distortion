@@ -17,8 +17,13 @@ suppressPackageStartupMessages({
 	library(readr)
 })
 
+source("./analysis/utils_r/demo_paths.R")
+
+args <- commandArgs(trailingOnly = TRUE)
+demo_mode <- parse_demo_mode(args)
+
 # ===== SETTINGS ----
-preferred_results_dir <- "./results/followup_mitigation_phase_2_distortion/preferred"
+preferred_results_dir <- get_results_dir(demo_mode, "followup_mitigation_phase_2_distortion", "preferred")
 detail_output_path <- file.path(preferred_results_dir, "mitigation_significance_details.csv")
 alpha <- 0.05
 distortion_attributes <- c(

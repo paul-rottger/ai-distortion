@@ -1,14 +1,9 @@
-# AI Distortion
-
-Code and data for our paper:
-
-> **Measuring and mitigating persona distortions from AI writing assistance**
->
-> Paul Röttger, Kobi Hackenburg, Hannah Rose Kirk, and Christopher Summerfield
+# Measuring and Mitigating Persona Distortions from AI Writing Assistance
 
 ## Overview
 
-This repository contains the analysis code and analysis-ready datasets for our paper on persona distortions from AI writing assistance.
+This repository contains all analysis code and data for our paper on "Measuring and Mitigating Persona Distortions from AI Writing Assistance".
+This is joint work by Paul Röttger, Kobi Hackenburg, Hannah Rose Kirk, and Christopher Summerfield, supported by the UK's AI Security Institute.
 
 | Folder | Description |
 |--------|-------------|
@@ -21,8 +16,8 @@ This repository contains the analysis code and analysis-ready datasets for our p
 ## Requirements
 
 - No special hardware is required for the statistical analyses and plotting workflows in this repository.
-- Python dependencies are listed in `requirements_python.txt`.
-- R package versions used for the analyses are listed in `requirements_R.csv`.
+- Python dependencies and versions are listed in `requirements_python.txt`.
+- R packages and versions are listed in `requirements_r.R`.
 
 ## Reproducing Results
 
@@ -43,22 +38,18 @@ Rscript requirements_r.R
 ./run_all.sh 
 ```
 
-`run_all.sh` supports a small set of optional flags:
+`run_all.sh` supports an optional flag:
 
-- `--run_regressions`: also run the phase 2 distortion regression scripts, which are skipped by default.
-- `--debug`: run supported R scripts in debug mode, using `n = 1000` samples instead of the full data. This is most useful together with `--run_regressions`.
+- `--demo`: run demo-capable analyses in demo mode. Demo-capable R analyses use `n = 1000` samples instead of the full data, and Python analysis scripts write generated results and figures to `demo_results/` and `demo_figures/` where applicable so they do not overwrite the main outputs.
 
 Examples:
 
 ```bash
-# Default pipeline without the phase 2 distortion regressions
+# Full pipeline
 ./run_all.sh
 
-# Full pipeline including the phase 2 distortion regressions
-./run_all.sh --run_regressions
-
-# Faster debug run for supported R scripts, including regression scripts
-./run_all.sh --run_regressions --debug
+# Faster demo run for demo-capable analyses
+./run_all.sh --demo
 ```
 
 Details on each analysis script are listed in `analysis/README.md`.
@@ -71,3 +62,18 @@ Details are described in `data/README.md`.
 ## License
 
 This work is licensed under a Creative Commons Attribution 4.0 International License.
+Please cite the paper below if you use any of the code or data in this repository.
+
+## Citation
+
+```bibtex
+@misc{rottger2026measuring,
+      title={Measuring and Mitigating Persona Distortions from AI Writing Assistance},
+      author={Paul Röttger and Kobi Hackenburg and Hannah Rose Kirk and Christopher Summerfield},
+      year={2026},
+      eprint={2604.22503},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2604.22503},
+}
+```

@@ -21,6 +21,7 @@ suppressPackageStartupMessages({
 	library(tidyverse)
 })
 
+source("./analysis/utils_r/demo_paths.R")
 source("./analysis/utils_r/variable_definitions.R")
 source("./analysis/utils_r/data_loading.R")
 
@@ -28,9 +29,13 @@ source("./analysis/utils_r/data_loading.R")
 # ===== RANDOM SEED ----
 set.seed(123)
 
+# ===== COMMAND-LINE FLAGS ----
+args <- commandArgs(trailingOnly = TRUE)
+demo_mode <- parse_demo_mode(args)
+
 # ===== ANALYSIS CONFIG ----
-RESULTS_DIR <- "./results/main_phase_2_distribution"
-FIGURES_DIR <- "./figures/main_phase_2_distributions"
+RESULTS_DIR <- get_results_dir(demo_mode, "main_phase_2_distribution")
+FIGURES_DIR <- get_figures_dir(demo_mode, "main_phase_2_distributions")
 DATA_SPLITS <- c(
 	# "unedited",
 	# "edited",
@@ -349,10 +354,21 @@ create_scale_spread_boxplot <- function(df, spread_results, data_split) {
 }
 
 # ===== RUN ANALYSIS + SAVE OUTPUTS ----
+if (demo_mode) {
+	message("Running in demo mode on n=1000 samples from each data split.")
+}
+
 walk(DATA_SPLITS, function(data_split) {
 	message("Running spread analysis for split: ", data_split)
 
 	df_split <- get_split_data(data_split)
+
+	if (demo_mode) {
+		df_split <- df_split %>%
+			slice_sample(n = min(1000, nrow(df_split)))
+	}
+
+	dir.create(file.path(RESULTS_DIR, data_split), recursive = TRUE, showWarnings = FALSE)
 
 	spread_results <- bind_rows(
 		map_dfr(scale_attributes, ~ {

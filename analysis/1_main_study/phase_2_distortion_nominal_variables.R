@@ -23,6 +23,7 @@ suppressPackageStartupMessages({
   library(lme4)
 })
 
+source("./analysis/utils_r/demo_paths.R")
 source("./analysis/utils_r/variable_definitions.R")
 source("./analysis/utils_r/data_loading.R")
 
@@ -33,7 +34,8 @@ set.seed(123)
 # Parse command-line flags
 # ===== COMMAND-LINE FLAGS ----
 args <- commandArgs(trailingOnly = TRUE)
-debug_mode <- "debug" %in% args
+demo_mode <- parse_demo_mode(args)
+RESULTS_DIR <- get_results_dir(demo_mode, "main_phase_2_distortion")
 
 # =============================================================================
 # DATA LOADING AND PROCESSING
@@ -349,19 +351,19 @@ run_nominal_regressions <- function(attribute) {
       preferred = data_preferred
     )
 
-    if (debug_mode) {
+    if (demo_mode) {
       split_data <- split_data %>%
         slice_sample(n = min(1000, nrow(split_data)))
     }
 
     dir.create(
-      paste0("./results/main_phase_2_distortion/", data_split),
+      file.path(RESULTS_DIR, data_split),
       recursive = TRUE,
       showWarnings = FALSE
     )
 
     dir.create(
-      paste0("./results/main_phase_2_distortion/", data_split, "/ova_logistic_results"),
+      file.path(RESULTS_DIR, data_split, "ova_logistic_results"),
       recursive = TRUE,
       showWarnings = FALSE
     )
@@ -389,28 +391,20 @@ run_nominal_regressions <- function(attribute) {
 
       write_csv(
         multinomial_results,
-        paste0("./results/main_phase_2_distortion/", data_split, "/", attribute, "_", predictor[2], ".csv")
+        file.path(RESULTS_DIR, data_split, paste0(attribute, "_", predictor[2], ".csv"))
       )
 
       write_csv(
         ova_results,
-        paste0(
-          "./results/main_phase_2_distortion/",
-          data_split,
-          "/ova_logistic_results/",
-          attribute,
-          "_",
-          predictor[2],
-          ".csv"
-        )
+        file.path(RESULTS_DIR, data_split, "ova_logistic_results", paste0(attribute, "_", predictor[2], ".csv"))
       )
     }
   }
 }
 
 # loop through nominal variables and run regressions
-if (debug_mode) {
-  message("Running in debug mode on n=1000 samples from each data split.")
+if (demo_mode) {
+  message("Running in demo mode on n=1000 samples from each data split.")
 }
 
 for (attribute in nominal_vars) {

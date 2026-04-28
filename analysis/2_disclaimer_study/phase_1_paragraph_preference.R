@@ -23,8 +23,15 @@ suppressPackageStartupMessages({
   library(broom.mixed)
 })
 
+source("./analysis/utils_r/demo_paths.R")
+
 # Set random seed for reproducibility
 set.seed(123)
+
+args <- commandArgs(trailingOnly = TRUE)
+demo_mode <- parse_demo_mode(args)
+RESULTS_DIR <- get_results_dir(demo_mode, "followup_disclaimer_phase_1")
+FIGURES_DIR <- get_figures_dir(demo_mode, "followup_disclaimer_phase_1")
 
 # =============================================================================
 # DATA LOADING
@@ -51,6 +58,13 @@ data <- data %>%
     weak_preference_model = as.integer(weak_preference_model),
     strict_preference_model = as.integer(strict_preference_model),
   )
+
+if (demo_mode) {
+  data <- data %>%
+    slice_sample(n = min(1000, nrow(data)))
+
+  message("Running in demo mode on an n=1000 sample of the phase 1 data.")
+}
 
 data$disclaimer_condition_ <- relevel(data$disclaimer_condition_, ref = "no_disclaimer")
 
@@ -118,8 +132,9 @@ bootstrap_preference_summary <- function(data,
 produce_results <- function(data, var) {
   summary <- bootstrap_preference_summary(data, var)
   print(summary$table)
+  dir.create(FIGURES_DIR, recursive = TRUE, showWarnings = FALSE)
   ggsave(
-    paste0("./figures/followup_disclaimer_phase_1/", var, ".pdf"),
+    file.path(FIGURES_DIR, paste0(var, ".pdf")),
     summary$plot,
     width = 8,
     height = 4,
@@ -179,7 +194,7 @@ fit_disclaimer_mixed_logit <- function(df,
 
 run_disclaimer_mixed_models <- function(df,
                                         outcomes = c("made_edits", "weak_preference_model", "strict_preference_model"),
-                                        output_dir = "./results/followup_disclaimer_phase_1") {
+                                        output_dir = RESULTS_DIR) {
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
   results_list <- map(outcomes, ~ fit_disclaimer_mixed_logit(df, .x))

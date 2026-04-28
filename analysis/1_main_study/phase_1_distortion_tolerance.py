@@ -17,6 +17,7 @@
 
 # Package imports
 from pathlib import Path
+import sys
 import matplotlib
 import numpy as np
 import pandas as pd
@@ -27,9 +28,14 @@ from matplotlib.patches import Rectangle
 
 # Path configuration
 BASE_DIR = Path(__file__).resolve().parents[2]
+DEMO_MODE = "demo" in sys.argv[1:]
 DATA_PATH = BASE_DIR / "data" / "main_phase_1" / "distortion_responses.csv"
-SUMMARY_OUTPUT_PATH = BASE_DIR / "data" / "main_phase_1" / "distortion_responses_summary.csv"
-FIGURES_DIR = BASE_DIR / "figures" / "main_phase_1"
+SUMMARY_OUTPUT_PATH = (
+    BASE_DIR / "demo_results" / "main_phase_1" / "distortion_responses_summary.csv"
+    if DEMO_MODE
+    else BASE_DIR / "data" / "main_phase_1" / "distortion_responses_summary.csv"
+)
+FIGURES_DIR = BASE_DIR / ("demo_figures" if DEMO_MODE else "figures") / "main_phase_1"
 FIGURE_OUTPUT_TEMPLATE = "distortion_tolerance_{statistic}.pdf"
 
 # Plot labels
@@ -273,6 +279,7 @@ def create_tolerance_whisker_plot(
 # =============================================================================
 
 def write_summary(summary_df: pd.DataFrame) -> None:
+    SUMMARY_OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     summary_df.to_csv(SUMMARY_OUTPUT_PATH, index=False)
 
 

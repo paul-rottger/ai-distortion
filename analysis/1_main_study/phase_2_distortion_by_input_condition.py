@@ -23,12 +23,13 @@ import pandas as pd
 
 # Path configuration
 BASE_DIR = Path(__file__).resolve().parents[2]
-RESULTS_BASE_DIR = BASE_DIR / "results" / "main_phase_2_distortion"
-SUMMARY_DIR_NAME = "summary"
-
-# Internal imports
 sys.path.insert(0, str(BASE_DIR / "analysis" / "utils_py"))
+from demo_paths import get_results_dir, get_results_input_dir, parse_demo_mode
 from variable_definitions import INPUT_CONDITION_TERMS, VARIABLE_GROUPS
+
+DEMO_MODE = parse_demo_mode()
+RESULTS_BASE_DIR = get_results_input_dir(BASE_DIR, "main_phase_2_distortion", demo_mode=DEMO_MODE)
+SUMMARY_DIR_NAME = "summary"
 
 # Analysis configuration
 DATA_SPLITS = ["preferred", "edited", "unedited"]

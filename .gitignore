@@ -22,6 +22,8 @@ participant_study_membership.csv
 .github/
 .claude/
 /results_backup/
+/demo_figures/
+/demo_results/
 
 # Reranking outputs
 /reranking/rm_scores/

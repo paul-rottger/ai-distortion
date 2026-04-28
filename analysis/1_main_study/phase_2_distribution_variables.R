@@ -26,6 +26,7 @@ suppressPackageStartupMessages({
   library(effsize)
 })
 
+source("./analysis/utils_r/demo_paths.R")
 source("./analysis/utils_r/variable_definitions.R")
 source("./analysis/utils_r/data_loading.R")
 
@@ -33,9 +34,13 @@ source("./analysis/utils_r/data_loading.R")
 # ===== RANDOM SEED ----
 set.seed(123)
 
+# ===== COMMAND-LINE FLAGS ----
+args <- commandArgs(trailingOnly = TRUE)
+demo_mode <- parse_demo_mode(args)
+
 # ===== ANALYSIS CONFIG ----
-RESULTS_DIR <- "./results/main_phase_2_distribution"
-FIGURES_DIR <- "./figures/main_phase_2_distributions"
+RESULTS_DIR <- get_results_dir(demo_mode, "main_phase_2_distribution")
+FIGURES_DIR <- get_figures_dir(demo_mode, "main_phase_2_distributions")
 DATA_SPLITS <- c("unedited", "edited", "preferred")
 CORRELATION_ATTRIBUTES <- rating_attributes
 
@@ -65,7 +70,25 @@ categorical_splits <- list(
 )
 
 get_categorical_split_data <- function(data_split) {
-  categorical_splits[[data_split]]
+  split_data <- categorical_splits[[data_split]]
+
+  if (demo_mode) {
+    split_data <- split_data %>%
+      slice_sample(n = min(1000, nrow(split_data)))
+  }
+
+  split_data
+}
+
+get_scale_split_data <- function(data_split) {
+  split_data <- scale_splits$get_split_data(data_split)
+
+  if (demo_mode) {
+    split_data <- split_data %>%
+      slice_sample(n = min(1000, nrow(split_data)))
+  }
+
+  split_data
 }
 
 # =============================================================================
@@ -225,7 +248,7 @@ run_all_scale_tests <- function() {
       )
 
       results <- run_scale_test_by_type(
-        df = scale_splits$get_split_data(data_split),
+        df = get_scale_split_data(data_split),
         attribute = attribute
       )
 
@@ -241,7 +264,7 @@ run_scale_correlations <- function() {
   for (data_split in DATA_SPLITS) {
     message("Running scale correlations for: ", data_split)
 
-    split_data <- scale_splits$get_split_data(data_split)
+    split_data <- get_scale_split_data(data_split)
 
     dir.create(
       file.path(RESULTS_DIR, data_split),
@@ -392,6 +415,10 @@ run_all_nominal_tests <- function() {
 # =============================================================================
 # MAIN EXECUTION
 # =============================================================================
+
+if (demo_mode) {
+  message("Running in demo mode on n=1000 samples from each data split.")
+}
 
 run_all_scale_tests()
 run_scale_correlations()

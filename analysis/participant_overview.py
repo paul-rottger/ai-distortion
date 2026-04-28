@@ -18,15 +18,21 @@
 
 # Package imports
 from pathlib import Path
+import sys
 
 import pandas as pd
 
 # Path configuration
 BASE_DIR = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(BASE_DIR / "analysis" / "utils_py"))
+
+from demo_paths import get_results_dir, parse_demo_mode
+
+DEMO_MODE = parse_demo_mode()
 DATA_DIR = BASE_DIR / "data"
 CENSUS_PATH = DATA_DIR / "ext" / "uk_census_2021.csv"
-RESULTS_DIR = BASE_DIR / "results" / "participant_demographics"
-ASSIGNMENT_RESULTS_DIR = BASE_DIR / "results" / "participant_assignment"
+RESULTS_DIR = get_results_dir(BASE_DIR, "participant_demographics", demo_mode=DEMO_MODE)
+ASSIGNMENT_RESULTS_DIR = get_results_dir(BASE_DIR, "participant_assignment", demo_mode=DEMO_MODE)
 
 # Study configuration
 STUDIES = [

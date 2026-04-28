@@ -27,6 +27,7 @@ suppressPackageStartupMessages({
 	library(lme4)
 })
 
+source("./analysis/utils_r/demo_paths.R")
 source("./analysis/utils_r/variable_definitions.R")
 source("./analysis/utils_r/data_loading.R")
 
@@ -37,7 +38,7 @@ set.seed(123)
 # Parse command-line flags
 # ===== COMMAND-LINE FLAGS ----
 args <- commandArgs(trailingOnly = TRUE)
-debug_mode <- "debug" %in% args
+demo_mode <- parse_demo_mode(args)
 
 # =============================================================================
 # DATA LOADING AND PROCESSING
@@ -81,7 +82,7 @@ preferred_leaning_counts %>%
 		print(paste(proposition_leaning, "=", n_observations))
 	})
 
-output_dir <- "./results/main_phase_2_distortion/preferred/by_proposition_leaning"
+output_dir <- get_results_dir(demo_mode, "main_phase_2_distortion", "preferred", "by_proposition_leaning")
 
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
@@ -351,7 +352,7 @@ run_scale_regressions <- function(attribute) {
 		split_data <- data_preferred %>%
 			filter(proposition_leaning == leaning)
 
-		if (debug_mode) {
+		if (demo_mode) {
 			split_data <- split_data %>%
 				slice_sample(n = min(1000, nrow(split_data)))
 		}
@@ -376,7 +377,7 @@ run_ordinal_regressions <- function(attribute) {
 		split_data <- data_preferred %>%
 			filter(proposition_leaning == leaning)
 
-		if (debug_mode) {
+		if (demo_mode) {
 			split_data <- split_data %>%
 				slice_sample(n = min(1000, nrow(split_data)))
 		}
@@ -404,7 +405,7 @@ run_nominal_regressions <- function(attribute) {
 		split_data <- data_preferred %>%
 			filter(proposition_leaning == leaning)
 
-		if (debug_mode) {
+		if (demo_mode) {
 			split_data <- split_data %>%
 				slice_sample(n = min(1000, nrow(split_data)))
 		}
@@ -465,8 +466,8 @@ ordinal_attributes <- c(
 	"writer_age_binned"
 )
 
-if (debug_mode) {
-	message("Running in debug mode on n=1000 samples from each proposition-leaning subset.")
+if (demo_mode) {
+	message("Running in demo mode on n=1000 samples from each proposition-leaning subset.")
 }
 
 for (attr in scale_attributes) {

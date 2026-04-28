@@ -21,6 +21,7 @@ import numpy as np
 import matplotlib.colors as mcolors
 import sys
 import warnings
+from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -35,12 +36,17 @@ os.chdir(REPO_ROOT)
 
 # Internal imports
 sys.path.insert(0, os.path.join(REPO_ROOT, "analysis", "utils_py"))
+from demo_paths import get_figures_dir, get_results_dir, get_results_input_dir, parse_demo_mode
 from variable_definitions import SCALE_ATTRIBUTES, CATEGORICAL_VARS, CATEGORICAL_LEVELS
+
+DEMO_MODE = parse_demo_mode()
 
 # Plot configuration
 ANNOTATIONS_PATH = os.path.join(REPO_ROOT, "data", "followup_mitigation_phase_2", "annotations.csv")
 PREFERENCES_PATH = os.path.join(REPO_ROOT, "data", "followup_mitigation_phase_1", "proposition_responses.csv")
-OUTPUT_BASE_DIR = os.path.join(REPO_ROOT, "figures", "followup_mitigation_phase_2_distributions")
+OUTPUT_BASE_DIR = str(
+    get_figures_dir(Path(REPO_ROOT), "followup_mitigation_phase_2_distributions", demo_mode=DEMO_MODE)
+)
 
 # Set plotting parameters
 plt.rcParams["font.size"] = 12
@@ -557,7 +563,9 @@ def create_combined_categorical_heatmap(df, output_dir):
 def get_scale_attributes_sorted_by_cohens_d(data_split):
     """Return scale attributes sorted by descending Cohen's d from split-specific by_type results."""
 
-    results_dir = os.path.join("results", "followup_mitigation_phase_2_distribution", data_split)
+    results_dir = str(
+        get_results_input_dir(Path(REPO_ROOT), "followup_mitigation_phase_2_distribution", data_split, demo_mode=DEMO_MODE)
+    )
     d_rows = []
 
     for variable in SCALE_ATTRIBUTES:
@@ -590,7 +598,9 @@ def get_scale_attributes_sorted_by_cohens_d(data_split):
 def get_scale_attributes_sorted_by_ame(data_split):
     """Return scale attributes sorted by descending AME from split-specific distortion results."""
 
-    results_dir = os.path.join("results", "followup_mitigation_phase_2_distortion", data_split)
+    results_dir = str(
+        get_results_input_dir(Path(REPO_ROOT), "followup_mitigation_phase_2_distortion", data_split, demo_mode=DEMO_MODE)
+    )
     ame_rows = []
 
     for variable in SCALE_ATTRIBUTES:

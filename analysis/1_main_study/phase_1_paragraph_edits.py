@@ -22,6 +22,7 @@
 
 # Package imports
 from pathlib import Path
+import sys
 import matplotlib
 import pandas as pd
 from Levenshtein import distance as levenshtein_distance
@@ -31,9 +32,14 @@ import matplotlib.pyplot as plt
 
 # Path configuration
 BASE_DIR = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(BASE_DIR / "analysis" / "utils_py"))
+
+from demo_paths import get_figures_dir, get_results_dir, parse_demo_mode
+
+DEMO_MODE = parse_demo_mode()
 DATA_PATH = BASE_DIR / "data" / "main_phase_1" / "proposition_responses.csv"
-FIGURES_DIR = BASE_DIR / "figures" / "main_phase_1"
-RESULTS_DIR = BASE_DIR / "results" / "main_phase_1"
+FIGURES_DIR = get_figures_dir(BASE_DIR, "main_phase_1", demo_mode=DEMO_MODE)
+RESULTS_DIR = get_results_dir(BASE_DIR, "main_phase_1", demo_mode=DEMO_MODE)
 
 
 # =============================================================================

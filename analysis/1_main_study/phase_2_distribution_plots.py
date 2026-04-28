@@ -21,6 +21,7 @@ import numpy as np
 import matplotlib.colors as mcolors
 import sys
 import warnings
+from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -35,12 +36,15 @@ os.chdir(REPO_ROOT)
 
 # Internal imports
 sys.path.insert(0, os.path.join(REPO_ROOT, "analysis", "utils_py"))
+from demo_paths import get_figures_dir, parse_demo_mode
 from variable_definitions import SCALE_ATTRIBUTES, CATEGORICAL_VARS, CATEGORICAL_LEVELS
+
+DEMO_MODE = parse_demo_mode()
 
 # Plot configuration
 ANNOTATIONS_PATH = os.path.join(REPO_ROOT, "data", "main_phase_2", "annotations.csv")
 PREFERENCES_PATH = os.path.join(REPO_ROOT, "data", "main_phase_1", "proposition_responses.csv")
-OUTPUT_BASE_DIR = os.path.join(REPO_ROOT, "figures", "main_phase_2_distributions")
+OUTPUT_BASE_DIR = str(get_figures_dir(Path(REPO_ROOT), "main_phase_2_distributions", demo_mode=DEMO_MODE))
 
 # Set plotting parameters
 plt.rcParams["font.size"] = 12

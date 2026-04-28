@@ -23,12 +23,16 @@ suppressPackageStartupMessages({
   library(broom.mixed)
 })
 
+source("./analysis/utils_r/demo_paths.R")
+
 # Set random seed for reproducibility
 set.seed(123)
 
 # Parse command-line flags
 args <- commandArgs(trailingOnly = TRUE)
-debug_mode <- "debug" %in% args
+demo_mode <- parse_demo_mode(args)
+RESULTS_DIR <- get_results_dir(demo_mode, "followup_mitigation_phase_1")
+FIGURES_DIR <- get_figures_dir(demo_mode, "followup_mitigation_phase_1")
 
 # =============================================================================
 # DATA LOADING
@@ -56,11 +60,11 @@ data <- data %>%
     strict_preference_model = as.integer(strict_preference_model),
   )
 
-if (debug_mode) {
+if (demo_mode) {
   data <- data %>%
     slice_sample(n = min(1000, nrow(data)))
 
-  message("Running in debug mode on an n=1000 sample of the phase 1 data.")
+  message("Running in demo mode on an n=1000 sample of the phase 1 data.")
 }
 
 data$mitigation_condition_ <- relevel(data$mitigation_condition_, ref = "none")
@@ -169,8 +173,9 @@ produce_results <- function(data, var) {
   summary <- bootstrap_preference_summary(data, var)
   print(summary$table)
   plot_height <- max(4, 0.45 * nrow(summary$table) + 1)
+  dir.create(FIGURES_DIR, recursive = TRUE, showWarnings = FALSE)
   ggsave(
-    paste0("./figures/followup_mitigation_phase_1/", var, ".pdf"),
+    file.path(FIGURES_DIR, paste0(var, ".pdf")),
     summary$plot,
     width = 8,
     height = plot_height,
@@ -236,7 +241,7 @@ fit_mitigation_mixed_logit <- function(df,
 
 run_mitigation_mixed_models <- function(df,
                                         outcomes = c("made_edits", "weak_preference_model", "strict_preference_model"),
-                                        output_dir = "./results/followup_mitigation_phase_1") {
+                                        output_dir = RESULTS_DIR) {
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
   results_list <- map(outcomes, ~ fit_mitigation_mixed_logit(df, .x))

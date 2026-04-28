@@ -18,6 +18,7 @@
 # Package imports
 import os
 import sys
+from pathlib import Path
 
 import matplotlib
 import pandas as pd
@@ -31,17 +32,23 @@ from scipy.stats import linregress, pearsonr, spearmanr
 # Path configuration
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 UTILS_DIR = os.path.normpath(os.path.join(BASE_DIR, "..", "utils_py"))
-RESULTS_DIR = os.path.normpath(os.path.join(BASE_DIR, "../../results/main_phase_2_distortion"))
-DISTRIBUTION_RESULTS_DIR = os.path.normpath(os.path.join(BASE_DIR, "../../results/main_phase_2_distribution"))
-FIGURES_DIR = os.path.normpath(os.path.join(BASE_DIR, "../../figures/main_phase_2_distortion"))
-DISTORTION_TOLERANCE_PATH = os.path.normpath(
-    os.path.join(BASE_DIR, "../../data/main_phase_1/distortion_responses_summary.csv")
-)
+REPO_ROOT = Path(BASE_DIR).resolve().parents[1]
 
 # Internal imports
 sys.path.insert(0, UTILS_DIR)
+from demo_paths import get_figures_dir, get_results_dir, get_results_input_dir, parse_demo_mode
 from variable_definitions import SCALE_ATTRIBUTES, ORDINAL_VARS as ORDINAL_ATTRIBUTES, NOMINAL_VARS as NOMINAL_ATTRIBUTES, MODEL_TERMS, INPUT_CONDITION_TERMS
 from plotting_utils import get_group_offsets
+
+DEMO_MODE = parse_demo_mode()
+RESULTS_DIR = str(get_results_input_dir(REPO_ROOT, "main_phase_2_distortion", demo_mode=DEMO_MODE))
+DISTRIBUTION_RESULTS_DIR = str(get_results_input_dir(REPO_ROOT, "main_phase_2_distribution", demo_mode=DEMO_MODE))
+FIGURES_DIR = str(get_figures_dir(REPO_ROOT, "main_phase_2_distortion", demo_mode=DEMO_MODE))
+DISTORTION_TOLERANCE_PATH = str(
+    get_results_dir(REPO_ROOT, "main_phase_1", "distortion_responses_summary.csv", demo_mode=True)
+    if DEMO_MODE
+    else REPO_ROOT / "data" / "main_phase_1" / "distortion_responses_summary.csv"
+)
 
 # Plot configuration
 ALL_SPLITS = ["unedited", "edited", "preferred"]

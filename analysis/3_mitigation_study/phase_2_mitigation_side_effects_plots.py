@@ -19,6 +19,7 @@
 # Package imports
 import os
 import sys
+from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -29,19 +30,25 @@ from matplotlib.lines import Line2D
 from scipy.stats import pearsonr, spearmanr
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = Path(BASE_DIR).resolve().parents[1]
 
 sys.path.insert(0, os.path.join(BASE_DIR, "..", "utils_py"))
-RESULTS_DIR = os.path.normpath(
-	os.path.join(BASE_DIR, "../../results/followup_mitigation_phase_2_distortion")
+from demo_paths import get_figures_dir, get_results_dir, get_results_input_dir, parse_demo_mode
+
+DEMO_MODE = parse_demo_mode()
+RESULTS_DIR = str(
+	get_results_input_dir(REPO_ROOT, "followup_mitigation_phase_2_distortion", demo_mode=DEMO_MODE)
 )
-CORRELATION_RESULTS_DIR = os.path.normpath(
-	os.path.join(BASE_DIR, "../../results/followup_mitigation_phase_2_distribution")
+CORRELATION_RESULTS_DIR = str(
+	get_results_input_dir(REPO_ROOT, "followup_mitigation_phase_2_distribution", demo_mode=DEMO_MODE)
 )
-FIGURES_DIR = os.path.normpath(
-	os.path.join(BASE_DIR, "../../figures/followup_mitigation_phase_2_distortion")
+FIGURES_DIR = str(
+	get_figures_dir(REPO_ROOT, "followup_mitigation_phase_2_distortion", demo_mode=DEMO_MODE)
 )
-DISTORTION_TOLERANCE_PATH = os.path.normpath(
-	os.path.join(BASE_DIR, "../../data/main_phase_1/distortion_responses_summary.csv")
+DISTORTION_TOLERANCE_PATH = str(
+	get_results_dir(REPO_ROOT, "main_phase_1", "distortion_responses_summary.csv", demo_mode=True)
+	if DEMO_MODE
+	else REPO_ROOT / "data" / "main_phase_1" / "distortion_responses_summary.csv"
 )
 
 # =============================================================================

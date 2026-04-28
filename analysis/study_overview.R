@@ -17,6 +17,11 @@ suppressPackageStartupMessages({
   library(tidyverse)
 })
 
+source("./analysis/utils_r/demo_paths.R")
+
+args <- commandArgs(trailingOnly = TRUE)
+demo_mode <- parse_demo_mode(args)
+
 # ===== DATA IMPORTS ----
 studies <- c(
   "main_phase_1",

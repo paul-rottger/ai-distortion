@@ -24,8 +24,15 @@ suppressPackageStartupMessages({
   library(broom.mixed)
 })
 
+source("./analysis/utils_r/demo_paths.R")
+
 # Set random seed for reproducibility
 set.seed(123)
+
+args <- commandArgs(trailingOnly = TRUE)
+demo_mode <- parse_demo_mode(args)
+RESULTS_DIR <- get_results_dir(demo_mode, "main_phase_1")
+FIGURES_DIR <- get_figures_dir(demo_mode, "main_phase_1")
 
 # =============================================================================
 # DATA LOADING
@@ -34,7 +41,8 @@ set.seed(123)
 data <- read_csv("./data/main_phase_1/proposition_responses.csv",
   show_col_types = FALSE
 )
-edit_metrics <- read_csv("./results/main_phase_1/paragraph_edit_ratio_by_writer_proposition.csv",
+edit_metrics <- read_csv(
+  file.path(RESULTS_DIR, "paragraph_edit_ratio_by_writer_proposition.csv"),
   show_col_types = FALSE
 ) %>%
   dplyr::select(writer_id, proposition_id, edit_ratio, edit_distance)
@@ -57,6 +65,13 @@ data <- data %>%
     weak_preference_model = as.integer(weak_preference_model),
     strict_preference_model = as.integer(strict_preference_model),
   )
+
+if (demo_mode) {
+  data <- data %>%
+    slice_sample(n = min(1000, nrow(data)))
+
+  message("Running in demo mode on an n=1000 sample of the phase 1 data.")
+}
 
 main_phase_1_group_levels <- c(
   "improve",
@@ -202,8 +217,9 @@ summarize_response_table <- function(data,
 produce_results <- function(data, var) {
   summary <- bootstrap_preference_summary(data, var)
   print(summary$table)
+  dir.create(FIGURES_DIR, recursive = TRUE, showWarnings = FALSE)
   ggsave(
-    paste0("./figures/main_phase_1/", var, ".pdf"),
+    file.path(FIGURES_DIR, paste0(var, ".pdf")),
     summary$plot,
     width = 8,
     height = 4,
@@ -216,7 +232,7 @@ preference_summary_table <- summarize_response_table(
   response_var = "writer_preference",
   response_levels = c("original", "equal", "edited"),
   response_labels = c("human", "equal", "ai"),
-  output_path = "./results/main_phase_1/writer_preference_summary_table.csv"
+  output_path = file.path(RESULTS_DIR, "writer_preference_summary_table.csv")
 )
 
 made_edits_summary_table <- summarize_response_table(
@@ -224,7 +240,7 @@ made_edits_summary_table <- summarize_response_table(
   response_var = "made_edits",
   response_levels = c("0", "1"),
   response_labels = c("no", "yes"),
-  output_path = "./results/main_phase_1/made_edits_summary_table.csv"
+  output_path = file.path(RESULTS_DIR, "made_edits_summary_table.csv")
 )
 
 for (var in c(
@@ -240,8 +256,8 @@ for (var in c(
 # =============================================================================
 
 summarize_strict_preference_reasons <- function(df,
-                                                output_path = "./results/main_phase_1/strict_preference_reason_summary.csv",
-                                                overview_path = "./results/main_phase_1/strict_preference_reason_overview.csv") {
+                                                output_path = file.path(RESULTS_DIR, "strict_preference_reason_summary.csv"),
+                                                overview_path = file.path(RESULTS_DIR, "strict_preference_reason_overview.csv")) {
   dir.create(dirname(output_path), recursive = TRUE, showWarnings = FALSE)
 
   strict_preference_data <- df %>%
@@ -351,7 +367,7 @@ fit_main_mixed_logit <- function(df,
 
 run_main_mixed_models <- function(df,
                                   outcomes = c("made_edits", "weak_preference_model", "strict_preference_model"),
-                                  output_dir = "./results/main_phase_1") {
+                                  output_dir = RESULTS_DIR) {
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
   results_list <- map(outcomes, ~ fit_main_mixed_logit(df, .x))
@@ -404,7 +420,7 @@ fit_main_mixed_linear <- function(df,
 
 run_main_mixed_linear_models <- function(df,
                                          outcomes = c("edit_distance", "edit_ratio"),
-                                         output_dir = "./results/main_phase_1") {
+                                         output_dir = RESULTS_DIR) {
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
   results_list <- map(outcomes, ~ fit_main_mixed_linear(df, .x))

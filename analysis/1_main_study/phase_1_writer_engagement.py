@@ -17,6 +17,7 @@
 
 # Package imports
 from pathlib import Path
+import sys
 
 import matplotlib
 import numpy as np
@@ -27,9 +28,14 @@ import matplotlib.pyplot as plt
 
 # Path configuration
 BASE_DIR = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(BASE_DIR / "analysis" / "utils_py"))
+
+from demo_paths import get_figures_dir, parse_demo_mode
+
+DEMO_MODE = parse_demo_mode()
 DATA_PATH = BASE_DIR / "data" / "main_phase_1" / "proposition_responses.csv"
 PROPOSITIONS_PATH = BASE_DIR / "data" / "main_phase_1" / "propositions.csv"
-FIGURES_DIR = BASE_DIR / "figures" / "main_phase_1"
+FIGURES_DIR = get_figures_dir(BASE_DIR, "main_phase_1", demo_mode=DEMO_MODE)
 ENGAGEMENT_OUTPUT_PATH = FIGURES_DIR / "writer_engagement_histogram.pdf"
 STANCE_OUTPUT_PATH = FIGURES_DIR / "writer_stance_histogram.pdf"
 HISTOGRAM_BINS = np.arange(0, 105, 5)

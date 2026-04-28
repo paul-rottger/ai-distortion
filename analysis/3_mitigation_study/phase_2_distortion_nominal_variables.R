@@ -18,6 +18,7 @@ suppressPackageStartupMessages({
 	library(mclogit)
 })
 
+source("./analysis/utils_r/demo_paths.R")
 source("./analysis/utils_r/variable_definitions.R")
 source("./analysis/utils_r/data_loading.R")
 
@@ -26,7 +27,8 @@ set.seed(123)
 
 # ===== COMMAND-LINE FLAGS ----
 args <- commandArgs(trailingOnly = TRUE)
-debug_mode <- "debug" %in% args
+demo_mode <- parse_demo_mode(args)
+RESULTS_DIR <- get_results_dir(demo_mode, "followup_mitigation_phase_2_distortion")
 
 mitigation_reference_level <- "writer"
 
@@ -183,13 +185,13 @@ run_nominal_regressions <- function(attribute) {
 			preferred = data_preferred
 		)
 
-		if (debug_mode) {
+		if (demo_mode) {
 			split_data <- split_data %>%
 				slice_sample(n = min(1000, nrow(split_data)))
 		}
 
 		dir.create(
-			paste0("./results/followup_mitigation_phase_2_distortion/", data_split),
+			file.path(RESULTS_DIR, data_split),
 			recursive = TRUE,
 			showWarnings = FALSE
 		)
@@ -203,12 +205,12 @@ run_nominal_regressions <- function(attribute) {
 
 		write_csv(
 			results,
-			paste0("./results/followup_mitigation_phase_2_distortion/", data_split, "/", attribute, "_by_model_and_mitigation.csv")
+			file.path(RESULTS_DIR, data_split, paste0(attribute, "_by_model_and_mitigation.csv"))
 		)
 	}
 }
 
-requested_attributes <- setdiff(args, "debug")
+requested_attributes <- setdiff(args, "demo")
 
 if (length(requested_attributes) > 0) {
 	nominal_vars <- intersect(nominal_vars, requested_attributes)
@@ -218,8 +220,8 @@ if (length(requested_attributes) > 0) {
 	}
 }
 
-if (debug_mode) {
-	message("Running in debug mode on n=1000 samples from each data split.")
+if (demo_mode) {
+	message("Running in demo mode on n=1000 samples from each data split.")
 }
 
 for (attribute in nominal_vars) {
