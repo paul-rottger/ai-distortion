@@ -59,7 +59,8 @@ list2env(load_phase2_splits(
 ), envir = environment())
 
 # Join proposition leaning onto preferred split and restrict to left/right
-propositions <- read_csv("./data/main_phase_1/propositions.csv", show_col_types = FALSE)
+propositions <- read_csv("./data/main_phase_1/propositions.csv", show_col_types = FALSE) %>%
+	mutate(proposition_id = as.factor(proposition_id))
 data_preferred <- data_preferred %>%
 	left_join(
 		propositions %>% select(proposition_id, proposition_leaning),

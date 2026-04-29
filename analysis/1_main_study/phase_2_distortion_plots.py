@@ -51,7 +51,7 @@ DISTORTION_TOLERANCE_PATH = str(
 )
 
 # Plot configuration
-ALL_SPLITS = ["unedited", "edited", "preferred"]
+ALL_SPLITS = ["preferred"] if DEMO_MODE else ["unedited", "edited", "preferred"]
 DEFAULT_PLOT_SPLITS = ["preferred"]
 SUBSET_FILE_ALIASES = {
     "by_type": ["by_type"],
@@ -1108,14 +1108,15 @@ def calculate_ame_tolerance_correlations(
         # ----------------------------
         # Reconstruct plotted dataset
         # ----------------------------
+        attr_dfs = [
+            regression_dict[para_type][attr][subset].assign(outcome=attr)
+            for attr in regression_dict[para_type]
+            if subset in regression_dict[para_type][attr]
+        ]
+        if not attr_dfs:
+            continue
         regression_df = pd.concat(
-            [
-                df.assign(outcome=attr)
-                for attr, df in (
-                    (attr, regression_dict[para_type][attr][subset])
-                    for attr in regression_dict[para_type]
-                )
-            ],
+            attr_dfs,
             ignore_index=True,
         )
 

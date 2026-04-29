@@ -50,7 +50,7 @@ DISTORTION_TOLERANCE_PATH = str(
 )
 
 # Plot configuration
-PARA_TYPES = ["unedited", "edited", "preferred"]
+PARA_TYPES = ["preferred"] if DEMO_MODE else ["unedited", "edited", "preferred"]
 SUBSET = "by_mitigation"
 EXCLUDED_ATTRIBUTES = {"writer_affect_x", "writer_affect_y"}
 GROUPED_SCALE_ATTRIBUTES = [

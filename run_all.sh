@@ -9,6 +9,8 @@
 
 set -euo pipefail # Exit on error, undefined variable, or pipeline failure
 
+START_TIME=$(date +%s)
+
 # Parse arguments
 DEMO_ARGS=()
 
@@ -136,4 +138,5 @@ print_section "FOLLOWUP MITIGATION: PHASE 2 (RATING - DISTRIBUTIONS)"
 run_r "analysis/3_mitigation_study/phase_2_distribution_variables.R" "${DEMO_ARGS[@]}"
 run_python "analysis/3_mitigation_study/phase_2_distribution_plots.py" "${DEMO_ARGS[@]}"
 
-print_section "ALL ANALYSES COMPLETED"
+ELAPSED=$(( $(date +%s) - START_TIME ))
+print_section "ALL ANALYSES COMPLETED IN $(printf '%02d:%02d:%02d' $((ELAPSED/3600)) $((ELAPSED%3600/60)) $((ELAPSED%60)))"

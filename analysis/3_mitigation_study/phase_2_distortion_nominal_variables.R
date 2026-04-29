@@ -178,7 +178,7 @@ fit_multinomial_logit <- function(df,
 run_nominal_regressions <- function(attribute) {
 	print(paste("running multinomial logistic regression for:", attribute))
 
-	for (data_split in c("preferred", "edited", "unedited")) {
+	for (data_split in if (demo_mode) c("preferred") else c("preferred", "edited", "unedited")) {
 		split_data <- switch(data_split,
 			unedited = data_unedited,
 			edited = data_edited,
@@ -187,7 +187,7 @@ run_nominal_regressions <- function(attribute) {
 
 		if (demo_mode) {
 			split_data <- split_data %>%
-				slice_sample(n = min(1000, nrow(split_data)))
+				slice_sample(n = min(200, nrow(split_data)))
 		}
 
 		dir.create(
@@ -196,17 +196,22 @@ run_nominal_regressions <- function(attribute) {
 			showWarnings = FALSE
 		)
 
-		results <- fit_multinomial_logit(
-			split_data,
-			outcome = attribute,
-			predictor = "model_and_mitigation_",
-			outcome_ref = reference_levels[[attribute]]
-		)
+		for (predictor in list(
+			c("mitigation_condition_", "by_mitigation"),
+			c("model_and_mitigation_", "by_model_and_mitigation")
+		)) {
+			results <- fit_multinomial_logit(
+				split_data,
+				outcome = attribute,
+				predictor = predictor[1],
+				outcome_ref = reference_levels[[attribute]]
+			)
 
-		write_csv(
-			results,
-			file.path(RESULTS_DIR, data_split, paste0(attribute, "_by_model_and_mitigation.csv"))
-		)
+			write_csv(
+				results,
+				file.path(RESULTS_DIR, data_split, paste0(attribute, "_", predictor[2], ".csv"))
+			)
+		}
 	}
 }
 
@@ -221,7 +226,7 @@ if (length(requested_attributes) > 0) {
 }
 
 if (demo_mode) {
-	message("Running in demo mode on n=1000 samples from each data split.")
+	message("Running in demo mode on n=200 samples from each data split.")
 }
 
 for (attribute in nominal_vars) {

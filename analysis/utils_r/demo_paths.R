@@ -9,3 +9,11 @@ get_results_dir <- function(demo_mode, ...) {
 get_figures_dir <- function(demo_mode, ...) {
   file.path(if (demo_mode) "./demo_figures" else "./figures", ...)
 }
+
+get_results_input_dir <- function(demo_mode, ...) {
+  if (demo_mode) {
+    demo_path <- get_results_dir(TRUE, ...)
+    if (dir.exists(demo_path)) return(demo_path)
+  }
+  get_results_dir(FALSE, ...)
+}

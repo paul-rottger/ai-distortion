@@ -344,7 +344,7 @@ run_nominal_regressions <- function(attribute) {
     print(paste("using fixed-effects multinomial fallback for:", attribute))
   }
 
-  for (data_split in c("preferred", "edited", "unedited")) {
+  for (data_split in if (demo_mode) c("preferred") else c("preferred", "edited", "unedited")) {
     split_data <- switch(data_split,
       unedited = data_unedited,
       edited = data_edited,
@@ -353,7 +353,7 @@ run_nominal_regressions <- function(attribute) {
 
     if (demo_mode) {
       split_data <- split_data %>%
-        slice_sample(n = min(1000, nrow(split_data)))
+        slice_sample(n = min(500, nrow(split_data)))
     }
 
     dir.create(
@@ -404,7 +404,7 @@ run_nominal_regressions <- function(attribute) {
 
 # loop through nominal variables and run regressions
 if (demo_mode) {
-  message("Running in demo mode on n=1000 samples from each data split.")
+  message("Running in demo mode on n=500 samples from each data split.")
 }
 
 for (attribute in nominal_vars) {

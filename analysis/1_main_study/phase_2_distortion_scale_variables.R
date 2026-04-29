@@ -112,7 +112,7 @@ fit_beta <- function(df, outcome, predictor, random) {
 run_regressions <- function(attribute) {
   print(paste("running regressions for:", attribute))
 
-  for (data_split in c("preferred","edited","unedited")) {
+  for (data_split in if (demo_mode) c("preferred") else c("preferred", "edited", "unedited")) {
     for (predictor in list(
       #c("paragraph_type_", "by_type")
       c("model_", "by_model"),

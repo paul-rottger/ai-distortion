@@ -21,7 +21,12 @@ This is joint work by Paul Röttger, Kobi Hackenburg, Hannah Rose Kirk, and Chri
 
 ## Reproducing Results
 
-To reproduce the statistical analyses and figures from our paper, please run the following commands from the root of the repository:
+All results and figures from our paper and supplement are shown in the `results/` and `figures/` directories.
+To reproduce these results and figures, please run the commands below from the root of the repository.
+**Please note** that the full analysis workflow takes several days to complete (tested on 2021 M1 MacBook Pro).
+This is primarily due to the mixed-effects multinomial logistic regression analysis for nominal variables in our main study.
+For a faster **demo run**, pass the `--demo` flag to `run_all.sh`.
+This will run all regression analyses on smaller random subsets of the data and write outputs to `demo_results/` and `demo_figures/` instead of the main output directories.
 
 ```bash
 # Create and activate virtual environment
@@ -34,22 +39,11 @@ pip install -r requirements_python.txt
 # Install R packages
 Rscript requirements_r.R
 
-# Run all analyses and plotting scripts
-./run_all.sh 
-```
-
-`run_all.sh` supports an optional flag:
-
-- `--demo`: run demo-capable analyses in demo mode. Demo-capable R analyses use `n = 1000` samples instead of the full data, and Python analysis scripts write generated results and figures to `demo_results/` and `demo_figures/` where applicable so they do not overwrite the main outputs.
-
-Examples:
-
-```bash
-# Full pipeline
-./run_all.sh
-
-# Faster demo run for demo-capable analyses
+# Run all analyses and plotting scripts in DEMO MODE...
 ./run_all.sh --demo
+
+# ... OR run all analyses and plotting scripts in full (takes several days)
+# ./run_all.sh 
 ```
 
 Details on each analysis script are listed in `analysis/README.md`.
@@ -57,7 +51,7 @@ Details on each analysis script are listed in `analysis/README.md`.
 ## Data Availability
 
 All data used in the analyses for our paper is included in the `data/` directory of this repository.
-Details are described in `data/README.md`.
+Details on each data file are listed in `data/README.md`.
 
 ## License
 

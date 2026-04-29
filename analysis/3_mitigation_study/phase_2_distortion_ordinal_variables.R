@@ -140,17 +140,22 @@ run_ordinal_regressions <- function(attribute) {
 			showWarnings = FALSE
 		)
 
-		results <- fit_ordinal_logit(
-			split_data,
-			outcome = attribute,
-			predictor = "model_and_mitigation_",
-			random = "(1 | rater_id)"
-		)
+		for (predictor in list(
+			c("mitigation_condition_", "by_mitigation"),
+			c("model_and_mitigation_", "by_model_and_mitigation")
+		)) {
+			results <- fit_ordinal_logit(
+				split_data,
+				outcome = attribute,
+				predictor = predictor[1],
+				random = "(1 | rater_id)"
+			)
 
-		write_csv(
-			results$tidy_fixed,
-			file.path(RESULTS_DIR, data_split, paste0(attribute, "_by_model_and_mitigation.csv"))
-		)
+			write_csv(
+				results$tidy_fixed,
+				file.path(RESULTS_DIR, data_split, paste0(attribute, "_", predictor[2], ".csv"))
+			)
+		}
 	}
 }
 
