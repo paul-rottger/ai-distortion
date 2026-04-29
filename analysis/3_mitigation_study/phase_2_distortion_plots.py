@@ -139,7 +139,7 @@ DISTORTION_TOLERANCE_LOOKUP: dict[str, float] = {}
 # LOAD DATA
 # =============================================================================
 
-def get_scale_attributes(results_dir=RESULTS_DIR, para_type="edited", subset=SUBSET):
+def get_scale_attributes(results_dir=RESULTS_DIR, para_type=PARA_TYPES[0], subset=SUBSET):
     directory = os.path.join(results_dir, para_type)
     suffix = f"_{subset}.csv"
     attributes = []

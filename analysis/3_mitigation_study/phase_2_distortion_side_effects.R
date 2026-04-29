@@ -24,7 +24,8 @@ demo_mode <- parse_demo_mode(args)
 
 # ===== SETTINGS ----
 preferred_results_dir <- get_results_dir(demo_mode, "followup_mitigation_phase_2_distortion", "preferred")
-detail_output_path <- file.path(preferred_results_dir, "mitigation_significance_details.csv")
+ref_none_dir <- file.path(preferred_results_dir, "ref_none")
+detail_output_path <- file.path(ref_none_dir, "mitigation_significance_details.csv")
 alpha <- 0.05
 distortion_attributes <- c(
 	"paragraph_formality",
@@ -164,7 +165,7 @@ load_mitigation_results <- function(file_path) {
 
 # ===== LOAD ALL PREFERRED-SPLIT REGRESSIONS ----
 result_files <- file.path(
-	preferred_results_dir,
+	ref_none_dir,
 	paste0(distortion_attributes, "_by_mitigation.csv")
 )
 

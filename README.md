@@ -25,7 +25,7 @@ All results and figures from our paper and supplement are shown in the `results/
 To reproduce these results and figures, please run the commands below from the root of the repository.
 **Please note** that the full analysis workflow takes several days to complete (tested on 2021 M1 MacBook Pro).
 This is primarily due to the mixed-effects multinomial logistic regression analysis for nominal variables in our main study.
-For a faster **demo run**, pass the `--demo` flag to `run_all.sh`.
+For a faster **demo run** (approx. 11 minutes), pass the `--demo` flag to `run_all.sh`.
 This will run all regression analyses on smaller random subsets of the data and write outputs to `demo_results/` and `demo_figures/` instead of the main output directories.
 
 ```bash

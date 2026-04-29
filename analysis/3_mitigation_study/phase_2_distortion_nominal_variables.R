@@ -81,7 +81,8 @@ fit_multinomial_logit_model <- function(df,
 																				outcome,
 																		predictor = "model_and_mitigation_",
 																				random_effects = ~ 1 | rater_id,
-																				outcome_ref = NULL) {
+																				outcome_ref = NULL,
+																				mitigation_ref = mitigation_reference_level) {
 	model_df <- df %>%
 		filter(!is.na(.data[[outcome]]), !is.na(.data[[predictor]])) %>%
 		mutate(
@@ -93,7 +94,7 @@ fit_multinomial_logit_model <- function(df,
 	}
 
 	model_df[[predictor]] <- droplevels(as.factor(model_df[[predictor]]))
-	model_df[[predictor]] <- relevel_if_present(model_df[[predictor]], ref = mitigation_reference_level)
+	model_df[[predictor]] <- relevel_if_present(model_df[[predictor]], ref = mitigation_ref)
 
 	model_df[[outcome]] <- as.factor(model_df[[outcome]])
 	model_df[[outcome]] <- droplevels(model_df[[outcome]])
@@ -135,13 +136,15 @@ fit_multinomial_logit <- function(df,
 																	outcome,
 																predictor = "model_and_mitigation_",
 																	random_effects = ~ 1 | rater_id,
-																	outcome_ref = NULL) {
+																	outcome_ref = NULL,
+																	mitigation_ref = mitigation_reference_level) {
 	model_fit <- fit_multinomial_logit_model(
 		df = df,
 		outcome = outcome,
 		predictor = predictor,
 		random_effects = random_effects,
-		outcome_ref = outcome_ref
+		outcome_ref = outcome_ref,
+		mitigation_ref = mitigation_ref
 	)
 
 	if (is.null(model_fit)) {
@@ -211,6 +214,23 @@ run_nominal_regressions <- function(attribute) {
 				results,
 				file.path(RESULTS_DIR, data_split, paste0(attribute, "_", predictor[2], ".csv"))
 			)
+
+			if (predictor[2] == "by_mitigation") {
+				none_dir <- file.path(RESULTS_DIR, data_split, "ref_none")
+				dir.create(none_dir, recursive = TRUE, showWarnings = FALSE)
+
+				results_none <- fit_multinomial_logit(
+					split_data,
+					outcome = attribute,
+					predictor = predictor[1],
+					outcome_ref = reference_levels[[attribute]],
+					mitigation_ref = "none"
+				)
+				write_csv(
+					results_none,
+					file.path(none_dir, paste0(attribute, "_", predictor[2], ".csv"))
+				)
+			}
 		}
 	}
 }

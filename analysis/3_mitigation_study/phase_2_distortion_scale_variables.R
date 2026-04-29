@@ -136,6 +136,24 @@ run_regressions <- function(attribute) {
         results$tidy_fixed,
         file.path(RESULTS_DIR, data_split, paste0(attribute, "_", predictor[2], ".csv"))
       )
+
+      if (predictor[2] == "by_mitigation") {
+        none_data <- split_data %>%
+          mutate(mitigation_condition_ = relevel(mitigation_condition_, ref = "none"))
+
+        none_dir <- file.path(RESULTS_DIR, data_split, "ref_none")
+        dir.create(none_dir, recursive = TRUE, showWarnings = FALSE)
+
+        results_none <- fit_beta(none_data,
+          outcome = attribute,
+          predictor = predictor[1],
+          random = "(1 | rater_id)"
+        )
+        write_csv(
+          results_none$tidy_fixed,
+          file.path(none_dir, paste0(attribute, "_", predictor[2], ".csv"))
+        )
+      }
     }
   }
 }
