@@ -30,14 +30,16 @@ import matplotlib.pyplot as plt
 BASE_DIR = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(BASE_DIR / "analysis" / "utils_py"))
 
-from demo_paths import get_figures_dir, parse_demo_mode
+from demo_paths import get_figures_dir, get_results_dir, parse_demo_mode  # noqa: E402
 
 DEMO_MODE = parse_demo_mode()
 DATA_PATH = BASE_DIR / "data" / "main_phase_1" / "proposition_responses.csv"
 PROPOSITIONS_PATH = BASE_DIR / "data" / "main_phase_1" / "propositions.csv"
 FIGURES_DIR = get_figures_dir(BASE_DIR, "main_phase_1", demo_mode=DEMO_MODE)
+RESULTS_DIR = get_results_dir(BASE_DIR, "main_phase_1", demo_mode=DEMO_MODE)
 ENGAGEMENT_OUTPUT_PATH = FIGURES_DIR / "writer_engagement_histogram.pdf"
 STANCE_OUTPUT_PATH = FIGURES_DIR / "writer_stance_histogram.pdf"
+PROPOSITION_ENGAGEMENT_OUTPUT_PATH = RESULTS_DIR / "proposition_engagement.csv"
 HISTOGRAM_BINS = np.arange(0, 105, 5)
 
 # Plot labels
@@ -60,9 +62,20 @@ LEANING_LABELS = {
 
 def load_phase_1_data() -> pd.DataFrame:
 	responses_df = pd.read_csv(DATA_PATH)
-	propositions_df = pd.read_csv(PROPOSITIONS_PATH)[["proposition_id", "proposition_leaning"]]
+	propositions_df = pd.read_csv(PROPOSITIONS_PATH)[
+		["proposition_id", "proposition", "proposition_leaning"]
+	]
+	merged_df = responses_df.merge(propositions_df, on="proposition_id", how="left")
 
-	return responses_df.merge(propositions_df, on="proposition_id", how="left")
+	if "proposition" not in merged_df.columns:
+		if {"proposition_x", "proposition_y"}.issubset(merged_df.columns):
+			merged_df["proposition"] = merged_df["proposition_x"].fillna(merged_df["proposition_y"])
+		elif "proposition_x" in merged_df.columns:
+			merged_df["proposition"] = merged_df["proposition_x"]
+		elif "proposition_y" in merged_df.columns:
+			merged_df["proposition"] = merged_df["proposition_y"]
+
+	return merged_df
 
 
 # =============================================================================
@@ -116,6 +129,29 @@ def draw_summary_lines(ax: plt.Axes, values: pd.Series) -> None:
 		ha="left",
 		va="top",
 		fontsize=10,
+	)
+
+
+def build_proposition_engagement_summary(df: pd.DataFrame) -> pd.DataFrame:
+	metrics_df = df.copy()
+	for column in [
+		"writer_knowledge",
+		"writer_importance",
+		"writer_confidence",
+		"writer_stance_pre",
+	]:
+		metrics_df[column] = pd.to_numeric(metrics_df[column], errors="coerce")
+
+	return (
+		metrics_df.groupby(["proposition_id", "proposition"], as_index=False)
+		.agg(
+			issue_knowledge_mean=("writer_knowledge", "mean"),
+			issue_importance_mean=("writer_importance", "mean"),
+			confidence_in_opinion_mean=("writer_confidence", "mean"),
+			stance_mean=("writer_stance_pre", "mean"),
+			stance_sd=("writer_stance_pre", "std"),
+		)
+		.sort_values("proposition_id")
 	)
 
 
@@ -183,12 +219,20 @@ def save_writer_stance_pre_by_leaning_histogram(df: pd.DataFrame) -> None:
 	)
 
 
+def save_proposition_engagement_summary(df: pd.DataFrame) -> None:
+	RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+	proposition_summary = build_proposition_engagement_summary(df)
+	proposition_summary.to_csv(PROPOSITION_ENGAGEMENT_OUTPUT_PATH, index=False)
+
+
 def main() -> None:
 	phase_1_df = load_phase_1_data()
 	save_writer_engagement_histogram(phase_1_df)
 	save_writer_stance_pre_by_leaning_histogram(phase_1_df)
+	save_proposition_engagement_summary(phase_1_df)
 	print(f"Saved writer engagement histogram to {ENGAGEMENT_OUTPUT_PATH}")
 	print(f"Saved writer stance histogram to {STANCE_OUTPUT_PATH}")
+	print(f"Saved proposition engagement summary to {PROPOSITION_ENGAGEMENT_OUTPUT_PATH}")
 
 
 if __name__ == "__main__":

@@ -41,6 +41,8 @@ STUDIES = [
     "followup_disclaimer_phase_1",
     "followup_mitigation_phase_1",
     "followup_mitigation_phase_2",
+    "followup_trust",
+    "followup_persuasion"
 ]
 
 PHASE_2_STUDIES = [study for study in STUDIES if "phase_2" in study]

@@ -24,6 +24,8 @@ participant_study_membership.csv
 /results_backup/
 /demo_figures/
 /demo_results/
+/outcome_study/
+/latex
 
 # Reranking outputs
 /reranking/rm_scores/

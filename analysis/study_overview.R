@@ -28,7 +28,9 @@ studies <- c(
   "main_phase_2",
   "followup_disclaimer_phase_1",
   "followup_mitigation_phase_1",
-  "followup_mitigation_phase_2"
+  "followup_mitigation_phase_2",
+  "followup_trust",
+  "followup_persuasion"
 )
 
 # ===== HELPER FUNCTIONS ----
@@ -119,7 +121,12 @@ for (study in phase1_studies) {
 }
 
 # ===== PHASE 2 RATINGS OVERVIEW ----
-phase2_studies <- studies[str_detect(studies, "phase_2")]
+# Includes the phase 2 studies plus the reader-only trust and persuasion
+# follow-ups, which collect ratings but are not named with a "phase_2" suffix.
+phase2_studies <- studies[
+  str_detect(studies, "phase_2") |
+    studies %in% c("followup_trust", "followup_persuasion")
+]
 
 cat("Phase 2 ratings overview:\n")
 for (study in phase2_studies) {

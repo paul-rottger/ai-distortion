@@ -1,21 +1,24 @@
 # Data
 
-This directory contains the data used in the main study and the two follow-up studies (disclaimer and mitigation).
+This directory contains the data used in the main study and the four follow-up studies (disclaimer, mitigation, trust, and persuasion).
 Each study-phase combination has its own subdirectory.
 
 - Phase 1 contains writer-side data: participant demographics, propositions, written paragraphs, AI-edited paragraphs, preferences, and self-reported distortion tolerance.
 - Phase 2 contains reader-side annotation data: participant demographics and paragraph ratings.
+- The trust and persuasion follow-ups collected only reader-side data and so are not split into phases.
 - Files ending in `_summary.csv` or `_aggregated.csv` are derived analysis inputs generated from collected data.
 
 ## Directory Overview
 
 | Directory | Description |
 |------|-------------|
-| `main_phase_1` | Main study, writer phase |
-| `main_phase_2` | Main study, reader annotation phase |
-| `followup_disclaimer_phase_1` | Disclaimer follow-up, writer phase |
-| `followup_mitigation_phase_1` | Mitigation follow-up, writer phase |
-| `followup_mitigation_phase_2` | Mitigation follow-up, reader annotation phase |
+| `main_phase_1` | Main study (Study 1), writer phase |
+| `main_phase_2` | Main study (Study 1), reader annotation phase |
+| `followup_disclaimer_phase_1` | Disclaimer follow-up (Study 2), writer phase |
+| `followup_mitigation_phase_1` | Mitigation follow-up (Study 3), writer phase |
+| `followup_mitigation_phase_2` | Mitigation follow-up (Study 3), reader annotation phase |
+| `followup_trust` | Trust follow-up (Study 4), reader phase |
+| `followup_persuasion` | Persuasion follow-up (Study 5), reader phase |
 | `ext` | External reference data used in analysis |
 
 ## Main Study
@@ -76,6 +79,26 @@ Reader-side annotation data for the mitigation-strategy follow-up.
 | `participants.csv` | 2,543 | Reader participant demographics and completion metadata |
 | `annotations.csv` | 25,422 | Raw paragraph-level annotations, including mitigation condition metadata |
 | `annotations_aggregated.csv` | 5,016 | Derived paragraph-level aggregation of `annotations.csv` |
+
+### `followup_trust`
+
+Reader-side data for the trust follow-up, in which readers allocated money to paragraph authors in a Trust Game.
+
+| File | Rows | Description |
+|------|------|-------------|
+| `participants.csv` | 802 | Reader participant demographics and completion metadata |
+| `annotations.csv` | 3,208 | Per-paragraph reader judgments, with paragraph metadata (writer, proposition, paragraph type, distortion bin, source), the Trust Game allocation in pence, and post-reading reader stance |
+| `paragraph_pairs.csv` | 3,795 | Per-(writer, proposition) human/AI paragraph attribute ratings, deltas, and perceived stances, derived from the main-study reader annotations and joined in to recover paragraph-level distortion magnitude and attribute ratings |
+
+### `followup_persuasion`
+
+Reader-side data for the persuasion follow-up, in which readers reported their stance before and after reading a paragraph.
+
+| File | Rows | Description |
+|------|------|-------------|
+| `participants.csv` | 7,996 | Reader participant demographics and completion metadata |
+| `annotations.csv` | 39,980 | Per-paragraph reader judgments, with paragraph and condition metadata (writer, proposition, paragraph type, condition type, distortion bin, source) and pre/post stance measures including `policy_attitude_pre` and `policy_attitude_post` |
+| `paragraph_pairs.csv` | 3,795 | Per-(writer, proposition) human/AI paragraph attribute ratings, deltas, and perceived stances, derived from the main-study reader annotations and joined in to recover paragraph-level distortion magnitude and attribute ratings |
 
 ## External Data
 

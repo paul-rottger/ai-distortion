@@ -1,0 +1,3 @@
+model,term,ame_pence,ame_low_pence,ame_high_pence,statistic,p
+rq2_interaction_continuous,ai_advantage_growth_per_1_distortion,0.1224304467022086,0.07437872909161831,0.1704821643127989,4.99377083858068,5.921165126880653e-7
+rq2_interaction_continuous,ai_advantage_growth_per_1sd_distortion,0.9813283064908451,0.5958421108806752,1.366814502101015,4.989460477793039,6.054816001023291e-7

@@ -1,6 +1,6 @@
 # Analysis
 
-This directory contains the analysis scripts used for the main study and the two follow-up studies.
+This directory contains the analysis scripts used for the main study and the four follow-up studies.
 Each study has its own subdirectory, alongside shared overview and preprocessing scripts.
 
 - Root-level scripts contain cross-study summaries and shared preprocessing steps.
@@ -14,6 +14,8 @@ Each study has its own subdirectory, alongside shared overview and preprocessing
 | `1_main_study` | Phase 1 and Phase 2 analyses for the main writer-preference and reader-annotation study. |
 | `2_disclaimer_study` | Phase 1 analyses for the follow-up study testing disclaimer conditions. |
 | `3_mitigation_study` | Phase 1 and Phase 2 analyses for the follow-up study testing distortion-mitigation strategies. |
+| `4_trust_study` | Analyses for the follow-up study measuring reader trust in AI-assisted versus human writers. |
+| `5_persuasion_study` | Analyses for the follow-up study measuring how persuasive AI-assisted versus human writing is. |
 | `utils_py` | Shared Python helpers for plotting offsets and variable group definitions. |
 | `utils_r` | Shared R helpers for loading standard Phase 2 data splits and defining analysis variables. |
 
@@ -90,6 +92,24 @@ Scripts for the mitigation-strategy follow-up analyses.
 | `phase_2_distribution_plots.py` | Generates Phase 2 distribution figures for writer versus mitigation-conditioned model annotations. |
 | `phase_2_distribution_variables.R` | Runs the mitigation-study Phase 2 distribution tests for scale, ordinal, and nominal variables and saves the shared result tables and scale correlation outputs. |
 | `phase_2_mitigation_side_effects_plots.py` | Visualizes trade-offs between mitigation gains and side-effect outcomes. |
+
+### `4_trust_study`
+
+Scripts for the trust follow-up analyses, which measure reader trust (Trust Game allocations) in AI-assisted versus human writing.
+
+| File | Description |
+|------|-------------|
+| `trust_regressions_full_analyses.R` | Estimates beta-regression effects of authorship on trust allocations, including distortion-bin interactions, continuous distortion moderation, control covariates, and exploratory per-attribute models. |
+| `plots.py` | Generates trust-study figures: the AI-versus-human AME whisker plot (overall and by distortion bin) and the exploratory attribute binned-means grid. |
+
+### `5_persuasion_study`
+
+Scripts for the persuasion follow-up analyses, which measure stance shift after reading AI-assisted versus human writing.
+
+| File | Description |
+|------|-------------|
+| `persuasion_regressions_full_analyses.R` | Estimates mixed-effects effects of authorship on stance shift across control, human, and AI conditions, including distortion-bin and continuous moderation models, secondary outcomes, and exploratory per-attribute models. |
+| `plots.py` | Generates persuasion-study figures: the AI-versus-human AME whisker plot, the persuasion-versus-control panel, and the exploratory attribute binned-means grid. |
 
 ## Shared Utilities
 

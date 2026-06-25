@@ -138,5 +138,17 @@ print_section "FOLLOWUP MITIGATION: PHASE 2 (RATING - DISTRIBUTIONS)"
 run_r "analysis/3_mitigation_study/phase_2_distribution_variables.R" "${DEMO_ARGS[@]}"
 run_python "analysis/3_mitigation_study/phase_2_distribution_plots.py" "${DEMO_ARGS[@]}"
 
+# ==========================
+print_section "TRUST STUDY (READING)"
+# ==========================
+run_r "analysis/4_trust_study/trust_regressions_full_analyses.R" "${DEMO_ARGS[@]}"
+run_python "analysis/4_trust_study/plots.py" "${DEMO_ARGS[@]}"
+
+# ==========================
+print_section "PERSUASION STUDY (READING)"
+# ==========================
+run_r "analysis/5_persuasion_study/persuasion_regressions_full_analyses.R" "${DEMO_ARGS[@]}"
+run_python "analysis/5_persuasion_study/plots.py" "${DEMO_ARGS[@]}"
+
 ELAPSED=$(( $(date +%s) - START_TIME ))
 print_section "ALL ANALYSES COMPLETED IN $(printf '%02d:%02d:%02d' $((ELAPSED/3600)) $((ELAPSED%3600/60)) $((ELAPSED%60)))"

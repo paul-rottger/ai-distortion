@@ -1,0 +1,2 @@
+n_rows,n_readers,n_propositions,n_control,n_treated,n_treated_unmatched,n_missing_stance_shift,n_missing_stance_distance_treated,n_missing_distortion_magnitude_treated,mean_control_stance_shift
+39980,7996,98,7996,31984,0,0,0,0,-0.07045189261297137
