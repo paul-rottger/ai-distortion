@@ -15,14 +15,15 @@ This is joint work by Paul Röttger, Kobi Hackenburg, Hannah Rose Kirk, and Chri
 
 ## Requirements
 
-- No special hardware is required for the statistical analyses and plotting workflows in this repository.
-- Python dependencies and versions are listed in `requirements_python.txt`.
-- R packages and versions are listed in `requirements_r.R`.
+- **Python:** Python 3.11. Package dependencies and pinned versions are listed in `requirements_python.txt`.
+- **R:** R 4.5. Package dependencies and pinned versions are listed in `requirements_r.R`.
+- **Hardware:** No special or non-standard hardware is required.
 
 ## Reproducing Results
 
 All results and figures from our paper and supplement are shown in the `results/` and `figures/` directories.
 To reproduce these results and figures, please run the commands below from the root of the repository.
+Installing the Python and R dependencies takes approximately 3 minutes on a normal desktop computer with a broadband connection.
 **Please note** that the full analysis workflow takes several days to complete (tested on 2021 M1 MacBook Pro).
 This is primarily due to the mixed-effects multinomial logistic regression analysis for nominal variables in our main study.
 For a faster **demo run** (approx. 13 minutes), pass the `--demo` flag to `run_all.sh`.
@@ -40,13 +41,16 @@ pip install -r requirements_python.txt
 Rscript requirements_r.R
 
 # Run all analyses and plotting scripts in DEMO MODE...
+# Results and figures will be written to demo_results/ and demo_figures/
 ./run_all.sh --demo
 
 # ... OR run all analyses and plotting scripts in full (takes several days)
+# Results and figures will be written to results/ and figures/
 # ./run_all.sh 
-```
 
-Details on each analysis script are listed in `analysis/README.md`.
+# On successful completion, the script prints a line of the form:
+# ALL ANALYSES COMPLETED IN HH:MM:SS
+```
 
 ## Data Availability
 

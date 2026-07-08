@@ -29,12 +29,13 @@ done
 
 # Determine repository root and paths to executables
 REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
-PYTHON_BIN="$REPO_ROOT/env/bin/python"
+# Use the Python on PATH by default (i.e. the activated virtual environment from the README). Override with the PYTHON_BIN environment variable if needed.
+PYTHON_BIN="${PYTHON_BIN:-python}"
 RSCRIPT_BIN="${RSCRIPT_BIN:-Rscript}"
 
 # Check for Python executable
-if [[ ! -x "$PYTHON_BIN" ]]; then
-	echo "Python executable not found at $PYTHON_BIN"
+if ! command -v "$PYTHON_BIN" >/dev/null 2>&1; then
+	echo "Python executable not found: $PYTHON_BIN"
 	exit 1
 fi
 
