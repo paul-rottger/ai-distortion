@@ -1,0 +1,13 @@
+group,measure,label,n_propositions,mean_paragraphs_per_proposition,mean,ci_lower,ci_upper
+writer,embedding,Semantic similarity (all-mpnet-base-v2 cosine),100,45.03,0.6561542749404907,0.6470254629850387,0.665384928882122
+ai,embedding,Semantic similarity (all-mpnet-base-v2 cosine),100,45.03,0.8009057641029358,0.7940943121910096,0.8078878998756409
+ai: anthropic/claude-sonnet-4,embedding,Semantic similarity (all-mpnet-base-v2 cosine),100,15.01,0.8049048781394958,0.7959108486771583,0.8138442084193229
+ai: deepseek/deepseek-chat-v3-0324,embedding,Semantic similarity (all-mpnet-base-v2 cosine),100,15.01,0.8069701194763184,0.7978505432605744,0.8158679097890854
+ai: openai/chatgpt-4o-latest,embedding,Semantic similarity (all-mpnet-base-v2 cosine),100,15.01,0.8061817288398743,0.7958992630243301,0.816583913564682
+edited,embedding,Semantic similarity (all-mpnet-base-v2 cosine),100,10.02,0.7807164788246155,0.7658062428236008,0.7945671334862708
+writer,tfidf,Lexical similarity (TF-IDF cosine),100,45.03,0.11146679301633103,0.1065253396614948,0.11678638365502976
+ai,tfidf,Lexical similarity (TF-IDF cosine),100,45.03,0.20869575086566086,0.20235975710304102,0.21524801351691483
+ai: anthropic/claude-sonnet-4,tfidf,Lexical similarity (TF-IDF cosine),100,15.01,0.21995792163816807,0.21169517803836424,0.22829132153961854
+ai: deepseek/deepseek-chat-v3-0324,tfidf,Lexical similarity (TF-IDF cosine),100,15.01,0.21858517872069164,0.20988862508485956,0.22725069727558733
+ai: openai/chatgpt-4o-latest,tfidf,Lexical similarity (TF-IDF cosine),100,15.01,0.21714518349648843,0.20852029004847142,0.22572448422363506
+edited,tfidf,Lexical similarity (TF-IDF cosine),100,10.02,0.19817459151868147,0.18848583807248126,0.20822661996989933

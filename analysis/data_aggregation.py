@@ -28,7 +28,7 @@ DATA_DIR = BASE_DIR / "data"
 
 # Aggregation configuration
 GROUP_COLUMNS = ["writer_id", "proposition_id", "paragraph_type"]
-EXCLUDED_COLUMNS = {"rater_id"}
+EXCLUDED_COLUMNS = {"rater_id", "paragraph_position", "paragraph_seconds"}
 SOURCE_FILE_NAME = "annotations.csv"
 OUTPUT_FILE_NAME = "annotations_aggregated.csv"
 

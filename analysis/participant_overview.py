@@ -52,6 +52,10 @@ PARTICIPANT_ID_COLUMNS = ["writer_id", "rater_id"]
 
 CENSUS_ATTRIBUTES = {"age_binned", "gender", "race"}
 
+# Lifetime approved Prolific submissions
+PROLIFIC_APPROVALS_COLUMN = "prolificApprovals"
+PROLIFIC_APPROVALS_THRESHOLDS = [100, 500, 1000]
+
 ATTRIBUTE_CONFIG = {
     "age_binned": ["18-29", "30-39", "40-49", "50-59", "60-69", "70+"],
     "gender": ["Female", "Male", "Other", "Prefer not to say"],
@@ -354,6 +358,59 @@ def write_attribute_summaries(participants_by_study: dict[str, pd.DataFrame]) ->
         print(summary_df.to_latex(index=False, escape=False))
 
 
+def describe_prolific_approvals(df: pd.DataFrame, label: str) -> dict:
+    approvals = df[PROLIFIC_APPROVALS_COLUMN].dropna()
+    row = {
+        "study": label,
+        "n_participants": len(df),
+        "n_missing": int(df[PROLIFIC_APPROVALS_COLUMN].isna().sum()),
+        "mean": round(approvals.mean(), 1),
+        "sd": round(approvals.std(), 1),
+        "min": int(approvals.min()),
+        "p10": round(approvals.quantile(0.10), 1),
+        "p25": round(approvals.quantile(0.25), 1),
+        "median": round(approvals.median(), 1),
+        "p75": round(approvals.quantile(0.75), 1),
+        "p90": round(approvals.quantile(0.90), 1),
+        "max": int(approvals.max()),
+    }
+    for threshold in PROLIFIC_APPROVALS_THRESHOLDS:
+        row[f"share_ge_{threshold}"] = round((approvals >= threshold).mean(), 4)
+
+    return row
+
+
+def summarize_prolific_approvals(
+    participants_by_study: dict[str, pd.DataFrame],
+) -> pd.DataFrame:
+    rows = [
+        describe_prolific_approvals(df, study)
+        for study, df in participants_by_study.items()
+    ]
+
+    # Pooled rows over distinct participants (first study kept for repeat participants)
+    for label, is_writer_study in [("all_writers", True), ("all_readers", False)]:
+        role_participants = {
+            study: df
+            for study, df in participants_by_study.items()
+            if ("phase_1" in study) == is_writer_study
+        }
+        rows.append(
+            describe_prolific_approvals(deduplicate_participants(role_participants), label)
+        )
+
+    return pd.DataFrame(rows)
+
+
+def write_prolific_approvals_summary(participants_by_study: dict[str, pd.DataFrame]) -> None:
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+
+    summary_df = summarize_prolific_approvals(participants_by_study)
+    summary_df.to_csv(RESULTS_DIR / f"{PROLIFIC_APPROVALS_COLUMN}.csv", index=False)
+    print(f"\n=== {PROLIFIC_APPROVALS_COLUMN} ===")
+    print(summary_df.to_latex(index=False, escape=False))
+
+
 def summarize_count_distribution(
     counts: pd.Series,
     frequency_column: str,
@@ -408,6 +465,7 @@ def main() -> None:
     participants_by_study = load_participants_by_study()
     annotations_by_study = load_phase_2_annotations_by_study()
     write_attribute_summaries(participants_by_study)
+    write_prolific_approvals_summary(participants_by_study)
     write_assignment_summaries(annotations_by_study)
     print_participant_overlap(participants_by_study)
 

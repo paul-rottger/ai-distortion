@@ -1,670 +1,670 @@
-writer_id,age,gender,race,englishFirst,englishSkills,education,income,politicalParty,politicalIdeology,timeTaken,date
-733b670b079811b8,22,Female,White,Yes,Expert,Vocational qualification,"Under £15,000",Did not vote,Centrist,20.55,2025-11-25
-9239a3ef10e5ff48,45,Male,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Labour,Centrist,27.02,2025-11-25
-0c5b0e70ac759ab8,49,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,91.23,2025-11-25
-01e5607b53825cb6,59,Female,White,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Reform UK,Centrist,46.52,2025-11-25
-561707c959957c1f,24,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Did not vote,Moderately Left-Wing,22.92,2025-11-25
-3fddbc95faa85930,38,Male,White,Yes,Advanced,Undergraduate degree,"Under £15,000",Reform UK,Moderately Right-Wing,30.36,2025-11-25
-30b3273c9ad53345,57,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Greens,Moderately Left-Wing,38.11,2025-11-25
-9d43403f99a21515,37,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Moderately Right-Wing,18.77,2025-11-25
-c08b0fd77005fef2,38,Female,White,Yes,Intermediate,Undergraduate degree,"£15,000-£24,999",Did not vote,Centrist,23.32,2025-11-25
-72a93a9fec803af5,57,Male,Black,Yes,Advanced,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Centrist,68.08,2025-11-25
-4a50028b5f1a57b2,21,Female,Black,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Very Left-Wing,32.4,2025-11-25
-ba9c62a5a2a8975c,28,Female,White,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Labour,Very Left-Wing,36.2,2025-11-25
-8dc7925bbf3bcf5a,37,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Liberal Democrats,Moderately Left-Wing,33.51,2025-11-25
-4eeaa97994c55133,44,Male,White,Yes,Expert,Doctorate (PhD),"Under £15,000",Liberal Democrats,Centrist,51.18,2025-11-25
-161994d45f046aba,25,Other,White,Yes,Expert,Vocational qualification,"Under £15,000",Greens,Moderately Left-Wing,22.46,2025-11-25
-b4c9cd252087ca11,42,Female,Asian,No,Advanced,Undergraduate degree,"£35,000-£49,999",Prefer not to say,Centrist,38.8,2025-11-25
-faa3922be9fa3c11,39,Female,Black,Bilingual from birth,Advanced,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Centrist,44.55,2025-11-25
-41af314741a406f6,28,Male,Asian,No,Advanced,Postgraduate degree (Master's),"Under £15,000",Did not vote,Moderately Left-Wing,26.72,2025-11-25
-834fc5279ed6c4d5,28,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Did not vote,Very Left-Wing,29.51,2025-11-25
-7abd1c55fb90ba07,34,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Greens,Very Left-Wing,22.72,2025-11-25
-602007c0a7e5eac1,33,Female,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Labour,Moderately Left-Wing,47.58,2025-11-25
-be0ae7f722eba01f,35,Female,Asian,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,59.06,2025-11-25
-e9017625c1262a96,31,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Very Left-Wing,18.03,2025-11-25
-5149cb9f806a9674,59,Female,White,Yes,Advanced,Undergraduate degree,"£35,000-£49,999",Did not vote,Moderately Right-Wing,59.1,2025-11-25
-548969bc3d559244,68,Male,White,Yes,Advanced,GCSEs or equivalent,"£25,000-£34,999",Other,Moderately Right-Wing,88.12,2025-11-25
-2f6f83ea5fcade5b,55,Female,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Centrist,49.42,2025-11-25
-4bc1592bd38ef0a7,19,Female,Prefer not to say,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Centrist,33.11,2025-11-25
-00907ce1651381ff,31,Male,Asian,No,Advanced,Doctorate (PhD),"£35,000-£49,999",Did not vote,Moderately Left-Wing,36.75,2025-11-25
-31e48fe6e70c3e27,56,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Scottish National Party,Moderately Left-Wing,29.43,2025-11-25
-2333bdc01be4567e,72,Female,White,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,55.07,2025-11-25
-004c7bf24c9112c4,32,Male,White,Yes,Expert,GCSEs or equivalent,"Under £15,000",Did not vote,Prefer not to say,32.97,2025-11-25
-53171b94c5c67b4c,58,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Left-Wing,28.01,2025-11-25
-470683ab5ce865a3,24,Female,White,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Greens,Very Left-Wing,38.06,2025-11-25
-6e0b6c3c1f314e94,30,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Greens,Moderately Left-Wing,15.9,2025-11-25
-8469431f76816953,36,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Left-Wing,25.86,2025-11-25
-37104faf6bdd7b73,62,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Right-Wing,129.22,2025-11-25
-7d8cd2bd50ca6b38,30,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Other,Centrist,47.33,2025-11-25
-0eea1eef1c0e441f,27,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Centrist,20.25,2025-11-25
-7ad51fd01034765a,49,Male,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Reform UK,Moderately Right-Wing,29.67,2025-11-25
-6cbf8bce2cb4f427,21,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,33.2,2025-11-25
-0b163206b514074e,24,Female,White,Yes,Advanced,Postgraduate degree (Master's),"£35,000-£49,999",Did not vote,Moderately Left-Wing,22.16,2025-11-25
-6225f50fdc97a780,31,Male,White,No,Advanced,GCSEs or equivalent,"£15,000-£24,999",Did not vote,Centrist,25.76,2025-11-25
-4320d4143c3f24c2,37,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Conservative,Moderately Left-Wing,34.54,2025-11-25
-4258fe19ffeed861,36,Female,Asian,No,Expert,Doctorate (PhD),"£50,000-£74,999",Not eligible to vote,Moderately Left-Wing,45.26,2025-11-25
-b149e0aca3ab3907,53,Female,White,Yes,Advanced,A-levels or equivalent,"£25,000-£34,999",Labour,Moderately Left-Wing,29.72,2025-11-25
-dc81c9c81bfe13dc,31,Female,White,Yes,Expert,GCSEs or equivalent,"£15,000-£24,999",Did not vote,Moderately Left-Wing,37.29,2025-11-25
-61332d565a6baf9a,29,Female,White,Yes,Expert,Doctorate (PhD),"£50,000-£74,999",Greens,Centrist,62.44,2025-11-25
-ebd3a0722b40f19a,30,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Conservative,Moderately Right-Wing,28.31,2025-11-25
-adea2b848d94275a,20,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Moderately Left-Wing,46.69,2025-11-25
-8576a5665c211eec,23,Female,Asian,Bilingual from birth,Expert,Undergraduate degree,"Under £15,000",Did not vote,Very Left-Wing,44.07,2025-11-25
-7c1ca97f862da5a1,54,Female,White,Yes,Advanced,Undergraduate degree,"£35,000-£49,999",Conservative,Moderately Right-Wing,46.75,2025-11-25
-ad1b1d06edfb88ae,37,Female,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Scottish National Party,Moderately Right-Wing,28.55,2025-11-25
-fef06ae32bf136a6,57,Female,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Did not vote,Centrist,24.63,2025-11-25
-372f997e692a5976,24,Male,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Liberal Democrats,Moderately Left-Wing,35.79,2025-11-25
-cb7ce9eec9735f26,38,Female,Asian,No,Expert,Doctorate (PhD),"£35,000-£49,999",Not eligible to vote,Moderately Left-Wing,34.1,2025-11-25
-7de33d5d131b8a73,76,Male,White,Yes,Advanced,Doctorate (PhD),"£15,000-£24,999",Labour,Moderately Left-Wing,43.29,2025-11-25
-4f23a37bd651e07b,61,Female,White,Yes,Advanced,Vocational qualification,"£25,000-£34,999",Labour,Centrist,23.62,2025-11-25
-78db3b1864628f82,38,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,31.98,2025-11-25
-8efbaffc066f9a58,33,Male,White,Yes,Expert,Doctorate (PhD),"£75,000-£99,999",Labour,Centrist,20.64,2025-11-25
-626c435480360569,63,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Liberal Democrats,Centrist,42.3,2025-11-25
-1a8e65a929dffc84,56,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Liberal Democrats,Moderately Left-Wing,48.49,2025-11-25
-9ef107f7c2b036fd,31,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Labour,Moderately Left-Wing,15.79,2025-11-25
-513f2447d021eee4,53,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Moderately Right-Wing,34.8,2025-11-25
-88f1373e822f519e,29,Female,Asian,Bilingual from birth,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Not eligible to vote,Moderately Left-Wing,28.96,2025-11-25
-95130812ba0a550f,44,Female,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Labour,Centrist,28.07,2025-11-25
-78af0103fbf8b293,38,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Left-Wing,22.32,2025-11-25
-246885316ce15255,39,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Did not vote,Centrist,21.8,2025-11-25
-40fa2d77fa14ad2a,21,Female,Asian,Yes,Expert,Undergraduate degree,"Under £15,000",Did not vote,Moderately Left-Wing,20.55,2025-11-25
-9d341a858cca90e9,29,Female,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Labour,Very Left-Wing,21.78,2025-11-25
-8467ca03cac297c4,43,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,20.81,2025-11-25
-6496a95fafde4ceb,21,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,25.96,2025-11-25
-07dad93c3d1d90d7,22,Female,White,Yes,Expert,Vocational qualification,"Under £15,000",Did not vote,Moderately Left-Wing,34.55,2025-11-25
-e5dd7c31a53ef6ea,45,Female,White,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,38.22,2025-11-25
-e65f5e5f03c3ceba,36,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Liberal Democrats,Centrist,34.56,2025-11-25
-7f29787f811584c2,40,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Centrist,30.92,2025-11-25
-438f58dea6e5b277,23,Male,White,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Liberal Democrats,Very Left-Wing,21.43,2025-11-25
-cb2b6b58804cd592,31,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Scottish National Party,Centrist,48.41,2025-11-25
-c39b2247714a9eeb,20,Male,Asian,No,Expert,A-levels or equivalent,"Under £15,000",Other,Moderately Left-Wing,51.3,2025-11-25
-7c82312247b68519,39,Male,White,Prefer not to say,Expert,Undergraduate degree,"£25,000-£34,999",Did not vote,Centrist,23.52,2025-11-25
-e2beb01eca219f35,21,Male,White,Yes,Expert,Undergraduate degree,Prefer not to say,Did not vote,Moderately Left-Wing,26.89,2025-11-25
-824f5442982ac19b,34,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,29.48,2025-11-25
-d32e4bea94cc7d31,28,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Conservative,Moderately Left-Wing,14.77,2025-11-25
-f7db981b9f60aea5,38,Female,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Labour,Moderately Left-Wing,20.44,2025-11-25
-65d76a717c8ae7fb,41,Female,Asian,Yes,Expert,Undergraduate degree,Prefer not to say,Greens,Centrist,37.13,2025-11-25
-f9eddf313088911c,39,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Very Left-Wing,19.99,2025-11-25
-fb6a7ea1d8685350,33,Female,White,No,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Centrist,25.69,2025-11-25
-3b5cf3f54e428c97,45,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Centrist,24.62,2025-11-25
-2b8bee8d14fd6760,65,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Liberal Democrats,Very Left-Wing,57.36,2025-11-25
-a8420dd6548dd3fd,42,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,55.1,2025-11-25
-b7223ed01bf3365b,29,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,29.25,2025-11-25
-cadf3d396cb49035,25,Female,Black,Yes,Expert,Doctorate (PhD),"£50,000-£74,999",Labour,Moderately Left-Wing,17.49,2025-11-25
-4d8596ea09fa62af,25,Male,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Greens,Centrist,37.05,2025-11-25
-ea49fa6bcf77370b,45,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Did not vote,Moderately Left-Wing,28.51,2025-11-25
-defebe6f015f181a,33,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Liberal Democrats,Moderately Left-Wing,33.78,2025-11-25
-dafd314211eadee3,60,Female,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Did not vote,Moderately Right-Wing,25.6,2025-11-25
-cc9fe75b34b50889,22,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Conservative,Centrist,31.4,2025-11-25
-81f81c9b0fb8fe9f,30,Female,White,No,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Not eligible to vote,Centrist,35.73,2025-11-25
-f5d67fbfaf8d2d39,31,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Reform UK,Moderately Right-Wing,30.33,2025-11-25
-e6deda95749badca,66,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Greens,Moderately Right-Wing,49.16,2025-11-25
-b5cc911473a139f0,27,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Left-Wing,18.38,2025-11-25
-bd5f7d943839cf44,39,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Other,Moderately Left-Wing,34.65,2025-11-25
-24cf0e930dfee806,46,Female,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Labour,Centrist,43.16,2025-11-25
-41754b48a37fd8fa,29,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Conservative,Moderately Right-Wing,31.48,2025-11-25
-dbafada55027c643,32,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Other,Moderately Left-Wing,24.15,2025-11-25
-99c46673ccafceff,35,Male,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Labour,Centrist,25.55,2025-11-25
-276d3723a01b74ad,21,Female,Black,Yes,Expert,A-levels or equivalent,"Under £15,000",Conservative,Moderately Right-Wing,24.61,2025-11-25
-13f3970dbce26466,48,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Centrist,37.01,2025-11-25
-ddb4692c0e8d0e59,42,Male,White,Yes,Advanced,Undergraduate degree,Prefer not to say,Prefer not to say,Centrist,36.2,2025-11-25
-1337401bc9a0b8d1,19,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Very Left-Wing,21.37,2025-11-25
-e47dccf77cf87ed7,25,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Did not vote,Moderately Right-Wing,19.44,2025-11-25
-e3acf75f847577bb,25,Female,Mixed,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,19.24,2025-11-25
-44a4877713fdf0b1,61,Male,White,Yes,Advanced,Prefer not to say,"£15,000-£24,999",Did not vote,Centrist,47.5,2025-11-25
-4d348edc924d6837,36,Female,Black,Yes,Expert,Prefer not to say,Prefer not to say,Reform UK,Moderately Right-Wing,77.73,2025-11-25
-3b2228022797ec44,32,Male,Mixed,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Very Left-Wing,24.75,2025-11-25
-6a5d4823dadcf69a,61,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Conservative,Moderately Right-Wing,36.58,2025-11-25
-6516de63a98306c8,29,Female,White,Yes,Expert,Postgraduate degree (Master's),Prefer not to say,Conservative,Moderately Right-Wing,26.44,2025-11-25
-22d108398558146a,37,Male,White,Yes,Expert,Doctorate (PhD),"£35,000-£49,999",Labour,Moderately Left-Wing,26.24,2025-11-25
-2eb36771c95ac6eb,61,Female,Black,Yes,Advanced,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,49.08,2025-11-25
-41109db48e7f15ec,23,Male,Other,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,15.09,2025-11-25
-bbd8756b68568a9a,28,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,23.18,2025-11-25
-518f59a7b4345a18,30,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Did not vote,Moderately Right-Wing,21.26,2025-11-25
-22b6319230ca0c7f,46,Female,White,Yes,Advanced,Undergraduate degree,"Under £15,000",Conservative,Moderately Right-Wing,32.41,2025-11-25
-5dff0401ca497421,29,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,19.79,2025-11-25
-3e835a032ca26a4e,22,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Moderately Left-Wing,21.7,2025-11-25
-1e5becbe292d5fce,51,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Greens,Centrist,60.03,2025-11-25
-660b68bf8399a2a6,39,Male,Asian,No,Advanced,Doctorate (PhD),"£50,000-£74,999",Did not vote,Centrist,61.8,2025-11-25
-0fd8e792a4270fee,58,Male,Black,Bilingual from birth,Expert,Vocational qualification,"£25,000-£34,999",Did not vote,Moderately Left-Wing,38.57,2025-11-25
-11e9b5b501b8730c,58,Male,White,Yes,Advanced,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,50.18,2025-11-25
-a2e78be6ed908fbc,52,Female,White,Yes,Expert,Postgraduate degree (Master's),Prefer not to say,Labour,Centrist,45.08,2025-11-25
-ec1fe661eb94cacf,62,Male,White,Yes,Expert,A-levels or equivalent,"£15,000-£24,999",Conservative,Moderately Right-Wing,36.18,2025-11-25
-f393bd5d9ff18b67,49,Male,White,No,Expert,Postgraduate degree (Master's),"£100,000+",Conservative,Moderately Right-Wing,31.36,2025-11-25
-54aaa0a25bdf8231,70,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Reform UK,Moderately Right-Wing,40.86,2025-11-25
-35a883f98a82852b,23,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,25.7,2025-11-25
-5c44ee55ebd3dfe1,29,Other,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Greens,Moderately Left-Wing,29.63,2025-11-25
-6ee0cfc9bb9f7e34,27,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Liberal Democrats,Moderately Left-Wing,22.31,2025-11-25
-2bb52caeae441a7e,28,Male,Mixed,Yes,Advanced,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Centrist,49.35,2025-11-25
-326cada02d58cc1c,28,Male,White,No,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Did not vote,Prefer not to say,13.64,2025-11-25
-d8274e1b136bfee6,26,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Conservative,Moderately Right-Wing,17.38,2025-11-25
-d5064824934b5159,39,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Greens,Centrist,18.65,2025-11-25
-d0b0e83055461f47,61,Female,White,Yes,Advanced,GCSEs or equivalent,"Under £15,000",Conservative,Moderately Right-Wing,84.34,2025-11-25
-9c2dfbf01408ba72,63,Male,White,Yes,Expert,Undergraduate degree,Prefer not to say,Labour,Moderately Left-Wing,37.29,2025-11-25
-8212e9ceded0a30e,34,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,51.15,2025-11-25
-92eaf91f05164637,25,Prefer not to say,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,22.22,2025-11-25
-8f4f7840b4f3a9df,34,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Scottish National Party,Very Left-Wing,20.43,2025-11-25
-939df93683fe805b,34,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,33.98,2025-11-25
-03b9575327ffacc2,57,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Did not vote,Moderately Right-Wing,30.23,2025-11-25
-2784a9f3aa895b05,56,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Conservative,Centrist,35.64,2025-11-25
-9ad3c0074f4c12c8,39,Male,White,Yes,Advanced,A-levels or equivalent,"£35,000-£49,999",Labour,Moderately Left-Wing,45.87,2025-11-25
-265f0f7755003572,37,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,44.53,2025-11-25
-451bd12f2bc9082f,22,Female,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Reform UK,Moderately Right-Wing,25.39,2025-11-25
-a79d9ccb8492cac4,72,Male,White,Yes,Advanced,Vocational qualification,Prefer not to say,Conservative,Centrist,74.75,2025-11-25
-07b1509e505dff87,47,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Other,Centrist,78.77,2025-11-25
-0542b97859f0b03e,62,Male,White,Yes,Advanced,Vocational qualification,"£15,000-£24,999",Other,Centrist,44.31,2025-11-25
-9c33af01414668ba,29,Male,White,Yes,Expert,GCSEs or equivalent,"Under £15,000",Did not vote,Centrist,19.82,2025-11-25
-eca64cebe56db587,52,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Very Left-Wing,38.24,2025-11-25
-cfe910e0badf535d,63,Male,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Moderately Left-Wing,68.46,2025-11-25
-26f6e986254fbc69,51,Male,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Labour,Centrist,28.24,2025-11-25
-d2da08e5b2c3e205,27,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Greens,Very Left-Wing,14.2,2025-11-25
-cb706f894c7169b3,34,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Did not vote,Centrist,37.76,2025-11-25
-58255ef1b7181336,36,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Greens,Moderately Right-Wing,39.1,2025-11-25
-2439605c17f04db8,22,Female,White,Yes,Expert,Undergraduate degree,Prefer not to say,Prefer not to say,Centrist,19.73,2025-11-25
-bdea00e4f28d779f,48,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Prefer not to say,Centrist,25.94,2025-11-25
-47cfa29e7074f05a,21,Male,White,Yes,Advanced,A-levels or equivalent,"Under £15,000",Did not vote,Centrist,27.43,2025-11-25
-e4f56ef97406a8ca,31,Male,White,Yes,Advanced,Postgraduate degree (Master's),Prefer not to say,Labour,Moderately Right-Wing,30.93,2025-11-25
-528da157afcb2301,60,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,36.54,2025-11-25
-8889a3ae02f7ecc3,36,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,30.82,2025-11-25
-5a5c359258737161,60,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,65.01,2025-11-25
-5ce1fab0502ccf61,24,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,23.26,2025-11-25
-875e9e296f6d2be1,35,Female,White,Bilingual from birth,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,27.36,2025-11-25
-6ca6dde6aa3d6aeb,36,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,25.05,2025-11-25
-4476cb3ee4ec3ce6,33,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Did not vote,Moderately Right-Wing,21.55,2025-11-25
-cdd916587a8dd380,20,Female,White,Yes,Expert,A-levels or equivalent,Prefer not to say,Labour,Very Left-Wing,14.78,2025-11-25
-6f6e6dd7ca8b4167,32,Female,Asian,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,37.51,2025-11-25
-1de1b276c32519a1,41,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Very Left-Wing,67.07,2025-11-25
-e6c79e4932ff1544,36,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Conservative,Moderately Right-Wing,26.28,2025-11-25
-af689a4ed630aada,31,Male,Mixed,No,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Centrist,42.63,2025-11-25
-b4d28a86b6d1c45c,31,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,26.49,2025-11-25
-acdccf896f499384,35,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,18.68,2025-11-25
-acba98ffbe24eefc,41,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Reform UK,Moderately Right-Wing,23.86,2025-11-25
-5cfdcbe593d6615b,32,Other,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,18.62,2025-11-25
-ef3b3f68f29427ed,23,Female,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Greens,Centrist,29.65,2025-11-25
-9ceb335650efb2e8,21,Other,White,Yes,Advanced,Undergraduate degree,"Under £15,000",Labour,Very Left-Wing,23.77,2025-11-25
-68b9edf7e94ae627,42,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,26.49,2025-11-25
-c4916c74472bd2ed,46,Female,Black,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,44.44,2025-11-25
-a4f5c24ff24c05ed,53,Female,White,Yes,Advanced,Postgraduate degree (Master's),"£75,000-£99,999",Labour,Very Left-Wing,29.51,2025-11-25
-fc693dadd289601e,31,Male,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Reform UK,Centrist,20.6,2025-11-25
-a576d2fac276ef49,27,Male,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Conservative,Moderately Right-Wing,23.72,2025-11-25
-d409b025c41b8b23,29,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Greens,Moderately Left-Wing,48.09,2025-11-25
-84ac7e39b821a2f0,56,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,57.35,2025-11-25
-5908842dad26117e,28,Male,White,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Labour,Moderately Left-Wing,52.45,2025-11-25
-27cb9e36bf17a8ed,41,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,25.42,2025-11-25
-9559ca3dc97bc516,24,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Did not vote,Moderately Left-Wing,35.09,2025-11-25
-08469cf8f77ee50a,35,Female,Asian,Bilingual from birth,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Centrist,60.95,2025-11-25
-ab487108142bd741,36,Female,White,Yes,Advanced,GCSEs or equivalent,"£50,000-£74,999",Other,Moderately Left-Wing,33.32,2025-11-25
-64fd43a6aa08b0c4,25,Male,White,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Liberal Democrats,Moderately Right-Wing,31.5,2025-11-25
-9f5ca74eacd30f8e,54,Male,White,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Other,Moderately Left-Wing,25.38,2025-11-25
-db9c5a9c77f7cc80,67,Male,White,Yes,Advanced,GCSEs or equivalent,"Under £15,000",Other,Very Left-Wing,53.13,2025-11-25
-97d433da758fb025,43,Female,White,Yes,Expert,A-levels or equivalent,"£75,000-£99,999",Liberal Democrats,Very Left-Wing,25.98,2025-11-25
-ead1df2260615688,26,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Centrist,26.24,2025-11-25
-13b4137d68df0985,36,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Liberal Democrats,Moderately Left-Wing,33.44,2025-11-25
-486af43c58a455cb,33,Female,White,No,Expert,Postgraduate degree (Master's),"Under £15,000",Not eligible to vote,Very Left-Wing,23.57,2025-11-25
-e88b89a64fba7370,64,Male,White,Yes,Expert,Doctorate (PhD),"£15,000-£24,999",Did not vote,Very Left-Wing,42.81,2025-11-25
-607c595a03775bdd,36,Female,White,Yes,Intermediate,Undergraduate degree,"Under £15,000",Did not vote,Centrist,24.51,2025-11-25
-80e4005cf9982a81,52,Male,Asian,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Conservative,Centrist,21.12,2025-11-25
-3b4a2b8ad1f3dc77,41,Male,Asian,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,30.87,2025-11-25
-204f1a4912329d54,51,Female,Black,Yes,Advanced,Postgraduate degree (Master's),"Under £15,000",Scottish National Party,Centrist,19.69,2025-11-25
-53066b51b04665be,53,Male,White,Yes,Advanced,A-levels or equivalent,"Under £15,000",Did not vote,Moderately Right-Wing,38.97,2025-11-25
-aa197d791f310a68,42,Male,Black,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Prefer not to say,Centrist,67.92,2025-11-25
-6dbcce20073bebf6,46,Female,White,No,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Not eligible to vote,Very Left-Wing,17.61,2025-11-25
-007a8034057959d9,28,Female,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Labour,Very Left-Wing,36.9,2025-11-25
-ca23a02f1cb26ae6,26,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Liberal Democrats,Centrist,20.68,2025-11-25
-f23a4c0ce63edf54,38,Male,Black,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Labour,Prefer not to say,33.67,2025-11-25
-f7c01a51ed29fe76,36,Male,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Other,Very Left-Wing,19.2,2025-11-25
-e8a73b66abba1399,29,Female,White,No,Advanced,Undergraduate degree,"£35,000-£49,999",Not eligible to vote,Very Left-Wing,28.4,2025-11-25
-dd6994fde008ddbd,41,Female,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Scottish National Party,Moderately Left-Wing,52.28,2025-11-25
-8f35a718fa4df2f2,27,Female,Black,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,74.54,2025-11-25
-2982abe844eb5f03,23,Female,Other,Bilingual from birth,Expert,Undergraduate degree,"Under £15,000",Prefer not to say,Moderately Left-Wing,29.37,2025-11-25
-010deca3f1d247bc,61,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Left-Wing,43.98,2025-11-25
-83b8bd61ed2f2b22,31,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Centrist,32.77,2025-11-25
-6f7e44c5b6e36eee,38,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Centrist,26.15,2025-11-25
-ba38f717ed83a461,59,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,33.42,2025-11-25
-de109c42da8b70d4,43,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,25.92,2025-11-25
-d3ad72d52fe8ffe1,36,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Reform UK,Very Right-Wing,21.33,2025-11-25
-910d89a560b6f3eb,39,Male,White,Yes,Advanced,A-levels or equivalent,"£15,000-£24,999",Did not vote,Moderately Left-Wing,22.7,2025-11-25
-b45ff18364f89c24,31,Male,Black,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Liberal Democrats,Moderately Left-Wing,51.56,2025-11-25
-31e4c84377670677,46,Female,Black,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Did not vote,Centrist,35.76,2025-11-25
-77996fd4ed4279cd,41,Female,White,No,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Did not vote,Moderately Right-Wing,25.94,2025-11-25
-793015a8721bd188,69,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Liberal Democrats,Centrist,42.46,2025-11-25
-94f473c6c0263d26,38,Female,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Labour,Moderately Right-Wing,31.0,2025-11-25
-ba8fa6c98226560a,37,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Conservative,Centrist,64.73,2025-11-25
-0177bb1d10237a97,40,Male,White,Yes,Expert,Vocational qualification,"£50,000-£74,999",Liberal Democrats,Moderately Right-Wing,35.32,2025-11-25
-5801b5c80d69ca08,30,Female,Black,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Conservative,Moderately Left-Wing,29.7,2025-11-25
-75fb0885958458db,45,Female,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Liberal Democrats,Centrist,28.9,2025-11-25
-2ae392813c4e81c5,39,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Reform UK,Moderately Right-Wing,30.01,2025-11-25
-3766ad61c1b613e9,28,Male,White,Yes,Advanced,Postgraduate degree (Master's),"Under £15,000",Reform UK,Moderately Left-Wing,77.59,2025-11-25
-65fd05085c0cf9d5,22,Male,White,Yes,Expert,A-levels or equivalent,Prefer not to say,Labour,Centrist,22.41,2025-11-25
-d9c577770302b080,47,Female,White,No,Advanced,Vocational qualification,"£15,000-£24,999",Not eligible to vote,Moderately Left-Wing,71.14,2025-11-25
-ea000fad9ed6e05d,42,Male,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Liberal Democrats,Centrist,30.2,2025-11-25
-e8fe3c7391fa8f39,32,Female,White,Yes,Expert,A-levels or equivalent,"£15,000-£24,999",Labour,Moderately Left-Wing,31.0,2025-11-25
-1dd60012e6090420,24,Female,Mixed,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,34.84,2025-11-25
-eebd159d130d67ec,35,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Greens,Very Left-Wing,28.48,2025-11-25
-25655e6e79ac1a69,52,Female,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Reform UK,Moderately Right-Wing,45.97,2025-11-25
-4395ed99d233c4ac,46,Male,White,Yes,Expert,Vocational qualification,"£35,000-£49,999",Labour,Moderately Left-Wing,40.63,2025-11-25
-369afbb5febd4e42,41,Female,White,Yes,Advanced,Undergraduate degree,Prefer not to say,Prefer not to say,Prefer not to say,76.4,2025-11-25
-e7cbad91078f825a,23,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,25.61,2025-11-25
-f41c63aa9e14ba50,20,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Centrist,48.61,2025-11-25
-df0f3bdd4cc48924,41,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,31.27,2025-11-25
-b2a0990eb08f4e84,35,Female,White,Yes,Advanced,Undergraduate degree,"£50,000-£74,999",Other,Moderately Left-Wing,39.87,2025-11-25
-fc2fec49993ac287,23,Male,Other,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Did not vote,Moderately Right-Wing,15.8,2025-11-25
-6714a4d4beeb0fc7,26,Female,Asian,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Centrist,19.72,2025-11-25
-2121a2fb11ac188d,70,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Conservative,Moderately Right-Wing,32.95,2025-11-25
-1343334c2ae5d010,74,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Liberal Democrats,Moderately Left-Wing,68.69,2025-11-25
-f29828d7c240cfb2,33,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,24.51,2025-11-25
-8d40b6a4e7a9324c,28,Female,Asian,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Greens,Moderately Left-Wing,32.46,2025-11-25
-750abb75f988ce76,23,Male,Asian,No,Expert,Postgraduate degree (Master's),"Under £15,000",Did not vote,Centrist,44.36,2025-11-25
-51c6247aab181455,60,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Conservative,Moderately Right-Wing,83.78,2025-11-25
-ce7319fd63e5311e,23,Male,White,Yes,Advanced,Undergraduate degree,"Under £15,000",Reform UK,Moderately Right-Wing,22.43,2025-11-25
-6911574eb92852f1,32,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,20.43,2025-11-25
-be3edf68e9dad662,37,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,28.24,2025-11-25
-b41aafdcf04ff473,37,Female,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Left-Wing,31.15,2025-11-25
-c1767f4493cad004,40,Female,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Labour,Moderately Left-Wing,21.29,2025-11-25
-baab8d32ba1423b4,39,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Did not vote,Centrist,21.68,2025-11-25
-dabad9953cb9b3ef,30,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Other,Very Left-Wing,18.65,2025-11-25
-73297c83b4c91624,26,Female,Other,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Did not vote,Moderately Left-Wing,25.07,2025-11-25
-695ade030c885229,30,Female,Asian,No,Advanced,Postgraduate degree (Master's),"£15,000-£24,999",Did not vote,Moderately Left-Wing,57.81,2025-11-25
-dd666b8dc43653b6,63,Female,Other,No,Advanced,A-levels or equivalent,"£15,000-£24,999",Not eligible to vote,Centrist,31.31,2025-11-25
-eca38980ac792abb,35,Male,White,No,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Conservative,Moderately Right-Wing,41.21,2025-11-25
-14b66ebe2896f218,25,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Moderately Left-Wing,26.11,2025-11-25
-5c61ab86dc2ca38c,28,Male,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Moderately Left-Wing,18.02,2025-11-25
-43c523cc9812aea3,23,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Moderately Left-Wing,25.89,2025-11-25
-73274d2cdac8dc52,65,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Liberal Democrats,Moderately Left-Wing,40.64,2025-11-25
-878f7dbd9bc3a591,51,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Greens,Centrist,45.94,2025-11-25
-88b98bd727023a17,25,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Greens,Very Left-Wing,31.12,2025-11-25
-d97565df55774826,39,Male,White,Yes,Expert,Vocational qualification,"£35,000-£49,999",Scottish National Party,Moderately Left-Wing,23.34,2025-11-25
-04d4d652a88b7094,31,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,26.27,2025-11-25
-21b35114382c4956,22,Other,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Greens,Very Left-Wing,24.34,2025-11-25
-37d07d123c788838,25,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Liberal Democrats,Moderately Right-Wing,18.53,2025-11-25
-6981c865c93daced,28,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Other,Very Right-Wing,48.46,2025-11-25
-b106a3624b5ee79c,34,Male,White,Yes,Intermediate,Vocational qualification,"£50,000-£74,999",Conservative,Moderately Right-Wing,28.23,2025-11-25
-dddbab6550b7cde7,35,Female,Black,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Did not vote,Moderately Left-Wing,42.8,2025-11-25
-5bd1c11ec025b6d5,44,Female,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Labour,Moderately Left-Wing,26.16,2025-11-25
-df543362c936b625,40,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Labour,Centrist,19.17,2025-11-25
-bf771cae09d0825d,42,Male,White,Yes,Advanced,Vocational qualification,"£35,000-£49,999",Conservative,Moderately Right-Wing,33.3,2025-11-25
-5dfc857923619254,36,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Centrist,29.38,2025-11-25
-a88c62ecfb3d902a,23,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Moderately Left-Wing,31.06,2025-11-25
-70c99f9374176a25,48,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,29.3,2025-11-25
-c6bccb4320105df0,52,Female,Mixed,No,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Very Left-Wing,40.81,2025-11-25
-78f776e8c4929e1b,77,Male,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Reform UK,Moderately Right-Wing,58.58,2025-11-25
-c6eab325dcb17f59,26,Male,White,Yes,Advanced,GCSEs or equivalent,"£25,000-£34,999",Did not vote,Centrist,40.81,2025-11-25
-f0faf2dc6bc68967,34,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Moderately Right-Wing,21.41,2025-11-25
-b179626f4c915056,23,Male,White,Yes,Expert,Undergraduate degree,Prefer not to say,Conservative,Moderately Right-Wing,22.76,2025-11-25
-0d6a8f3f98fdc034,64,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Reform UK,Moderately Right-Wing,41.17,2025-11-25
-d68769692090c660,60,Female,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,39.93,2025-11-25
-d5683fdbc460aa25,35,Female,White,No,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Greens,Moderately Left-Wing,19.93,2025-11-25
-6d08f8fff5197a94,36,Female,White,Yes,Expert,Doctorate (PhD),"£100,000+",Labour,Moderately Left-Wing,17.97,2025-11-25
-07a4a2b5f7ea41ae,31,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Very Left-Wing,49.43,2025-11-25
-bed0a867f0fdf692,33,Male,White,Yes,Expert,Doctorate (PhD),"£35,000-£49,999",Labour,Moderately Left-Wing,35.09,2025-11-25
-c1b7a662bdc4e789,53,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Moderately Left-Wing,28.26,2025-11-25
-3234c90f1dfaffe8,36,Female,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Very Left-Wing,36.83,2025-11-25
-fc76fcee84a2ae45,62,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Liberal Democrats,Centrist,41.67,2025-11-25
-bff8d7a28f76e159,42,Female,White,Yes,Advanced,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Left-Wing,20.53,2025-11-25
-ffdfcc0af15c8055,24,Male,Asian,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Did not vote,Centrist,36.69,2025-11-25
-9f7fe9bd3edd7125,39,Female,White,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Labour,Moderately Left-Wing,23.87,2025-11-25
-dbb9b916b6c30acb,39,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Moderately Left-Wing,30.87,2025-11-25
-43f41668a5bc929f,71,Male,White,Yes,Advanced,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,36.23,2025-11-25
-ac04d94afa4b6f54,21,Other,Mixed,Yes,Expert,A-levels or equivalent,"Under £15,000",Greens,Very Left-Wing,28.22,2025-11-25
-60a9c73c05bb1017,59,Male,White,Yes,Advanced,Vocational qualification,"£35,000-£49,999",Labour,Moderately Left-Wing,45.27,2025-11-25
-492d9331bf3072ad,49,Male,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Conservative,Moderately Right-Wing,29.34,2025-11-25
-a295cdc327c6f1bb,36,Male,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Scottish National Party,Moderately Left-Wing,30.77,2025-11-25
-07572e1e3d26c343,27,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Centrist,20.89,2025-11-25
-2e48060ed2e0a848,41,Female,White,Yes,Expert,Undergraduate degree,Prefer not to say,Did not vote,Centrist,27.02,2025-11-25
-6c022705be6cd786,25,Female,Other,No,Expert,Undergraduate degree,"Under £15,000",Did not vote,Moderately Left-Wing,44.58,2025-11-25
-94c2a40a3503320b,51,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Scottish National Party,Moderately Left-Wing,25.7,2025-11-25
-e22146ae695d9188,47,Female,White,Yes,Expert,Undergraduate degree,Prefer not to say,Conservative,Moderately Right-Wing,43.94,2025-11-25
-68d05ebfaa274bc2,36,Female,Mixed,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,26.92,2025-11-25
-c739671c0c79de35,32,Male,Black,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Centrist,36.65,2025-11-25
-01a185e4d5dc9e29,26,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Liberal Democrats,Centrist,17.42,2025-11-25
-ad706042163900d4,32,Female,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Did not vote,Moderately Left-Wing,28.32,2025-11-25
-f9b08a547b1e62c0,68,Female,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Reform UK,Centrist,47.63,2025-11-25
-c65c9e2fa29d879d,34,Female,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Conservative,Moderately Right-Wing,28.25,2025-11-25
-a9b7d7611bcf408b,61,Male,White,Yes,Expert,Doctorate (PhD),"£35,000-£49,999",Labour,Moderately Left-Wing,48.91,2025-11-25
-640a93263ee527e3,50,Female,White,Yes,Expert,Vocational qualification,"£75,000-£99,999",Reform UK,Very Right-Wing,47.66,2025-11-25
-b445558601a594d7,21,Male,White,No,Expert,Undergraduate degree,Prefer not to say,Did not vote,Moderately Right-Wing,47.53,2025-11-25
-1d8da07d3e2b5118,28,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Conservative,Centrist,44.55,2025-11-25
-d2db103869b63112,41,Male,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Labour,Moderately Right-Wing,23.34,2025-11-25
-e177cc5eede50596,49,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Liberal Democrats,Moderately Left-Wing,56.35,2025-11-26
-7b5a24c64a04c15f,20,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Greens,Moderately Left-Wing,27.54,2025-11-26
-fed150fd2c8539cd,45,Male,Asian,Bilingual from birth,Expert,Undergraduate degree,"£15,000-£24,999",Prefer not to say,Moderately Right-Wing,52.77,2025-11-26
-7f2a8a444cb991eb,47,Female,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Prefer not to say,Centrist,27.63,2025-11-26
-447f2899a6c1e51a,19,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Moderately Left-Wing,18.7,2025-11-26
-4a0a9576553c3928,23,Male,Black,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Did not vote,Centrist,29.62,2025-11-26
-36b4f20ffb10f103,66,Female,White,Yes,Advanced,Postgraduate degree (Master's),"Under £15,000",Labour,Moderately Left-Wing,54.87,2025-11-26
-367c833fee01e72a,22,Female,White,No,Expert,Undergraduate degree,"Under £15,000",Not eligible to vote,Moderately Left-Wing,82.68,2025-11-26
-14b40c28a1dc6975,56,Female,White,Yes,Expert,Vocational qualification,"Under £15,000",Conservative,Centrist,33.95,2025-11-26
-4db3190f22eb1e53,52,Female,White,Yes,Expert,Vocational qualification,"£35,000-£49,999",Liberal Democrats,Moderately Left-Wing,38.19,2025-11-26
-64ed42726d227a85,69,Male,White,Yes,Advanced,A-levels or equivalent,"£25,000-£34,999",Labour,Moderately Left-Wing,20.79,2025-11-26
-5d7a04b22f3fed7a,60,Male,White,Yes,Expert,Vocational qualification,"Under £15,000",Conservative,Moderately Right-Wing,57.54,2025-11-26
-b87d22e4e153409f,57,Female,White,Yes,Expert,Undergraduate degree,Prefer not to say,Labour,Moderately Left-Wing,29.55,2025-11-26
-51e62273c2038c55,56,Female,White,Yes,Expert,Postgraduate degree (Master's),"£100,000+",Liberal Democrats,Centrist,23.69,2025-11-26
-60974cb8b67de926,21,Other,White,Yes,Expert,A-levels or equivalent,Prefer not to say,Labour,Very Left-Wing,57.86,2025-11-26
-8a9646685c8640f8,23,Male,White,Yes,Advanced,A-levels or equivalent,"Under £15,000",Labour,Moderately Left-Wing,17.57,2025-11-26
-7142e496e22d44e2,46,Female,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Labour,Centrist,40.29,2025-11-26
-1e041c725178204b,35,Male,White,Yes,Expert,GCSEs or equivalent,Prefer not to say,Did not vote,Moderately Right-Wing,19.7,2025-11-26
-56330f9c66fb4bb1,59,Female,White,Yes,Expert,Undergraduate degree,Prefer not to say,Labour,Moderately Left-Wing,58.65,2025-11-26
-9cc6047268cdff07,45,Female,Asian,Bilingual from birth,Expert,Doctorate (PhD),"£50,000-£74,999",Did not vote,Moderately Right-Wing,34.35,2025-11-26
-73d314a460292fe3,24,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Did not vote,Centrist,25.51,2025-11-26
-631ea3304ea0cc18,45,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Centrist,78.01,2025-11-26
-b35a62d30456bbbd,50,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,30.42,2025-11-26
-6d1affd661d7d1db,60,Female,White,Yes,Expert,Vocational qualification,Prefer not to say,Labour,Moderately Left-Wing,59.01,2025-11-26
-258a6e76aee61b1b,20,Female,Mixed,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Prefer not to say,16.78,2025-11-26
-548d473ac04a371f,58,Female,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Reform UK,Moderately Right-Wing,31.5,2025-11-26
-ef4dd03f8e2061ee,60,Female,White,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Did not vote,Moderately Right-Wing,26.71,2025-11-26
-cabc2d88f586effa,59,Female,White,Yes,Advanced,A-levels or equivalent,Prefer not to say,Liberal Democrats,Moderately Left-Wing,51.95,2025-11-26
-f7704d9505a05e52,57,Female,White,Yes,Expert,Undergraduate degree,Prefer not to say,Labour,Moderately Left-Wing,44.26,2025-11-26
-74f32599703a304b,40,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Reform UK,Centrist,24.73,2025-11-26
-9a86aea29325e1e4,50,Female,White,Yes,Advanced,Postgraduate degree (Master's),"£50,000-£74,999",Conservative,Moderately Right-Wing,58.85,2025-11-26
-d0ff7fe3c97a5ae3,20,Male,White,Yes,Expert,A-levels or equivalent,"£15,000-£24,999",Liberal Democrats,Moderately Left-Wing,28.53,2025-11-26
-e4d588f0acaccd81,64,Female,Black,No,Expert,Undergraduate degree,"Under £15,000",Not eligible to vote,Centrist,86.39,2025-11-26
-c0860bbdfd9bb94e,46,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Centrist,26.3,2025-11-26
-074f4c591db0b34f,52,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Did not vote,Moderately Left-Wing,14.67,2025-11-26
-af378cfe3e955a23,52,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,36.83,2025-11-26
-5e4f8b37532a1a51,58,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Liberal Democrats,Moderately Left-Wing,48.67,2025-11-26
-5391019541c4ac6e,47,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Centrist,38.81,2025-11-26
-1b2fc922834eaa6c,72,Male,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Did not vote,Moderately Right-Wing,41.46,2025-11-26
-d28736b0ef9b8368,46,Male,White,Yes,Advanced,GCSEs or equivalent,"£25,000-£34,999",Did not vote,Moderately Right-Wing,42.7,2025-11-26
-1f467bd3ef168bf9,46,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Centrist,43.47,2025-11-26
-a8ab3e2093955d21,44,Male,Asian,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Other,Very Left-Wing,40.39,2025-11-26
-52ed23d05b64c8bd,26,Male,Asian,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Centrist,35.25,2025-11-26
-e3b66640b3099637,50,Male,White,Yes,Expert,Other,"£35,000-£49,999",Liberal Democrats,Moderately Left-Wing,67.55,2025-11-26
-20c6db85795e0287,57,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,34.61,2025-11-26
-0fa9d3732db3ad93,24,Male,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Did not vote,Moderately Left-Wing,26.64,2025-11-26
-f290938f847b82ec,55,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,34.15,2025-11-26
-c62fd43abd7dddb6,49,Female,Other,Bilingual from birth,Expert,Postgraduate degree (Master's),Prefer not to say,Liberal Democrats,Moderately Left-Wing,26.51,2025-11-26
-df7523067e96b25f,53,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Reform UK,Moderately Right-Wing,99.9,2025-11-26
-70977e97152b4ffe,49,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,18.88,2025-11-26
-69a02974245f5529,53,Female,White,Yes,Advanced,GCSEs or equivalent,"Under £15,000",Other,Moderately Left-Wing,82.69,2025-11-26
-867cdc334785d84c,45,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Did not vote,Moderately Left-Wing,45.47,2025-11-26
-ade1f5a32a18270a,61,Female,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Other,Very Left-Wing,43.29,2025-11-26
-f20be30780009eaa,50,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,33.01,2025-11-26
-c713763791fbbd8e,50,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,24.08,2025-11-26
-d8b3eb6c3c23fc02,48,Female,Asian,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Liberal Democrats,Centrist,31.19,2025-11-26
-05bdb4bda9b58205,49,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,26.06,2025-11-26
-d3dc3f74eb5be380,59,Female,White,Yes,Expert,A-levels or equivalent,"£15,000-£24,999",Did not vote,Centrist,48.23,2025-11-26
-0d8c34e33b9fd268,46,Male,White,Yes,Expert,A-levels or equivalent,"£15,000-£24,999",Labour,Centrist,32.83,2025-11-26
-c22de7b5898f6b84,65,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Reform UK,Moderately Right-Wing,32.34,2025-11-26
-4966eb7e180b3c6a,56,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Conservative,Centrist,53.69,2025-11-26
-4c796eb1c042f3d0,61,Female,Black,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Moderately Left-Wing,62.47,2025-11-26
-fe9e9a34850f1aa0,58,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Centrist,40.94,2025-11-26
-4ccb4c3c276c7f24,50,Male,White,Yes,Expert,Undergraduate degree,"£100,000+",Conservative,Moderately Right-Wing,37.36,2025-11-26
-7b5f07918aef53d2,52,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Centrist,28.05,2025-11-26
-fe1b841873db95fc,46,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,21.4,2025-11-26
-2be1f1740b28ce84,59,Female,White,Yes,Expert,Doctorate (PhD),"Under £15,000",Labour,Very Left-Wing,44.88,2025-11-26
-336f4532fe58086c,49,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Very Left-Wing,44.52,2025-11-26
-e18d1df57276b7b8,35,Male,White,Bilingual from birth,Expert,Undergraduate degree,Prefer not to say,Labour,Moderately Left-Wing,50.69,2025-11-26
-367e26fac8b05d92,27,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Left-Wing,37.74,2025-11-26
-7845b59e848cbd4e,26,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Reform UK,Centrist,16.61,2025-11-26
-1c1ec2dfa3d74eee,37,Male,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Liberal Democrats,Centrist,43.48,2025-11-26
-9e342f78b623e9fa,20,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Centrist,16.88,2025-11-26
-dcb7a1184646bd60,51,Male,White,Yes,Expert,Postgraduate degree (Master's),"£100,000+",Liberal Democrats,Moderately Left-Wing,16.53,2025-11-26
-ca33e1a5e71bcdf2,47,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Conservative,Moderately Right-Wing,26.21,2025-11-26
-224fa4698ba35ec4,20,Female,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Labour,Prefer not to say,17.2,2025-11-26
-2004763f9d4a7b6f,28,Male,White,Yes,Advanced,A-levels or equivalent,"£25,000-£34,999",Did not vote,Moderately Right-Wing,24.33,2025-11-26
-05e9a23882de5a20,51,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Moderately Right-Wing,62.7,2025-11-26
-6e1f3fcaaa5d2a43,62,Male,White,Yes,Advanced,Vocational qualification,"£15,000-£24,999",Labour,Moderately Left-Wing,43.02,2025-11-26
-c9dca34286a8ce2a,48,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,29.07,2025-11-26
-1d6b988e453e4551,45,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,57.83,2025-11-26
-b4d58918e45f6805,30,Male,White,Yes,Expert,Doctorate (PhD),"Under £15,000",Labour,Very Left-Wing,23.86,2025-11-26
-71b8b3dc9c3cd2d8,33,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Labour,Moderately Left-Wing,21.11,2025-11-26
-588a042f15f95ff6,29,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Liberal Democrats,Centrist,46.31,2025-11-26
-7dba83567cfb784a,61,Female,White,Yes,Expert,Vocational qualification,Prefer not to say,Labour,Centrist,56.94,2025-11-26
-46a7df81466f78c0,29,Male,Asian,No,Advanced,Postgraduate degree (Master's),"£25,000-£34,999",Greens,Moderately Right-Wing,72.21,2025-11-26
-96678ae730e4ba62,22,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Did not vote,Centrist,30.64,2025-11-26
-6bee5674789e1cd8,63,Female,White,Yes,Advanced,Undergraduate degree,Prefer not to say,Labour,Centrist,48.92,2025-11-26
-7b57bb25db1f8d47,70,Male,White,Yes,Advanced,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,31.58,2025-11-26
-04cc00bd448370ee,65,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Centrist,49.31,2025-11-26
-221ad1353dbd9db7,60,Male,White,Yes,Advanced,GCSEs or equivalent,"Under £15,000",Liberal Democrats,Moderately Left-Wing,55.39,2025-11-26
-441c535a8f90ef4c,35,Male,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Reform UK,Centrist,37.03,2025-11-26
-9b88626f46773f1d,36,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,40.01,2025-11-26
-32d9f20690bb80e4,69,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Conservative,Moderately Right-Wing,48.82,2025-11-26
-133652bb274bedcd,24,Male,White,Yes,Expert,Postgraduate degree (Master's),Prefer not to say,Greens,Very Left-Wing,20.05,2025-11-26
-bcad21a13baa8bfd,50,Male,White,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Labour,Moderately Left-Wing,31.79,2025-11-26
-1bf54ab48e1b16db,40,Male,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Moderately Left-Wing,28.75,2025-11-26
-30ed1ce889a6e3ea,55,Male,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Liberal Democrats,Moderately Left-Wing,50.94,2025-11-26
-0a5c8a424b7195e1,23,Male,White,Bilingual from birth,Expert,Undergraduate degree,"Under £15,000",Not eligible to vote,Moderately Left-Wing,23.73,2025-11-26
-35347a305febd629,24,Female,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Liberal Democrats,Moderately Right-Wing,26.94,2025-11-26
-4f4cd2fb849aceda,20,Female,Asian,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Greens,Moderately Left-Wing,51.46,2025-11-26
-9a2acc71b0676069,35,Male,White,Yes,Advanced,A-levels or equivalent,"£15,000-£24,999",Labour,Centrist,18.68,2025-11-26
-7a509e02609f5dfc,21,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,20.83,2025-11-26
-e778a82b1c7e42e6,52,Female,White,Yes,Advanced,GCSEs or equivalent,"£25,000-£34,999",Conservative,Centrist,34.07,2025-11-26
-9b681c9ec31c3a0a,45,Female,White,Yes,Expert,Postgraduate degree (Master's),"£100,000+",Labour,Moderately Left-Wing,25.65,2025-11-26
-81b285ad0110200d,23,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Greens,Very Left-Wing,24.12,2025-11-26
-b85c5ca68a13fab0,26,Male,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Reform UK,Very Right-Wing,35.32,2025-11-26
-2fb3fa88e44fda74,46,Female,White,Yes,Advanced,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Very Left-Wing,53.92,2025-11-26
-5f4908710ff9dfa6,63,Female,White,Bilingual from birth,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Left-Wing,45.97,2025-11-26
-559949a1ff733d4b,57,Male,White,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Labour,Moderately Left-Wing,35.8,2025-11-26
-e651eefa01d96630,31,Male,White,Yes,Expert,Doctorate (PhD),"£35,000-£49,999",Labour,Moderately Left-Wing,30.86,2025-11-26
-ee3933385ce40239,46,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Scottish National Party,Very Left-Wing,57.08,2025-11-26
-a892a8bfbdc5f3dc,46,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Moderately Left-Wing,40.2,2025-11-26
-45c88a369c8c4b0d,41,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Did not vote,Centrist,21.02,2025-11-26
-c23e7f7928c70fe5,36,Male,White,Yes,Expert,Undergraduate degree,"£100,000+",Greens,Moderately Right-Wing,41.39,2025-11-26
-c867f3d0c5b83f55,47,Female,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Labour,Centrist,32.35,2025-11-26
-4394800fbe7a6eed,54,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Conservative,Moderately Right-Wing,31.4,2025-11-26
-a5475dee14fdfb4e,55,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,36.35,2025-11-26
-dd6717aae6835ba8,69,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Labour,Centrist,30.6,2025-11-26
-9e0f1e6b8b5f6a9a,22,Female,White,Yes,Expert,A-levels or equivalent,Prefer not to say,Liberal Democrats,Very Left-Wing,25.81,2025-11-26
-8877e3bb8eda2e1b,23,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Conservative,Moderately Right-Wing,31.98,2025-11-26
-2b45145e20d4eb23,30,Male,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Centrist,63.71,2025-11-26
-ce5f13459b3dcb1e,48,Female,White,Yes,Advanced,A-levels or equivalent,"£35,000-£49,999",Reform UK,Centrist,91.64,2025-11-26
-f888807877e20c38,42,Male,Mixed,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Reform UK,Moderately Right-Wing,36.3,2025-11-26
-dc8fa213be5c13c5,50,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,34.18,2025-11-26
-ce9b2cd2887a673b,69,Male,White,Yes,Expert,Vocational qualification,"£35,000-£49,999",Labour,Centrist,43.2,2025-11-26
-aebec121a9a268c7,35,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Centrist,50.54,2025-11-26
-8eda53f3a2a75d02,63,Male,White,Yes,Intermediate,Vocational qualification,Prefer not to say,Labour,Moderately Left-Wing,48.85,2025-11-26
-4cdc336fb6e786bd,30,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Other,Very Left-Wing,21.45,2025-11-26
-d46cfb7b46eed9b1,37,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Liberal Democrats,Centrist,30.51,2025-11-26
-9c378af077d3a4c4,61,Female,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,69.11,2025-11-27
-9e524fd9e8eeb63a,50,Male,White,Yes,Advanced,Vocational qualification,"Under £15,000",Reform UK,Moderately Right-Wing,95.67,2025-11-27
-afa6ed49e6533741,45,Male,White,Yes,Expert,Doctorate (PhD),"£25,000-£34,999",Did not vote,Moderately Right-Wing,23.21,2025-11-27
-4335b0571ff51f17,28,Male,Asian,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Other,Centrist,21.86,2025-11-27
-c0d91f6626b71f5e,55,Male,White,Yes,Expert,A-levels or equivalent,Prefer not to say,Labour,Moderately Right-Wing,57.65,2025-11-27
-c26d8b525e8bc776,64,Male,White,Yes,Advanced,Undergraduate degree,"£50,000-£74,999",Labour,Centrist,48.84,2025-11-27
-3bf9a3bbba189995,59,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Centrist,97.34,2025-11-27
-c89074ee3c028de1,64,Male,White,Yes,Advanced,Postgraduate degree (Master's),"£35,000-£49,999",Greens,Moderately Left-Wing,59.83,2025-11-27
-5b52bbaea98a7326,67,Female,White,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Labour,Very Left-Wing,61.17,2025-11-27
-a6cb193aa282cb8d,69,Female,White,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,51.44,2025-11-27
-47c2ddcce637ddc9,55,Female,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Reform UK,Moderately Right-Wing,48.83,2025-11-27
-2cc9c03ed4237091,67,Female,White,Yes,Intermediate,GCSEs or equivalent,"Under £15,000",Conservative,Moderately Right-Wing,68.28,2025-11-27
-5b71a6cf431a51f1,56,Female,White,Yes,Expert,GCSEs or equivalent,Prefer not to say,Reform UK,Very Right-Wing,65.04,2025-11-27
-cc78c71e025cc4d1,58,Male,White,Yes,Expert,Vocational qualification,"£50,000-£74,999",Labour,Centrist,35.43,2025-11-27
-3681c2ff12119751,50,Male,White,Yes,Expert,Vocational qualification,"£35,000-£49,999",Labour,Centrist,39.99,2025-11-27
-431059c088b18ab1,60,Female,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Liberal Democrats,Centrist,81.82,2025-11-27
-06c916abe93bd118,58,Male,White,Yes,Intermediate,Vocational qualification,"£50,000-£74,999",Did not vote,Moderately Right-Wing,65.04,2025-11-27
-c489e6241e47a3a8,38,Female,Asian,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,19.65,2025-11-27
-f929b7e294ec1fcb,55,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Labour,Moderately Left-Wing,54.54,2025-11-27
-b12540278709bbba,35,Female,Asian,Yes,Expert,Doctorate (PhD),"£35,000-£49,999",Labour,Moderately Left-Wing,25.19,2025-11-27
-e980d95559e58d0d,49,Female,White,Yes,Expert,Undergraduate degree,"£100,000+",Conservative,Moderately Right-Wing,20.05,2025-11-27
-72e814bc44e9a493,67,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,52.59,2025-11-27
-530b3c7f38fb46e0,55,Female,White,Yes,Advanced,A-levels or equivalent,"Under £15,000",Reform UK,Centrist,38.66,2025-11-27
-402626577181a687,61,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Conservative,Moderately Right-Wing,42.74,2025-11-27
-aad5c3bcd6f75596,64,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,42.19,2025-11-27
-213febf4861a4e78,78,Male,White,Yes,Expert,Vocational qualification,"Under £15,000",Labour,Moderately Left-Wing,28.75,2025-11-27
-fa9699fe054bc75d,56,Female,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Prefer not to say,Moderately Right-Wing,20.39,2025-11-27
-263e5d48436b8f72,55,Female,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Liberal Democrats,Moderately Left-Wing,42.13,2025-11-27
-55f43040070536c9,37,Male,Asian,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Did not vote,Moderately Right-Wing,53.59,2025-11-27
-a7d0ff8dc4561f7e,65,Female,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Liberal Democrats,Moderately Left-Wing,86.37,2025-11-27
-ad41ed46d5b6405a,24,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Reform UK,Very Right-Wing,29.68,2025-11-27
-1e77d9de62e21230,72,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Liberal Democrats,Moderately Left-Wing,31.45,2025-11-27
-632f63ed483b3e59,62,Female,White,Yes,Intermediate,Undergraduate degree,"Under £15,000",Greens,Centrist,55.25,2025-11-28
-53f548f92ee57b5a,61,Female,White,Yes,Advanced,A-levels or equivalent,"Under £15,000",Conservative,Moderately Right-Wing,44.01,2025-11-28
-6e47ea8a2eb341f2,56,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Centrist,38.51,2025-11-28
-6d9df4d8e6001fb9,61,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Moderately Right-Wing,44.79,2025-11-28
-f253cf64b0a21aef,64,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Reform UK,Moderately Right-Wing,55.09,2025-11-28
-33f0c0620285049d,54,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Reform UK,Very Right-Wing,30.43,2025-11-28
-06ea030b4824ebdb,57,Female,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Labour,Centrist,32.72,2025-11-28
-728d656acd17107b,23,Male,Black,Yes,Expert,Vocational qualification,"£25,000-£34,999",Did not vote,Moderately Left-Wing,41.95,2025-11-28
-27c8780f5b2b322b,60,Female,White,Yes,Advanced,GCSEs or equivalent,"£25,000-£34,999",Reform UK,Moderately Right-Wing,27.83,2025-11-28
-8ce0a7e89d361811,51,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Labour,Moderately Left-Wing,33.62,2025-11-28
-f62ff50f1180cc42,57,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Reform UK,Moderately Right-Wing,28.16,2025-11-28
-d4d35754a8f3a8c7,52,Male,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,25.68,2025-11-28
-12199ce71a5a1f2d,66,Male,White,Yes,Expert,Doctorate (PhD),"£50,000-£74,999",Labour,Moderately Left-Wing,33.8,2025-11-28
-c99e8364f4fc4803,23,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Did not vote,Moderately Right-Wing,30.13,2025-11-28
-560f15ba24ae0e5c,64,Female,White,Yes,Advanced,Other,"Under £15,000",Labour,Centrist,35.97,2025-11-28
-a8b850ad13ee473d,19,Male,White,Yes,Expert,A-levels or equivalent,Prefer not to say,Did not vote,Moderately Right-Wing,32.94,2025-11-28
-c9b4b62930db21c6,53,Male,Mixed,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Reform UK,Moderately Right-Wing,29.15,2025-11-28
-21b49a3e095bd672,23,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Very Left-Wing,30.69,2025-11-28
-b61eb781a1fcdae0,56,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Moderately Right-Wing,38.85,2025-11-28
-a6e779545594b7ff,23,Male,White,Yes,Advanced,A-levels or equivalent,"£35,000-£49,999",Did not vote,Moderately Left-Wing,33.55,2025-11-28
-a7dc16f19dc8e1b4,56,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Greens,Very Left-Wing,94.52,2025-11-28
-c5329a97b8686ec6,55,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Centrist,39.31,2025-11-28
-74b0902a1344f497,55,Female,Prefer not to say,Yes,Expert,Undergraduate degree,Prefer not to say,Reform UK,Moderately Right-Wing,30.49,2025-11-28
-93189846edae0fba,67,Male,White,Yes,Expert,Doctorate (PhD),"£35,000-£49,999",Prefer not to say,Very Left-Wing,37.63,2025-11-28
-11940059c04c60c0,61,Male,White,Yes,Advanced,Vocational qualification,"£15,000-£24,999",Conservative,Moderately Right-Wing,55.12,2025-11-28
-453124970b5d5087,58,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,40.12,2025-11-28
-012ccdc247849aab,63,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Did not vote,Centrist,28.33,2025-11-28
-d88b5a55ec6c50e9,44,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Scottish National Party,Centrist,20.63,2025-11-29
-4bbc88dad80255c9,49,Male,White,No,Expert,Undergraduate degree,"£75,000-£99,999",Labour,Centrist,40.14,2025-11-29
-5eacb4dd8d7c178d,56,Female,White,Yes,Intermediate,GCSEs or equivalent,"£15,000-£24,999",Reform UK,Moderately Right-Wing,52.44,2025-11-29
-1cd923878ca67364,45,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Did not vote,Moderately Left-Wing,22.7,2025-11-29
-f54590586eb78a4b,63,Female,White,Yes,Advanced,A-levels or equivalent,Prefer not to say,Prefer not to say,Centrist,75.86,2025-11-29
-7400c9b9a8ce8c5a,35,Male,Asian,Yes,Advanced,Postgraduate degree (Master's),"£75,000-£99,999",Conservative,Moderately Right-Wing,26.19,2025-11-29
-a26382ff3001a25e,57,Male,White,Yes,Expert,Postgraduate degree (Master's),"£100,000+",Conservative,Moderately Right-Wing,22.74,2025-11-29
-d7bc65327ddb1795,69,Male,White,Yes,Advanced,Undergraduate degree,"£35,000-£49,999",Liberal Democrats,Centrist,42.06,2025-11-29
-b389a5d39bfd79b8,54,Male,White,Yes,Expert,Vocational qualification,"£75,000-£99,999",Labour,Centrist,56.36,2025-11-29
-6ae3afb1865e4cc2,45,Male,Prefer not to say,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Prefer not to say,Prefer not to say,23.59,2025-11-29
-957baf78a718ed6f,65,Male,White,Yes,Expert,A-levels or equivalent,"£15,000-£24,999",Reform UK,Very Right-Wing,55.3,2025-11-29
-d43d32c68ca4cda9,57,Female,White,Yes,Advanced,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,45.77,2025-11-29
-66cfb7d66f4126c9,52,Male,White,No,Expert,Doctorate (PhD),"£15,000-£24,999",Conservative,Moderately Right-Wing,35.3,2025-11-29
-47cfe87a2bc00987,63,Female,White,Yes,Advanced,GCSEs or equivalent,"£35,000-£49,999",Conservative,Moderately Right-Wing,40.39,2025-11-29
-b08c7705e4991c82,56,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Liberal Democrats,Moderately Left-Wing,44.33,2025-11-29
-48c1741840fd9b72,76,Female,White,Yes,Advanced,Postgraduate degree (Master's),"£15,000-£24,999",Prefer not to say,Centrist,116.35,2025-11-29
-aeca4e4e01dd9cf8,47,Male,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Conservative,Centrist,23.47,2025-11-29
-ee42ad6adea730e6,21,Male,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Centrist,21.34,2025-11-29
-c7b804f88a3523ac,60,Female,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Liberal Democrats,Moderately Left-Wing,47.4,2025-11-30
-b9fa04350d27d9d7,57,Male,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Labour,Moderately Left-Wing,37.56,2025-11-30
-cdce96fe2bda5b74,58,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,32.3,2025-11-30
-02c553e17621b82f,52,Male,White,Yes,Expert,Postgraduate degree (Master's),"£100,000+",Labour,Moderately Left-Wing,23.87,2025-11-30
-0a1a0619a32eca90,58,Female,White,Yes,Intermediate,Vocational qualification,"Under £15,000",Conservative,Moderately Right-Wing,57.82,2025-11-30
-459878721e557053,58,Female,White,Yes,Expert,GCSEs or equivalent,"£35,000-£49,999",Did not vote,Moderately Right-Wing,40.87,2025-11-30
-12bdc7d7a18ff2f7,46,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Labour,Centrist,20.26,2025-11-30
-dbda40674b1e5e28,69,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Left-Wing,40.42,2025-11-30
-43ee3b56ecc32777,56,Female,White,Yes,Expert,GCSEs or equivalent,"£15,000-£24,999",Labour,Moderately Left-Wing,18.99,2025-11-30
-fbfa8b572f7b57a0,66,Female,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,47.55,2025-11-30
-c0583dc6bbd2107d,54,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Other,Centrist,59.63,2025-11-30
-b5cc30067888c7d7,61,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,25.95,2025-11-30
-bf4bfe42e68e83cc,39,Male,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Other,Centrist,27.33,2025-12-01
-36a5f508e7e1f0ab,31,Male,White,Yes,Advanced,Undergraduate degree,"£75,000-£99,999",Labour,Centrist,20.93,2025-12-01
-f151a9868f7b1fe0,30,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Very Left-Wing,30.6,2025-12-01
-87f8770757c5f6e4,33,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Did not vote,Moderately Right-Wing,119.33,2025-12-01
-8d398b8036b5647a,42,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Centrist,16.21,2025-12-01
-ee821109c51975d6,25,Male,White,Yes,Advanced,Postgraduate degree (Master's),"£35,000-£49,999",Reform UK,Moderately Right-Wing,39.06,2025-12-01
-9e16639493f17e9d,32,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Liberal Democrats,Centrist,29.42,2025-12-01
-05b535434bd2d94a,29,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Very Right-Wing,23.43,2025-12-01
-993f8047796854f7,44,Male,White,Yes,Expert,Vocational qualification,"£35,000-£49,999",Labour,Moderately Left-Wing,27.73,2025-12-01
-9ea35035b65298e2,72,Male,White,Yes,Expert,Vocational qualification,"£35,000-£49,999",Conservative,Moderately Right-Wing,23.56,2025-12-01
-c3c40bd06bb17bb3,41,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Centrist,19.64,2025-12-01
-72567fc1e4f43b27,59,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Labour,Centrist,37.72,2025-12-01
-8bf3e1439ba75e0f,35,Male,White,No,Expert,Undergraduate degree,"£50,000-£74,999",Not eligible to vote,Moderately Left-Wing,46.58,2025-12-01
-62e13c720ff7c5e3,36,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Not eligible to vote,Moderately Left-Wing,31.66,2025-12-01
-e7f3d4019455cdea,37,Male,White,Yes,Expert,A-levels or equivalent,"£75,000-£99,999",Labour,Moderately Left-Wing,28.67,2025-12-01
-a2f8ee2748a71d5f,65,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,34.98,2025-12-01
-34a51d3fe12aedf6,43,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Other,Moderately Left-Wing,19.57,2025-12-01
-037c88fc5813e3d2,38,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Left-Wing,23.68,2025-12-01
-43d5df26904b5afb,36,Male,White,Bilingual from birth,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,45.19,2025-12-01
-0dae5a3942d38435,63,Male,White,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Did not vote,Moderately Right-Wing,24.75,2025-12-01
-5c1a449b22bdce98,47,Male,White,Yes,Expert,Doctorate (PhD),"£50,000-£74,999",Reform UK,Centrist,24.65,2025-12-01
-7468de001cfc5e24,23,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Did not vote,Moderately Left-Wing,27.17,2025-12-01
-b14d18394bfe2a14,53,Male,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Liberal Democrats,Moderately Left-Wing,47.92,2025-12-01
-64c78cf468cce188,28,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Left-Wing,19.45,2025-12-01
-db956f398132fff6,22,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Liberal Democrats,Moderately Right-Wing,23.99,2025-12-01
-16f42d4d5c57b80d,27,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Reform UK,Very Right-Wing,48.15,2025-12-01
-201b2015b0b4613d,41,Male,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Conservative,Moderately Right-Wing,31.52,2025-12-01
-462a25b8649fd8f1,37,Male,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Other,Very Left-Wing,32.83,2025-12-01
-89778f3aea4ff1c6,27,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,30.69,2025-12-01
-74364ddaf5fa4a92,30,Male,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Prefer not to say,Very Left-Wing,36.78,2025-12-01
-1dfd29eb18897344,20,Male,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Centrist,33.82,2025-12-01
-031680efa0daff22,25,Male,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Did not vote,Centrist,23.91,2025-12-01
-1051c0d208fe81da,40,Male,White,Yes,Advanced,Vocational qualification,"£35,000-£49,999",Conservative,Centrist,42.91,2025-12-01
-ff851633c6b28513,47,Male,White,No,Expert,Postgraduate degree (Master's),"£100,000+",Not eligible to vote,Moderately Right-Wing,22.02,2025-12-01
-f9a3358d482d46fc,20,Male,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Moderately Left-Wing,49.13,2025-12-01
-a9a6f707c4708e75,24,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Scottish National Party,Moderately Right-Wing,26.33,2025-12-01
-a5069a8828f5140f,31,Male,White,Yes,Advanced,Vocational qualification,"£50,000-£74,999",Labour,Centrist,23.4,2025-12-01
-9320ac4837f9a034,28,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Prefer not to say,Moderately Left-Wing,50.31,2025-12-01
-f400666f4642f09f,30,Male,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Did not vote,Moderately Right-Wing,18.65,2025-12-01
-55b2955b4ab42749,32,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Greens,Moderately Left-Wing,30.84,2025-12-01
-07ded6c1b4492105,31,Male,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Did not vote,Moderately Right-Wing,23.24,2025-12-01
-df62c9f7e69adb21,37,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Did not vote,Very Left-Wing,18.07,2025-12-01
-bd0b183d76c12e48,43,Male,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Labour,Moderately Left-Wing,15.77,2025-12-01
-9de7701d16fd7191,31,Female,White,Yes,Expert,GCSEs or equivalent,"Under £15,000",Labour,Moderately Left-Wing,27.7,2025-12-01
-7d1500f208f3302c,27,Female,White,Bilingual from birth,Expert,A-levels or equivalent,"£35,000-£49,999",Greens,Moderately Left-Wing,66.09,2025-12-01
-a351dacd98ec1b16,37,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Centrist,23.31,2025-12-01
-bd8c346f49a6a7f5,44,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,35.25,2025-12-01
-3827490d875194eb,37,Female,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Labour,Moderately Left-Wing,56.38,2025-12-01
-b9d62592cb05c349,33,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Centrist,22.48,2025-12-01
-73359b37c2cdda35,34,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,19.72,2025-12-01
-ca34fc8e6d3e7b55,42,Male,White,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Scottish National Party,Moderately Left-Wing,29.44,2025-12-01
-6e5f36599ca3d611,24,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Conservative,Prefer not to say,53.77,2025-12-01
-89ec7d7613abd36e,33,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Liberal Democrats,Centrist,38.62,2025-12-01
-fdd92be96790de5b,27,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Very Left-Wing,30.99,2025-12-01
-9bfc447053fcf51e,38,Female,White,Yes,Expert,Doctorate (PhD),"Under £15,000",Greens,Moderately Left-Wing,24.29,2025-12-01
-78b09ad67912c4c3,40,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Centrist,27.22,2025-12-01
-1eea98b0901e0392,65,Female,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Reform UK,Very Right-Wing,24.85,2025-12-01
-31db59d87c10d37c,48,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Liberal Democrats,Moderately Left-Wing,33.1,2025-12-01
-074388c9be838dfd,47,Male,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Labour,Moderately Right-Wing,41.1,2025-12-01
-58796c3012ee47ce,39,Male,White,Yes,Advanced,A-levels or equivalent,"£35,000-£49,999",Labour,Moderately Left-Wing,25.37,2025-12-01
-d83362c16ae31591,33,Female,White,Yes,Expert,GCSEs or equivalent,"£35,000-£49,999",Reform UK,Moderately Right-Wing,27.1,2025-12-01
-8c8f570791090a85,33,Female,White,Yes,Advanced,Prefer not to say,"£15,000-£24,999",Greens,Very Left-Wing,36.47,2025-12-01
-4fe2def6c3115179,34,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Did not vote,Centrist,42.9,2025-12-01
-116bf95c1fb47bc8,38,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Labour,Moderately Left-Wing,20.79,2025-12-01
-17c33cb91f78713a,29,Male,Asian,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Labour,Moderately Left-Wing,42.85,2025-12-01
-4a290fdd145cbf7d,26,Male,White,No,Expert,Doctorate (PhD),"£25,000-£34,999",Did not vote,Moderately Right-Wing,24.06,2025-12-01
-7330a70fe18b0a80,36,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Left-Wing,32.98,2025-12-01
-13c157d33338c856,39,Male,White,Yes,Advanced,Undergraduate degree,"£35,000-£49,999",Greens,Prefer not to say,28.82,2025-12-01
-ed21417f94a464c1,30,Male,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Labour,Centrist,22.17,2025-12-01
-4e0a7e6f4296a420,44,Male,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Reform UK,Centrist,24.59,2025-12-01
-b484fddd4452b5fe,62,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Liberal Democrats,Centrist,28.21,2025-12-01
-84fc89a35125159c,45,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,64.6,2025-12-01
-2177e33e29482095,26,Male,White,Yes,Expert,GCSEs or equivalent,"Under £15,000",Did not vote,Moderately Left-Wing,27.78,2025-12-01
-2a12bc72e8b30cfb,31,Male,White,Bilingual from birth,Expert,A-levels or equivalent,"£15,000-£24,999",Greens,Very Left-Wing,17.87,2025-12-01
-3a076d5937f5dafd,24,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Greens,Moderately Left-Wing,33.65,2025-12-01
-8108f859c272be54,29,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Moderately Left-Wing,28.28,2025-12-01
-0fe1547d50469849,36,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Reform UK,Moderately Right-Wing,16.63,2025-12-01
-36e77f8fb2f88e53,27,Male,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Not eligible to vote,Very Left-Wing,17.18,2025-12-01
-31901853969b59db,49,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Liberal Democrats,Moderately Left-Wing,22.66,2025-12-01
-6a5906c10b0e001b,39,Female,White,Yes,Expert,Undergraduate degree,"£100,000+",Conservative,Moderately Right-Wing,30.51,2025-12-01
-19ca3fabced087bf,21,Female,White,Bilingual from birth,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,14.75,2025-12-01
-ba71d27f9a3c9bd5,41,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Liberal Democrats,Centrist,20.97,2025-12-01
-43ca15d0b21a7dcd,37,Female,White,Yes,Advanced,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Very Left-Wing,20.36,2025-12-01
-f7ad9be6219716c7,60,Male,White,Yes,Intermediate,GCSEs or equivalent,"£15,000-£24,999",Did not vote,Centrist,31.27,2025-12-02
-235eb752aed31ae3,60,Male,White,Yes,Expert,GCSEs or equivalent,"£35,000-£49,999",Liberal Democrats,Very Left-Wing,27.15,2025-12-02
-8ffd162bb6158668,32,Male,White,Yes,Advanced,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Right-Wing,39.81,2025-12-02
-86b66ec6e932d5ae,38,Male,White,Yes,Expert,Doctorate (PhD),"£35,000-£49,999",Greens,Moderately Left-Wing,33.42,2025-12-02
-f2d277fc29ed8137,25,Male,White,Yes,Expert,GCSEs or equivalent,"£15,000-£24,999",Did not vote,Centrist,55.67,2025-12-02
-2e54f284098aaec4,30,Male,White,No,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Conservative,Centrist,37.01,2025-12-02
-0a1a2e3ddd2ab504,25,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Centrist,19.26,2025-12-02
-a83eed0792b212b6,41,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Labour,Moderately Left-Wing,23.48,2025-12-02
-9178957c6b0bbd90,24,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Greens,Very Left-Wing,17.96,2025-12-02
-fb911bca6298502f,36,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Liberal Democrats,Centrist,38.17,2025-12-02
-c44eb71d3fd81ca2,24,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,36.48,2025-12-02
-355b4cec0593812d,26,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Very Left-Wing,20.97,2025-12-02
-4c9b421574545e9b,33,Male,White,Yes,Advanced,Undergraduate degree,"£50,000-£74,999",Scottish National Party,Very Left-Wing,29.48,2025-12-02
-999896009b9f2573,56,Male,White,Yes,Advanced,GCSEs or equivalent,"£25,000-£34,999",Conservative,Centrist,29.25,2025-12-02
-99e61bf2662d9c53,32,Male,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Reform UK,Very Right-Wing,34.15,2025-12-02
-6b38e2a22c9becc0,43,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Reform UK,Centrist,52.81,2025-12-02
-8b2afded24a12b97,25,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Did not vote,Very Right-Wing,29.54,2025-12-02
-659b70d7d8b33070,33,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Reform UK,Moderately Right-Wing,16.53,2025-12-02
-56ff87938acb93df,30,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Very Left-Wing,42.66,2025-12-02
-1460946737966bc1,32,Male,White,Yes,Advanced,A-levels or equivalent,"£25,000-£34,999",Did not vote,Centrist,45.42,2025-12-02
-2ff856e2eeb68c94,25,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Greens,Moderately Left-Wing,29.69,2025-12-02
-4a4fe053745c8a37,38,Male,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Greens,Very Left-Wing,22.58,2025-12-02
-dc3bca4e7fad90ae,28,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Conservative,Moderately Right-Wing,33.36,2025-12-02
-91859c7da382ee44,20,Male,White,Yes,Expert,A-levels or equivalent,Prefer not to say,Liberal Democrats,Very Left-Wing,57.18,2025-12-02
-863cc46ef92b25b9,38,Male,White,Yes,Advanced,Postgraduate degree (Master's),"£50,000-£74,999",Reform UK,Centrist,44.49,2025-12-02
-b148424becfd204a,26,Male,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Greens,Very Left-Wing,24.25,2025-12-02
-847d5c2af919d571,44,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,29.11,2025-12-02
-c5ac7bd7f41648d8,31,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Very Left-Wing,24.01,2025-12-02
-e3a37e7ca31cc7ea,40,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Right-Wing,47.95,2025-12-02
-1f64855dc3ae35ac,47,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Moderately Left-Wing,29.91,2025-12-02
-5d0bf309189a1e17,32,Male,White,Yes,Intermediate,GCSEs or equivalent,"£15,000-£24,999",Labour,Centrist,18.21,2025-12-02
-5e38ec48b456af15,55,Male,White,Yes,Expert,Postgraduate degree (Master's),Prefer not to say,Labour,Moderately Left-Wing,57.68,2025-12-02
-870f770b77a39c97,38,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Greens,Moderately Left-Wing,29.24,2025-12-02
-95bbc2a99f55c535,63,Male,White,Yes,Advanced,GCSEs or equivalent,"£15,000-£24,999",Did not vote,Centrist,36.95,2025-12-02
-855d7850945a8600,38,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,27.18,2025-12-02
-e92a1e986c243820,23,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Greens,Very Left-Wing,28.51,2025-12-02
-55556e9d26bd33d9,45,Male,White,No,Expert,Undergraduate degree,"£100,000+",Labour,Moderately Left-Wing,61.48,2025-12-02
-602274ed627d9c54,32,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Prefer not to say,Centrist,32.76,2025-12-02
-512923fb358d7833,23,Male,White,Yes,Advanced,GCSEs or equivalent,"Under £15,000",Reform UK,Centrist,28.44,2025-12-02
-def00ab2d9e231e1,65,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,48.18,2025-12-02
-392ed5109414384d,42,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Labour,Moderately Left-Wing,38.56,2025-12-02
-6bc0536a323d352a,27,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,29.79,2025-12-03
+writer_id,age,gender,race,englishFirst,englishSkills,education,income,politicalParty,politicalIdeology,timeTaken,date,prolificApprovals
+733b670b079811b8,22,Female,White,Yes,Expert,Vocational qualification,"Under £15,000",Did not vote,Centrist,20.55,2025-11-25,313
+9239a3ef10e5ff48,45,Male,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Labour,Centrist,27.02,2025-11-25,147
+0c5b0e70ac759ab8,49,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,91.23,2025-11-25,555
+01e5607b53825cb6,59,Female,White,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Reform UK,Centrist,46.52,2025-11-25,556
+561707c959957c1f,24,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Did not vote,Moderately Left-Wing,22.92,2025-11-25,42
+3fddbc95faa85930,38,Male,White,Yes,Advanced,Undergraduate degree,"Under £15,000",Reform UK,Moderately Right-Wing,30.36,2025-11-25,359
+30b3273c9ad53345,57,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Greens,Moderately Left-Wing,38.11,2025-11-25,3114
+9d43403f99a21515,37,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Moderately Right-Wing,18.77,2025-11-25,349
+c08b0fd77005fef2,38,Female,White,Yes,Intermediate,Undergraduate degree,"£15,000-£24,999",Did not vote,Centrist,23.32,2025-11-25,159
+72a93a9fec803af5,57,Male,Black,Yes,Advanced,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Centrist,68.08,2025-11-25,2087
+4a50028b5f1a57b2,21,Female,Black,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Very Left-Wing,32.4,2025-11-25,98
+ba9c62a5a2a8975c,28,Female,White,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Labour,Very Left-Wing,36.2,2025-11-25,377
+8dc7925bbf3bcf5a,37,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Liberal Democrats,Moderately Left-Wing,33.51,2025-11-25,598
+4eeaa97994c55133,44,Male,White,Yes,Expert,Doctorate (PhD),"Under £15,000",Liberal Democrats,Centrist,51.18,2025-11-25,649
+161994d45f046aba,25,Other,White,Yes,Expert,Vocational qualification,"Under £15,000",Greens,Moderately Left-Wing,22.46,2025-11-25,592
+b4c9cd252087ca11,42,Female,Asian,No,Advanced,Undergraduate degree,"£35,000-£49,999",Prefer not to say,Centrist,38.8,2025-11-25,1351
+faa3922be9fa3c11,39,Female,Black,Bilingual from birth,Advanced,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Centrist,44.55,2025-11-25,110
+41af314741a406f6,28,Male,Asian,No,Advanced,Postgraduate degree (Master's),"Under £15,000",Did not vote,Moderately Left-Wing,26.72,2025-11-25,145
+834fc5279ed6c4d5,28,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Did not vote,Very Left-Wing,29.51,2025-11-25,89
+7abd1c55fb90ba07,34,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Greens,Very Left-Wing,22.72,2025-11-25,772
+602007c0a7e5eac1,33,Female,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Labour,Moderately Left-Wing,47.58,2025-11-25,325
+be0ae7f722eba01f,35,Female,Asian,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,59.06,2025-11-25,359
+e9017625c1262a96,31,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Very Left-Wing,18.03,2025-11-25,77
+5149cb9f806a9674,59,Female,White,Yes,Advanced,Undergraduate degree,"£35,000-£49,999",Did not vote,Moderately Right-Wing,59.1,2025-11-25,997
+548969bc3d559244,68,Male,White,Yes,Advanced,GCSEs or equivalent,"£25,000-£34,999",Other,Moderately Right-Wing,88.12,2025-11-25,927
+2f6f83ea5fcade5b,55,Female,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Centrist,49.42,2025-11-25,680
+4bc1592bd38ef0a7,19,Female,Prefer not to say,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Centrist,33.11,2025-11-25,1222
+00907ce1651381ff,31,Male,Asian,No,Advanced,Doctorate (PhD),"£35,000-£49,999",Did not vote,Moderately Left-Wing,36.75,2025-11-25,9
+31e48fe6e70c3e27,56,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Scottish National Party,Moderately Left-Wing,29.43,2025-11-25,1252
+2333bdc01be4567e,72,Female,White,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,55.07,2025-11-25,1054
+004c7bf24c9112c4,32,Male,White,Yes,Expert,GCSEs or equivalent,"Under £15,000",Did not vote,Prefer not to say,32.97,2025-11-25,194
+53171b94c5c67b4c,58,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Left-Wing,28.01,2025-11-25,1705
+470683ab5ce865a3,24,Female,White,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Greens,Very Left-Wing,38.06,2025-11-25,785
+6e0b6c3c1f314e94,30,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Greens,Moderately Left-Wing,15.9,2025-11-25,456
+8469431f76816953,36,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Left-Wing,25.86,2025-11-25,1291
+37104faf6bdd7b73,62,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Right-Wing,129.22,2025-11-25,98
+7d8cd2bd50ca6b38,30,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Other,Centrist,47.33,2025-11-25,262
+0eea1eef1c0e441f,27,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Centrist,20.25,2025-11-25,1480
+7ad51fd01034765a,49,Male,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Reform UK,Moderately Right-Wing,29.67,2025-11-25,1229
+6cbf8bce2cb4f427,21,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,33.2,2025-11-25,410
+0b163206b514074e,24,Female,White,Yes,Advanced,Postgraduate degree (Master's),"£35,000-£49,999",Did not vote,Moderately Left-Wing,22.16,2025-11-25,233
+6225f50fdc97a780,31,Male,White,No,Advanced,GCSEs or equivalent,"£15,000-£24,999",Did not vote,Centrist,25.76,2025-11-25,288
+4320d4143c3f24c2,37,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Conservative,Moderately Left-Wing,34.54,2025-11-25,795
+4258fe19ffeed861,36,Female,Asian,No,Expert,Doctorate (PhD),"£50,000-£74,999",Not eligible to vote,Moderately Left-Wing,45.26,2025-11-25,65
+b149e0aca3ab3907,53,Female,White,Yes,Advanced,A-levels or equivalent,"£25,000-£34,999",Labour,Moderately Left-Wing,29.72,2025-11-25,201
+dc81c9c81bfe13dc,31,Female,White,Yes,Expert,GCSEs or equivalent,"£15,000-£24,999",Did not vote,Moderately Left-Wing,37.29,2025-11-25,145
+61332d565a6baf9a,29,Female,White,Yes,Expert,Doctorate (PhD),"£50,000-£74,999",Greens,Centrist,62.44,2025-11-25,493
+ebd3a0722b40f19a,30,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Conservative,Moderately Right-Wing,28.31,2025-11-25,166
+adea2b848d94275a,20,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Moderately Left-Wing,46.69,2025-11-25,3
+8576a5665c211eec,23,Female,Asian,Bilingual from birth,Expert,Undergraduate degree,"Under £15,000",Did not vote,Very Left-Wing,44.07,2025-11-25,145
+7c1ca97f862da5a1,54,Female,White,Yes,Advanced,Undergraduate degree,"£35,000-£49,999",Conservative,Moderately Right-Wing,46.75,2025-11-25,571
+ad1b1d06edfb88ae,37,Female,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Scottish National Party,Moderately Right-Wing,28.55,2025-11-25,228
+fef06ae32bf136a6,57,Female,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Did not vote,Centrist,24.63,2025-11-25,1918
+372f997e692a5976,24,Male,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Liberal Democrats,Moderately Left-Wing,35.79,2025-11-25,904
+cb7ce9eec9735f26,38,Female,Asian,No,Expert,Doctorate (PhD),"£35,000-£49,999",Not eligible to vote,Moderately Left-Wing,34.1,2025-11-25,211
+7de33d5d131b8a73,76,Male,White,Yes,Advanced,Doctorate (PhD),"£15,000-£24,999",Labour,Moderately Left-Wing,43.29,2025-11-25,1989
+4f23a37bd651e07b,61,Female,White,Yes,Advanced,Vocational qualification,"£25,000-£34,999",Labour,Centrist,23.62,2025-11-25,967
+78db3b1864628f82,38,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,31.98,2025-11-25,460
+8efbaffc066f9a58,33,Male,White,Yes,Expert,Doctorate (PhD),"£75,000-£99,999",Labour,Centrist,20.64,2025-11-25,1105
+626c435480360569,63,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Liberal Democrats,Centrist,42.3,2025-11-25,1750
+1a8e65a929dffc84,56,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Liberal Democrats,Moderately Left-Wing,48.49,2025-11-25,1226
+9ef107f7c2b036fd,31,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Labour,Moderately Left-Wing,15.79,2025-11-25,134
+513f2447d021eee4,53,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Moderately Right-Wing,34.8,2025-11-25,489
+88f1373e822f519e,29,Female,Asian,Bilingual from birth,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Not eligible to vote,Moderately Left-Wing,28.96,2025-11-25,170
+95130812ba0a550f,44,Female,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Labour,Centrist,28.07,2025-11-25,742
+78af0103fbf8b293,38,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Left-Wing,22.32,2025-11-25,609
+246885316ce15255,39,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Did not vote,Centrist,21.8,2025-11-25,1203
+40fa2d77fa14ad2a,21,Female,Asian,Yes,Expert,Undergraduate degree,"Under £15,000",Did not vote,Moderately Left-Wing,20.55,2025-11-25,86
+9d341a858cca90e9,29,Female,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Labour,Very Left-Wing,21.78,2025-11-25,168
+8467ca03cac297c4,43,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,20.81,2025-11-25,256
+6496a95fafde4ceb,21,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,25.96,2025-11-25,236
+07dad93c3d1d90d7,22,Female,White,Yes,Expert,Vocational qualification,"Under £15,000",Did not vote,Moderately Left-Wing,34.55,2025-11-25,57
+e5dd7c31a53ef6ea,45,Female,White,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,38.22,2025-11-25,193
+e65f5e5f03c3ceba,36,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Liberal Democrats,Centrist,34.56,2025-11-25,347
+7f29787f811584c2,40,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Centrist,30.92,2025-11-25,585
+438f58dea6e5b277,23,Male,White,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Liberal Democrats,Very Left-Wing,21.43,2025-11-25,505
+cb2b6b58804cd592,31,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Scottish National Party,Centrist,48.41,2025-11-25,1307
+c39b2247714a9eeb,20,Male,Asian,No,Expert,A-levels or equivalent,"Under £15,000",Other,Moderately Left-Wing,51.3,2025-11-25,579
+7c82312247b68519,39,Male,White,Prefer not to say,Expert,Undergraduate degree,"£25,000-£34,999",Did not vote,Centrist,23.52,2025-11-25,2736
+e2beb01eca219f35,21,Male,White,Yes,Expert,Undergraduate degree,Prefer not to say,Did not vote,Moderately Left-Wing,26.89,2025-11-25,903
+824f5442982ac19b,34,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,29.48,2025-11-25,399
+d32e4bea94cc7d31,28,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Conservative,Moderately Left-Wing,14.77,2025-11-25,110
+f7db981b9f60aea5,38,Female,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Labour,Moderately Left-Wing,20.44,2025-11-25,2140
+65d76a717c8ae7fb,41,Female,Asian,Yes,Expert,Undergraduate degree,Prefer not to say,Greens,Centrist,37.13,2025-11-25,641
+f9eddf313088911c,39,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Very Left-Wing,19.99,2025-11-25,166
+fb6a7ea1d8685350,33,Female,White,No,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Centrist,25.69,2025-11-25,589
+3b5cf3f54e428c97,45,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Centrist,24.62,2025-11-25,1062
+2b8bee8d14fd6760,65,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Liberal Democrats,Very Left-Wing,57.36,2025-11-25,252
+a8420dd6548dd3fd,42,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,55.1,2025-11-25,469
+b7223ed01bf3365b,29,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,29.25,2025-11-25,871
+cadf3d396cb49035,25,Female,Black,Yes,Expert,Doctorate (PhD),"£50,000-£74,999",Labour,Moderately Left-Wing,17.49,2025-11-25,202
+4d8596ea09fa62af,25,Male,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Greens,Centrist,37.05,2025-11-25,215
+ea49fa6bcf77370b,45,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Did not vote,Moderately Left-Wing,28.51,2025-11-25,1235
+defebe6f015f181a,33,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Liberal Democrats,Moderately Left-Wing,33.78,2025-11-25,1506
+dafd314211eadee3,60,Female,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Did not vote,Moderately Right-Wing,25.6,2025-11-25,296
+cc9fe75b34b50889,22,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Conservative,Centrist,31.4,2025-11-25,167
+81f81c9b0fb8fe9f,30,Female,White,No,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Not eligible to vote,Centrist,35.73,2025-11-25,1436
+f5d67fbfaf8d2d39,31,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Reform UK,Moderately Right-Wing,30.33,2025-11-25,560
+e6deda95749badca,66,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Greens,Moderately Right-Wing,49.16,2025-11-25,2568
+b5cc911473a139f0,27,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Left-Wing,18.38,2025-11-25,89
+bd5f7d943839cf44,39,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Other,Moderately Left-Wing,34.65,2025-11-25,17
+24cf0e930dfee806,46,Female,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Labour,Centrist,43.16,2025-11-25,1378
+41754b48a37fd8fa,29,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Conservative,Moderately Right-Wing,31.48,2025-11-25,2593
+dbafada55027c643,32,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Other,Moderately Left-Wing,24.15,2025-11-25,295
+99c46673ccafceff,35,Male,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Labour,Centrist,25.55,2025-11-25,1723
+276d3723a01b74ad,21,Female,Black,Yes,Expert,A-levels or equivalent,"Under £15,000",Conservative,Moderately Right-Wing,24.61,2025-11-25,118
+13f3970dbce26466,48,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Centrist,37.01,2025-11-25,1285
+ddb4692c0e8d0e59,42,Male,White,Yes,Advanced,Undergraduate degree,Prefer not to say,Prefer not to say,Centrist,36.2,2025-11-25,767
+1337401bc9a0b8d1,19,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Very Left-Wing,21.37,2025-11-25,254
+e47dccf77cf87ed7,25,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Did not vote,Moderately Right-Wing,19.44,2025-11-25,44
+e3acf75f847577bb,25,Female,Mixed,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,19.24,2025-11-25,131
+44a4877713fdf0b1,61,Male,White,Yes,Advanced,Prefer not to say,"£15,000-£24,999",Did not vote,Centrist,47.5,2025-11-25,1037
+4d348edc924d6837,36,Female,Black,Yes,Expert,Prefer not to say,Prefer not to say,Reform UK,Moderately Right-Wing,77.73,2025-11-25,828
+3b2228022797ec44,32,Male,Mixed,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Very Left-Wing,24.75,2025-11-25,626
+6a5d4823dadcf69a,61,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Conservative,Moderately Right-Wing,36.58,2025-11-25,2265
+6516de63a98306c8,29,Female,White,Yes,Expert,Postgraduate degree (Master's),Prefer not to say,Conservative,Moderately Right-Wing,26.44,2025-11-25,612
+22d108398558146a,37,Male,White,Yes,Expert,Doctorate (PhD),"£35,000-£49,999",Labour,Moderately Left-Wing,26.24,2025-11-25,1094
+2eb36771c95ac6eb,61,Female,Black,Yes,Advanced,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,49.08,2025-11-25,1989
+41109db48e7f15ec,23,Male,Other,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,15.09,2025-11-25,141
+bbd8756b68568a9a,28,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,23.18,2025-11-25,181
+518f59a7b4345a18,30,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Did not vote,Moderately Right-Wing,21.26,2025-11-25,1979
+22b6319230ca0c7f,46,Female,White,Yes,Advanced,Undergraduate degree,"Under £15,000",Conservative,Moderately Right-Wing,32.41,2025-11-25,337
+5dff0401ca497421,29,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,19.79,2025-11-25,321
+3e835a032ca26a4e,22,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Moderately Left-Wing,21.7,2025-11-25,158
+1e5becbe292d5fce,51,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Greens,Centrist,60.03,2025-11-25,2065
+660b68bf8399a2a6,39,Male,Asian,No,Advanced,Doctorate (PhD),"£50,000-£74,999",Did not vote,Centrist,61.8,2025-11-25,1959
+0fd8e792a4270fee,58,Male,Black,Bilingual from birth,Expert,Vocational qualification,"£25,000-£34,999",Did not vote,Moderately Left-Wing,38.57,2025-11-25,580
+11e9b5b501b8730c,58,Male,White,Yes,Advanced,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,50.18,2025-11-25,1104
+a2e78be6ed908fbc,52,Female,White,Yes,Expert,Postgraduate degree (Master's),Prefer not to say,Labour,Centrist,45.08,2025-11-25,162
+ec1fe661eb94cacf,62,Male,White,Yes,Expert,A-levels or equivalent,"£15,000-£24,999",Conservative,Moderately Right-Wing,36.18,2025-11-25,3616
+f393bd5d9ff18b67,49,Male,White,No,Expert,Postgraduate degree (Master's),"£100,000+",Conservative,Moderately Right-Wing,31.36,2025-11-25,361
+54aaa0a25bdf8231,70,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Reform UK,Moderately Right-Wing,40.86,2025-11-25,423
+35a883f98a82852b,23,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,25.7,2025-11-25,989
+5c44ee55ebd3dfe1,29,Other,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Greens,Moderately Left-Wing,29.63,2025-11-25,1423
+6ee0cfc9bb9f7e34,27,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Liberal Democrats,Moderately Left-Wing,22.31,2025-11-25,1367
+2bb52caeae441a7e,28,Male,Mixed,Yes,Advanced,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Centrist,49.35,2025-11-25,401
+326cada02d58cc1c,28,Male,White,No,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Did not vote,Prefer not to say,13.64,2025-11-25,219
+d8274e1b136bfee6,26,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Conservative,Moderately Right-Wing,17.38,2025-11-25,316
+d5064824934b5159,39,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Greens,Centrist,18.65,2025-11-25,1345
+d0b0e83055461f47,61,Female,White,Yes,Advanced,GCSEs or equivalent,"Under £15,000",Conservative,Moderately Right-Wing,84.34,2025-11-25,1454
+9c2dfbf01408ba72,63,Male,White,Yes,Expert,Undergraduate degree,Prefer not to say,Labour,Moderately Left-Wing,37.29,2025-11-25,2838
+8212e9ceded0a30e,34,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,51.15,2025-11-25,950
+92eaf91f05164637,25,Prefer not to say,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,22.22,2025-11-25,2462
+8f4f7840b4f3a9df,34,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Scottish National Party,Very Left-Wing,20.43,2025-11-25,279
+939df93683fe805b,34,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,33.98,2025-11-25,1022
+03b9575327ffacc2,57,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Did not vote,Moderately Right-Wing,30.23,2025-11-25,994
+2784a9f3aa895b05,56,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Conservative,Centrist,35.64,2025-11-25,1283
+9ad3c0074f4c12c8,39,Male,White,Yes,Advanced,A-levels or equivalent,"£35,000-£49,999",Labour,Moderately Left-Wing,45.87,2025-11-25,441
+265f0f7755003572,37,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,44.53,2025-11-25,315
+451bd12f2bc9082f,22,Female,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Reform UK,Moderately Right-Wing,25.39,2025-11-25,275
+a79d9ccb8492cac4,72,Male,White,Yes,Advanced,Vocational qualification,Prefer not to say,Conservative,Centrist,74.75,2025-11-25,1058
+07b1509e505dff87,47,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Other,Centrist,78.77,2025-11-25,216
+0542b97859f0b03e,62,Male,White,Yes,Advanced,Vocational qualification,"£15,000-£24,999",Other,Centrist,44.31,2025-11-25,185
+9c33af01414668ba,29,Male,White,Yes,Expert,GCSEs or equivalent,"Under £15,000",Did not vote,Centrist,19.82,2025-11-25,167
+eca64cebe56db587,52,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Very Left-Wing,38.24,2025-11-25,239
+cfe910e0badf535d,63,Male,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Moderately Left-Wing,68.46,2025-11-25,314
+26f6e986254fbc69,51,Male,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Labour,Centrist,28.24,2025-11-25,294
+d2da08e5b2c3e205,27,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Greens,Very Left-Wing,14.2,2025-11-25,632
+cb706f894c7169b3,34,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Did not vote,Centrist,37.76,2025-11-25,2421
+58255ef1b7181336,36,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Greens,Moderately Right-Wing,39.1,2025-11-25,611
+2439605c17f04db8,22,Female,White,Yes,Expert,Undergraduate degree,Prefer not to say,Prefer not to say,Centrist,19.73,2025-11-25,140
+bdea00e4f28d779f,48,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Prefer not to say,Centrist,25.94,2025-11-25,1049
+47cfa29e7074f05a,21,Male,White,Yes,Advanced,A-levels or equivalent,"Under £15,000",Did not vote,Centrist,27.43,2025-11-25,72
+e4f56ef97406a8ca,31,Male,White,Yes,Advanced,Postgraduate degree (Master's),Prefer not to say,Labour,Moderately Right-Wing,30.93,2025-11-25,182
+528da157afcb2301,60,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,36.54,2025-11-25,155
+8889a3ae02f7ecc3,36,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,30.82,2025-11-25,659
+5a5c359258737161,60,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,65.01,2025-11-25,2192
+5ce1fab0502ccf61,24,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,23.26,2025-11-25,227
+875e9e296f6d2be1,35,Female,White,Bilingual from birth,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,27.36,2025-11-25,1012
+6ca6dde6aa3d6aeb,36,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,25.05,2025-11-25,972
+4476cb3ee4ec3ce6,33,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Did not vote,Moderately Right-Wing,21.55,2025-11-25,658
+cdd916587a8dd380,20,Female,White,Yes,Expert,A-levels or equivalent,Prefer not to say,Labour,Very Left-Wing,14.78,2025-11-25,557
+6f6e6dd7ca8b4167,32,Female,Asian,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,37.51,2025-11-25,214
+1de1b276c32519a1,41,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Very Left-Wing,67.07,2025-11-25,1424
+e6c79e4932ff1544,36,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Conservative,Moderately Right-Wing,26.28,2025-11-25,781
+af689a4ed630aada,31,Male,Mixed,No,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Centrist,42.63,2025-11-25,207
+b4d28a86b6d1c45c,31,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,26.49,2025-11-25,478
+acdccf896f499384,35,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,18.68,2025-11-25,1203
+acba98ffbe24eefc,41,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Reform UK,Moderately Right-Wing,23.86,2025-11-25,1903
+5cfdcbe593d6615b,32,Other,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,18.62,2025-11-25,390
+ef3b3f68f29427ed,23,Female,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Greens,Centrist,29.65,2025-11-25,435
+9ceb335650efb2e8,21,Other,White,Yes,Advanced,Undergraduate degree,"Under £15,000",Labour,Very Left-Wing,23.77,2025-11-25,240
+68b9edf7e94ae627,42,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,26.49,2025-11-25,1691
+c4916c74472bd2ed,46,Female,Black,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,44.44,2025-11-25,155
+a4f5c24ff24c05ed,53,Female,White,Yes,Advanced,Postgraduate degree (Master's),"£75,000-£99,999",Labour,Very Left-Wing,29.51,2025-11-25,359
+fc693dadd289601e,31,Male,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Reform UK,Centrist,20.6,2025-11-25,504
+a576d2fac276ef49,27,Male,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Conservative,Moderately Right-Wing,23.72,2025-11-25,2645
+d409b025c41b8b23,29,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Greens,Moderately Left-Wing,48.09,2025-11-25,93
+84ac7e39b821a2f0,56,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,57.35,2025-11-25,459
+5908842dad26117e,28,Male,White,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Labour,Moderately Left-Wing,52.45,2025-11-25,740
+27cb9e36bf17a8ed,41,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,25.42,2025-11-25,330
+9559ca3dc97bc516,24,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Did not vote,Moderately Left-Wing,35.09,2025-11-25,1643
+08469cf8f77ee50a,35,Female,Asian,Bilingual from birth,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Centrist,60.95,2025-11-25,410
+ab487108142bd741,36,Female,White,Yes,Advanced,GCSEs or equivalent,"£50,000-£74,999",Other,Moderately Left-Wing,33.32,2025-11-25,205
+64fd43a6aa08b0c4,25,Male,White,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Liberal Democrats,Moderately Right-Wing,31.5,2025-11-25,345
+9f5ca74eacd30f8e,54,Male,White,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Other,Moderately Left-Wing,25.38,2025-11-25,1779
+db9c5a9c77f7cc80,67,Male,White,Yes,Advanced,GCSEs or equivalent,"Under £15,000",Other,Very Left-Wing,53.13,2025-11-25,377
+97d433da758fb025,43,Female,White,Yes,Expert,A-levels or equivalent,"£75,000-£99,999",Liberal Democrats,Very Left-Wing,25.98,2025-11-25,196
+ead1df2260615688,26,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Centrist,26.24,2025-11-25,619
+13b4137d68df0985,36,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Liberal Democrats,Moderately Left-Wing,33.44,2025-11-25,812
+486af43c58a455cb,33,Female,White,No,Expert,Postgraduate degree (Master's),"Under £15,000",Not eligible to vote,Very Left-Wing,23.57,2025-11-25,49
+e88b89a64fba7370,64,Male,White,Yes,Expert,Doctorate (PhD),"£15,000-£24,999",Did not vote,Very Left-Wing,42.81,2025-11-25,95
+607c595a03775bdd,36,Female,White,Yes,Intermediate,Undergraduate degree,"Under £15,000",Did not vote,Centrist,24.51,2025-11-25,372
+80e4005cf9982a81,52,Male,Asian,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Conservative,Centrist,21.12,2025-11-25,1601
+3b4a2b8ad1f3dc77,41,Male,Asian,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,30.87,2025-11-25,667
+204f1a4912329d54,51,Female,Black,Yes,Advanced,Postgraduate degree (Master's),"Under £15,000",Scottish National Party,Centrist,19.69,2025-11-25,693
+53066b51b04665be,53,Male,White,Yes,Advanced,A-levels or equivalent,"Under £15,000",Did not vote,Moderately Right-Wing,38.97,2025-11-25,5244
+aa197d791f310a68,42,Male,Black,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Prefer not to say,Centrist,67.92,2025-11-25,980
+6dbcce20073bebf6,46,Female,White,No,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Not eligible to vote,Very Left-Wing,17.61,2025-11-25,454
+007a8034057959d9,28,Female,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Labour,Very Left-Wing,36.9,2025-11-25,507
+ca23a02f1cb26ae6,26,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Liberal Democrats,Centrist,20.68,2025-11-25,877
+f23a4c0ce63edf54,38,Male,Black,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Labour,Prefer not to say,33.67,2025-11-25,90
+f7c01a51ed29fe76,36,Male,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Other,Very Left-Wing,19.2,2025-11-25,559
+e8a73b66abba1399,29,Female,White,No,Advanced,Undergraduate degree,"£35,000-£49,999",Not eligible to vote,Very Left-Wing,28.4,2025-11-25,815
+dd6994fde008ddbd,41,Female,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Scottish National Party,Moderately Left-Wing,52.28,2025-11-25,30
+8f35a718fa4df2f2,27,Female,Black,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,74.54,2025-11-25,601
+2982abe844eb5f03,23,Female,Other,Bilingual from birth,Expert,Undergraduate degree,"Under £15,000",Prefer not to say,Moderately Left-Wing,29.37,2025-11-25,494
+010deca3f1d247bc,61,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Left-Wing,43.98,2025-11-25,1595
+83b8bd61ed2f2b22,31,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Centrist,32.77,2025-11-25,1127
+6f7e44c5b6e36eee,38,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Centrist,26.15,2025-11-25,712
+ba38f717ed83a461,59,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,33.42,2025-11-25,1228
+de109c42da8b70d4,43,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,25.92,2025-11-25,2039
+d3ad72d52fe8ffe1,36,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Reform UK,Very Right-Wing,21.33,2025-11-25,201
+910d89a560b6f3eb,39,Male,White,Yes,Advanced,A-levels or equivalent,"£15,000-£24,999",Did not vote,Moderately Left-Wing,22.7,2025-11-25,1141
+b45ff18364f89c24,31,Male,Black,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Liberal Democrats,Moderately Left-Wing,51.56,2025-11-25,411
+31e4c84377670677,46,Female,Black,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Did not vote,Centrist,35.76,2025-11-25,1913
+77996fd4ed4279cd,41,Female,White,No,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Did not vote,Moderately Right-Wing,25.94,2025-11-25,365
+793015a8721bd188,69,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Liberal Democrats,Centrist,42.46,2025-11-25,813
+94f473c6c0263d26,38,Female,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Labour,Moderately Right-Wing,31.0,2025-11-25,451
+ba8fa6c98226560a,37,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Conservative,Centrist,64.73,2025-11-25,640
+0177bb1d10237a97,40,Male,White,Yes,Expert,Vocational qualification,"£50,000-£74,999",Liberal Democrats,Moderately Right-Wing,35.32,2025-11-25,415
+5801b5c80d69ca08,30,Female,Black,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Conservative,Moderately Left-Wing,29.7,2025-11-25,401
+75fb0885958458db,45,Female,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Liberal Democrats,Centrist,28.9,2025-11-25,892
+2ae392813c4e81c5,39,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Reform UK,Moderately Right-Wing,30.01,2025-11-25,1329
+3766ad61c1b613e9,28,Male,White,Yes,Advanced,Postgraduate degree (Master's),"Under £15,000",Reform UK,Moderately Left-Wing,77.59,2025-11-25,705
+65fd05085c0cf9d5,22,Male,White,Yes,Expert,A-levels or equivalent,Prefer not to say,Labour,Centrist,22.41,2025-11-25,328
+d9c577770302b080,47,Female,White,No,Advanced,Vocational qualification,"£15,000-£24,999",Not eligible to vote,Moderately Left-Wing,71.14,2025-11-25,131
+ea000fad9ed6e05d,42,Male,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Liberal Democrats,Centrist,30.2,2025-11-25,1560
+e8fe3c7391fa8f39,32,Female,White,Yes,Expert,A-levels or equivalent,"£15,000-£24,999",Labour,Moderately Left-Wing,31.0,2025-11-25,320
+1dd60012e6090420,24,Female,Mixed,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,34.84,2025-11-25,335
+eebd159d130d67ec,35,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Greens,Very Left-Wing,28.48,2025-11-25,404
+25655e6e79ac1a69,52,Female,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Reform UK,Moderately Right-Wing,45.97,2025-11-25,721
+4395ed99d233c4ac,46,Male,White,Yes,Expert,Vocational qualification,"£35,000-£49,999",Labour,Moderately Left-Wing,40.63,2025-11-25,468
+369afbb5febd4e42,41,Female,White,Yes,Advanced,Undergraduate degree,Prefer not to say,Prefer not to say,Prefer not to say,76.4,2025-11-25,547
+e7cbad91078f825a,23,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,25.61,2025-11-25,1152
+f41c63aa9e14ba50,20,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Centrist,48.61,2025-11-25,45
+df0f3bdd4cc48924,41,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,31.27,2025-11-25,385
+b2a0990eb08f4e84,35,Female,White,Yes,Advanced,Undergraduate degree,"£50,000-£74,999",Other,Moderately Left-Wing,39.87,2025-11-25,279
+fc2fec49993ac287,23,Male,Other,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Did not vote,Moderately Right-Wing,15.8,2025-11-25,98
+6714a4d4beeb0fc7,26,Female,Asian,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Centrist,19.72,2025-11-25,138
+2121a2fb11ac188d,70,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Conservative,Moderately Right-Wing,32.95,2025-11-25,2215
+1343334c2ae5d010,74,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Liberal Democrats,Moderately Left-Wing,68.69,2025-11-25,738
+f29828d7c240cfb2,33,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,24.51,2025-11-25,732
+8d40b6a4e7a9324c,28,Female,Asian,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Greens,Moderately Left-Wing,32.46,2025-11-25,358
+750abb75f988ce76,23,Male,Asian,No,Expert,Postgraduate degree (Master's),"Under £15,000",Did not vote,Centrist,44.36,2025-11-25,218
+51c6247aab181455,60,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Conservative,Moderately Right-Wing,83.78,2025-11-25,1536
+ce7319fd63e5311e,23,Male,White,Yes,Advanced,Undergraduate degree,"Under £15,000",Reform UK,Moderately Right-Wing,22.43,2025-11-25,415
+6911574eb92852f1,32,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,20.43,2025-11-25,843
+be3edf68e9dad662,37,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,28.24,2025-11-25,601
+b41aafdcf04ff473,37,Female,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Left-Wing,31.15,2025-11-25,2041
+c1767f4493cad004,40,Female,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Labour,Moderately Left-Wing,21.29,2025-11-25,568
+baab8d32ba1423b4,39,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Did not vote,Centrist,21.68,2025-11-25,499
+dabad9953cb9b3ef,30,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Other,Very Left-Wing,18.65,2025-11-25,289
+73297c83b4c91624,26,Female,Other,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Did not vote,Moderately Left-Wing,25.07,2025-11-25,952
+695ade030c885229,30,Female,Asian,No,Advanced,Postgraduate degree (Master's),"£15,000-£24,999",Did not vote,Moderately Left-Wing,57.81,2025-11-25,298
+dd666b8dc43653b6,63,Female,Other,No,Advanced,A-levels or equivalent,"£15,000-£24,999",Not eligible to vote,Centrist,31.31,2025-11-25,91
+eca38980ac792abb,35,Male,White,No,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Conservative,Moderately Right-Wing,41.21,2025-11-25,2245
+14b66ebe2896f218,25,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Moderately Left-Wing,26.11,2025-11-25,649
+5c61ab86dc2ca38c,28,Male,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Moderately Left-Wing,18.02,2025-11-25,972
+43c523cc9812aea3,23,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Moderately Left-Wing,25.89,2025-11-25,816
+73274d2cdac8dc52,65,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Liberal Democrats,Moderately Left-Wing,40.64,2025-11-25,1304
+878f7dbd9bc3a591,51,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Greens,Centrist,45.94,2025-11-25,999
+88b98bd727023a17,25,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Greens,Very Left-Wing,31.12,2025-11-25,377
+d97565df55774826,39,Male,White,Yes,Expert,Vocational qualification,"£35,000-£49,999",Scottish National Party,Moderately Left-Wing,23.34,2025-11-25,535
+04d4d652a88b7094,31,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,26.27,2025-11-25,62
+21b35114382c4956,22,Other,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Greens,Very Left-Wing,24.34,2025-11-25,69
+37d07d123c788838,25,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Liberal Democrats,Moderately Right-Wing,18.53,2025-11-25,1051
+6981c865c93daced,28,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Other,Very Right-Wing,48.46,2025-11-25,375
+b106a3624b5ee79c,34,Male,White,Yes,Intermediate,Vocational qualification,"£50,000-£74,999",Conservative,Moderately Right-Wing,28.23,2025-11-25,2190
+dddbab6550b7cde7,35,Female,Black,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Did not vote,Moderately Left-Wing,42.8,2025-11-25,817
+5bd1c11ec025b6d5,44,Female,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Labour,Moderately Left-Wing,26.16,2025-11-25,981
+df543362c936b625,40,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Labour,Centrist,19.17,2025-11-25,923
+bf771cae09d0825d,42,Male,White,Yes,Advanced,Vocational qualification,"£35,000-£49,999",Conservative,Moderately Right-Wing,33.3,2025-11-25,356
+5dfc857923619254,36,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Centrist,29.38,2025-11-25,728
+a88c62ecfb3d902a,23,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Moderately Left-Wing,31.06,2025-11-25,411
+70c99f9374176a25,48,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,29.3,2025-11-25,1238
+c6bccb4320105df0,52,Female,Mixed,No,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Very Left-Wing,40.81,2025-11-25,500
+78f776e8c4929e1b,77,Male,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Reform UK,Moderately Right-Wing,58.58,2025-11-25,1943
+c6eab325dcb17f59,26,Male,White,Yes,Advanced,GCSEs or equivalent,"£25,000-£34,999",Did not vote,Centrist,40.81,2025-11-25,876
+f0faf2dc6bc68967,34,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Moderately Right-Wing,21.41,2025-11-25,331
+b179626f4c915056,23,Male,White,Yes,Expert,Undergraduate degree,Prefer not to say,Conservative,Moderately Right-Wing,22.76,2025-11-25,181
+0d6a8f3f98fdc034,64,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Reform UK,Moderately Right-Wing,41.17,2025-11-25,3287
+d68769692090c660,60,Female,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,39.93,2025-11-25,883
+d5683fdbc460aa25,35,Female,White,No,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Greens,Moderately Left-Wing,19.93,2025-11-25,1023
+6d08f8fff5197a94,36,Female,White,Yes,Expert,Doctorate (PhD),"£100,000+",Labour,Moderately Left-Wing,17.97,2025-11-25,323
+07a4a2b5f7ea41ae,31,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Very Left-Wing,49.43,2025-11-25,323
+bed0a867f0fdf692,33,Male,White,Yes,Expert,Doctorate (PhD),"£35,000-£49,999",Labour,Moderately Left-Wing,35.09,2025-11-25,457
+c1b7a662bdc4e789,53,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Moderately Left-Wing,28.26,2025-11-25,156
+3234c90f1dfaffe8,36,Female,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Very Left-Wing,36.83,2025-11-25,639
+fc76fcee84a2ae45,62,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Liberal Democrats,Centrist,41.67,2025-11-25,2722
+bff8d7a28f76e159,42,Female,White,Yes,Advanced,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Left-Wing,20.53,2025-11-25,198
+ffdfcc0af15c8055,24,Male,Asian,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Did not vote,Centrist,36.69,2025-11-25,3238
+9f7fe9bd3edd7125,39,Female,White,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Labour,Moderately Left-Wing,23.87,2025-11-25,740
+dbb9b916b6c30acb,39,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Moderately Left-Wing,30.87,2025-11-25,835
+43f41668a5bc929f,71,Male,White,Yes,Advanced,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,36.23,2025-11-25,1314
+ac04d94afa4b6f54,21,Other,Mixed,Yes,Expert,A-levels or equivalent,"Under £15,000",Greens,Very Left-Wing,28.22,2025-11-25,96
+60a9c73c05bb1017,59,Male,White,Yes,Advanced,Vocational qualification,"£35,000-£49,999",Labour,Moderately Left-Wing,45.27,2025-11-25,459
+492d9331bf3072ad,49,Male,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Conservative,Moderately Right-Wing,29.34,2025-11-25,1858
+a295cdc327c6f1bb,36,Male,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Scottish National Party,Moderately Left-Wing,30.77,2025-11-25,1514
+07572e1e3d26c343,27,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Centrist,20.89,2025-11-25,377
+2e48060ed2e0a848,41,Female,White,Yes,Expert,Undergraduate degree,Prefer not to say,Did not vote,Centrist,27.02,2025-11-25,2274
+6c022705be6cd786,25,Female,Other,No,Expert,Undergraduate degree,"Under £15,000",Did not vote,Moderately Left-Wing,44.58,2025-11-25,114
+94c2a40a3503320b,51,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Scottish National Party,Moderately Left-Wing,25.7,2025-11-25,1629
+e22146ae695d9188,47,Female,White,Yes,Expert,Undergraduate degree,Prefer not to say,Conservative,Moderately Right-Wing,43.94,2025-11-25,275
+68d05ebfaa274bc2,36,Female,Mixed,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,26.92,2025-11-25,442
+c739671c0c79de35,32,Male,Black,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Centrist,36.65,2025-11-25,1074
+01a185e4d5dc9e29,26,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Liberal Democrats,Centrist,17.42,2025-11-25,190
+ad706042163900d4,32,Female,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Did not vote,Moderately Left-Wing,28.32,2025-11-25,1213
+f9b08a547b1e62c0,68,Female,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Reform UK,Centrist,47.63,2025-11-25,105
+c65c9e2fa29d879d,34,Female,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Conservative,Moderately Right-Wing,28.25,2025-11-25,109
+a9b7d7611bcf408b,61,Male,White,Yes,Expert,Doctorate (PhD),"£35,000-£49,999",Labour,Moderately Left-Wing,48.91,2025-11-25,545
+640a93263ee527e3,50,Female,White,Yes,Expert,Vocational qualification,"£75,000-£99,999",Reform UK,Very Right-Wing,47.66,2025-11-25,219
+b445558601a594d7,21,Male,White,No,Expert,Undergraduate degree,Prefer not to say,Did not vote,Moderately Right-Wing,47.53,2025-11-25,144
+1d8da07d3e2b5118,28,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Conservative,Centrist,44.55,2025-11-25,532
+d2db103869b63112,41,Male,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Labour,Moderately Right-Wing,23.34,2025-11-25,4196
+e177cc5eede50596,49,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Liberal Democrats,Moderately Left-Wing,56.35,2025-11-26,50
+7b5a24c64a04c15f,20,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Greens,Moderately Left-Wing,27.54,2025-11-26,336
+fed150fd2c8539cd,45,Male,Asian,Bilingual from birth,Expert,Undergraduate degree,"£15,000-£24,999",Prefer not to say,Moderately Right-Wing,52.77,2025-11-26,302
+7f2a8a444cb991eb,47,Female,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Prefer not to say,Centrist,27.63,2025-11-26,763
+447f2899a6c1e51a,19,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Moderately Left-Wing,18.7,2025-11-26,149
+4a0a9576553c3928,23,Male,Black,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Did not vote,Centrist,29.62,2025-11-26,486
+36b4f20ffb10f103,66,Female,White,Yes,Advanced,Postgraduate degree (Master's),"Under £15,000",Labour,Moderately Left-Wing,54.87,2025-11-26,694
+367c833fee01e72a,22,Female,White,No,Expert,Undergraduate degree,"Under £15,000",Not eligible to vote,Moderately Left-Wing,82.68,2025-11-26,232
+14b40c28a1dc6975,56,Female,White,Yes,Expert,Vocational qualification,"Under £15,000",Conservative,Centrist,33.95,2025-11-26,428
+4db3190f22eb1e53,52,Female,White,Yes,Expert,Vocational qualification,"£35,000-£49,999",Liberal Democrats,Moderately Left-Wing,38.19,2025-11-26,270
+64ed42726d227a85,69,Male,White,Yes,Advanced,A-levels or equivalent,"£25,000-£34,999",Labour,Moderately Left-Wing,20.79,2025-11-26,3976
+5d7a04b22f3fed7a,60,Male,White,Yes,Expert,Vocational qualification,"Under £15,000",Conservative,Moderately Right-Wing,57.54,2025-11-26,669
+b87d22e4e153409f,57,Female,White,Yes,Expert,Undergraduate degree,Prefer not to say,Labour,Moderately Left-Wing,29.55,2025-11-26,538
+51e62273c2038c55,56,Female,White,Yes,Expert,Postgraduate degree (Master's),"£100,000+",Liberal Democrats,Centrist,23.69,2025-11-26,2117
+60974cb8b67de926,21,Other,White,Yes,Expert,A-levels or equivalent,Prefer not to say,Labour,Very Left-Wing,57.86,2025-11-26,539
+8a9646685c8640f8,23,Male,White,Yes,Advanced,A-levels or equivalent,"Under £15,000",Labour,Moderately Left-Wing,17.57,2025-11-26,196
+7142e496e22d44e2,46,Female,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Labour,Centrist,40.29,2025-11-26,919
+1e041c725178204b,35,Male,White,Yes,Expert,GCSEs or equivalent,Prefer not to say,Did not vote,Moderately Right-Wing,19.7,2025-11-26,279
+56330f9c66fb4bb1,59,Female,White,Yes,Expert,Undergraduate degree,Prefer not to say,Labour,Moderately Left-Wing,58.65,2025-11-26,433
+9cc6047268cdff07,45,Female,Asian,Bilingual from birth,Expert,Doctorate (PhD),"£50,000-£74,999",Did not vote,Moderately Right-Wing,34.35,2025-11-26,41
+73d314a460292fe3,24,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Did not vote,Centrist,25.51,2025-11-26,539
+631ea3304ea0cc18,45,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Centrist,78.01,2025-11-26,78
+b35a62d30456bbbd,50,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,30.42,2025-11-26,1351
+6d1affd661d7d1db,60,Female,White,Yes,Expert,Vocational qualification,Prefer not to say,Labour,Moderately Left-Wing,59.01,2025-11-26,225
+258a6e76aee61b1b,20,Female,Mixed,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Prefer not to say,16.78,2025-11-26,135
+548d473ac04a371f,58,Female,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Reform UK,Moderately Right-Wing,31.5,2025-11-26,1055
+ef4dd03f8e2061ee,60,Female,White,Yes,Expert,Postgraduate degree (Master's),"Under £15,000",Did not vote,Moderately Right-Wing,26.71,2025-11-26,1046
+cabc2d88f586effa,59,Female,White,Yes,Advanced,A-levels or equivalent,Prefer not to say,Liberal Democrats,Moderately Left-Wing,51.95,2025-11-26,981
+f7704d9505a05e52,57,Female,White,Yes,Expert,Undergraduate degree,Prefer not to say,Labour,Moderately Left-Wing,44.26,2025-11-26,324
+74f32599703a304b,40,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Reform UK,Centrist,24.73,2025-11-26,309
+9a86aea29325e1e4,50,Female,White,Yes,Advanced,Postgraduate degree (Master's),"£50,000-£74,999",Conservative,Moderately Right-Wing,58.85,2025-11-26,303
+d0ff7fe3c97a5ae3,20,Male,White,Yes,Expert,A-levels or equivalent,"£15,000-£24,999",Liberal Democrats,Moderately Left-Wing,28.53,2025-11-26,252
+e4d588f0acaccd81,64,Female,Black,No,Expert,Undergraduate degree,"Under £15,000",Not eligible to vote,Centrist,86.39,2025-11-26,431
+c0860bbdfd9bb94e,46,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Centrist,26.3,2025-11-26,2485
+074f4c591db0b34f,52,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Did not vote,Moderately Left-Wing,14.67,2025-11-26,397
+af378cfe3e955a23,52,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,36.83,2025-11-26,1335
+5e4f8b37532a1a51,58,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Liberal Democrats,Moderately Left-Wing,48.67,2025-11-26,704
+5391019541c4ac6e,47,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Centrist,38.81,2025-11-26,455
+1b2fc922834eaa6c,72,Male,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Did not vote,Moderately Right-Wing,41.46,2025-11-26,1244
+d28736b0ef9b8368,46,Male,White,Yes,Advanced,GCSEs or equivalent,"£25,000-£34,999",Did not vote,Moderately Right-Wing,42.7,2025-11-26,223
+1f467bd3ef168bf9,46,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Centrist,43.47,2025-11-26,1951
+a8ab3e2093955d21,44,Male,Asian,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Other,Very Left-Wing,40.39,2025-11-26,195
+52ed23d05b64c8bd,26,Male,Asian,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Centrist,35.25,2025-11-26,768
+e3b66640b3099637,50,Male,White,Yes,Expert,Other,"£35,000-£49,999",Liberal Democrats,Moderately Left-Wing,67.55,2025-11-26,17
+20c6db85795e0287,57,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,34.61,2025-11-26,75
+0fa9d3732db3ad93,24,Male,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Did not vote,Moderately Left-Wing,26.64,2025-11-26,225
+f290938f847b82ec,55,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,34.15,2025-11-26,2471
+c62fd43abd7dddb6,49,Female,Other,Bilingual from birth,Expert,Postgraduate degree (Master's),Prefer not to say,Liberal Democrats,Moderately Left-Wing,26.51,2025-11-26,441
+df7523067e96b25f,53,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Reform UK,Moderately Right-Wing,99.9,2025-11-26,507
+70977e97152b4ffe,49,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,18.88,2025-11-26,2121
+69a02974245f5529,53,Female,White,Yes,Advanced,GCSEs or equivalent,"Under £15,000",Other,Moderately Left-Wing,82.69,2025-11-26,531
+867cdc334785d84c,45,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Did not vote,Moderately Left-Wing,45.47,2025-11-26,233
+ade1f5a32a18270a,61,Female,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Other,Very Left-Wing,43.29,2025-11-26,1352
+f20be30780009eaa,50,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,33.01,2025-11-26,1278
+c713763791fbbd8e,50,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,24.08,2025-11-26,1792
+d8b3eb6c3c23fc02,48,Female,Asian,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Liberal Democrats,Centrist,31.19,2025-11-26,744
+05bdb4bda9b58205,49,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,26.06,2025-11-26,485
+d3dc3f74eb5be380,59,Female,White,Yes,Expert,A-levels or equivalent,"£15,000-£24,999",Did not vote,Centrist,48.23,2025-11-26,444
+0d8c34e33b9fd268,46,Male,White,Yes,Expert,A-levels or equivalent,"£15,000-£24,999",Labour,Centrist,32.83,2025-11-26,190
+c22de7b5898f6b84,65,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Reform UK,Moderately Right-Wing,32.34,2025-11-26,1334
+4966eb7e180b3c6a,56,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Conservative,Centrist,53.69,2025-11-26,3191
+4c796eb1c042f3d0,61,Female,Black,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Moderately Left-Wing,62.47,2025-11-26,1022
+fe9e9a34850f1aa0,58,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Centrist,40.94,2025-11-26,254
+4ccb4c3c276c7f24,50,Male,White,Yes,Expert,Undergraduate degree,"£100,000+",Conservative,Moderately Right-Wing,37.36,2025-11-26,1790
+7b5f07918aef53d2,52,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Centrist,28.05,2025-11-26,314
+fe1b841873db95fc,46,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,21.4,2025-11-26,2479
+2be1f1740b28ce84,59,Female,White,Yes,Expert,Doctorate (PhD),"Under £15,000",Labour,Very Left-Wing,44.88,2025-11-26,1616
+336f4532fe58086c,49,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Very Left-Wing,44.52,2025-11-26,3646
+e18d1df57276b7b8,35,Male,White,Bilingual from birth,Expert,Undergraduate degree,Prefer not to say,Labour,Moderately Left-Wing,50.69,2025-11-26,850
+367e26fac8b05d92,27,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Left-Wing,37.74,2025-11-26,178
+7845b59e848cbd4e,26,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Reform UK,Centrist,16.61,2025-11-26,925
+1c1ec2dfa3d74eee,37,Male,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Liberal Democrats,Centrist,43.48,2025-11-26,726
+9e342f78b623e9fa,20,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Centrist,16.88,2025-11-26,384
+dcb7a1184646bd60,51,Male,White,Yes,Expert,Postgraduate degree (Master's),"£100,000+",Liberal Democrats,Moderately Left-Wing,16.53,2025-11-26,413
+ca33e1a5e71bcdf2,47,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Conservative,Moderately Right-Wing,26.21,2025-11-26,369
+224fa4698ba35ec4,20,Female,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Labour,Prefer not to say,17.2,2025-11-26,473
+2004763f9d4a7b6f,28,Male,White,Yes,Advanced,A-levels or equivalent,"£25,000-£34,999",Did not vote,Moderately Right-Wing,24.33,2025-11-26,660
+05e9a23882de5a20,51,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Moderately Right-Wing,62.7,2025-11-26,692
+6e1f3fcaaa5d2a43,62,Male,White,Yes,Advanced,Vocational qualification,"£15,000-£24,999",Labour,Moderately Left-Wing,43.02,2025-11-26,567
+c9dca34286a8ce2a,48,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,29.07,2025-11-26,2040
+1d6b988e453e4551,45,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,57.83,2025-11-26,1039
+b4d58918e45f6805,30,Male,White,Yes,Expert,Doctorate (PhD),"Under £15,000",Labour,Very Left-Wing,23.86,2025-11-26,62
+71b8b3dc9c3cd2d8,33,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Labour,Moderately Left-Wing,21.11,2025-11-26,2471
+588a042f15f95ff6,29,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Liberal Democrats,Centrist,46.31,2025-11-26,391
+7dba83567cfb784a,61,Female,White,Yes,Expert,Vocational qualification,Prefer not to say,Labour,Centrist,56.94,2025-11-26,493
+46a7df81466f78c0,29,Male,Asian,No,Advanced,Postgraduate degree (Master's),"£25,000-£34,999",Greens,Moderately Right-Wing,72.21,2025-11-26,85
+96678ae730e4ba62,22,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Did not vote,Centrist,30.64,2025-11-26,190
+6bee5674789e1cd8,63,Female,White,Yes,Advanced,Undergraduate degree,Prefer not to say,Labour,Centrist,48.92,2025-11-26,125
+7b57bb25db1f8d47,70,Male,White,Yes,Advanced,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,31.58,2025-11-26,77
+04cc00bd448370ee,65,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Centrist,49.31,2025-11-26,822
+221ad1353dbd9db7,60,Male,White,Yes,Advanced,GCSEs or equivalent,"Under £15,000",Liberal Democrats,Moderately Left-Wing,55.39,2025-11-26,1500
+441c535a8f90ef4c,35,Male,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Reform UK,Centrist,37.03,2025-11-26,1306
+9b88626f46773f1d,36,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,40.01,2025-11-26,595
+32d9f20690bb80e4,69,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Conservative,Moderately Right-Wing,48.82,2025-11-26,3702
+133652bb274bedcd,24,Male,White,Yes,Expert,Postgraduate degree (Master's),Prefer not to say,Greens,Very Left-Wing,20.05,2025-11-26,465
+bcad21a13baa8bfd,50,Male,White,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Labour,Moderately Left-Wing,31.79,2025-11-26,169
+1bf54ab48e1b16db,40,Male,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Moderately Left-Wing,28.75,2025-11-26,102
+30ed1ce889a6e3ea,55,Male,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Liberal Democrats,Moderately Left-Wing,50.94,2025-11-26,368
+0a5c8a424b7195e1,23,Male,White,Bilingual from birth,Expert,Undergraduate degree,"Under £15,000",Not eligible to vote,Moderately Left-Wing,23.73,2025-11-26,0
+35347a305febd629,24,Female,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Liberal Democrats,Moderately Right-Wing,26.94,2025-11-26,478
+4f4cd2fb849aceda,20,Female,Asian,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Greens,Moderately Left-Wing,51.46,2025-11-26,75
+9a2acc71b0676069,35,Male,White,Yes,Advanced,A-levels or equivalent,"£15,000-£24,999",Labour,Centrist,18.68,2025-11-26,549
+7a509e02609f5dfc,21,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,20.83,2025-11-26,335
+e778a82b1c7e42e6,52,Female,White,Yes,Advanced,GCSEs or equivalent,"£25,000-£34,999",Conservative,Centrist,34.07,2025-11-26,644
+9b681c9ec31c3a0a,45,Female,White,Yes,Expert,Postgraduate degree (Master's),"£100,000+",Labour,Moderately Left-Wing,25.65,2025-11-26,167
+81b285ad0110200d,23,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Greens,Very Left-Wing,24.12,2025-11-26,558
+b85c5ca68a13fab0,26,Male,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Reform UK,Very Right-Wing,35.32,2025-11-26,34
+2fb3fa88e44fda74,46,Female,White,Yes,Advanced,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Very Left-Wing,53.92,2025-11-26,148
+5f4908710ff9dfa6,63,Female,White,Bilingual from birth,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Left-Wing,45.97,2025-11-26,1071
+559949a1ff733d4b,57,Male,White,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Labour,Moderately Left-Wing,35.8,2025-11-26,540
+e651eefa01d96630,31,Male,White,Yes,Expert,Doctorate (PhD),"£35,000-£49,999",Labour,Moderately Left-Wing,30.86,2025-11-26,180
+ee3933385ce40239,46,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Scottish National Party,Very Left-Wing,57.08,2025-11-26,465
+a892a8bfbdc5f3dc,46,Female,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Labour,Moderately Left-Wing,40.2,2025-11-26,984
+45c88a369c8c4b0d,41,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Did not vote,Centrist,21.02,2025-11-26,749
+c23e7f7928c70fe5,36,Male,White,Yes,Expert,Undergraduate degree,"£100,000+",Greens,Moderately Right-Wing,41.39,2025-11-26,911
+c867f3d0c5b83f55,47,Female,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Labour,Centrist,32.35,2025-11-26,1365
+4394800fbe7a6eed,54,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Conservative,Moderately Right-Wing,31.4,2025-11-26,373
+a5475dee14fdfb4e,55,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,36.35,2025-11-26,1789
+dd6717aae6835ba8,69,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Labour,Centrist,30.6,2025-11-26,130
+9e0f1e6b8b5f6a9a,22,Female,White,Yes,Expert,A-levels or equivalent,Prefer not to say,Liberal Democrats,Very Left-Wing,25.81,2025-11-26,203
+8877e3bb8eda2e1b,23,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Conservative,Moderately Right-Wing,31.98,2025-11-26,317
+2b45145e20d4eb23,30,Male,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Centrist,63.71,2025-11-26,1510
+ce5f13459b3dcb1e,48,Female,White,Yes,Advanced,A-levels or equivalent,"£35,000-£49,999",Reform UK,Centrist,91.64,2025-11-26,235
+f888807877e20c38,42,Male,Mixed,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Reform UK,Moderately Right-Wing,36.3,2025-11-26,259
+dc8fa213be5c13c5,50,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,34.18,2025-11-26,2429
+ce9b2cd2887a673b,69,Male,White,Yes,Expert,Vocational qualification,"£35,000-£49,999",Labour,Centrist,43.2,2025-11-26,1081
+aebec121a9a268c7,35,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Centrist,50.54,2025-11-26,1526
+8eda53f3a2a75d02,63,Male,White,Yes,Intermediate,Vocational qualification,Prefer not to say,Labour,Moderately Left-Wing,48.85,2025-11-26,159
+4cdc336fb6e786bd,30,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Other,Very Left-Wing,21.45,2025-11-26,375
+d46cfb7b46eed9b1,37,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Liberal Democrats,Centrist,30.51,2025-11-26,579
+9c378af077d3a4c4,61,Female,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,69.11,2025-11-27,712
+9e524fd9e8eeb63a,50,Male,White,Yes,Advanced,Vocational qualification,"Under £15,000",Reform UK,Moderately Right-Wing,95.67,2025-11-27,250
+afa6ed49e6533741,45,Male,White,Yes,Expert,Doctorate (PhD),"£25,000-£34,999",Did not vote,Moderately Right-Wing,23.21,2025-11-27,990
+4335b0571ff51f17,28,Male,Asian,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Other,Centrist,21.86,2025-11-27,288
+c0d91f6626b71f5e,55,Male,White,Yes,Expert,A-levels or equivalent,Prefer not to say,Labour,Moderately Right-Wing,57.65,2025-11-27,386
+c26d8b525e8bc776,64,Male,White,Yes,Advanced,Undergraduate degree,"£50,000-£74,999",Labour,Centrist,48.84,2025-11-27,349
+3bf9a3bbba189995,59,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Centrist,97.34,2025-11-27,208
+c89074ee3c028de1,64,Male,White,Yes,Advanced,Postgraduate degree (Master's),"£35,000-£49,999",Greens,Moderately Left-Wing,59.83,2025-11-27,2122
+5b52bbaea98a7326,67,Female,White,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Labour,Very Left-Wing,61.17,2025-11-27,617
+a6cb193aa282cb8d,69,Female,White,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,51.44,2025-11-27,369
+47c2ddcce637ddc9,55,Female,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Reform UK,Moderately Right-Wing,48.83,2025-11-27,851
+2cc9c03ed4237091,67,Female,White,Yes,Intermediate,GCSEs or equivalent,"Under £15,000",Conservative,Moderately Right-Wing,68.28,2025-11-27,1085
+5b71a6cf431a51f1,56,Female,White,Yes,Expert,GCSEs or equivalent,Prefer not to say,Reform UK,Very Right-Wing,65.04,2025-11-27,30
+cc78c71e025cc4d1,58,Male,White,Yes,Expert,Vocational qualification,"£50,000-£74,999",Labour,Centrist,35.43,2025-11-27,417
+3681c2ff12119751,50,Male,White,Yes,Expert,Vocational qualification,"£35,000-£49,999",Labour,Centrist,39.99,2025-11-27,246
+431059c088b18ab1,60,Female,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Liberal Democrats,Centrist,81.82,2025-11-27,934
+06c916abe93bd118,58,Male,White,Yes,Intermediate,Vocational qualification,"£50,000-£74,999",Did not vote,Moderately Right-Wing,65.04,2025-11-27,522
+c489e6241e47a3a8,38,Female,Asian,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,19.65,2025-11-27,515
+f929b7e294ec1fcb,55,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Labour,Moderately Left-Wing,54.54,2025-11-27,535
+b12540278709bbba,35,Female,Asian,Yes,Expert,Doctorate (PhD),"£35,000-£49,999",Labour,Moderately Left-Wing,25.19,2025-11-27,2157
+e980d95559e58d0d,49,Female,White,Yes,Expert,Undergraduate degree,"£100,000+",Conservative,Moderately Right-Wing,20.05,2025-11-27,437
+72e814bc44e9a493,67,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,52.59,2025-11-27,2419
+530b3c7f38fb46e0,55,Female,White,Yes,Advanced,A-levels or equivalent,"Under £15,000",Reform UK,Centrist,38.66,2025-11-27,260
+402626577181a687,61,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Conservative,Moderately Right-Wing,42.74,2025-11-27,1695
+aad5c3bcd6f75596,64,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,42.19,2025-11-27,979
+213febf4861a4e78,78,Male,White,Yes,Expert,Vocational qualification,"Under £15,000",Labour,Moderately Left-Wing,28.75,2025-11-27,699
+fa9699fe054bc75d,56,Female,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Prefer not to say,Moderately Right-Wing,20.39,2025-11-27,342
+263e5d48436b8f72,55,Female,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Liberal Democrats,Moderately Left-Wing,42.13,2025-11-27,850
+55f43040070536c9,37,Male,Asian,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Did not vote,Moderately Right-Wing,53.59,2025-11-27,56
+a7d0ff8dc4561f7e,65,Female,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Liberal Democrats,Moderately Left-Wing,86.37,2025-11-27,64
+ad41ed46d5b6405a,24,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Reform UK,Very Right-Wing,29.68,2025-11-27,737
+1e77d9de62e21230,72,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Liberal Democrats,Moderately Left-Wing,31.45,2025-11-27,826
+632f63ed483b3e59,62,Female,White,Yes,Intermediate,Undergraduate degree,"Under £15,000",Greens,Centrist,55.25,2025-11-28,88
+53f548f92ee57b5a,61,Female,White,Yes,Advanced,A-levels or equivalent,"Under £15,000",Conservative,Moderately Right-Wing,44.01,2025-11-28,1068
+6e47ea8a2eb341f2,56,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Centrist,38.51,2025-11-28,950
+6d9df4d8e6001fb9,61,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Moderately Right-Wing,44.79,2025-11-28,615
+f253cf64b0a21aef,64,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Reform UK,Moderately Right-Wing,55.09,2025-11-28,155
+33f0c0620285049d,54,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Reform UK,Very Right-Wing,30.43,2025-11-28,377
+06ea030b4824ebdb,57,Female,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Labour,Centrist,32.72,2025-11-28,340
+728d656acd17107b,23,Male,Black,Yes,Expert,Vocational qualification,"£25,000-£34,999",Did not vote,Moderately Left-Wing,41.95,2025-11-28,453
+27c8780f5b2b322b,60,Female,White,Yes,Advanced,GCSEs or equivalent,"£25,000-£34,999",Reform UK,Moderately Right-Wing,27.83,2025-11-28,456
+8ce0a7e89d361811,51,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Labour,Moderately Left-Wing,33.62,2025-11-28,177
+f62ff50f1180cc42,57,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Reform UK,Moderately Right-Wing,28.16,2025-11-28,370
+d4d35754a8f3a8c7,52,Male,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,25.68,2025-11-28,1197
+12199ce71a5a1f2d,66,Male,White,Yes,Expert,Doctorate (PhD),"£50,000-£74,999",Labour,Moderately Left-Wing,33.8,2025-11-28,1763
+c99e8364f4fc4803,23,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Did not vote,Moderately Right-Wing,30.13,2025-11-28,432
+560f15ba24ae0e5c,64,Female,White,Yes,Advanced,Other,"Under £15,000",Labour,Centrist,35.97,2025-11-28,1755
+a8b850ad13ee473d,19,Male,White,Yes,Expert,A-levels or equivalent,Prefer not to say,Did not vote,Moderately Right-Wing,32.94,2025-11-28,74
+c9b4b62930db21c6,53,Male,Mixed,Yes,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Reform UK,Moderately Right-Wing,29.15,2025-11-28,215
+21b49a3e095bd672,23,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Very Left-Wing,30.69,2025-11-28,329
+b61eb781a1fcdae0,56,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Moderately Right-Wing,38.85,2025-11-28,2315
+a6e779545594b7ff,23,Male,White,Yes,Advanced,A-levels or equivalent,"£35,000-£49,999",Did not vote,Moderately Left-Wing,33.55,2025-11-28,65
+a7dc16f19dc8e1b4,56,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Greens,Very Left-Wing,94.52,2025-11-28,1274
+c5329a97b8686ec6,55,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Centrist,39.31,2025-11-28,1641
+74b0902a1344f497,55,Female,Prefer not to say,Yes,Expert,Undergraduate degree,Prefer not to say,Reform UK,Moderately Right-Wing,30.49,2025-11-28,1448
+93189846edae0fba,67,Male,White,Yes,Expert,Doctorate (PhD),"£35,000-£49,999",Prefer not to say,Very Left-Wing,37.63,2025-11-28,12
+11940059c04c60c0,61,Male,White,Yes,Advanced,Vocational qualification,"£15,000-£24,999",Conservative,Moderately Right-Wing,55.12,2025-11-28,952
+453124970b5d5087,58,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,40.12,2025-11-28,958
+012ccdc247849aab,63,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Did not vote,Centrist,28.33,2025-11-28,992
+d88b5a55ec6c50e9,44,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Scottish National Party,Centrist,20.63,2025-11-29,134
+4bbc88dad80255c9,49,Male,White,No,Expert,Undergraduate degree,"£75,000-£99,999",Labour,Centrist,40.14,2025-11-29,874
+5eacb4dd8d7c178d,56,Female,White,Yes,Intermediate,GCSEs or equivalent,"£15,000-£24,999",Reform UK,Moderately Right-Wing,52.44,2025-11-29,1031
+1cd923878ca67364,45,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Did not vote,Moderately Left-Wing,22.7,2025-11-29,136
+f54590586eb78a4b,63,Female,White,Yes,Advanced,A-levels or equivalent,Prefer not to say,Prefer not to say,Centrist,75.86,2025-11-29,1178
+7400c9b9a8ce8c5a,35,Male,Asian,Yes,Advanced,Postgraduate degree (Master's),"£75,000-£99,999",Conservative,Moderately Right-Wing,26.19,2025-11-29,1809
+a26382ff3001a25e,57,Male,White,Yes,Expert,Postgraduate degree (Master's),"£100,000+",Conservative,Moderately Right-Wing,22.74,2025-11-29,1528
+d7bc65327ddb1795,69,Male,White,Yes,Advanced,Undergraduate degree,"£35,000-£49,999",Liberal Democrats,Centrist,42.06,2025-11-29,1658
+b389a5d39bfd79b8,54,Male,White,Yes,Expert,Vocational qualification,"£75,000-£99,999",Labour,Centrist,56.36,2025-11-29,735
+6ae3afb1865e4cc2,45,Male,Prefer not to say,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Prefer not to say,Prefer not to say,23.59,2025-11-29,419
+957baf78a718ed6f,65,Male,White,Yes,Expert,A-levels or equivalent,"£15,000-£24,999",Reform UK,Very Right-Wing,55.3,2025-11-29,895
+d43d32c68ca4cda9,57,Female,White,Yes,Advanced,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,45.77,2025-11-29,117
+66cfb7d66f4126c9,52,Male,White,No,Expert,Doctorate (PhD),"£15,000-£24,999",Conservative,Moderately Right-Wing,35.3,2025-11-29,1818
+47cfe87a2bc00987,63,Female,White,Yes,Advanced,GCSEs or equivalent,"£35,000-£49,999",Conservative,Moderately Right-Wing,40.39,2025-11-29,2552
+b08c7705e4991c82,56,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Liberal Democrats,Moderately Left-Wing,44.33,2025-11-29,500
+48c1741840fd9b72,76,Female,White,Yes,Advanced,Postgraduate degree (Master's),"£15,000-£24,999",Prefer not to say,Centrist,116.35,2025-11-29,208
+aeca4e4e01dd9cf8,47,Male,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Conservative,Centrist,23.47,2025-11-29,118
+ee42ad6adea730e6,21,Male,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Centrist,21.34,2025-11-29,116
+c7b804f88a3523ac,60,Female,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Liberal Democrats,Moderately Left-Wing,47.4,2025-11-30,1786
+b9fa04350d27d9d7,57,Male,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Labour,Moderately Left-Wing,37.56,2025-11-30,623
+cdce96fe2bda5b74,58,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,32.3,2025-11-30,1207
+02c553e17621b82f,52,Male,White,Yes,Expert,Postgraduate degree (Master's),"£100,000+",Labour,Moderately Left-Wing,23.87,2025-11-30,226
+0a1a0619a32eca90,58,Female,White,Yes,Intermediate,Vocational qualification,"Under £15,000",Conservative,Moderately Right-Wing,57.82,2025-11-30,1317
+459878721e557053,58,Female,White,Yes,Expert,GCSEs or equivalent,"£35,000-£49,999",Did not vote,Moderately Right-Wing,40.87,2025-11-30,1171
+12bdc7d7a18ff2f7,46,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Labour,Centrist,20.26,2025-11-30,83
+dbda40674b1e5e28,69,Female,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Left-Wing,40.42,2025-11-30,899
+43ee3b56ecc32777,56,Female,White,Yes,Expert,GCSEs or equivalent,"£15,000-£24,999",Labour,Moderately Left-Wing,18.99,2025-11-30,36
+fbfa8b572f7b57a0,66,Female,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,47.55,2025-11-30,1163
+c0583dc6bbd2107d,54,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Other,Centrist,59.63,2025-11-30,854
+b5cc30067888c7d7,61,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Moderately Left-Wing,25.95,2025-11-30,1084
+bf4bfe42e68e83cc,39,Male,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Other,Centrist,27.33,2025-12-01,1180
+36a5f508e7e1f0ab,31,Male,White,Yes,Advanced,Undergraduate degree,"£75,000-£99,999",Labour,Centrist,20.93,2025-12-01,88
+f151a9868f7b1fe0,30,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Very Left-Wing,30.6,2025-12-01,375
+87f8770757c5f6e4,33,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Did not vote,Moderately Right-Wing,119.33,2025-12-01,49
+8d398b8036b5647a,42,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Centrist,16.21,2025-12-01,1411
+ee821109c51975d6,25,Male,White,Yes,Advanced,Postgraduate degree (Master's),"£35,000-£49,999",Reform UK,Moderately Right-Wing,39.06,2025-12-01,159
+9e16639493f17e9d,32,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Liberal Democrats,Centrist,29.42,2025-12-01,954
+05b535434bd2d94a,29,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Conservative,Very Right-Wing,23.43,2025-12-01,131
+993f8047796854f7,44,Male,White,Yes,Expert,Vocational qualification,"£35,000-£49,999",Labour,Moderately Left-Wing,27.73,2025-12-01,805
+9ea35035b65298e2,72,Male,White,Yes,Expert,Vocational qualification,"£35,000-£49,999",Conservative,Moderately Right-Wing,23.56,2025-12-01,2249
+c3c40bd06bb17bb3,41,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Centrist,19.64,2025-12-01,363
+72567fc1e4f43b27,59,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Labour,Centrist,37.72,2025-12-01,4137
+8bf3e1439ba75e0f,35,Male,White,No,Expert,Undergraduate degree,"£50,000-£74,999",Not eligible to vote,Moderately Left-Wing,46.58,2025-12-01,634
+62e13c720ff7c5e3,36,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Not eligible to vote,Moderately Left-Wing,31.66,2025-12-01,999
+e7f3d4019455cdea,37,Male,White,Yes,Expert,A-levels or equivalent,"£75,000-£99,999",Labour,Moderately Left-Wing,28.67,2025-12-01,367
+a2f8ee2748a71d5f,65,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,34.98,2025-12-01,1590
+34a51d3fe12aedf6,43,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Other,Moderately Left-Wing,19.57,2025-12-01,166
+037c88fc5813e3d2,38,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Left-Wing,23.68,2025-12-01,961
+43d5df26904b5afb,36,Male,White,Bilingual from birth,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,45.19,2025-12-01,1560
+0dae5a3942d38435,63,Male,White,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Did not vote,Moderately Right-Wing,24.75,2025-12-01,1067
+5c1a449b22bdce98,47,Male,White,Yes,Expert,Doctorate (PhD),"£50,000-£74,999",Reform UK,Centrist,24.65,2025-12-01,111
+7468de001cfc5e24,23,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Did not vote,Moderately Left-Wing,27.17,2025-12-01,819
+b14d18394bfe2a14,53,Male,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Liberal Democrats,Moderately Left-Wing,47.92,2025-12-01,30
+64c78cf468cce188,28,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Left-Wing,19.45,2025-12-01,535
+db956f398132fff6,22,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Liberal Democrats,Moderately Right-Wing,23.99,2025-12-01,180
+16f42d4d5c57b80d,27,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Reform UK,Very Right-Wing,48.15,2025-12-01,864
+201b2015b0b4613d,41,Male,White,Yes,Advanced,Undergraduate degree,"£15,000-£24,999",Conservative,Moderately Right-Wing,31.52,2025-12-01,1510
+462a25b8649fd8f1,37,Male,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Other,Very Left-Wing,32.83,2025-12-01,158
+89778f3aea4ff1c6,27,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,30.69,2025-12-01,147
+74364ddaf5fa4a92,30,Male,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Prefer not to say,Very Left-Wing,36.78,2025-12-01,2326
+1dfd29eb18897344,20,Male,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Centrist,33.82,2025-12-01,37
+031680efa0daff22,25,Male,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Did not vote,Centrist,23.91,2025-12-01,2375
+1051c0d208fe81da,40,Male,White,Yes,Advanced,Vocational qualification,"£35,000-£49,999",Conservative,Centrist,42.91,2025-12-01,148
+ff851633c6b28513,47,Male,White,No,Expert,Postgraduate degree (Master's),"£100,000+",Not eligible to vote,Moderately Right-Wing,22.02,2025-12-01,498
+f9a3358d482d46fc,20,Male,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Labour,Moderately Left-Wing,49.13,2025-12-01,978
+a9a6f707c4708e75,24,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Scottish National Party,Moderately Right-Wing,26.33,2025-12-01,210
+a5069a8828f5140f,31,Male,White,Yes,Advanced,Vocational qualification,"£50,000-£74,999",Labour,Centrist,23.4,2025-12-01,415
+9320ac4837f9a034,28,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Prefer not to say,Moderately Left-Wing,50.31,2025-12-01,439
+f400666f4642f09f,30,Male,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Did not vote,Moderately Right-Wing,18.65,2025-12-01,1263
+55b2955b4ab42749,32,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Greens,Moderately Left-Wing,30.84,2025-12-01,232
+07ded6c1b4492105,31,Male,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Did not vote,Moderately Right-Wing,23.24,2025-12-01,1598
+df62c9f7e69adb21,37,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Did not vote,Very Left-Wing,18.07,2025-12-01,1536
+bd0b183d76c12e48,43,Male,White,Yes,Expert,A-levels or equivalent,"£35,000-£49,999",Labour,Moderately Left-Wing,15.77,2025-12-01,1355
+9de7701d16fd7191,31,Female,White,Yes,Expert,GCSEs or equivalent,"Under £15,000",Labour,Moderately Left-Wing,27.7,2025-12-01,686
+7d1500f208f3302c,27,Female,White,Bilingual from birth,Expert,A-levels or equivalent,"£35,000-£49,999",Greens,Moderately Left-Wing,66.09,2025-12-01,357
+a351dacd98ec1b16,37,Female,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Centrist,23.31,2025-12-01,316
+bd8c346f49a6a7f5,44,Female,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,35.25,2025-12-01,2214
+3827490d875194eb,37,Female,White,Yes,Expert,Vocational qualification,"£15,000-£24,999",Labour,Moderately Left-Wing,56.38,2025-12-01,1292
+b9d62592cb05c349,33,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Centrist,22.48,2025-12-01,672
+73359b37c2cdda35,34,Female,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,19.72,2025-12-01,2345
+ca34fc8e6d3e7b55,42,Male,White,Yes,Advanced,Undergraduate degree,"£25,000-£34,999",Scottish National Party,Moderately Left-Wing,29.44,2025-12-01,808
+6e5f36599ca3d611,24,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Conservative,Prefer not to say,53.77,2025-12-01,893
+89ec7d7613abd36e,33,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Liberal Democrats,Centrist,38.62,2025-12-01,420
+fdd92be96790de5b,27,Female,White,Yes,Expert,A-levels or equivalent,"Under £15,000",Did not vote,Very Left-Wing,30.99,2025-12-01,1073
+9bfc447053fcf51e,38,Female,White,Yes,Expert,Doctorate (PhD),"Under £15,000",Greens,Moderately Left-Wing,24.29,2025-12-01,39
+78b09ad67912c4c3,40,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Labour,Centrist,27.22,2025-12-01,362
+1eea98b0901e0392,65,Female,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Reform UK,Very Right-Wing,24.85,2025-12-01,1269
+31db59d87c10d37c,48,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Liberal Democrats,Moderately Left-Wing,33.1,2025-12-01,22
+074388c9be838dfd,47,Male,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Labour,Moderately Right-Wing,41.1,2025-12-01,356
+58796c3012ee47ce,39,Male,White,Yes,Advanced,A-levels or equivalent,"£35,000-£49,999",Labour,Moderately Left-Wing,25.37,2025-12-01,1064
+d83362c16ae31591,33,Female,White,Yes,Expert,GCSEs or equivalent,"£35,000-£49,999",Reform UK,Moderately Right-Wing,27.1,2025-12-01,458
+8c8f570791090a85,33,Female,White,Yes,Advanced,Prefer not to say,"£15,000-£24,999",Greens,Very Left-Wing,36.47,2025-12-01,268
+4fe2def6c3115179,34,Female,White,Yes,Expert,Undergraduate degree,"Under £15,000",Did not vote,Centrist,42.9,2025-12-01,709
+116bf95c1fb47bc8,38,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Labour,Moderately Left-Wing,20.79,2025-12-01,523
+17c33cb91f78713a,29,Male,Asian,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Labour,Moderately Left-Wing,42.85,2025-12-01,2864
+4a290fdd145cbf7d,26,Male,White,No,Expert,Doctorate (PhD),"£25,000-£34,999",Did not vote,Moderately Right-Wing,24.06,2025-12-01,103
+7330a70fe18b0a80,36,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Labour,Moderately Left-Wing,32.98,2025-12-01,155
+13c157d33338c856,39,Male,White,Yes,Advanced,Undergraduate degree,"£35,000-£49,999",Greens,Prefer not to say,28.82,2025-12-01,277
+ed21417f94a464c1,30,Male,White,Yes,Expert,Vocational qualification,"£25,000-£34,999",Labour,Centrist,22.17,2025-12-01,874
+4e0a7e6f4296a420,44,Male,White,Yes,Expert,A-levels or equivalent,"£50,000-£74,999",Reform UK,Centrist,24.59,2025-12-01,220
+b484fddd4452b5fe,62,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Liberal Democrats,Centrist,28.21,2025-12-01,167
+84fc89a35125159c,45,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Moderately Left-Wing,64.6,2025-12-01,119
+2177e33e29482095,26,Male,White,Yes,Expert,GCSEs or equivalent,"Under £15,000",Did not vote,Moderately Left-Wing,27.78,2025-12-01,384
+2a12bc72e8b30cfb,31,Male,White,Bilingual from birth,Expert,A-levels or equivalent,"£15,000-£24,999",Greens,Very Left-Wing,17.87,2025-12-01,858
+3a076d5937f5dafd,24,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Greens,Moderately Left-Wing,33.65,2025-12-01,198
+8108f859c272be54,29,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Moderately Left-Wing,28.28,2025-12-01,83
+0fe1547d50469849,36,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Reform UK,Moderately Right-Wing,16.63,2025-12-01,410
+36e77f8fb2f88e53,27,Male,White,Yes,Expert,Undergraduate degree,"£15,000-£24,999",Not eligible to vote,Very Left-Wing,17.18,2025-12-01,87
+31901853969b59db,49,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Liberal Democrats,Moderately Left-Wing,22.66,2025-12-01,3192
+6a5906c10b0e001b,39,Female,White,Yes,Expert,Undergraduate degree,"£100,000+",Conservative,Moderately Right-Wing,30.51,2025-12-01,942
+19ca3fabced087bf,21,Female,White,Bilingual from birth,Expert,Undergraduate degree,"£15,000-£24,999",Labour,Moderately Left-Wing,14.75,2025-12-01,169
+ba71d27f9a3c9bd5,41,Female,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Liberal Democrats,Centrist,20.97,2025-12-01,295
+43ca15d0b21a7dcd,37,Female,White,Yes,Advanced,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Very Left-Wing,20.36,2025-12-01,1430
+f7ad9be6219716c7,60,Male,White,Yes,Intermediate,GCSEs or equivalent,"£15,000-£24,999",Did not vote,Centrist,31.27,2025-12-02,1005
+235eb752aed31ae3,60,Male,White,Yes,Expert,GCSEs or equivalent,"£35,000-£49,999",Liberal Democrats,Very Left-Wing,27.15,2025-12-02,112
+8ffd162bb6158668,32,Male,White,Yes,Advanced,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Right-Wing,39.81,2025-12-02,1650
+86b66ec6e932d5ae,38,Male,White,Yes,Expert,Doctorate (PhD),"£35,000-£49,999",Greens,Moderately Left-Wing,33.42,2025-12-02,272
+f2d277fc29ed8137,25,Male,White,Yes,Expert,GCSEs or equivalent,"£15,000-£24,999",Did not vote,Centrist,55.67,2025-12-02,187
+2e54f284098aaec4,30,Male,White,No,Expert,Postgraduate degree (Master's),"£75,000-£99,999",Conservative,Centrist,37.01,2025-12-02,614
+0a1a2e3ddd2ab504,25,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Centrist,19.26,2025-12-02,364
+a83eed0792b212b6,41,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Labour,Moderately Left-Wing,23.48,2025-12-02,2479
+9178957c6b0bbd90,24,Female,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Greens,Very Left-Wing,17.96,2025-12-02,1712
+fb911bca6298502f,36,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Liberal Democrats,Centrist,38.17,2025-12-02,1087
+c44eb71d3fd81ca2,24,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Labour,Moderately Left-Wing,36.48,2025-12-02,851
+355b4cec0593812d,26,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Very Left-Wing,20.97,2025-12-02,606
+4c9b421574545e9b,33,Male,White,Yes,Advanced,Undergraduate degree,"£50,000-£74,999",Scottish National Party,Very Left-Wing,29.48,2025-12-02,84
+999896009b9f2573,56,Male,White,Yes,Advanced,GCSEs or equivalent,"£25,000-£34,999",Conservative,Centrist,29.25,2025-12-02,444
+99e61bf2662d9c53,32,Male,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Reform UK,Very Right-Wing,34.15,2025-12-02,940
+6b38e2a22c9becc0,43,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Reform UK,Centrist,52.81,2025-12-02,108
+8b2afded24a12b97,25,Male,White,Yes,Expert,GCSEs or equivalent,"£25,000-£34,999",Did not vote,Very Right-Wing,29.54,2025-12-02,581
+659b70d7d8b33070,33,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Reform UK,Moderately Right-Wing,16.53,2025-12-02,313
+56ff87938acb93df,30,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Very Left-Wing,42.66,2025-12-02,810
+1460946737966bc1,32,Male,White,Yes,Advanced,A-levels or equivalent,"£25,000-£34,999",Did not vote,Centrist,45.42,2025-12-02,254
+2ff856e2eeb68c94,25,Male,White,Yes,Expert,Undergraduate degree,"£25,000-£34,999",Greens,Moderately Left-Wing,29.69,2025-12-02,250
+4a4fe053745c8a37,38,Male,White,Yes,Expert,A-levels or equivalent,"£25,000-£34,999",Greens,Very Left-Wing,22.58,2025-12-02,1229
+dc3bca4e7fad90ae,28,Male,White,Yes,Expert,Postgraduate degree (Master's),"£35,000-£49,999",Conservative,Moderately Right-Wing,33.36,2025-12-02,583
+91859c7da382ee44,20,Male,White,Yes,Expert,A-levels or equivalent,Prefer not to say,Liberal Democrats,Very Left-Wing,57.18,2025-12-02,253
+863cc46ef92b25b9,38,Male,White,Yes,Advanced,Postgraduate degree (Master's),"£50,000-£74,999",Reform UK,Centrist,44.49,2025-12-02,2481
+b148424becfd204a,26,Male,White,Yes,Expert,Postgraduate degree (Master's),"£15,000-£24,999",Greens,Very Left-Wing,24.25,2025-12-02,827
+847d5c2af919d571,44,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,29.11,2025-12-02,596
+c5ac7bd7f41648d8,31,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Labour,Very Left-Wing,24.01,2025-12-02,1341
+e3a37e7ca31cc7ea,40,Male,White,Yes,Expert,Postgraduate degree (Master's),"£50,000-£74,999",Labour,Moderately Right-Wing,47.95,2025-12-02,1218
+1f64855dc3ae35ac,47,Male,White,Yes,Expert,Undergraduate degree,"£35,000-£49,999",Greens,Moderately Left-Wing,29.91,2025-12-02,308
+5d0bf309189a1e17,32,Male,White,Yes,Intermediate,GCSEs or equivalent,"£15,000-£24,999",Labour,Centrist,18.21,2025-12-02,314
+5e38ec48b456af15,55,Male,White,Yes,Expert,Postgraduate degree (Master's),Prefer not to say,Labour,Moderately Left-Wing,57.68,2025-12-02,258
+870f770b77a39c97,38,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Greens,Moderately Left-Wing,29.24,2025-12-02,2020
+95bbc2a99f55c535,63,Male,White,Yes,Advanced,GCSEs or equivalent,"£15,000-£24,999",Did not vote,Centrist,36.95,2025-12-02,712
+855d7850945a8600,38,Male,White,Yes,Expert,Undergraduate degree,"£50,000-£74,999",Labour,Moderately Left-Wing,27.18,2025-12-02,2789
+e92a1e986c243820,23,Male,White,Yes,Expert,Postgraduate degree (Master's),"£25,000-£34,999",Greens,Very Left-Wing,28.51,2025-12-02,369
+55556e9d26bd33d9,45,Male,White,No,Expert,Undergraduate degree,"£100,000+",Labour,Moderately Left-Wing,61.48,2025-12-02,6
+602274ed627d9c54,32,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Prefer not to say,Centrist,32.76,2025-12-02,810
+512923fb358d7833,23,Male,White,Yes,Advanced,GCSEs or equivalent,"Under £15,000",Reform UK,Centrist,28.44,2025-12-02,353
+def00ab2d9e231e1,65,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,48.18,2025-12-02,2777
+392ed5109414384d,42,Male,White,Yes,Expert,Undergraduate degree,"£75,000-£99,999",Labour,Moderately Left-Wing,38.56,2025-12-02,342
+6bc0536a323d352a,27,Male,White,Yes,Expert,Undergraduate degree,"Under £15,000",Labour,Moderately Left-Wing,29.79,2025-12-03,317

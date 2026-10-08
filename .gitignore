@@ -4,6 +4,7 @@
 # Environment files
 .env
 /env
+.venv*/
 
 # R specific files
 .Rproj.user/
@@ -13,10 +14,10 @@
 .ipynb_checkpoints/
 
 # Ignore specific files
-transfer_data.ipynb
-data_aggregation.py
-anonymise.py
-participant_study_membership.csv
+/transfer_data.ipynb
+/add_prolific_approvals.py
+/anonymise.py
+/participant_study_membership.csv
 
 # Ignore directories
 .github/
@@ -30,6 +31,9 @@ participant_study_membership.csv
 # Reranking outputs
 /reranking/rm_scores/
 /reranking/rm_evaluations/
+
+# LLM API response caches from preference-reason coding
+llm_cache.jsonl
 
 # Ignore Python bytecode and cache directories
 *.pyc

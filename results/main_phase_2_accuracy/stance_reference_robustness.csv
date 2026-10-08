@@ -1,0 +1,163 @@
+split,level,stance_reference,attribute,kind,paragraph_type,metric,estimate,ci_low,ci_high,n_ratings,n_writers,p_bootstrap
+unedited,rater,pre,writer_stance,scale,writer,correlation,0.6933847628223232,0.6824378426091215,0.7024244737330738,45082,1501,
+unedited,rater,pre,writer_stance,scale,writer,bias,1.3180204959850939,0.7836303779561521,1.8621708899640994,45082,1501,
+unedited,rater,pre,writer_stance,scale,writer,mae,19.219710749301274,18.907165576126218,19.544327805010745,45082,1501,
+unedited,rater,pre,writer_stance,scale,model,correlation,0.7368631540604612,0.7276008907256916,0.7461920276854644,45030,1501,
+unedited,rater,pre,writer_stance,scale,model,bias,3.384254941150344,2.8624384446456084,3.857775756763429,45030,1501,
+unedited,rater,pre,writer_stance,scale,model,mae,18.262025316455695,17.961146228344898,18.577726935440616,45030,1501,
+unedited,rater,pre,writer_stance,scale,model - writer,correlation,0.043478391238138014,0.033595537594299715,0.05279160879133389,,1501,0.0
+unedited,rater,pre,writer_stance,scale,model - writer,bias,2.06623444516525,1.5992280794103246,2.540649319952074,,1501,0.0
+unedited,rater,pre,writer_stance,scale,model - writer,mae,-0.9576854328455795,-1.2838943485894418,-0.6204079436431926,,1501,0.0
+unedited,rater,pre,writer_stance_polarity,scale,writer,correlation,0.37664175825677076,0.35779557228259684,0.39273001858678325,45082,1501,
+unedited,rater,pre,writer_stance_polarity,scale,writer,bias,8.086287209972939,7.152497840141534,9.031779418362403,45082,1501,
+unedited,rater,pre,writer_stance_polarity,scale,writer,mae,29.295106694467858,28.833973583509067,29.79495205899468,45082,1501,
+unedited,rater,pre,writer_stance_polarity,scale,model,correlation,0.4439340083302407,0.4276059148993857,0.4597301488721584,45030,1501,
+unedited,rater,pre,writer_stance_polarity,scale,model,bias,12.659693537641573,11.781564789417695,13.49012474669359,45030,1501,
+unedited,rater,pre,writer_stance_polarity,scale,model,mae,28.273284477015324,27.767827155877583,28.76366873106516,45030,1501,
+unedited,rater,pre,writer_stance_polarity,scale,model - writer,correlation,0.06729225007346995,0.0511895380970712,0.08300269390915216,,1501,0.0
+unedited,rater,pre,writer_stance_polarity,scale,model - writer,bias,4.573406327668634,3.9916282809441603,5.137737350092947,,1501,0.0
+unedited,rater,pre,writer_stance_polarity,scale,model - writer,mae,-1.0218222174525344,-1.470690193061281,-0.5654296174897789,,1501,0.0
+edited,rater,pre,writer_stance,scale,writer,correlation,0.6933847628223232,0.6829881481783225,0.703017858724444,45082,1501,
+edited,rater,pre,writer_stance,scale,writer,bias,1.3180204959850939,0.7486913592515034,1.8725881528890338,45082,1501,
+edited,rater,pre,writer_stance,scale,writer,mae,19.219710749301274,18.912552499570836,19.556246561458416,45082,1501,
+edited,rater,pre,writer_stance,scale,model,correlation,0.7369021345198118,0.7279419814138974,0.746536622896842,45063,1501,
+edited,rater,pre,writer_stance,scale,model,bias,3.1416683310032623,2.632602430668275,3.6366304980472353,45063,1501,
+edited,rater,pre,writer_stance,scale,model,mae,18.267114927989702,17.954246445285317,18.575363013763717,45063,1501,
+edited,rater,pre,writer_stance,scale,model - writer,correlation,0.043517371697488594,0.03475455532835105,0.05238686134568592,,1501,0.0
+edited,rater,pre,writer_stance,scale,model - writer,bias,1.8236478350181684,1.3753564335577755,2.304956853116466,,1501,0.0
+edited,rater,pre,writer_stance,scale,model - writer,mae,-0.9525958213115722,-1.2512610394272126,-0.6662830466952119,,1501,0.0
+edited,rater,pre,writer_stance_polarity,scale,writer,correlation,0.37664175825677076,0.3598336884868736,0.39441418145923673,45082,1501,
+edited,rater,pre,writer_stance_polarity,scale,writer,bias,8.086287209972939,7.125171463077976,8.996000593587771,45082,1501,
+edited,rater,pre,writer_stance_polarity,scale,writer,mae,29.295106694467858,28.80722986976821,29.77350378987614,45082,1501,
+edited,rater,pre,writer_stance_polarity,scale,model,correlation,0.4433925762996785,0.4274274164570274,0.45990110688197255,45063,1501,
+edited,rater,pre,writer_stance_polarity,scale,model,bias,12.593258327230766,11.74617327613237,13.383320340740292,45063,1501,
+edited,rater,pre,writer_stance_polarity,scale,model,mae,28.30983290060582,27.863060926383884,28.77855781619343,45063,1501,
+edited,rater,pre,writer_stance_polarity,scale,model - writer,correlation,0.06675081804290772,0.05084828439925325,0.0823381779890682,,1501,0.0
+edited,rater,pre,writer_stance_polarity,scale,model - writer,bias,4.506971117257827,3.952825011159552,5.092530188761476,,1501,0.0
+edited,rater,pre,writer_stance_polarity,scale,model - writer,mae,-0.9852737938620386,-1.4026525821958051,-0.5453863551947578,,1501,0.0
+preferred,rater,pre,writer_stance,scale,writer,correlation,0.6988729598128202,0.688017588860943,0.708994136503434,37995,1438,
+preferred,rater,pre,writer_stance,scale,writer,bias,1.4266877220686933,0.851560686473254,1.9841145349409808,37995,1438,
+preferred,rater,pre,writer_stance,scale,writer,mae,19.070588235294117,18.74704706754426,19.39972939694199,37995,1438,
+preferred,rater,pre,writer_stance,scale,model,correlation,0.7416415259273151,0.7316066161234471,0.7517630092575769,37977,1438,
+preferred,rater,pre,writer_stance,scale,model,bias,3.2096268794270215,2.6419791294995814,3.7657761839474233,37977,1438,
+preferred,rater,pre,writer_stance,scale,model,mae,18.197435289780657,17.862823587457157,18.53416527809688,37977,1438,
+preferred,rater,pre,writer_stance,scale,model - writer,correlation,0.04276856611449498,0.032511051684216107,0.05277457481041587,,1438,0.0
+preferred,rater,pre,writer_stance,scale,model - writer,bias,1.7829391573583282,1.332157729489298,2.279559654344074,,1438,0.0
+preferred,rater,pre,writer_stance,scale,model - writer,mae,-0.8731529455134606,-1.2148432679254282,-0.5291444826029885,,1438,0.0
+preferred,rater,pre,writer_stance_polarity,scale,writer,correlation,0.37884676847896503,0.3614235989236228,0.3962180727034357,37995,1438,
+preferred,rater,pre,writer_stance_polarity,scale,writer,bias,8.128911698907752,7.214661518418786,9.134597106386561,37995,1438,
+preferred,rater,pre,writer_stance_polarity,scale,writer,mae,29.201368601131726,28.701573884368837,29.71594974337399,37995,1438,
+preferred,rater,pre,writer_stance_polarity,scale,model,correlation,0.4419901121930584,0.4254445363259629,0.45898762502938734,37977,1438,
+preferred,rater,pre,writer_stance_polarity,scale,model,bias,12.903704874002687,12.079687507081653,13.830319535559607,37977,1438,
+preferred,rater,pre,writer_stance_polarity,scale,model,mae,28.354319719830425,27.827304925758334,28.8913414986673,37977,1438,
+preferred,rater,pre,writer_stance_polarity,scale,model - writer,correlation,0.06314334371409336,0.04522400053179033,0.080080487840487,,1438,0.0
+preferred,rater,pre,writer_stance_polarity,scale,model - writer,bias,4.774793175094935,4.196581838984567,5.411464918672951,,1438,0.0
+preferred,rater,pre,writer_stance_polarity,scale,model - writer,mae,-0.8470488813013013,-1.3183978774245477,-0.36625338588092404,,1438,0.0
+unedited,rater,post,writer_stance,scale,writer,correlation,0.6510472365172155,0.6357937458065989,0.6646733568676106,45082,1501,
+unedited,rater,post,writer_stance,scale,writer,bias,-0.9440131316268133,-1.6578659120781667,-0.229065930086779,45082,1501,
+unedited,rater,post,writer_stance,scale,writer,mae,20.37957499667273,19.96792319445127,20.81037586823183,45082,1501,
+unedited,rater,post,writer_stance,scale,model,correlation,0.6746651981068627,0.6579287156856487,0.689992848052321,45030,1501,
+unedited,rater,post,writer_stance,scale,model,bias,1.1095936042638241,0.409752520572874,1.825516938216094,45030,1501,
+unedited,rater,post,writer_stance,scale,model,mae,19.951387963579837,19.505154890218698,20.422117319922254,45030,1501,
+unedited,rater,post,writer_stance,scale,model - writer,correlation,0.02361796158964713,0.013099134403714182,0.033918238914204105,,1501,0.0
+unedited,rater,post,writer_stance,scale,model - writer,bias,2.0536067358906376,1.5739125790756192,2.538150734292393,,1501,0.0
+unedited,rater,post,writer_stance,scale,model - writer,mae,-0.4281870330928932,-0.7625232762926064,-0.0947649618932936,,1501,0.008
+unedited,rater,post,writer_stance_polarity,scale,writer,correlation,0.3657457572425345,0.34809389827517595,0.38243942272718606,45082,1501,
+unedited,rater,post,writer_stance_polarity,scale,writer,bias,5.071381038995608,4.126995853018172,5.964172521722822,45082,1501,
+unedited,rater,post,writer_stance_polarity,scale,writer,mae,28.64593407568431,28.16997893179592,29.111116935943976,45082,1501,
+unedited,rater,post,writer_stance_polarity,scale,model,correlation,0.40922046825932235,0.39118303131998405,0.426744295056784,45030,1501,
+unedited,rater,post,writer_stance_polarity,scale,model,bias,9.699178325560737,8.863679189054656,10.57543522447694,45030,1501,
+unedited,rater,post,writer_stance_polarity,scale,model,mae,27.93919609149456,27.44072885616539,28.43082160807512,45030,1501,
+unedited,rater,post,writer_stance_polarity,scale,model - writer,correlation,0.04347471101678785,0.026821865129645923,0.05941843226573972,,1501,0.0
+unedited,rater,post,writer_stance_polarity,scale,model - writer,bias,4.627797286565129,4.070719253208682,5.234354681161443,,1501,0.0
+unedited,rater,post,writer_stance_polarity,scale,model - writer,mae,-0.7067379841897505,-1.1456724003544854,-0.2680623649117899,,1501,0.002
+edited,rater,post,writer_stance,scale,writer,correlation,0.6510472365172155,0.637264963614834,0.6668094258588445,45082,1501,
+edited,rater,post,writer_stance,scale,writer,bias,-0.9440131316268133,-1.6184406977058696,-0.21597083836782932,45082,1501,
+edited,rater,post,writer_stance,scale,writer,mae,20.37957499667273,19.923280489901426,20.78235735351119,45082,1501,
+edited,rater,post,writer_stance,scale,model,correlation,0.6751454753602193,0.6592828755845704,0.6912662335614491,45063,1501,
+edited,rater,post,writer_stance,scale,model,bias,0.874242726849078,0.18517921856331282,1.5336961803619995,45063,1501,
+edited,rater,post,writer_stance,scale,model,mae,19.92943212835364,19.466775835699874,20.39805330976221,45063,1501,
+edited,rater,post,writer_stance,scale,model - writer,correlation,0.024098238843003772,0.013467539304123399,0.033356640736154165,,1501,0.0
+edited,rater,post,writer_stance,scale,model - writer,bias,1.8182558584758914,1.3729399866383563,2.285708435279883,,1501,0.0
+edited,rater,post,writer_stance,scale,model - writer,mae,-0.4501428683190909,-0.7737797114763223,-0.10927582294752161,,1501,0.01
+edited,rater,post,writer_stance_polarity,scale,writer,correlation,0.3657457572425345,0.34855238541230266,0.38302590727593383,45082,1501,
+edited,rater,post,writer_stance_polarity,scale,writer,bias,5.071381038995608,4.105477310727863,6.068713820661059,45082,1501,
+edited,rater,post,writer_stance_polarity,scale,writer,mae,28.64593407568431,28.149749575631642,29.11591820894042,45082,1501,
+edited,rater,post,writer_stance_polarity,scale,model,correlation,0.4113373251797371,0.3927752389400663,0.42918056361374685,45063,1501,
+edited,rater,post,writer_stance_polarity,scale,model,bias,9.628386924971707,8.719991457958635,10.578610957402882,45063,1501,
+edited,rater,post,writer_stance_polarity,scale,model,mae,27.891707165523822,27.38065537490462,28.438276258252408,45063,1501,
+edited,rater,post,writer_stance_polarity,scale,model - writer,correlation,0.04559156793720259,0.028974197820896712,0.06073087655126178,,1501,0.0
+edited,rater,post,writer_stance_polarity,scale,model - writer,bias,4.557005885976099,3.9575033872292895,5.102998723120787,,1501,0.0
+edited,rater,post,writer_stance_polarity,scale,model - writer,mae,-0.7542269101604866,-1.1494109468608318,-0.3391762865265091,,1501,0.0
+preferred,rater,post,writer_stance,scale,writer,correlation,0.6581858889698442,0.6425280903607141,0.67254296496636,37995,1438,
+preferred,rater,post,writer_stance,scale,writer,bias,-0.5823397815502039,-1.3180788316465568,0.09484272927639394,37995,1438,
+preferred,rater,post,writer_stance,scale,writer,mae,20.154651927885247,19.71443424723258,20.595351207660205,37995,1438,
+preferred,rater,post,writer_stance,scale,model,correlation,0.6839717902647002,0.6672340369702583,0.6988710484098054,37977,1438,
+preferred,rater,post,writer_stance,scale,model,bias,1.2058614424520104,0.48226005283904977,1.9192888823636962,37977,1438,
+preferred,rater,post,writer_stance,scale,model,mae,19.719909418858784,19.27819838051363,20.233506782266318,37977,1438,
+preferred,rater,post,writer_stance,scale,model - writer,correlation,0.02578590129485603,0.01541453995320668,0.03619794865189458,,1438,0.0
+preferred,rater,post,writer_stance,scale,model - writer,bias,1.7882012240022145,1.2959824010145509,2.2981147772485886,,1438,0.0
+preferred,rater,post,writer_stance,scale,model - writer,mae,-0.4347425090264636,-0.7839285830108025,-0.07704316426772882,,1438,0.012
+preferred,rater,post,writer_stance_polarity,scale,writer,correlation,0.36939512321914364,0.35301581679719457,0.38860964413920973,37995,1438,
+preferred,rater,post,writer_stance_polarity,scale,writer,bias,5.215107250954073,4.158966115470948,6.207975213402609,37995,1438,
+preferred,rater,post,writer_stance_polarity,scale,writer,mae,28.5252270035531,28.054080809717608,28.99013336473516,37995,1438,
+preferred,rater,post,writer_stance_polarity,scale,model,correlation,0.4122720383757457,0.3948184853467444,0.4303679551304464,37977,1438,
+preferred,rater,post,writer_stance_polarity,scale,model,bias,10.044974589883351,9.07732046256699,10.966176946966653,37977,1438,
+preferred,rater,post,writer_stance_polarity,scale,model,mae,27.88903810200911,27.351691102529855,28.403334209837137,37977,1438,
+preferred,rater,post,writer_stance_polarity,scale,model - writer,correlation,0.04287691515660208,0.024421175100318555,0.06085923132138968,,1438,0.0
+preferred,rater,post,writer_stance_polarity,scale,model - writer,bias,4.829867338929278,4.247461839993557,5.427324070720002,,1438,0.0
+preferred,rater,post,writer_stance_polarity,scale,model - writer,mae,-0.6361889015439885,-1.103256634867674,-0.1649881120995059,,1438,0.014
+unedited,rater,final,writer_stance,scale,writer,correlation,0.6608655761748702,0.6477670119164086,0.6737550264182058,45082,1501,
+unedited,rater,final,writer_stance,scale,writer,bias,-1.9394880440086952,-2.6564678312204606,-1.2368991687318664,45082,1501,
+unedited,rater,final,writer_stance,scale,writer,mae,20.32975466926933,19.906367991327496,20.74038332514186,45082,1501,
+unedited,rater,final,writer_stance,scale,model,correlation,0.6899018524349688,0.675664877811501,0.7035094315295389,45030,1501,
+unedited,rater,final,writer_stance,scale,model,bias,0.12587164112813679,-0.5561366685361703,0.8152466612505562,45030,1501,
+unedited,rater,final,writer_stance,scale,model,mae,19.384277148567623,18.936617798922917,19.82918451146124,45030,1501,
+unedited,rater,final,writer_stance,scale,model - writer,correlation,0.029036276260098637,0.01919761473441438,0.04011690003051323,,1501,0.0
+unedited,rater,final,writer_stance,scale,model - writer,bias,2.065359685136832,1.5856347281246166,2.513195009346926,,1501,0.0
+unedited,rater,final,writer_stance,scale,model - writer,mae,-0.9454775207017079,-1.305508719677353,-0.6006569990162819,,1501,0.0
+unedited,rater,final,writer_stance_polarity,scale,writer,correlation,0.36168204890139255,0.34197486627243,0.3787070487474413,45082,1501,
+unedited,rater,final,writer_stance_polarity,scale,writer,bias,-0.3643139168626059,-1.313036056022848,0.5910657026148046,45082,1501,
+unedited,rater,final,writer_stance_polarity,scale,writer,mae,27.660618428641143,27.256161108929053,28.124673591827626,45082,1501,
+unedited,rater,final,writer_stance_polarity,scale,model,correlation,0.4154381623853642,0.3963732869525333,0.43332319519072615,45030,1501,
+unedited,rater,final,writer_stance_polarity,scale,model,bias,4.274483677548301,3.3352777752307126,5.185614752053029,45030,1501,
+unedited,rater,final,writer_stance_polarity,scale,model,mae,26.206617810348657,25.74064466948933,26.71874572890819,45030,1501,
+unedited,rater,final,writer_stance_polarity,scale,model - writer,correlation,0.053756113483971635,0.036864659488279106,0.07165655018934872,,1501,0.0
+unedited,rater,final,writer_stance_polarity,scale,model - writer,bias,4.6387975944109066,4.057444208659658,5.166767692960198,,1501,0.0
+unedited,rater,final,writer_stance_polarity,scale,model - writer,mae,-1.4540006182924863,-1.9078490323487007,-1.0066833394810664,,1501,0.0
+edited,rater,final,writer_stance,scale,writer,correlation,0.6608655761748702,0.6468806582432317,0.6733954580801967,45082,1501,
+edited,rater,final,writer_stance,scale,writer,bias,-1.9394880440086952,-2.6535757137857665,-1.267771107432969,45082,1501,
+edited,rater,final,writer_stance,scale,writer,mae,20.32975466926933,19.937629016029152,20.76926125425841,45082,1501,
+edited,rater,final,writer_stance,scale,model,correlation,0.6921291483982657,0.6775812854567075,0.7050014495649106,45063,1501,
+edited,rater,final,writer_stance,scale,model,bias,-0.0961098905976078,-0.8422581597989826,0.5944587733921146,45063,1501,
+edited,rater,final,writer_stance,scale,model,mae,19.294343474690987,18.866140513128105,19.75525767136828,45063,1501,
+edited,rater,final,writer_stance,scale,model - writer,correlation,0.031263572223395486,0.021824394703662396,0.04032450469614901,,1501,0.0
+edited,rater,final,writer_stance,scale,model - writer,bias,1.8433781534110874,1.4010719049259015,2.278273546908021,,1501,0.0
+edited,rater,final,writer_stance,scale,model - writer,mae,-1.0354111945783444,-1.3436634989006062,-0.7077596183477933,,1501,0.0
+edited,rater,final,writer_stance_polarity,scale,writer,correlation,0.36168204890139255,0.34348185698676625,0.3790126299210725,45082,1501,
+edited,rater,final,writer_stance_polarity,scale,writer,bias,-0.3643139168626059,-1.3550600739322853,0.5234578063035806,45082,1501,
+edited,rater,final,writer_stance_polarity,scale,writer,mae,27.660618428641143,27.226324027823317,28.08293674760271,45082,1501,
+edited,rater,final,writer_stance_polarity,scale,model,correlation,0.42115976211350603,0.40271008967130534,0.4399760135026673,45063,1501,
+edited,rater,final,writer_stance_polarity,scale,model,bias,4.207664824800834,3.3353233343305253,5.068716121965744,45063,1501,
+edited,rater,final,writer_stance_polarity,scale,model,mae,26.07367463329117,25.608496572502528,26.531386097634964,45063,1501,
+edited,rater,final,writer_stance_polarity,scale,model - writer,correlation,0.05947771321211348,0.04307901036189957,0.07731810692962014,,1501,0.0
+edited,rater,final,writer_stance_polarity,scale,model - writer,bias,4.57197874166344,4.043900179731422,5.098569634435259,,1501,0.0
+edited,rater,final,writer_stance_polarity,scale,model - writer,mae,-1.586943795349974,-2.0205484356954027,-1.1757559025162234,,1501,0.0
+preferred,rater,final,writer_stance,scale,writer,correlation,0.6621298447230173,0.6469356807165402,0.6748064058435712,37995,1438,
+preferred,rater,final,writer_stance,scale,writer,bias,-2.0744045269114357,-2.8899371927988518,-1.347200918216134,37995,1438,
+preferred,rater,final,writer_stance,scale,writer,mae,20.319752599026188,19.902208500038096,20.77792430410965,37995,1438,
+preferred,rater,final,writer_stance,scale,model,correlation,0.6953523569817143,0.6787318569306341,0.7099775963227377,37977,1438,
+preferred,rater,final,writer_stance,scale,model,bias,-0.24604365800352845,-0.9768008679438958,0.4304573262201935,37977,1438,
+preferred,rater,final,writer_stance,scale,model,mae,19.211154119598703,18.759461689919473,19.742520718894312,37977,1438,
+preferred,rater,final,writer_stance,scale,model - writer,correlation,0.03322251225869699,0.022303882424876444,0.04388282743530015,,1438,0.0
+preferred,rater,final,writer_stance,scale,model - writer,bias,1.8283608689079074,1.378361840980045,2.3411240857727744,,1438,0.0
+preferred,rater,final,writer_stance,scale,model - writer,mae,-1.108598479427485,-1.4761114667287634,-0.7211345814360712,,1438,0.0
+preferred,rater,final,writer_stance_polarity,scale,writer,correlation,0.3611779188705576,0.34074031766285157,0.38153663604042803,37995,1438,
+preferred,rater,final,writer_stance_polarity,scale,writer,bias,-0.7227793130675089,-1.706854121759092,0.27319270712487503,37995,1438,
+preferred,rater,final,writer_stance_polarity,scale,writer,mae,27.588840636925912,27.118601367229786,28.043886950539388,37995,1438,
+preferred,rater,final,writer_stance_polarity,scale,model,correlation,0.4199458466479573,0.39979720502717003,0.44001648815380756,37977,1438,
+preferred,rater,final,writer_stance_polarity,scale,model,bias,4.11564894541433,3.1606597421447007,5.07951339990557,37977,1438,
+preferred,rater,final,writer_stance_polarity,scale,model,mae,25.97066645601285,25.47383590567822,26.489223895968895,37977,1438,
+preferred,rater,final,writer_stance_polarity,scale,model - writer,correlation,0.0587679277773997,0.039229333139643933,0.07727372058144921,,1438,0.0
+preferred,rater,final,writer_stance_polarity,scale,model - writer,bias,4.838428258481839,4.261811329250074,5.444536711674364,,1438,0.0
+preferred,rater,final,writer_stance_polarity,scale,model - writer,mae,-1.618174180913062,-2.088432180402165,-1.125610697883673,,1438,0.0

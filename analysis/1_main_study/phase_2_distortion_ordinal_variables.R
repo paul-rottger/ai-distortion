@@ -6,8 +6,8 @@
 # Estimates ordinal distortion effects in writer and model paragraphs.
 #
 # - Fits cumulative link mixed models for ordinal outcomes.
-# - Computes model-level and input-condition contrasts against writer baselines.
-# - Runs analyses on unedited and edited subsets.
+# - Computes paragraph-type, model-level, and input-condition contrasts against writer baselines.
+# - Runs analyses on preferred, edited, and unedited subsets (preferred only in demo mode).
 # - Writes ordinal distortion result tables to results/main_phase_2_distortion/.
 # 
 # =============================================================================
@@ -19,9 +19,7 @@
 # ===== PACKAGES ----
 suppressPackageStartupMessages({
   library(tidyverse)
-  library(effsize)
   library(ordinal)
-  library(parallel)
 })
 
 source("./analysis/utils_r/demo_paths.R")
@@ -127,11 +125,11 @@ fit_ordinal_logit <- function(df, outcome, predictor = "paragraph_type_", random
 run_ordinal_regressions <- function(attribute) {
   print(paste("running ordinal logistic regression for:", attribute))
 
-  for (data_split in c("unedited", "edited")) {
+  for (data_split in if (demo_mode) c("preferred") else c("preferred", "edited", "unedited")) {
     for (predictor in list(
-      #c("paragraph_type_", "by_type")
+      c("paragraph_type_", "by_type"),
       c("model_", "by_model"),
-      c("input_condition_", "by_input_condition")
+      c("input_condition_", "by_input")
     )) {
       split_data <- switch(data_split,
         unedited = data_unedited,

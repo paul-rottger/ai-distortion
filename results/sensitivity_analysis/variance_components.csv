@@ -1,0 +1,6 @@
+study,component,scale,assumed,realised
+Study 4,reader SD,logit,0.6,0.8618172457687574
+Study 4,beta precision (phi),-,3,1.8765612658640192
+Study 5,reader SD,points (0-100),10,3.853683379804839
+Study 5,proposition SD,points (0-100),6,2.3900182032676573
+Study 5,residual SD,points (0-100),22.20360331117452,16.395571522650357

@@ -14,6 +14,8 @@ To make API calls, you need a `.env` file in the repository root with your OpenA
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
+Run the commands below from the repository root, with the virtual environment from the main README (`.venv_analysis`) activated.
+
 ## Reward Models
 
 The reranking pipeline currently supports training and evaluating two types of Reward Models (RMs):
@@ -29,7 +31,7 @@ Since the models operate on different input data, they are trained and evaluated
 This builds train, validation, and test splits for each RM and exports both CSV and JSONL files.
 
 ```bash
-env/bin/python reranking/1_prepare_finetuning.py
+python reranking/1_prepare_finetuning.py
 ```
 
 Outputs for each RM dataset include:
@@ -46,7 +48,7 @@ This uploads the prepared training and validation JSONL files and creates an Ope
 Example:
 
 ```bash
-env/bin/python reranking/2_launch_finetuning.py \
+python reranking/2_launch_finetuning.py \
 	--dataset paragraph_rm \
 	--train-size 1000 \
 	--model gpt-4.1-nano-2025-04-14
@@ -67,7 +69,7 @@ Fine-tuned models will be listed in the OpenAI dashboard and accessible with the
 Once you have a base model (e.g. `gpt-4.1-nano-2025-04-14`) or fine-tuned model (`your-finetuned-model`), score the test split:
 
 ```bash
-env/bin/python reranking/3_get_rm_scores.py \
+python reranking/3_get_rm_scores.py \
 	--dataset paragraph_rm \
 	--model <your-finetuned-model>
 ```
@@ -90,7 +92,7 @@ Useful options:
 This compares predicted `writer_stance` values against the held-out test labels.
 
 ```bash
-env/bin/python reranking/4_evaluate_rms.py --dataset paragraph_rm
+python reranking/4_evaluate_rms.py --dataset paragraph_rm
 ```
 
 By default, the script evaluates all CSV score files in `reranking/rm_scores/<dataset>/`.
@@ -98,23 +100,23 @@ By default, the script evaluates all CSV score files in `reranking/rm_scores/<da
 Outputs are written to:
 
 ```text
-reranking/results/rm_evaluations/<dataset>/
+reranking/rm_evaluations/<dataset>_summary.csv
 ```
 
 
 ## Typical End-to-End Run
 
 ```bash
-source env/bin/activate
-env/bin/python reranking/1_prepare_finetuning.py
-env/bin/python reranking/2_launch_finetuning.py --dataset paragraph_rm --train-size 1000 --model gpt-4.1-nano-2025-04-14
-env/bin/python reranking/3_get_rm_scores.py --dataset paragraph_rm --model your-finetuned-model
-env/bin/python reranking/4_evaluate_rms.py --dataset paragraph_rm
+source .venv_analysis/bin/activate
+python reranking/1_prepare_finetuning.py
+python reranking/2_launch_finetuning.py --dataset paragraph_rm --train-size 1000 --model gpt-4.1-nano-2025-04-14
+python reranking/3_get_rm_scores.py --dataset paragraph_rm --model your-finetuned-model
+python reranking/4_evaluate_rms.py --dataset paragraph_rm
 ```
 
 ## Using Reward Models for Reranking
 
-In our mitigation study, we used the `paragraph_rm` and `bullet_rm` scores to implement a Reranking method for selecting least-distorting paragrpaphs from candidate model outputs.
+In our mitigation study, we used the `paragraph_rm` and `bullet_rm` scores to implement a Reranking method for selecting least-distorting paragraphs from candidate model outputs.
 At inference time, under the Reranking condition, we used verbalised sampling to generate two batches of five candidate paragraphs from the assigned model by appending the following instruction to the standard generation prompt:
 
 ```text

@@ -15,7 +15,6 @@ from __future__ import annotations
 
 import argparse
 import math
-import re
 from pathlib import Path
 
 import pandas as pd
@@ -65,10 +64,6 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def model_slug(value: str) -> str:
-    return re.sub(r"[^A-Za-z0-9._-]+", "-", value).strip("-")
-
-
 def dataset_test_path(dataset_name: str) -> Path:
     return FINETUNING_DATA_DIR / dataset_name / "test.csv"
 
@@ -111,33 +106,6 @@ def rmse(y_true: pd.Series, y_pred: pd.Series) -> float:
 
 def mean_absolute_error(y_true: pd.Series, y_pred: pd.Series) -> float:
     return float((y_true - y_pred).abs().mean())
-
-
-def accuracy_score(y_true: pd.Series, y_pred: pd.Series) -> float:
-    return float((y_true == y_pred).mean())
-
-
-def macro_f1_score(y_true: pd.Series, y_pred: pd.Series) -> float:
-    labels = sorted(set(y_true.tolist()) | set(y_pred.tolist()))
-    f1_values: list[float] = []
-
-    for label in labels:
-        true_positive = int(((y_true == label) & (y_pred == label)).sum())
-        false_positive = int(((y_true != label) & (y_pred == label)).sum())
-        false_negative = int(((y_true == label) & (y_pred != label)).sum())
-
-        precision_denominator = true_positive + false_positive
-        recall_denominator = true_positive + false_negative
-        precision = true_positive / precision_denominator if precision_denominator else 0.0
-        recall = true_positive / recall_denominator if recall_denominator else 0.0
-
-        if precision == 0.0 and recall == 0.0:
-            f1_values.append(0.0)
-            continue
-
-        f1_values.append((2 * precision * recall) / (precision + recall))
-
-    return float(sum(f1_values) / len(f1_values)) if f1_values else float("nan")
 
 
 def load_score_df(score_path: Path) -> pd.DataFrame:

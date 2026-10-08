@@ -1,0 +1,3 @@
+variable_type,n_attributes,n_attributes_any_sig_raw,n_attributes_any_sig_holm,n_pairs,n_pairs_sig_raw,n_pairs_sig_holm
+ordinal,5,5,4,15,12,11
+scale,20,19,18,60,41,40

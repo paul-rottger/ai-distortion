@@ -7,12 +7,11 @@
 # across scale, ordinal, and nominal annotation variables.
 #
 # - Runs t-tests by paragraph type for scale outcomes.
-# - Computes scale-attribute correlation matrices and heatmaps.
+# - Computes scale-attribute correlation matrices.
 # - Runs Mann-Whitney U tests with Cliff's delta for ordinal outcomes.
 # - Runs chi-squared tests with Cramer's V for nominal outcomes.
 # - Runs analyses on unedited, edited, and preferred subsets.
 # - Writes distribution result tables to results/followup_mitigation_phase_2_distribution/.
-# - Saves scale correlation figures under figures/followup_mitigation_phase_2_distributions/.
 #
 # =============================================================================
 
@@ -35,7 +34,6 @@ demo_mode <- parse_demo_mode(args)
 
 # ===== ANALYSIS CONFIG ----
 RESULTS_DIR <- get_results_dir(demo_mode, "followup_mitigation_phase_2_distribution")
-FIGURES_DIR <- get_figures_dir(demo_mode, "followup_mitigation_phase_2_distributions")
 DATA_SPLITS <- c("unedited", "edited", "preferred")
 CORRELATION_ATTRIBUTES <- rating_attributes
 
@@ -144,55 +142,6 @@ compute_correlation_results <- function(df, attributes) {
     )
 }
 
-create_correlation_heatmap <- function(correlation_results, data_split) {
-  figure_dir <- file.path(FIGURES_DIR, data_split)
-  dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
-
-  plot_data <- correlation_results %>%
-    mutate(
-      correlation = if_else(!is.na(p_value) & p_value < 0.001, correlation, NA_real_),
-      label_x = factor(label_x, levels = CORRELATION_ATTRIBUTES),
-      label_y = factor(label_y, levels = rev(CORRELATION_ATTRIBUTES))
-    )
-
-  heatmap_plot <- ggplot(plot_data, aes(x = label_x, y = label_y, fill = correlation)) +
-    geom_tile(color = "white", linewidth = 0.3) +
-    geom_text(aes(label = label_text), size = 2.7, na.rm = FALSE) +
-    scale_fill_gradient2(
-      low = "#2166ac",
-      mid = "#f7f7f7",
-      high = "#b2182b",
-      midpoint = 0,
-      limits = c(-1, 1),
-      na.value = "#d9d9d9",
-      name = "Pearson r"
-    ) +
-    coord_fixed() +
-    labs(
-      title = paste("Scale Attribute Correlations:", str_to_title(data_split)),
-      x = NULL,
-      y = NULL,
-      caption = "Cells show Pearson correlation coefficients rounded to two decimals. Cells are masked unless p < .001."
-    ) +
-    theme_minimal(base_size = 11) +
-    theme(
-      axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
-      axis.text.y = element_text(hjust = 1),
-      panel.grid = element_blank(),
-      plot.title = element_text(face = "bold"),
-      plot.caption = element_text(hjust = 0),
-      legend.position = "right"
-    )
-
-  ggsave(
-    filename = file.path(figure_dir, "scale_attribute_correlation_matrix.pdf"),
-    plot = heatmap_plot,
-    width = 14,
-    height = 12,
-    dpi = 300
-  )
-}
-
 # ===== SCALE TESTS ----
 run_scale_test_by_type <- function(df, attribute) {
   df_sub <- df %>%
@@ -269,11 +218,6 @@ run_scale_correlations <- function() {
     write_csv(
       correlation_results,
       file.path(RESULTS_DIR, data_split, "scale_attribute_correlations.csv")
-    )
-
-    create_correlation_heatmap(
-      correlation_results = correlation_results,
-      data_split = data_split
     )
   }
 }

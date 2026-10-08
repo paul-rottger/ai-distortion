@@ -53,11 +53,6 @@ DISTORTION_TOLERANCE_PATH = str(
 # Plot configuration
 ALL_SPLITS = ["preferred"] if DEMO_MODE else ["unedited", "edited", "preferred"]
 DEFAULT_PLOT_SPLITS = ["preferred"]
-SUBSET_FILE_ALIASES = {
-    "by_type": ["by_type"],
-    "by_model": ["by_model"],
-    "by_input": ["by_input", "by_input_condition"],
-}
 PROPOSITION_LEANINGS = ["left", "right"]
 PROPOSITION_LEANING_SPLIT = "preferred"
 PROPOSITION_LEANING_SUBSET = "by_proposition_leaning"
@@ -98,6 +93,32 @@ TERM_ORDERS = {
 
 SCALE_GROUP_BOUNDARIES = [2.5, 4.5, 9.5, 14.5]
 
+# Display order (top to bottom) for scale attribute AME plots, grouped to match
+# SCALE_GROUP_BOUNDARIES
+SCALE_ATTRIBUTES_GROUPED = [
+    "paragraph_formality",
+    "paragraph_informativeness",
+    "paragraph_originality",
+    "paragraph_clarity",
+    "paragraph_relevance",
+    "writer_knowledge",
+    "writer_importance",
+    "writer_confidence",
+    "writer_stance_polarity",
+    "writer_openness",
+    "paragraph_hope",
+    "paragraph_excitement",
+    "paragraph_fear",
+    "paragraph_disgust",
+    "paragraph_anger",
+    "writer_affect_x",
+    "writer_affect_y",
+    "writer_optimism",
+    "writer_community",
+    "writer_friendliness",
+]
+assert sorted(SCALE_ATTRIBUTES_GROUPED) == sorted(SCALE_ATTRIBUTES)
+
 
 # =============================================================================
 # LOAD DATA
@@ -114,12 +135,9 @@ def load_results_by_attribute(attributes, subset_names, splits=None, results_dir
         for attr in reversed(attributes):
             attr_results = {}
             for subset in subset_names:
-                candidate_subsets = SUBSET_FILE_ALIASES.get(subset, [subset])
-                for candidate_subset in candidate_subsets:
-                    path = os.path.join(results_dir, para, f"{attr}_{candidate_subset}.csv")
-                    if os.path.exists(path):
-                        attr_results[subset] = pd.read_csv(path)
-                        break
+                path = os.path.join(results_dir, para, f"{attr}_{subset}.csv")
+                if os.path.exists(path):
+                    attr_results[subset] = pd.read_csv(path)
 
             if attr_results:
                 split_results[attr] = attr_results
@@ -555,11 +573,11 @@ def create_horizontal_odds_ratio_plot_nominal_grouped(
 ################################
 
 regression_dict = load_results_by_attribute(
-    SCALE_ATTRIBUTES,
+    SCALE_ATTRIBUTES_GROUPED,
     subset_names=["by_type", "by_model", "by_input"],
 )
 
-proposition_regression_dict = load_results_by_proposition_leaning(SCALE_ATTRIBUTES)
+proposition_regression_dict = load_results_by_proposition_leaning(SCALE_ATTRIBUTES_GROUPED)
 
 
 # Create horizontal AME plot for "by_type" subset
@@ -652,9 +670,9 @@ def create_horizontal_ame_plot(
         ax.axhline(boundary, color="gray", linestyle=(0, (5, 5)), linewidth=0.5)
 
     # Set y-tick labels and positions
-    y_tick_positions = list(range(len(SCALE_ATTRIBUTES)))
+    y_tick_positions = list(range(len(SCALE_ATTRIBUTES_GROUPED)))
     ax.set_yticks(y_tick_positions)
-    ax.set_yticklabels(list(reversed(SCALE_ATTRIBUTES)))
+    ax.set_yticklabels(list(reversed(SCALE_ATTRIBUTES_GROUPED)))
 
     # Customize the plot
     ax.set_xlabel(xlabel, fontsize=12)
@@ -682,7 +700,7 @@ available_splits = [
     if split_has_required_columns(
         regression_dict,
         split,
-        SCALE_ATTRIBUTES,
+        SCALE_ATTRIBUTES_GROUPED,
         "by_type",
         ["ame", "ame_low", "ame_high"],
     )
@@ -708,7 +726,7 @@ for split in ALL_SPLITS:
         available_attributes = get_available_attributes(
             regression_dict,
             split,
-            SCALE_ATTRIBUTES,
+            SCALE_ATTRIBUTES_GROUPED,
             subset,
             ["term", "ame", "ame_low", "ame_high"],
         )
@@ -720,7 +738,7 @@ for split in ALL_SPLITS:
 
         fig, _ = create_horizontal_grouped_effect_plot(
             regression_dict,
-            attributes=SCALE_ATTRIBUTES,
+            attributes=SCALE_ATTRIBUTES_GROUPED,
             split=split,
             subset=subset,
             estimate_column="ame",
@@ -741,7 +759,7 @@ for split in ALL_SPLITS:
 proposition_available_attributes = get_available_attributes(
     proposition_regression_dict,
     PROPOSITION_LEANING_SPLIT,
-    SCALE_ATTRIBUTES,
+    SCALE_ATTRIBUTES_GROUPED,
     PROPOSITION_LEANING_SUBSET,
     ["term", "ame", "ame_low", "ame_high"],
 )
@@ -749,7 +767,7 @@ proposition_available_attributes = get_available_attributes(
 if proposition_available_attributes:
     fig, _ = create_horizontal_grouped_effect_plot(
         proposition_regression_dict,
-        attributes=SCALE_ATTRIBUTES,
+        attributes=SCALE_ATTRIBUTES_GROUPED,
         split=PROPOSITION_LEANING_SPLIT,
         subset=PROPOSITION_LEANING_SUBSET,
         estimate_column="ame",

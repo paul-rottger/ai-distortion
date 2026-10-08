@@ -5,8 +5,10 @@
 # 
 # Estimates scale-based distortion effects for writer and model paragraphs.
 #
-# - Fits beta regressions for scale outcomes.
-# - Computes average marginal effects for model and input-condition comparisons.
+# - Fits beta regressions for scale outcomes, with crossed reader, writer and
+#   proposition random intercepts (as pre-registered).
+# - Computes average marginal effects for paragraph-type, model and
+#   input-condition comparisons.
 # - Runs analyses on unedited, edited, and preferred subsets.
 # - Writes scale distortion result tables to results/main_phase_2_distortion/.
 # 
@@ -22,19 +24,25 @@ suppressPackageStartupMessages({
   library(glmmTMB)
   library(broom.mixed)
   library(marginaleffects)
+  library(parallel)
 })
 
 source("./analysis/utils_r/demo_paths.R")
 source("./analysis/utils_r/variable_definitions.R")
 source("./analysis/utils_r/data_loading.R")
 
-# Set random seed for reproducibility
+# Set random seed for reproducibility (parallel-safe RNG streams)
+RNGkind("L'Ecuyer-CMRG")
 set.seed(123)
 
 # Parse command-line flags
 args <- commandArgs(trailingOnly = TRUE)
 demo_mode <- parse_demo_mode(args)
 RESULTS_DIR <- get_results_dir(demo_mode, "main_phase_2_distortion")
+
+# Crossed random intercepts for readers, writers and propositions
+RANDOM_EFFECTS <- "(1 | rater_id) + (1 | writer_id) + (1 | proposition_id)"
+N_CORES <- min(10, detectCores())
 
 # =============================================================================
 # DATA LOADING AND PROCESSING
@@ -84,14 +92,23 @@ fit_beta <- function(df, outcome, predictor, random) {
     ) %>%
     select(term, odds_ratio, or_low, or_high, statistic, p)
 
-  # Compute average marginal effects
-  ame <- avg_comparisons(
+  # Compute average marginal effects. If a random-effect variance collapses to
+  # zero (only seen on small demo subsamples), marginaleffects cannot build the
+  # covariance matrix; fall back to point estimates without CIs.
+  ame_args <- list(
     model,
     variables = setNames(list("reference"), predictor),
     type = "response",
     re.form = NA
+  )
+  ame <- tryCatch(
+    as_tibble(do.call(avg_comparisons, ame_args)),
+    error = function(e) {
+      warning(sprintf("AME CIs unavailable for %s ~ %s: %s", outcome, predictor, conditionMessage(e)), call. = FALSE)
+      as_tibble(do.call(avg_comparisons, c(ame_args, vcov = FALSE))) %>%
+        mutate(conf.low = NA_real_, conf.high = NA_real_)
+    }
   ) %>%
-    as_tibble() %>%
     mutate(
       term = paste0(predictor, sub(" .*", "", contrast)),
       ame = estimate * 100,
@@ -114,7 +131,7 @@ run_regressions <- function(attribute) {
 
   for (data_split in if (demo_mode) c("preferred") else c("preferred", "edited", "unedited")) {
     for (predictor in list(
-      #c("paragraph_type_", "by_type")
+      c("paragraph_type_", "by_type"),
       c("model_", "by_model"),
       c("input_condition_", "by_input")
     )) {
@@ -138,7 +155,7 @@ run_regressions <- function(attribute) {
       results <- fit_beta(split_data,
         outcome = attribute,
         predictor = predictor[1],
-        random = "(1 | rater_id)"
+        random = RANDOM_EFFECTS
       )
       write_csv(
         results$tidy_fixed,
@@ -153,6 +170,9 @@ if (demo_mode) {
   message("Running in demo mode on n=1000 samples from each data split.")
 }
 
-for (attr in rating_attributes) {
-  run_regressions(attr)
+# Fit attributes in parallel; stop if any attribute failed
+status <- mclapply(rating_attributes, run_regressions, mc.cores = N_CORES, mc.set.seed = TRUE)
+failed <- vapply(status, inherits, logical(1), what = "try-error")
+if (any(failed)) {
+  stop("Regressions failed for: ", paste(rating_attributes[failed], collapse = ", "))
 }

@@ -92,13 +92,17 @@ print_section "MAIN STUDY: PHASE 1 (WRITING)"
 run_python "analysis/1_main_study/phase_1_paragraph_edits.py" "${DEMO_ARGS[@]}"
 run_python "analysis/1_main_study/phase_1_writer_engagement.py" "${DEMO_ARGS[@]}"
 run_python "analysis/1_main_study/phase_1_distortion_tolerance.py" "${DEMO_ARGS[@]}"
+run_python "analysis/1_main_study/phase_1_text_metrics.py" "${DEMO_ARGS[@]}"
+run_python "analysis/1_main_study/phase_1_text_homogenisation.py" "${DEMO_ARGS[@]}"
 run_r "analysis/1_main_study/phase_1_paragraph_preference.R" "${DEMO_ARGS[@]}"
+run_python "analysis/1_main_study/phase_1_preference_reasons_summary.py" "${DEMO_ARGS[@]}"
 
 # ==========================
 print_section "MAIN STUDY: PHASE 2 (RATING - DISTRIBUTIONS)"
 # ==========================
 run_r "analysis/1_main_study/phase_2_distribution_variables.R" "${DEMO_ARGS[@]}"
 run_r "analysis/1_main_study/phase_2_homogenisation.R" "${DEMO_ARGS[@]}"
+run_r "analysis/1_main_study/phase_2_rater_agreement.R" "${DEMO_ARGS[@]}"
 run_python "analysis/1_main_study/phase_2_distribution_plots.py" "${DEMO_ARGS[@]}"
 
 # ==========================
@@ -107,21 +111,45 @@ print_section "MAIN STUDY: PHASE 2 (RATING - DISTORTIONS)"
 run_r "analysis/1_main_study/phase_2_distortion_scale_variables.R" "${DEMO_ARGS[@]}"
 run_r "analysis/1_main_study/phase_2_distortion_ordinal_variables.R" "${DEMO_ARGS[@]}"
 run_r "analysis/1_main_study/phase_2_distortion_nominal_variables.R" "${DEMO_ARGS[@]}"
+run_r "analysis/1_main_study/phase_2_distortion_by_model_pairwise.R" "${DEMO_ARGS[@]}"
 run_r "analysis/1_main_study/phase_2_distortion_by_proposition_leaning.R" "${DEMO_ARGS[@]}"
+run_r "analysis/1_main_study/phase_2_distortion_by_baseline.R" "${DEMO_ARGS[@]}"
 run_python "analysis/1_main_study/phase_2_distortion_by_model.py" "${DEMO_ARGS[@]}"
 run_python "analysis/1_main_study/phase_2_distortion_by_input_condition.py" "${DEMO_ARGS[@]}"
 run_python "analysis/1_main_study/phase_2_distortion_plots.py" "${DEMO_ARGS[@]}"
+run_r "analysis/1_main_study/phase_2_random_effects_sensitivity.R" "${DEMO_ARGS[@]}"
+run_r "analysis/1_main_study/phase_2_random_effects_sensitivity_plots.R" "${DEMO_ARGS[@]}"
+
+# ==========================
+print_section "MAIN STUDY: PHASE 2 (RATING - PROTOCOL ROBUSTNESS)"
+# ==========================
+run_r "analysis/1_main_study/phase_2_rating_robustness.R" "${DEMO_ARGS[@]}"
+run_python "analysis/1_main_study/phase_2_rating_robustness_plots.py" "${DEMO_ARGS[@]}"
+
+# ==========================
+print_section "MAIN STUDY: PHASE 2 (RATING - WRITER ENGAGEMENT ROBUSTNESS)"
+# ==========================
+run_r "analysis/1_main_study/phase_2_writer_engagement_robustness.R" "${DEMO_ARGS[@]}"
+run_python "analysis/1_main_study/phase_2_writer_engagement_robustness_plots.py" "${DEMO_ARGS[@]}"
+
+# ==========================
+print_section "MAIN STUDY: PHASE 2 (RATING - PERCEPTION ACCURACY)"
+# ==========================
+run_python "analysis/1_main_study/phase_2_perception_accuracy.py" "${DEMO_ARGS[@]}"
+run_python "analysis/1_main_study/phase_2_perception_accuracy_plots.py" "${DEMO_ARGS[@]}"
 
 # ==========================
 print_section "DISCLAIMER STUDY: PHASE 1 (WRITING)"
 # ==========================
 run_python "analysis/2_disclaimer_study/phase_1_distortion_tolerance.py" "${DEMO_ARGS[@]}"
 run_r "analysis/2_disclaimer_study/phase_1_paragraph_preference.R" "${DEMO_ARGS[@]}"
+run_python "analysis/2_disclaimer_study/phase_1_preference_reasons_summary.py" "${DEMO_ARGS[@]}"
 
 # ==========================
 print_section "MITIGATION STUDY: PHASE 1 (WRITING)"
 # ==========================
 run_r "analysis/3_mitigation_study/phase_1_paragraph_preference.R" "${DEMO_ARGS[@]}"
+run_python "analysis/3_mitigation_study/phase_1_preference_reasons_summary.py" "${DEMO_ARGS[@]}"
 
 # ==========================
 print_section "MITIGATION STUDY: PHASE 2 (RATING - DISTORTIONS)"
@@ -137,6 +165,7 @@ run_python "analysis/3_mitigation_study/phase_2_mitigation_side_effects_plots.py
 print_section "FOLLOWUP MITIGATION: PHASE 2 (RATING - DISTRIBUTIONS)"
 # ==========================
 run_r "analysis/3_mitigation_study/phase_2_distribution_variables.R" "${DEMO_ARGS[@]}"
+run_r "analysis/3_mitigation_study/phase_2_rater_agreement.R" "${DEMO_ARGS[@]}"
 run_python "analysis/3_mitigation_study/phase_2_distribution_plots.py" "${DEMO_ARGS[@]}"
 
 # ==========================
@@ -150,6 +179,11 @@ print_section "PERSUASION STUDY (READING)"
 # ==========================
 run_r "analysis/5_persuasion_study/persuasion_regressions_full_analyses.R" "${DEMO_ARGS[@]}"
 run_python "analysis/5_persuasion_study/plots.py" "${DEMO_ARGS[@]}"
+
+# ==========================
+print_section "CROSS-STUDY: SENSITIVITY ANALYSIS"
+# ==========================
+run_r "analysis/sensitivity_analysis.R" "${DEMO_ARGS[@]}"
 
 ELAPSED=$(( $(date +%s) - START_TIME ))
 print_section "ALL ANALYSES COMPLETED IN $(printf '%02d:%02d:%02d' $((ELAPSED/3600)) $((ELAPSED%3600/60)) $((ELAPSED%60)))"

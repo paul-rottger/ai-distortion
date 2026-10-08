@@ -36,7 +36,7 @@ os.chdir(REPO_ROOT)
 
 # Internal imports
 sys.path.insert(0, os.path.join(REPO_ROOT, "analysis", "utils_py"))
-from demo_paths import get_figures_dir, get_results_dir, get_results_input_dir, parse_demo_mode
+from demo_paths import get_figures_dir, get_results_input_dir, parse_demo_mode
 from variable_definitions import SCALE_ATTRIBUTES, CATEGORICAL_VARS, CATEGORICAL_LEVELS
 
 DEMO_MODE = parse_demo_mode()
@@ -421,19 +421,6 @@ def _abbreviate_category_label(variable, label):
     }
 
     return abbreviations.get(variable, {}).get(label, label)
-
-
-def _two_line_label(label):
-    """Split a label across two lines when possible to save horizontal space."""
-    text = str(label)
-    parts = text.split()
-
-    if len(parts) <= 1:
-        return text
-
-    # Split near midpoint by word count
-    split_idx = len(parts) // 2
-    return " ".join(parts[:split_idx]) + "\n" + " ".join(parts[split_idx:])
 
 
 def _blend_with_white(hex_color, intensity):

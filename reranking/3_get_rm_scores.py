@@ -169,10 +169,6 @@ def with_eval_prompts(df: pd.DataFrame, dataset_name: str) -> pd.DataFrame:
   return prompted_df
 
 
-def split_batches(df: pd.DataFrame, batch_size: int) -> list[pd.DataFrame]:
-  return [df.iloc[index : index + batch_size].copy() for index in range(0, len(df), batch_size)]
-
-
 class OpenAIModelScorer:
   def __init__(
     self,

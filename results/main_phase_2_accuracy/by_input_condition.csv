@@ -1,0 +1,637 @@
+split,level,input_condition,attribute,kind,paragraph_type,metric,estimate,ci_low,ci_high,n_ratings,n_writers,p_bootstrap
+unedited,rater,stance-based,writer_stance,scale,writer,correlation,0.6475227186675737,0.6244960107038373,0.6713962280872449,15013,1501,
+unedited,rater,stance-based,writer_stance,scale,writer,bias,-0.46106707520149204,-1.6197587213388247,0.4762556590765057,15013,1501,
+unedited,rater,stance-based,writer_stance,scale,writer,mae,20.479051488709786,19.792467125279245,21.159345629324847,15013,1501,
+unedited,rater,stance-based,writer_stance,scale,model,correlation,0.7141802924276434,0.6913990550188482,0.7366865128296588,14966,1501,
+unedited,rater,stance-based,writer_stance,scale,model,bias,1.6491380462381398,0.6920653902524188,2.558494043599507,14966,1501,
+unedited,rater,stance-based,writer_stance,scale,model,mae,17.749097955365496,17.090625005354358,18.426746193962394,14966,1501,
+unedited,rater,stance-based,writer_stance,scale,model - writer,correlation,0.06665757376006964,0.046260301737375054,0.08516977638690998,,1501,0.0
+unedited,rater,stance-based,writer_stance,scale,model - writer,bias,2.110205121439632,1.2327640115129177,3.061904278192281,,1501,0.0
+unedited,rater,stance-based,writer_stance,scale,model - writer,mae,-2.7299535333442897,-3.3619927824013205,-2.0178611400199857,,1501,0.0
+unedited,rater,stance-based,writer_stance_polarity,scale,writer,correlation,0.3575330760837992,0.3283862317428847,0.38644263559966585,15013,1501,
+unedited,rater,stance-based,writer_stance_polarity,scale,writer,bias,5.3447012589089455,3.8625935640542886,6.762025076820307,15013,1501,
+unedited,rater,stance-based,writer_stance_polarity,scale,writer,mae,28.693798707786584,27.961838389478554,29.425002869590106,15013,1501,
+unedited,rater,stance-based,writer_stance_polarity,scale,model,correlation,0.5170895773032009,0.4887057801536636,0.5431688760188264,14966,1501,
+unedited,rater,stance-based,writer_stance_polarity,scale,model,bias,7.189496191367099,6.0715608884852905,8.38353431838334,14966,1501,
+unedited,rater,stance-based,writer_stance_polarity,scale,model,mae,24.803821996525457,24.038917112299465,25.57247377407519,14966,1501,
+unedited,rater,stance-based,writer_stance_polarity,scale,model - writer,correlation,0.15955650121940174,0.12795293673140345,0.19282838095391358,,1501,0.0
+unedited,rater,stance-based,writer_stance_polarity,scale,model - writer,bias,1.8447949324581536,0.6564953897515041,3.0373369943860666,,1501,0.004
+unedited,rater,stance-based,writer_stance_polarity,scale,model - writer,mae,-3.889976711261127,-4.765391045321361,-3.0760336075835983,,1501,0.0
+unedited,rater,stance-based,writer_knowledge,scale,writer,correlation,0.17823950712820763,0.14602929651291469,0.21160485376665572,15013,1501,
+unedited,rater,stance-based,writer_knowledge,scale,writer,bias,1.569639645640445,0.4728823371670958,2.654422964093895,15013,1501,
+unedited,rater,stance-based,writer_knowledge,scale,writer,mae,23.606807433557584,23.126244670157934,24.118232241353226,15013,1501,
+unedited,rater,stance-based,writer_knowledge,scale,model,correlation,0.023643554428040215,0.002418001854761319,0.044726332541217446,14966,1501,
+unedited,rater,stance-based,writer_knowledge,scale,model,bias,19.94801550180409,18.80267381671983,21.074744281856443,14966,1501,
+unedited,rater,stance-based,writer_knowledge,scale,model,mae,27.38246692503007,26.585555922028313,28.192389254266274,14966,1501,
+unedited,rater,stance-based,writer_knowledge,scale,model - writer,correlation,-0.1545959527001674,-0.18993585152564715,-0.11675548622850154,,1501,0.0
+unedited,rater,stance-based,writer_knowledge,scale,model - writer,bias,18.378375856163643,17.564951685851355,19.083296790514357,,1501,0.0
+unedited,rater,stance-based,writer_knowledge,scale,model - writer,mae,3.775659491472485,2.9924507735883816,4.599043173612701,,1501,0.0
+unedited,rater,stance-based,writer_importance,scale,writer,correlation,0.26747050316737137,0.2352134535345129,0.29335860166528194,15013,1501,
+unedited,rater,stance-based,writer_importance,scale,writer,bias,3.7801238926263903,2.70805418731262,5.028993709788982,15013,1501,
+unedited,rater,stance-based,writer_importance,scale,writer,mae,23.712449210684074,23.135534689154643,24.319911412918106,15013,1501,
+unedited,rater,stance-based,writer_importance,scale,model,correlation,0.1735480849183274,0.1445694230768239,0.19914167827695423,14966,1501,
+unedited,rater,stance-based,writer_importance,scale,model,bias,13.48055592676734,12.298921747911884,14.63383814621135,14966,1501,
+unedited,rater,stance-based,writer_importance,scale,model,mae,25.2543097688093,24.5064272463747,26.03336984315297,14966,1501,
+unedited,rater,stance-based,writer_importance,scale,model - writer,correlation,-0.09392241824904396,-0.12444900763910276,-0.059723787300638695,,1501,0.0
+unedited,rater,stance-based,writer_importance,scale,model - writer,bias,9.700432034140949,8.943964919851096,10.440616682192603,,1501,0.0
+unedited,rater,stance-based,writer_importance,scale,model - writer,mae,1.5418605581252258,0.9442903016562617,2.1485025988460897,,1501,0.0
+unedited,rater,stance-based,writer_confidence,scale,writer,correlation,0.2579127422126929,0.22232383381985782,0.2932628842456325,15013,1501,
+unedited,rater,stance-based,writer_confidence,scale,writer,bias,0.4542063544927729,-0.6779156559830991,1.5467037216734516,15013,1501,
+unedited,rater,stance-based,writer_confidence,scale,writer,mae,22.26850063278492,21.661289971366465,22.89327530998871,15013,1501,
+unedited,rater,stance-based,writer_confidence,scale,model,correlation,0.19793561354988637,0.166355701093607,0.22439162740578458,14966,1501,
+unedited,rater,stance-based,writer_confidence,scale,model,bias,8.595082186288922,7.479447613491715,9.824790691727195,14966,1501,
+unedited,rater,stance-based,writer_confidence,scale,model,mae,21.91968461846853,21.197024476564746,22.703806355884826,14966,1501,
+unedited,rater,stance-based,writer_confidence,scale,model - writer,correlation,-0.05997712866280652,-0.09658947098622922,-0.025001210062058347,,1501,0.0
+unedited,rater,stance-based,writer_confidence,scale,model - writer,bias,8.14087583179615,7.4071877681426885,8.89870711425448,,1501,0.0
+unedited,rater,stance-based,writer_confidence,scale,model - writer,mae,-0.348816014316391,-0.9143064130781016,0.2588254560318293,,1501,0.274
+unedited,rater,stance-based,writer_affect_x,scale,writer,correlation,0.19981823072789967,0.17134295505888242,0.2290060960587377,15013,1501,
+unedited,rater,stance-based,writer_affect_x,scale,writer,bias,-5.280709385199489,-6.396442579963281,-4.084588891030329,15013,1501,
+unedited,rater,stance-based,writer_affect_x,scale,writer,mae,23.801883034703256,23.233010697726726,24.360520671876657,15013,1501,
+unedited,rater,stance-based,writer_affect_x,scale,model,correlation,0.12370452819014752,0.097126058976901,0.14935300841663532,14966,1501,
+unedited,rater,stance-based,writer_affect_x,scale,model,bias,2.7031123880796475,1.5079478613766022,4.012587645365831,14966,1501,
+unedited,rater,stance-based,writer_affect_x,scale,model,mae,24.628194574368585,24.102258235634537,25.187130187730475,14966,1501,
+unedited,rater,stance-based,writer_affect_x,scale,model - writer,correlation,-0.07611370253775215,-0.1030276555925651,-0.04720756849946642,,1501,0.0
+unedited,rater,stance-based,writer_affect_x,scale,model - writer,bias,7.983821773279137,7.309366522707694,8.6402714766402,,1501,0.0
+unedited,rater,stance-based,writer_affect_x,scale,model - writer,mae,0.8263115396653298,0.28707017386080985,1.4283649640092049,,1501,0.004
+unedited,rater,stance-based,writer_affect_y,scale,writer,correlation,0.05834325899782944,0.035614527256689746,0.08027117523258388,15013,1501,
+unedited,rater,stance-based,writer_affect_y,scale,writer,bias,1.4013748084992983,0.31862493651771473,2.5030806100605365,15013,1501,
+unedited,rater,stance-based,writer_affect_y,scale,writer,mae,21.37424498767736,20.86708381522933,21.905158467233186,15013,1501,
+unedited,rater,stance-based,writer_affect_y,scale,model,correlation,0.020481891797361,-0.001104360136494328,0.04046322210617553,14966,1501,
+unedited,rater,stance-based,writer_affect_y,scale,model,bias,-1.121981157289857,-2.190256338417564,0.021827859150861908,14966,1501,
+unedited,rater,stance-based,writer_affect_y,scale,model,mae,21.093735801149265,20.595255667923624,21.61701746392161,14966,1501,
+unedited,rater,stance-based,writer_affect_y,scale,model - writer,correlation,-0.03786136720046844,-0.064376219951192,-0.010424564170693948,,1501,0.006
+unedited,rater,stance-based,writer_affect_y,scale,model - writer,bias,-2.5233559657891553,-3.0858596305798844,-1.983698154903067,,1501,0.0
+unedited,rater,stance-based,writer_affect_y,scale,model - writer,mae,-0.2805091865280964,-0.6791818788816556,0.12696204972329483,,1501,0.184
+unedited,rater,stance-based,writer_age_binned,categorical,writer,accuracy,0.1993605541863718,0.1887878710657413,0.21040261427441076,15013,1501,
+unedited,rater,stance-based,writer_age_binned,categorical,writer,chance_accuracy,0.1830822399356735,0.1762938543284143,0.19053946625828747,15013,1501,
+unedited,rater,stance-based,writer_age_binned,categorical,writer,kappa,0.01992650306613056,0.010890777313629486,0.028724702509324795,15013,1501,
+unedited,rater,stance-based,writer_age_binned,categorical,model,accuracy,0.1827475611385808,0.17386040993213667,0.19157216614522377,14966,1501,
+unedited,rater,stance-based,writer_age_binned,categorical,model,chance_accuracy,0.18109780181686355,0.1753444562492602,0.18742682913743156,14966,1501,
+unedited,rater,stance-based,writer_age_binned,categorical,model,kappa,0.0020145987217734763,-0.006554932980697909,0.009691368081063608,14966,1501,
+unedited,rater,stance-based,writer_age_binned,categorical,model - writer,accuracy,-0.016612993047791014,-0.027275728150193974,-0.0072977418091265695,,1501,0.0
+unedited,rater,stance-based,writer_age_binned,categorical,model - writer,chance_accuracy,-0.001984438118809939,-0.006034283954731002,0.0016987544248091542,,1501,0.286
+unedited,rater,stance-based,writer_age_binned,categorical,model - writer,kappa,-0.017911904344357084,-0.02958026446313554,-0.007449055096458035,,1501,0.002
+unedited,rater,stance-based,writer_age_binned,categorical,writer,ordinal_correlation,0.10222381064294,0.07967388705239371,0.12622811171289902,15013,1501,
+unedited,rater,stance-based,writer_age_binned,categorical,model,ordinal_correlation,0.002147037130879748,-0.01980085851288812,0.024349242093826967,14966,1501,
+unedited,rater,stance-based,writer_age_binned,categorical,model - writer,ordinal_correlation,-0.10007677351206026,-0.12717434275465947,-0.07253322784554991,,1501,0.0
+unedited,rater,stance-based,writer_education,categorical,writer,accuracy,0.2331103678929766,0.22360611072024583,0.24223398119759884,14950,1495,
+unedited,rater,stance-based,writer_education,categorical,writer,chance_accuracy,0.21206432590239482,0.20676831053897615,0.21723357581001332,14950,1495,
+unedited,rater,stance-based,writer_education,categorical,writer,kappa,0.026710355530843378,0.016963584535110696,0.036635128970634125,14950,1495,
+unedited,rater,stance-based,writer_education,categorical,model,accuracy,0.25722911774572293,0.2463866263712071,0.26872121683689293,14905,1495,
+unedited,rater,stance-based,writer_education,categorical,model,chance_accuracy,0.25554229903556697,0.2464381302831868,0.26519196678327495,14905,1495,
+unedited,rater,stance-based,writer_education,categorical,model,kappa,0.0022658355309787535,-0.006709515978634315,0.011190303738446395,14905,1495,
+unedited,rater,stance-based,writer_education,categorical,model - writer,accuracy,0.02411874985274634,0.011921794652342074,0.03669799800872964,,1495,0.0
+unedited,rater,stance-based,writer_education,categorical,model - writer,chance_accuracy,0.04347797313317214,0.03622589189711194,0.051341136190811494,,1495,0.0
+unedited,rater,stance-based,writer_education,categorical,model - writer,kappa,-0.024444519999864623,-0.037004554429194536,-0.012133938731913107,,1495,0.0
+unedited,rater,stance-based,writer_education,categorical,writer,ordinal_correlation,0.09440832730525874,0.06992338704645001,0.11877572548568187,14647,1483,
+unedited,rater,stance-based,writer_education,categorical,model,ordinal_correlation,0.016000965382048832,-0.004562321015342807,0.03608765675120258,14626,1483,
+unedited,rater,stance-based,writer_education,categorical,model - writer,ordinal_correlation,-0.0784073619232099,-0.10794181907490273,-0.04900277911639072,,1483,0.0
+unedited,rater,stance-based,writer_income,categorical,writer,accuracy,0.1969449378330373,0.1880933334865622,0.2055883250519235,14075,1407,
+unedited,rater,stance-based,writer_income,categorical,writer,chance_accuracy,0.18826782429827524,0.1827822825866477,0.19378524452463686,14075,1407,
+unedited,rater,stance-based,writer_income,categorical,writer,kappa,0.010689626202461272,0.001598513761368833,0.01950100283094135,14075,1407,
+unedited,rater,stance-based,writer_income,categorical,model,accuracy,0.16023083499572527,0.15125168869099795,0.16900469093801623,14036,1407,
+unedited,rater,stance-based,writer_income,categorical,model,chance_accuracy,0.16474791626076365,0.15833520928850064,0.17150826696478091,14036,1407,
+unedited,rater,stance-based,writer_income,categorical,model,kappa,-0.005408045490669627,-0.012570243700328642,0.0013105342078362702,14036,1407,
+unedited,rater,stance-based,writer_income,categorical,model - writer,accuracy,-0.036714102837312024,-0.047467096305589034,-0.02582958132902555,,1407,0.0
+unedited,rater,stance-based,writer_income,categorical,model - writer,chance_accuracy,-0.023519908037511583,-0.02986080457907448,-0.01733341244348984,,1407,0.0
+unedited,rater,stance-based,writer_income,categorical,model - writer,kappa,-0.0160976716931309,-0.026860557966011108,-0.005182704038958387,,1407,0.006
+unedited,rater,stance-based,writer_income,categorical,writer,ordinal_correlation,0.052714185531127535,0.026504282332902755,0.077773450660919,14075,1407,
+unedited,rater,stance-based,writer_income,categorical,model,ordinal_correlation,0.020039766117298238,-0.001635626386183833,0.041476190399597414,14036,1407,
+unedited,rater,stance-based,writer_income,categorical,model - writer,ordinal_correlation,-0.0326744194138293,-0.06449019239559108,-0.0012795068090125997,,1407,0.05
+unedited,rater,stance-based,writer_english_skills,categorical,writer,accuracy,0.3216475606504932,0.3124822697766022,0.33095329642913945,15004,1500,
+unedited,rater,stance-based,writer_english_skills,categorical,writer,chance_accuracy,0.31298955664608696,0.30620160017387693,0.3208194941153087,15004,1500,
+unedited,rater,stance-based,writer_english_skills,categorical,writer,kappa,0.01260243434166558,0.004445164598156669,0.02032813522023284,15004,1500,
+unedited,rater,stance-based,writer_english_skills,categorical,model,accuracy,0.5769590799679059,0.5653172255963667,0.5894189823375632,14956,1500,
+unedited,rater,stance-based,writer_english_skills,categorical,model,chance_accuracy,0.5750353841715676,0.564922816533558,0.5863907415669474,14956,1500,
+unedited,rater,stance-based,writer_english_skills,categorical,model,kappa,0.0045267199307597395,-0.007513444281221043,0.017014581291699284,14956,1500,
+unedited,rater,stance-based,writer_english_skills,categorical,model - writer,accuracy,0.25531151931741264,0.24001741223389256,0.27028667560847347,,1500,0.0
+unedited,rater,stance-based,writer_english_skills,categorical,model - writer,chance_accuracy,0.26204582752548067,0.24982909793566582,0.2745131585139729,,1500,0.0
+unedited,rater,stance-based,writer_english_skills,categorical,model - writer,kappa,-0.008075714410905842,-0.022723037599424796,0.007392373768264876,,1500,0.298
+unedited,rater,stance-based,writer_english_skills,categorical,writer,ordinal_correlation,0.04114837824014724,0.015783087139854473,0.06482680660712489,15004,1500,
+unedited,rater,stance-based,writer_english_skills,categorical,model,ordinal_correlation,0.004664236127904166,-0.012185357252990798,0.020154622986184312,14956,1500,
+unedited,rater,stance-based,writer_english_skills,categorical,model - writer,ordinal_correlation,-0.03648414211224307,-0.065610708589711,-0.00920194358920237,,1500,0.012
+unedited,rater,stance-based,writer_politicalIdeology,categorical,writer,accuracy,0.27112010796221325,0.2617310294476776,0.2801941726967317,14820,1482,
+unedited,rater,stance-based,writer_politicalIdeology,categorical,writer,chance_accuracy,0.2373974058472247,0.23300216722810083,0.24230935378414645,14820,1482,
+unedited,rater,stance-based,writer_politicalIdeology,categorical,writer,kappa,0.044220544715630396,0.032322845637686635,0.055559771081611406,14820,1482,
+unedited,rater,stance-based,writer_politicalIdeology,categorical,model,accuracy,0.2725302999526034,0.2630835578969129,0.2819838130487953,14769,1482,
+unedited,rater,stance-based,writer_politicalIdeology,categorical,model,chance_accuracy,0.24777352940201577,0.24306429764163415,0.2524058567481167,14769,1482,
+unedited,rater,stance-based,writer_politicalIdeology,categorical,model,kappa,0.0329113259347377,0.02151551990440805,0.04429248337569448,14769,1482,
+unedited,rater,stance-based,writer_politicalIdeology,categorical,model - writer,accuracy,0.0014101919903901639,-0.00871812659735572,0.011894644769915388,,1482,0.77
+unedited,rater,stance-based,writer_politicalIdeology,categorical,model - writer,chance_accuracy,0.010376123554791061,0.0074965635990416205,0.013241912796867636,,1482,0.0
+unedited,rater,stance-based,writer_politicalIdeology,categorical,model - writer,kappa,-0.011309218780892694,-0.023513347069346685,0.002547893969406835,,1482,0.118
+unedited,rater,stance-based,writer_politicalIdeology,categorical,writer,ordinal_correlation,0.1677191492420626,0.14010159939305605,0.19553348963383596,13463,1453,
+unedited,rater,stance-based,writer_politicalIdeology,categorical,model,ordinal_correlation,0.11308262428453494,0.08523041445452523,0.1406233200583839,13807,1453,
+unedited,rater,stance-based,writer_politicalIdeology,categorical,model - writer,ordinal_correlation,-0.05463652495752766,-0.07978800563844203,-0.030340172234561744,,1453,0.0
+unedited,rater,stance-based,writer_english_first,categorical,writer,accuracy,0.8562842259917189,0.8452587713803196,0.8670457828755185,14974,1497,
+unedited,rater,stance-based,writer_english_first,categorical,writer,chance_accuracy,0.8515392130920165,0.8404207344605199,0.8626365275976238,14974,1497,
+unedited,rater,stance-based,writer_english_first,categorical,writer,kappa,0.031961388582989206,0.005951043076971551,0.058479584912523384,14974,1497,
+unedited,rater,stance-based,writer_english_first,categorical,model,accuracy,0.9171803805950147,0.9060428060672572,0.9278428805099322,14924,1497,
+unedited,rater,stance-based,writer_english_first,categorical,model,chance_accuracy,0.9176240113313153,0.9065069721707856,0.928016442820624,14924,1497,
+unedited,rater,stance-based,writer_english_first,categorical,model,kappa,-0.005385437473592969,-0.01931361902399478,0.009651293378193797,14924,1497,
+unedited,rater,stance-based,writer_english_first,categorical,model - writer,accuracy,0.06089615460329578,0.05320597294966877,0.06896594651441774,,1497,0.0
+unedited,rater,stance-based,writer_english_first,categorical,model - writer,chance_accuracy,0.0660847982392988,0.05928739701224725,0.07299053895058619,,1497,0.0
+unedited,rater,stance-based,writer_english_first,categorical,model - writer,kappa,-0.037346826056582176,-0.06599335850890974,-0.006342088007572006,,1497,0.016
+unedited,rater,stance-based,writer_gender,categorical,writer,accuracy,0.5204170286707211,0.5081283477645132,0.5341696588771714,14963,1496,
+unedited,rater,stance-based,writer_gender,categorical,writer,chance_accuracy,0.4874423140447187,0.48293232190969715,0.49199972484857707,14963,1496,
+unedited,rater,stance-based,writer_gender,categorical,writer,kappa,0.06433366532109588,0.040854327569748126,0.08959360442561277,14963,1496,
+unedited,rater,stance-based,writer_gender,categorical,model,accuracy,0.49477071600965405,0.48219005229154843,0.5070831459589835,14916,1496,
+unedited,rater,stance-based,writer_gender,categorical,model,chance_accuracy,0.4861441332569028,0.4828843449398797,0.4892259403403019,14916,1496,
+unedited,rater,stance-based,writer_gender,categorical,model,kappa,0.016787942516698195,-0.006207398574928306,0.040556507527456126,14916,1496,
+unedited,rater,stance-based,writer_gender,categorical,model - writer,accuracy,-0.025646312661067094,-0.03801796508663442,-0.013528306433380698,,1496,0.0
+unedited,rater,stance-based,writer_gender,categorical,model - writer,chance_accuracy,-0.0012981807878159057,-0.0036452499931324727,0.0010453646507386292,,1496,0.274
+unedited,rater,stance-based,writer_gender,categorical,model - writer,kappa,-0.047545722804397686,-0.07021289812342127,-0.02456017040220796,,1496,0.0
+unedited,rater,stance-based,writer_race,categorical,writer,accuracy,0.6470548817261945,0.6330168113243624,0.6608322172655275,14923,1492,
+unedited,rater,stance-based,writer_race,categorical,writer,chance_accuracy,0.6346821499372807,0.619673716291727,0.6491983712603163,14923,1492,
+unedited,rater,stance-based,writer_race,categorical,writer,kappa,0.03386840195952551,0.020773509819779514,0.04804789600241673,14923,1492,
+unedited,rater,stance-based,writer_race,categorical,model,accuracy,0.634218487394958,0.6203721122692022,0.6483394241373722,14875,1492,
+unedited,rater,stance-based,writer_race,categorical,model,chance_accuracy,0.6342278019913848,0.6206244584713346,0.6477315774058756,14875,1492,
+unedited,rater,stance-based,writer_race,categorical,model,kappa,-2.5465567032012267e-05,-0.010760015030168364,0.010794260295573697,14875,1492,
+unedited,rater,stance-based,writer_race,categorical,model - writer,accuracy,-0.012836394331236511,-0.023523085936301983,-0.0023943530526025912,,1492,0.022
+unedited,rater,stance-based,writer_race,categorical,model - writer,chance_accuracy,-0.0004543479458958277,-0.010168208357504444,0.009053896931334869,,1492,0.956
+unedited,rater,stance-based,writer_race,categorical,model - writer,kappa,-0.03389386752655752,-0.050007418087147655,-0.019071008404619533,,1492,0.0
+unedited,rater,stance-based,writer_politicalParty,categorical,writer,accuracy,0.23116193587910966,0.2211753965764874,0.24144180197764925,14691,1468,
+unedited,rater,stance-based,writer_politicalParty,categorical,writer,chance_accuracy,0.20948198882966929,0.2033538655825141,0.2156191406183273,14691,1468,
+unedited,rater,stance-based,writer_politicalParty,categorical,writer,kappa,0.02742498810032686,0.017096275206872385,0.037718123069227213,14691,1468,
+unedited,rater,stance-based,writer_politicalParty,categorical,model,accuracy,0.22796830168055746,0.21685798742739584,0.23811963918277168,14638,1468,
+unedited,rater,stance-based,writer_politicalParty,categorical,model,chance_accuracy,0.2185295414904498,0.2113310220380839,0.22518334652842098,14638,1468,
+unedited,rater,stance-based,writer_politicalParty,categorical,model,kappa,0.012078204732280731,0.0022817391318332575,0.021605773719270173,14638,1468,
+unedited,rater,stance-based,writer_politicalParty,categorical,model - writer,accuracy,-0.003193634198552203,-0.013708358828234107,0.006681450919034208,,1468,0.542
+unedited,rater,stance-based,writer_politicalParty,categorical,model - writer,chance_accuracy,0.009047552660780528,0.004994977249552357,0.01310955086759239,,1468,0.0
+unedited,rater,stance-based,writer_politicalParty,categorical,model - writer,kappa,-0.015346783368046128,-0.0272383861430445,-0.00401480686235426,,1468,0.008
+unedited,rater,bullets-based,writer_stance,scale,writer,correlation,0.6412296564268687,0.6160839253342123,0.6639145005563925,15003,1501,
+unedited,rater,bullets-based,writer_stance,scale,writer,bias,-1.0440578550956476,-2.1057145020603625,0.004297105691306243,15003,1501,
+unedited,rater,bullets-based,writer_stance,scale,writer,mae,20.77877757781777,20.13234622416163,21.458201408300443,15003,1501,
+unedited,rater,bullets-based,writer_stance,scale,model,correlation,0.6455220707394809,0.6167979162395659,0.671054495892932,15039,1501,
+unedited,rater,bullets-based,writer_stance,scale,model,bias,2.0458142163707693,0.8100411016136256,3.3742451435144587,15039,1501,
+unedited,rater,bullets-based,writer_stance,scale,model,mae,22.03451027328945,21.25867416053214,22.90430403719493,15039,1501,
+unedited,rater,bullets-based,writer_stance,scale,model - writer,correlation,0.0042924143126121805,-0.01518239872440591,0.022480310060656296,,1501,0.668
+unedited,rater,bullets-based,writer_stance,scale,model - writer,bias,3.089872071466417,2.1563376509631165,3.9628162360157093,,1501,0.0
+unedited,rater,bullets-based,writer_stance,scale,model - writer,mae,1.2557326954716785,0.5841748151519444,1.9379230599436659,,1501,0.0
+unedited,rater,bullets-based,writer_stance_polarity,scale,writer,correlation,0.363668480661189,0.3362755204739961,0.3913556769742365,15003,1501,
+unedited,rater,bullets-based,writer_stance_polarity,scale,writer,bias,4.755848830233953,3.3776612576534966,6.256675072952899,15003,1501,
+unedited,rater,bullets-based,writer_stance_polarity,scale,writer,mae,28.642004932346865,27.94488250009029,29.37968186238472,15003,1501,
+unedited,rater,bullets-based,writer_stance_polarity,scale,model,correlation,0.3434981680725936,0.31078055108688835,0.3762613945534445,15039,1501,
+unedited,rater,bullets-based,writer_stance_polarity,scale,model,bias,14.467052330607089,12.99048639798337,16.006512143954847,15039,1501,
+unedited,rater,bullets-based,writer_stance_polarity,scale,model,mae,29.781368442050667,28.869810631229235,30.76630342617616,15039,1501,
+unedited,rater,bullets-based,writer_stance_polarity,scale,model - writer,correlation,-0.020170312588595418,-0.052530275182116164,0.012267181360611085,,1501,0.248
+unedited,rater,bullets-based,writer_stance_polarity,scale,model - writer,bias,9.711203500373136,8.733907551146098,10.731472154350092,,1501,0.0
+unedited,rater,bullets-based,writer_stance_polarity,scale,model - writer,mae,1.1393635097038022,0.29697433980237575,2.022726158966803,,1501,0.006
+unedited,rater,bullets-based,writer_knowledge,scale,writer,correlation,0.17359526410217982,0.1423886413844145,0.20663457897294568,15003,1501,
+unedited,rater,bullets-based,writer_knowledge,scale,writer,bias,1.4831700326601347,0.3655009572621332,2.619958918019394,15003,1501,
+unedited,rater,bullets-based,writer_knowledge,scale,writer,mae,24.01719656068786,23.45389173866648,24.568464632474747,15003,1501,
+unedited,rater,bullets-based,writer_knowledge,scale,model,correlation,0.07254555470150563,0.04091875005568585,0.10582997169637097,15039,1501,
+unedited,rater,bullets-based,writer_knowledge,scale,model,bias,18.845800917614202,17.68943330768759,19.94109352079686,15039,1501,
+unedited,rater,bullets-based,writer_knowledge,scale,model,mae,27.559146219828445,26.841360020314674,28.389342418220807,15039,1501,
+unedited,rater,bullets-based,writer_knowledge,scale,model - writer,correlation,-0.10104970940067419,-0.1379713423981641,-0.06516897581798708,,1501,0.0
+unedited,rater,bullets-based,writer_knowledge,scale,model - writer,bias,17.36263088495407,16.6974919614023,18.011713300487916,,1501,0.0
+unedited,rater,bullets-based,writer_knowledge,scale,model - writer,mae,3.5419496591405846,2.8371045868281493,4.321609820408493,,1501,0.0
+unedited,rater,bullets-based,writer_importance,scale,writer,correlation,0.2591424335152133,0.2286251618733343,0.289767827411071,15003,1501,
+unedited,rater,bullets-based,writer_importance,scale,writer,bias,3.316536692661468,2.113311921257146,4.547580739519877,15003,1501,
+unedited,rater,bullets-based,writer_importance,scale,writer,mae,23.898153702592815,23.27476355064313,24.538786886087596,15003,1501,
+unedited,rater,bullets-based,writer_importance,scale,model,correlation,0.1916763483965942,0.15933582567653498,0.2241566433603331,15039,1501,
+unedited,rater,bullets-based,writer_importance,scale,model,bias,14.262982911097811,12.963653724226754,15.542378673296518,15039,1501,
+unedited,rater,bullets-based,writer_importance,scale,model,mae,25.118890883702374,24.306246143652483,25.990867262844187,15039,1501,
+unedited,rater,bullets-based,writer_importance,scale,model - writer,correlation,-0.06746608511861912,-0.0992373921095092,-0.03697030218995319,,1501,0.0
+unedited,rater,bullets-based,writer_importance,scale,model - writer,bias,10.946446218436343,10.287239027528836,11.585996920085055,,1501,0.0
+unedited,rater,bullets-based,writer_importance,scale,model - writer,mae,1.220737181109559,0.6173941312634122,1.8228220911947997,,1501,0.0
+unedited,rater,bullets-based,writer_confidence,scale,writer,correlation,0.2682255206702902,0.23303982036914134,0.30227308027193256,15003,1501,
+unedited,rater,bullets-based,writer_confidence,scale,writer,bias,-0.09551423048723588,-1.1347832062466185,1.001020845997726,15003,1501,
+unedited,rater,bullets-based,writer_confidence,scale,writer,mae,22.234153169366127,21.69563411001562,22.747363425036408,15003,1501,
+unedited,rater,bullets-based,writer_confidence,scale,model,correlation,0.17920709322689055,0.14357576706825564,0.21397033466161228,15039,1501,
+unedited,rater,bullets-based,writer_confidence,scale,model,bias,10.864685151938295,9.759195916693223,12.105996259545838,15039,1501,
+unedited,rater,bullets-based,writer_confidence,scale,model,mae,22.503091960901656,21.743492670886386,23.288033250557017,15039,1501,
+unedited,rater,bullets-based,writer_confidence,scale,model - writer,correlation,-0.08901842744339966,-0.12277747808109261,-0.05185328537006219,,1501,0.0
+unedited,rater,bullets-based,writer_confidence,scale,model - writer,bias,10.96019938242553,10.27600461598646,11.64412864940961,,1501,0.0
+unedited,rater,bullets-based,writer_confidence,scale,model - writer,mae,0.268938791535529,-0.36209355037709395,0.9198972014161683,,1501,0.418
+unedited,rater,bullets-based,writer_affect_x,scale,writer,correlation,0.22035463503233332,0.18966863353754349,0.24873960704665377,15003,1501,
+unedited,rater,bullets-based,writer_affect_x,scale,writer,bias,-5.64698593614609,-6.827288908486559,-4.5103584769550435,15003,1501,
+unedited,rater,bullets-based,writer_affect_x,scale,writer,mae,23.581137772445487,23.004284377531384,24.17632170887243,15003,1501,
+unedited,rater,bullets-based,writer_affect_x,scale,model,correlation,0.158480806064584,0.12994106480817014,0.1853718212125816,15039,1501,
+unedited,rater,bullets-based,writer_affect_x,scale,model,bias,-0.20518186049604428,-1.4414282502027906,1.0102087870531806,15039,1501,
+unedited,rater,bullets-based,writer_affect_x,scale,model,mae,24.416008378216656,23.82994777847813,24.98418700130836,15039,1501,
+unedited,rater,bullets-based,writer_affect_x,scale,model - writer,correlation,-0.06187382896774932,-0.0881399654328031,-0.03519133324559495,,1501,0.0
+unedited,rater,bullets-based,writer_affect_x,scale,model - writer,bias,5.441804075650046,4.813663260615693,6.052893029137569,,1501,0.0
+unedited,rater,bullets-based,writer_affect_x,scale,model - writer,mae,0.8348706057711688,0.31419330824462743,1.279174428835671,,1501,0.0
+unedited,rater,bullets-based,writer_affect_y,scale,writer,correlation,0.05747527685121329,0.035959101003384904,0.08205597617588326,15003,1501,
+unedited,rater,bullets-based,writer_affect_y,scale,writer,bias,1.1417696460707836,0.18206959341635562,2.1687692034230883,15003,1501,
+unedited,rater,bullets-based,writer_affect_y,scale,writer,mae,21.42523428647601,20.951665261457016,21.907897163748835,15003,1501,
+unedited,rater,bullets-based,writer_affect_y,scale,model,correlation,0.030913763126266983,0.011358073886200633,0.051343858538099994,15039,1501,
+unedited,rater,bullets-based,writer_affect_y,scale,model,bias,-2.59391049936831,-3.6086220095109343,-1.5123921908666784,15039,1501,
+unedited,rater,bullets-based,writer_affect_y,scale,model,mae,21.039457410732084,20.554312423835814,21.543668777014748,15039,1501,
+unedited,rater,bullets-based,writer_affect_y,scale,model - writer,correlation,-0.02656151372494631,-0.04959151619870581,-0.0005387958939536595,,1501,0.044
+unedited,rater,bullets-based,writer_affect_y,scale,model - writer,bias,-3.7356801454390935,-4.246438536461273,-3.2009645281190315,,1501,0.0
+unedited,rater,bullets-based,writer_affect_y,scale,model - writer,mae,-0.3857768757439253,-0.7618413581397265,-0.022741780354271088,,1501,0.04
+unedited,rater,bullets-based,writer_age_binned,categorical,writer,accuracy,0.20335932813437313,0.1927177196885288,0.21393025877215854,15003,1501,
+unedited,rater,bullets-based,writer_age_binned,categorical,writer,chance_accuracy,0.18333648029664434,0.17598265775252936,0.19035438003516067,15003,1501,
+unedited,rater,bullets-based,writer_age_binned,categorical,writer,kappa,0.02451786734027482,0.015821832136081262,0.03401148645669565,15003,1501,
+unedited,rater,bullets-based,writer_age_binned,categorical,model,accuracy,0.18737948001861826,0.17814969425552252,0.19653344873502,15039,1501,
+unedited,rater,bullets-based,writer_age_binned,categorical,model,chance_accuracy,0.18131235895079822,0.17537130352393124,0.1868397112063575,15039,1501,
+unedited,rater,bullets-based,writer_age_binned,categorical,model,kappa,0.007410788637342349,-0.0007358577578776932,0.015421665501273704,15039,1501,
+unedited,rater,bullets-based,writer_age_binned,categorical,model - writer,accuracy,-0.01597984811575487,-0.025909710426521126,-0.006122164976335979,,1501,0.002
+unedited,rater,bullets-based,writer_age_binned,categorical,model - writer,chance_accuracy,-0.0020241213458461194,-0.005667926643942584,0.002006108096527858,,1501,0.34
+unedited,rater,bullets-based,writer_age_binned,categorical,model - writer,kappa,-0.017107078702932474,-0.029110914324640223,-0.006749905189159302,,1501,0.004
+unedited,rater,bullets-based,writer_age_binned,categorical,writer,ordinal_correlation,0.08743931651525005,0.06287461383014308,0.11145242361524715,15003,1501,
+unedited,rater,bullets-based,writer_age_binned,categorical,model,ordinal_correlation,0.022332676383750295,0.0006176278071304632,0.042859500025357905,15039,1501,
+unedited,rater,bullets-based,writer_age_binned,categorical,model - writer,ordinal_correlation,-0.06510664013149976,-0.08841282854842676,-0.03845048733753925,,1501,0.0
+unedited,rater,bullets-based,writer_education,categorical,writer,accuracy,0.23275112092618616,0.22396942117945212,0.24154868026859294,14943,1495,
+unedited,rater,bullets-based,writer_education,categorical,writer,chance_accuracy,0.2131699557114689,0.20788826302382907,0.21871843708978536,14943,1495,
+unedited,rater,bullets-based,writer_education,categorical,writer,kappa,0.024886143274336928,0.015356441613731354,0.03475172530848221,14943,1495,
+unedited,rater,bullets-based,writer_education,categorical,model,accuracy,0.264218958611482,0.2533091151339546,0.2758579271918389,14980,1495,
+unedited,rater,bullets-based,writer_education,categorical,model,chance_accuracy,0.2581250612744006,0.24951745615375714,0.2666991499878279,14980,1495,
+unedited,rater,bullets-based,writer_education,categorical,model,kappa,0.008214184115114521,-0.0007459445474502604,0.01739269687415591,14980,1495,
+unedited,rater,bullets-based,writer_education,categorical,model - writer,accuracy,0.03146783768529582,0.018936342225763982,0.044726533217776095,,1495,0.0
+unedited,rater,bullets-based,writer_education,categorical,model - writer,chance_accuracy,0.044955105562931696,0.03816165724687342,0.05203379426192031,,1495,0.0
+unedited,rater,bullets-based,writer_education,categorical,model - writer,kappa,-0.016671959159222406,-0.03051148904093268,-0.0031780222036158724,,1495,0.024
+unedited,rater,bullets-based,writer_education,categorical,writer,ordinal_correlation,0.11040604186792966,0.087208625122218,0.13337731961400504,14644,1483,
+unedited,rater,bullets-based,writer_education,categorical,model,ordinal_correlation,0.03677033597825435,0.016006007178903454,0.05690039456095762,14729,1483,
+unedited,rater,bullets-based,writer_education,categorical,model - writer,ordinal_correlation,-0.0736357058896753,-0.10136404224590885,-0.0457295325541332,,1483,0.0
+unedited,rater,bullets-based,writer_income,categorical,writer,accuracy,0.19443653955606147,0.1857096316721056,0.20310727548387572,14056,1407,
+unedited,rater,bullets-based,writer_income,categorical,writer,chance_accuracy,0.18848169704303366,0.18316661268563822,0.19433502586963297,14056,1407,
+unedited,rater,bullets-based,writer_income,categorical,writer,kappa,0.007337902905368703,-0.0007457631113761898,0.016089712811135363,14056,1407,
+unedited,rater,bullets-based,writer_income,categorical,model,accuracy,0.16570901610271688,0.15630499526690841,0.1746295345690322,14097,1407,
+unedited,rater,bullets-based,writer_income,categorical,model,chance_accuracy,0.16870395269887203,0.16170214306315633,0.17538983490086216,14097,1407,
+unedited,rater,bullets-based,writer_income,categorical,model,kappa,-0.0036027316692753063,-0.010897484396550713,0.0036535727498750686,14097,1407,
+unedited,rater,bullets-based,writer_income,categorical,model - writer,accuracy,-0.02872752345334459,-0.03974325511493853,-0.018201472533467718,,1407,0.0
+unedited,rater,bullets-based,writer_income,categorical,model - writer,chance_accuracy,-0.01977774434416163,-0.026097113454606635,-0.014161822965382036,,1407,0.0
+unedited,rater,bullets-based,writer_income,categorical,model - writer,kappa,-0.010940634574644009,-0.022461738126789362,-0.0005003376256708333,,1407,0.042
+unedited,rater,bullets-based,writer_income,categorical,writer,ordinal_correlation,0.03319202691077041,0.009181090657576734,0.05688629015612837,14056,1407,
+unedited,rater,bullets-based,writer_income,categorical,model,ordinal_correlation,0.010891747182181834,-0.01041079951285385,0.03325857968064356,14097,1407,
+unedited,rater,bullets-based,writer_income,categorical,model - writer,ordinal_correlation,-0.022300279728588578,-0.05055001913488281,0.006916645027860111,,1407,0.124
+unedited,rater,bullets-based,writer_english_skills,categorical,writer,accuracy,0.31325863678804855,0.30444434488582717,0.32219674162153383,14994,1500,
+unedited,rater,bullets-based,writer_english_skills,categorical,writer,chance_accuracy,0.30791054583764943,0.3009282381987731,0.31539538486333535,14994,1500,
+unedited,rater,bullets-based,writer_english_skills,categorical,writer,kappa,0.007727456209937514,0.0001417358217279934,0.015330171554858558,14994,1500,
+unedited,rater,bullets-based,writer_english_skills,categorical,model,accuracy,0.5498037128218777,0.5383792718304855,0.5603715614126633,15029,1500,
+unedited,rater,bullets-based,writer_english_skills,categorical,model,chance_accuracy,0.5502297793277353,0.5406949315534019,0.5599296298682908,15029,1500,
+unedited,rater,bullets-based,writer_english_skills,categorical,model,kappa,-0.000947298167541642,-0.013402810936819111,0.013024578483194953,15029,1500,
+unedited,rater,bullets-based,writer_english_skills,categorical,model - writer,accuracy,0.23654507603382913,0.2219118893064368,0.2514126283926454,,1500,0.0
+unedited,rater,bullets-based,writer_english_skills,categorical,model - writer,chance_accuracy,0.24231923349008588,0.2303649065991061,0.2538879276375706,,1500,0.0
+unedited,rater,bullets-based,writer_english_skills,categorical,model - writer,kappa,-0.008674754377479155,-0.023157534889692678,0.005745511061975138,,1500,0.25
+unedited,rater,bullets-based,writer_english_skills,categorical,writer,ordinal_correlation,0.02803513909173758,0.0033673626804925074,0.0523036187665904,14994,1500,
+unedited,rater,bullets-based,writer_english_skills,categorical,model,ordinal_correlation,0.002529530331429773,-0.01610142305006638,0.02041724182728989,15029,1500,
+unedited,rater,bullets-based,writer_english_skills,categorical,model - writer,ordinal_correlation,-0.02550560876030781,-0.05248243226912796,0.003013426760654286,,1500,0.088
+unedited,rater,bullets-based,writer_politicalIdeology,categorical,writer,accuracy,0.2718984264199365,0.26312246716404414,0.2807842795313303,14807,1482,
+unedited,rater,bullets-based,writer_politicalIdeology,categorical,writer,chance_accuracy,0.23529496144327905,0.23099449371937197,0.23988916940177613,14807,1482,
+unedited,rater,bullets-based,writer_politicalIdeology,categorical,writer,kappa,0.047866122401575416,0.03578679309253089,0.05941990696726056,14807,1482,
+unedited,rater,bullets-based,writer_politicalIdeology,categorical,model,accuracy,0.2660111792039868,0.25622248894400157,0.27453588787394584,14849,1482,
+unedited,rater,bullets-based,writer_politicalIdeology,categorical,model,chance_accuracy,0.24003698424602987,0.2358764136806839,0.24431835377824934,14849,1482,
+unedited,rater,bullets-based,writer_politicalIdeology,categorical,model,kappa,0.03417823554503843,0.022750414819379925,0.04596492119585117,14849,1482,
+unedited,rater,bullets-based,writer_politicalIdeology,categorical,model - writer,accuracy,-0.005887247215949687,-0.016397655787637286,0.004729651005573805,,1482,0.284
+unedited,rater,bullets-based,writer_politicalIdeology,categorical,model - writer,chance_accuracy,0.004742022802750823,0.0018257616601748386,0.0075484897429655634,,1482,0.002
+unedited,rater,bullets-based,writer_politicalIdeology,categorical,model - writer,kappa,-0.013687886856536984,-0.026786680161405136,-0.0001510368330376,,1482,0.05
+unedited,rater,bullets-based,writer_politicalIdeology,categorical,writer,ordinal_correlation,0.18544920911730634,0.15674306172292,0.21099560580992224,13449,1453,
+unedited,rater,bullets-based,writer_politicalIdeology,categorical,model,ordinal_correlation,0.14101090572254987,0.1120732547981205,0.16848936309412196,13904,1453,
+unedited,rater,bullets-based,writer_politicalIdeology,categorical,model - writer,ordinal_correlation,-0.04443830339475646,-0.06788623452781765,-0.019294562155048663,,1453,0.0
+unedited,rater,bullets-based,writer_english_first,categorical,writer,accuracy,0.8538672371147804,0.8431091631704382,0.8646814545134823,14959,1497,
+unedited,rater,bullets-based,writer_english_first,categorical,writer,chance_accuracy,0.8484204531671726,0.837288411447011,0.8592881937792946,14959,1497,
+unedited,rater,bullets-based,writer_english_first,categorical,writer,kappa,0.03593350198899116,0.009905684255305004,0.06421771939674321,14959,1497,
+unedited,rater,bullets-based,writer_english_first,categorical,model,accuracy,0.9222,0.9113465777974645,0.9326356076326935,15000,1497,
+unedited,rater,bullets-based,writer_english_first,categorical,model,chance_accuracy,0.9219145066666666,0.911173440881394,0.9322125001596174,15000,1497,
+unedited,rater,bullets-based,writer_english_first,categorical,model,kappa,0.003656163534943234,-0.012388976764269395,0.0210973417508681,15000,1497,
+unedited,rater,bullets-based,writer_english_first,categorical,model - writer,accuracy,0.06833276288521961,0.06128768366679059,0.07555562430287226,,1497,0.0
+unedited,rater,bullets-based,writer_english_first,categorical,model - writer,chance_accuracy,0.073494053499494,0.06718404507291928,0.07989532891323398,,1497,0.0
+unedited,rater,bullets-based,writer_english_first,categorical,model - writer,kappa,-0.03227733845404793,-0.06707679146410331,6.293812906744007e-05,,1497,0.052
+unedited,rater,bullets-based,writer_gender,categorical,writer,accuracy,0.5233444816053512,0.5106250404573378,0.5366331733856315,14950,1496,
+unedited,rater,bullets-based,writer_gender,categorical,writer,chance_accuracy,0.4870338944754533,0.4821752636900325,0.4916447184485152,14950,1496,
+unedited,rater,bullets-based,writer_gender,categorical,writer,kappa,0.07078554847745262,0.04784569834713993,0.09427563790752869,14950,1496,
+unedited,rater,bullets-based,writer_gender,categorical,model,accuracy,0.5089732470478351,0.4964248063402422,0.5207336327278247,14989,1496,
+unedited,rater,bullets-based,writer_gender,categorical,model,chance_accuracy,0.48806506851883524,0.4846225198149674,0.4915467601560236,14989,1496,
+unedited,rater,bullets-based,writer_gender,categorical,model,kappa,0.040841476608183165,0.018605151271815633,0.0631823379157966,14989,1496,
+unedited,rater,bullets-based,writer_gender,categorical,model - writer,accuracy,-0.0143712345575161,-0.02605421241450677,-0.001833335778227382,,1496,0.018
+unedited,rater,bullets-based,writer_gender,categorical,model - writer,chance_accuracy,0.0010311740433819327,-0.0010221844353886511,0.0030793819884635506,,1496,0.292
+unedited,rater,bullets-based,writer_gender,categorical,model - writer,kappa,-0.029944071869269458,-0.05317360420230471,-0.006145850507204564,,1496,0.012
+unedited,rater,bullets-based,writer_race,categorical,writer,accuracy,0.6399973174166722,0.6260980611102646,0.6528852514469913,14911,1492,
+unedited,rater,bullets-based,writer_race,categorical,writer,chance_accuracy,0.6316155398430662,0.6180419093084225,0.6450702075949638,14911,1492,
+unedited,rater,bullets-based,writer_race,categorical,writer,kappa,0.02275279899167122,0.010378801442543478,0.03541733941026603,14911,1492,
+unedited,rater,bullets-based,writer_race,categorical,model,accuracy,0.6433636606903934,0.6291248627209535,0.6567176495386869,14948,1492,
+unedited,rater,bullets-based,writer_race,categorical,model,chance_accuracy,0.6409252682513187,0.6265545356538561,0.6540929113091237,14948,1492,
+unedited,rater,bullets-based,writer_race,categorical,model,kappa,0.006790765886532441,-0.006073894734518237,0.019345586178271357,14948,1492,
+unedited,rater,bullets-based,writer_race,categorical,model - writer,accuracy,0.0033663432737212062,-0.0070012008307051895,0.012935657712297806,,1492,0.54
+unedited,rater,bullets-based,writer_race,categorical,model - writer,chance_accuracy,0.009309728408252504,0.0009629685923717106,0.017215312514183644,,1492,0.028
+unedited,rater,bullets-based,writer_race,categorical,model - writer,kappa,-0.015962033105138777,-0.032310546148834024,-0.0009022794180821804,,1492,0.04
+unedited,rater,bullets-based,writer_politicalParty,categorical,writer,accuracy,0.23218422128355362,0.2222911676122246,0.24190560169351547,14678,1468,
+unedited,rater,bullets-based,writer_politicalParty,categorical,writer,chance_accuracy,0.20700384978563585,0.20098898267540627,0.2131381632426592,14678,1468,
+unedited,rater,bullets-based,writer_politicalParty,categorical,writer,kappa,0.03175345995199468,0.021681265043000022,0.04233325218102472,14678,1468,
+unedited,rater,bullets-based,writer_politicalParty,categorical,model,accuracy,0.24031007751937986,0.22919764129388567,0.2515316020924849,14706,1468,
+unedited,rater,bullets-based,writer_politicalParty,categorical,model,chance_accuracy,0.21586388005210388,0.20875757168848005,0.22305382396183754,14706,1468,
+unedited,rater,bullets-based,writer_politicalParty,categorical,model,kappa,0.03117596147579627,0.020002221527171873,0.042106215824496133,14706,1468,
+unedited,rater,bullets-based,writer_politicalParty,categorical,model - writer,accuracy,0.008125856235826234,-0.0029195689672028434,0.01882297642543199,,1468,0.128
+unedited,rater,bullets-based,writer_politicalParty,categorical,model - writer,chance_accuracy,0.008860030266468033,0.004681949006996021,0.012734566222842842,,1468,0.0
+unedited,rater,bullets-based,writer_politicalParty,categorical,model - writer,kappa,-0.0005774984761984132,-0.013183196930784302,0.011619812316605005,,1468,0.992
+unedited,rater,rewrite,writer_stance,scale,writer,correlation,0.6535979793787033,0.6224323291807191,0.6837213669224389,7436,740,
+unedited,rater,rewrite,writer_stance,scale,writer,bias,-1.6405325443786982,-3.1558128608480724,-0.17735421822631015,7436,740,
+unedited,rater,rewrite,writer_stance,scale,writer,mae,20.185449166218397,19.325392683525436,21.053934162422603,7436,740,
+unedited,rater,rewrite,writer_stance,scale,model,correlation,0.6539340921305431,0.62235606002503,0.6820988447029968,7436,740,
+unedited,rater,rewrite,writer_stance,scale,model,bias,-0.9744486282947822,-2.4059385736943857,0.49573968996452217,7436,740,
+unedited,rater,rewrite,writer_stance,scale,model,mae,20.4147391070468,19.580766122697458,21.245766832610414,7436,740,
+unedited,rater,rewrite,writer_stance,scale,model - writer,correlation,0.00033611275183975664,-0.018832541311960164,0.01830410243614105,,740,0.998
+unedited,rater,rewrite,writer_stance,scale,model - writer,bias,0.666083916083916,-0.10364040164777195,1.4428859326658703,,740,0.094
+unedited,rater,rewrite,writer_stance,scale,model - writer,mae,0.22928994082840148,-0.30674835237017717,0.8396671950472344,,740,0.41
+unedited,rater,rewrite,writer_stance_polarity,scale,writer,correlation,0.3628707894534607,0.32397340963119364,0.40128146061498793,7436,740,
+unedited,rater,rewrite,writer_stance_polarity,scale,writer,bias,5.15841850457235,3.0815539386634776,7.056335792435017,7436,740,
+unedited,rater,rewrite,writer_stance_polarity,scale,writer,mae,29.009413663259817,28.053192605399204,29.98494703286883,7436,740,
+unedited,rater,rewrite,writer_stance_polarity,scale,model,correlation,0.35672153449192395,0.3178102050132392,0.3940297855528693,7436,740,
+unedited,rater,rewrite,writer_stance_polarity,scale,model,bias,7.093598708983325,5.113962658192816,9.065351583629592,7436,740,
+unedited,rater,rewrite,writer_stance_polarity,scale,model,mae,29.646584185045725,28.665150368964547,30.657558059303096,7436,740,
+unedited,rater,rewrite,writer_stance_polarity,scale,model - writer,correlation,-0.006149254961536732,-0.03171942405895766,0.018796097372147273,,740,0.688
+unedited,rater,rewrite,writer_stance_polarity,scale,model - writer,bias,1.9351802044109743,0.906554144900804,2.9139460012237524,,740,0.0
+unedited,rater,rewrite,writer_stance_polarity,scale,model - writer,mae,0.637170521785908,-0.08688634318141515,1.3273462619446452,,740,0.088
+unedited,rater,rewrite,writer_knowledge,scale,writer,correlation,0.18608461627608486,0.13796818009886458,0.2300936587334414,7436,740,
+unedited,rater,rewrite,writer_knowledge,scale,writer,bias,2.415949435180204,0.7796784577141993,4.084730317183397,7436,740,
+unedited,rater,rewrite,writer_knowledge,scale,writer,mae,23.852743410435718,23.145374942500627,24.684919998297467,7436,740,
+unedited,rater,rewrite,writer_knowledge,scale,model,correlation,0.18129530269644972,0.12883212859365006,0.23112417048576583,7436,740,
+unedited,rater,rewrite,writer_knowledge,scale,model,bias,11.003496503496503,9.336940313286743,12.693270772107935,7436,740,
+unedited,rater,rewrite,writer_knowledge,scale,model,mae,24.551909628832707,23.6959685387238,25.56622825718052,7436,740,
+unedited,rater,rewrite,writer_knowledge,scale,model - writer,correlation,-0.004789313579635135,-0.04004612124106806,0.03129877557152822,,740,0.7
+unedited,rater,rewrite,writer_knowledge,scale,model - writer,bias,8.587547068316299,7.818617532638585,9.370500873868183,,740,0.0
+unedited,rater,rewrite,writer_knowledge,scale,model - writer,mae,0.6991662183969893,-0.012098537572388664,1.4102981167687916,,740,0.056
+unedited,rater,rewrite,writer_importance,scale,writer,correlation,0.262454108232139,0.22132125127676408,0.30240954990438484,7436,740,
+unedited,rater,rewrite,writer_importance,scale,writer,bias,3.4619419042495965,1.7997786781781255,5.157777052383673,7436,740,
+unedited,rater,rewrite,writer_importance,scale,writer,mae,23.780123722431416,23.034928436729157,24.67689505439229,7436,740,
+unedited,rater,rewrite,writer_importance,scale,model,correlation,0.27746644064337733,0.23940512730407965,0.3200520862496636,7436,740,
+unedited,rater,rewrite,writer_importance,scale,model,bias,7.738300161377085,6.042736104375214,9.48567085053324,7436,740,
+unedited,rater,rewrite,writer_importance,scale,model,mae,23.64470145239376,22.800186333261703,24.590245918704763,7436,740,
+unedited,rater,rewrite,writer_importance,scale,model - writer,correlation,0.015012332411238338,-0.011751361951781478,0.0453492047450354,,740,0.278
+unedited,rater,rewrite,writer_importance,scale,model - writer,bias,4.276358257127488,3.6120909111605686,4.987891197090092,,740,0.0
+unedited,rater,rewrite,writer_importance,scale,model - writer,mae,-0.1354222700376546,-0.7101772625818257,0.4190343796644454,,740,0.562
+unedited,rater,rewrite,writer_confidence,scale,writer,correlation,0.30972579368821074,0.2667679085695239,0.35530951582278025,7436,740,
+unedited,rater,rewrite,writer_confidence,scale,writer,bias,-0.06939214631522324,-1.5141047251975392,1.419213210136684,7436,740,
+unedited,rater,rewrite,writer_confidence,scale,writer,mae,22.00484131253362,21.272370522691645,22.71490436666622,7436,740,
+unedited,rater,rewrite,writer_confidence,scale,model,correlation,0.27465118010386624,0.2279147375546957,0.3188673331001218,7436,740,
+unedited,rater,rewrite,writer_confidence,scale,model,bias,4.283620225927918,2.727694168250114,5.813345603616717,7436,740,
+unedited,rater,rewrite,writer_confidence,scale,model,mae,22.139187735341583,21.374969009648886,22.93238676673264,7436,740,
+unedited,rater,rewrite,writer_confidence,scale,model - writer,correlation,-0.035074613584344494,-0.06663438780390972,-0.00563519849906768,,740,0.012
+unedited,rater,rewrite,writer_confidence,scale,model - writer,bias,4.353012372243142,3.6363992507180325,5.090968761249051,,740,0.0
+unedited,rater,rewrite,writer_confidence,scale,model - writer,mae,0.13434642280796183,-0.4042125666130903,0.698768717567746,,740,0.674
+unedited,rater,rewrite,writer_affect_x,scale,writer,correlation,0.22514144345187667,0.18349688574168802,0.26378266370699194,7436,740,
+unedited,rater,rewrite,writer_affect_x,scale,writer,bias,-4.971537116729423,-6.541981906501123,-3.3834088394965973,7436,740,
+unedited,rater,rewrite,writer_affect_x,scale,writer,mae,23.123616191500815,22.331100667389443,23.979248391641697,7436,740,
+unedited,rater,rewrite,writer_affect_x,scale,model,correlation,0.22707913222790044,0.18542146359896006,0.26527832011757674,7436,740,
+unedited,rater,rewrite,writer_affect_x,scale,model,bias,-3.2228388918773545,-4.71918221102593,-1.6783988822545748,7436,740,
+unedited,rater,rewrite,writer_affect_x,scale,model,mae,22.775948090371152,22.000374966552922,23.556666434526953,7436,740,
+unedited,rater,rewrite,writer_affect_x,scale,model - writer,correlation,0.001937688776023766,-0.024258629810643077,0.028128190377934688,,740,0.92
+unedited,rater,rewrite,writer_affect_x,scale,model - writer,bias,1.7486982248520686,1.0467165088885637,2.426488811756416,,740,0.0
+unedited,rater,rewrite,writer_affect_x,scale,model - writer,mae,-0.3476681011296634,-0.8675061712545732,0.11390801216817018,,740,0.164
+unedited,rater,rewrite,writer_affect_y,scale,writer,correlation,0.057472015845163364,0.021889202234336626,0.0932182186528232,7436,740,
+unedited,rater,rewrite,writer_affect_y,scale,writer,bias,1.4922162452931698,0.04308086050522516,2.8988437064074,7436,740,
+unedited,rater,rewrite,writer_affect_y,scale,writer,mae,20.928924152770303,20.302504797865883,21.585519804477823,7436,740,
+unedited,rater,rewrite,writer_affect_y,scale,model,correlation,0.04007983498602267,0.005547513974402591,0.07318805162245688,7436,740,
+unedited,rater,rewrite,writer_affect_y,scale,model,bias,0.16456428187197428,-1.2189118296462726,1.5912889498143696,7436,740,
+unedited,rater,rewrite,writer_affect_y,scale,model,mae,20.520779989241518,19.831547532850628,21.20045901825924,7436,740,
+unedited,rater,rewrite,writer_affect_y,scale,model - writer,correlation,-0.017392180859140696,-0.04764180856478137,0.01248881749704851,,740,0.246
+unedited,rater,rewrite,writer_affect_y,scale,model - writer,bias,-1.3276519634211954,-1.9839819125947897,-0.7115573082572012,,740,0.0
+unedited,rater,rewrite,writer_affect_y,scale,model - writer,mae,-0.40814416352878524,-0.8866884380874562,0.053134940202182915,,740,0.092
+unedited,rater,rewrite,writer_age_binned,categorical,writer,accuracy,0.20212479827864444,0.18713353599423677,0.21811725032418883,7436,740,
+unedited,rater,rewrite,writer_age_binned,categorical,writer,chance_accuracy,0.18367188786303695,0.17276088330966222,0.1943733838051261,7436,740,
+unedited,rater,rewrite,writer_age_binned,categorical,writer,kappa,0.02260477146536326,0.010225133447049178,0.03468358639106127,7436,740,
+unedited,rater,rewrite,writer_age_binned,categorical,model,accuracy,0.1919042495965573,0.17915035431152396,0.20554866648139383,7436,740,
+unedited,rater,rewrite,writer_age_binned,categorical,model,chance_accuracy,0.1818213828832648,0.17299462223935552,0.1904638163335109,7436,740,
+unedited,rater,rewrite,writer_age_binned,categorical,model,kappa,0.012323551975514305,-0.00015820648515294056,0.02459133614046882,7436,740,
+unedited,rater,rewrite,writer_age_binned,categorical,model - writer,accuracy,-0.010220548682087133,-0.023244484140236218,0.0033673272427265665,,740,0.12
+unedited,rater,rewrite,writer_age_binned,categorical,model - writer,chance_accuracy,-0.0018505049797721551,-0.006160509043970671,0.0022654661705316255,,740,0.436
+unedited,rater,rewrite,writer_age_binned,categorical,model - writer,kappa,-0.010281219489848956,-0.02464000739360291,0.004693417732700606,,740,0.152
+unedited,rater,rewrite,writer_age_binned,categorical,writer,ordinal_correlation,0.08326329063342965,0.047608203890958344,0.1182486685554578,7436,740,
+unedited,rater,rewrite,writer_age_binned,categorical,model,ordinal_correlation,0.065336641226433,0.0342184313163577,0.09935093246900734,7436,740,
+unedited,rater,rewrite,writer_age_binned,categorical,model - writer,ordinal_correlation,-0.017926649406996648,-0.04905620984163326,0.016150934432555074,,740,0.318
+unedited,rater,rewrite,writer_education,categorical,writer,accuracy,0.2421663965424095,0.22838108859335743,0.25586858273106944,7404,737,
+unedited,rater,rewrite,writer_education,categorical,writer,chance_accuracy,0.2149153866045804,0.2073494308158375,0.22302747684381546,7404,737,
+unedited,rater,rewrite,writer_education,categorical,writer,kappa,0.03471092092860026,0.021828322795293058,0.048958239878290837,7404,737,
+unedited,rater,rewrite,writer_education,categorical,model,accuracy,0.2686022957461175,0.25445038418639826,0.2828654676952163,7405,737,
+unedited,rater,rewrite,writer_education,categorical,model,chance_accuracy,0.24614262768417966,0.23436074532490242,0.25708896543992926,7405,737,
+unedited,rater,rewrite,writer_education,categorical,model,kappa,0.029792993856308136,0.016344741992272337,0.04286238651390097,7405,737,
+unedited,rater,rewrite,writer_education,categorical,model - writer,accuracy,0.02643589920370798,0.011175024202499226,0.04150720107556291,,737,0.0
+unedited,rater,rewrite,writer_education,categorical,model - writer,chance_accuracy,0.03122724107959926,0.02439376420269371,0.038514247987026344,,737,0.0
+unedited,rater,rewrite,writer_education,categorical,model - writer,kappa,-0.004917927072292123,-0.022869653151567713,0.011259202670897438,,737,0.566
+unedited,rater,rewrite,writer_education,categorical,writer,ordinal_correlation,0.12804741104790704,0.0911596282368577,0.16253231599248744,7281,733,
+unedited,rater,rewrite,writer_education,categorical,model,ordinal_correlation,0.138041402377935,0.1030040395169039,0.16981438421456338,7294,733,
+unedited,rater,rewrite,writer_education,categorical,model - writer,ordinal_correlation,0.009993991330027957,-0.026065317427874792,0.047718807034416916,,733,0.612
+unedited,rater,rewrite,writer_income,categorical,writer,accuracy,0.1941376380628717,0.18209827840862147,0.2069802962857729,7062,702,
+unedited,rater,rewrite,writer_income,categorical,writer,chance_accuracy,0.1902091889764493,0.1826726686731222,0.1976438045385041,7062,702,
+unedited,rater,rewrite,writer_income,categorical,writer,kappa,0.004851190002337713,-0.007273238566800568,0.01739413251393336,7062,702,
+unedited,rater,rewrite,writer_income,categorical,model,accuracy,0.18104426787741204,0.16885133849429582,0.19355008365618503,7048,702,
+unedited,rater,rewrite,writer_income,categorical,model,chance_accuracy,0.1785197835887142,0.17045663298824695,0.18699001031569118,7048,702,
+unedited,rater,rewrite,writer_income,categorical,model,kappa,0.0030730920091128744,-0.007473184393127381,0.014010304492743805,7048,702,
+unedited,rater,rewrite,writer_income,categorical,model - writer,accuracy,-0.013093370185459668,-0.026510513953349846,-0.00032523155763002765,,702,0.042
+unedited,rater,rewrite,writer_income,categorical,model - writer,chance_accuracy,-0.011689405387735108,-0.017069910690667742,-0.006574598638242154,,702,0.0
+unedited,rater,rewrite,writer_income,categorical,model - writer,kappa,-0.001778097993224839,-0.016531052023078228,0.013687444847879546,,702,0.79
+unedited,rater,rewrite,writer_income,categorical,writer,ordinal_correlation,0.046507084647905164,0.009843176595412123,0.08499666478557298,7062,702,
+unedited,rater,rewrite,writer_income,categorical,model,ordinal_correlation,0.02424455533601881,-0.009557980802035473,0.05776585932371606,7048,702,
+unedited,rater,rewrite,writer_income,categorical,model - writer,ordinal_correlation,-0.022262529311886353,-0.05907948088611816,0.01496334414511406,,702,0.262
+unedited,rater,rewrite,writer_english_skills,categorical,writer,accuracy,0.32557826788596017,0.31184231433057225,0.338200960146846,7436,740,
+unedited,rater,rewrite,writer_english_skills,categorical,writer,chance_accuracy,0.3159638598667026,0.30530949100659327,0.32661671690168737,7436,740,
+unedited,rater,rewrite,writer_english_skills,categorical,writer,kappa,0.014055409436969236,0.0027159315925753408,0.025381690998645883,7436,740,
+unedited,rater,rewrite,writer_english_skills,categorical,model,accuracy,0.4740451855836471,0.4588179900391631,0.4889002254243011,7436,740,
+unedited,rater,rewrite,writer_english_skills,categorical,model,chance_accuracy,0.470271039425258,0.4581349133782788,0.4824260097084407,7436,740,
+unedited,rater,rewrite,writer_english_skills,categorical,model,kappa,0.007124674011204267,-0.01052336010167342,0.024228690294817928,7436,740,
+unedited,rater,rewrite,writer_english_skills,categorical,model - writer,accuracy,0.14846691769768694,0.13081593075863293,0.16690110673080785,,740,0.0
+unedited,rater,rewrite,writer_english_skills,categorical,model - writer,chance_accuracy,0.15430717955855539,0.140575096184045,0.16833856111877737,,740,0.0
+unedited,rater,rewrite,writer_english_skills,categorical,model - writer,kappa,-0.00693073542576497,-0.025117353572821334,0.012330463870924149,,740,0.48
+unedited,rater,rewrite,writer_english_skills,categorical,writer,ordinal_correlation,0.04274876216995185,0.01174991440752523,0.07726425613083579,7436,740,
+unedited,rater,rewrite,writer_english_skills,categorical,model,ordinal_correlation,0.017818553080328706,-0.010001754122202704,0.04633232470223349,7436,740,
+unedited,rater,rewrite,writer_english_skills,categorical,model - writer,ordinal_correlation,-0.02493020908962314,-0.06014111990575926,0.008881559400690495,,740,0.142
+unedited,rater,rewrite,writer_politicalIdeology,categorical,writer,accuracy,0.2599317406143345,0.2464116148464981,0.274048242736687,7325,729,
+unedited,rater,rewrite,writer_politicalIdeology,categorical,writer,chance_accuracy,0.2408460809095039,0.2346584045883474,0.24762846092270907,7325,729,
+unedited,rater,rewrite,writer_politicalIdeology,categorical,writer,kappa,0.02514069838129289,0.009012278536092197,0.040638824741285565,7325,729,
+unedited,rater,rewrite,writer_politicalIdeology,categorical,model,accuracy,0.26024590163934425,0.24715657318089873,0.27362517079508397,7320,729,
+unedited,rater,rewrite,writer_politicalIdeology,categorical,model,chance_accuracy,0.24385673280778764,0.237626365539442,0.2505396733432157,7320,729,
+unedited,rater,rewrite,writer_politicalIdeology,categorical,model,kappa,0.021674687248640762,0.005965124272425224,0.037855993020084334,7320,729,
+unedited,rater,rewrite,writer_politicalIdeology,categorical,model - writer,accuracy,0.0003141610250097515,-0.013327284609208925,0.01353823313745115,,729,0.976
+unedited,rater,rewrite,writer_politicalIdeology,categorical,model - writer,chance_accuracy,0.0030106518982837283,-0.0006992432407790176,0.006962910370736787,,729,0.098
+unedited,rater,rewrite,writer_politicalIdeology,categorical,model - writer,kappa,-0.003466011132652127,-0.020898582062487125,0.01345801834027137,,729,0.678
+unedited,rater,rewrite,writer_politicalIdeology,categorical,writer,ordinal_correlation,0.1003154852484285,0.06096608920145525,0.14132928410530507,6685,713,
+unedited,rater,rewrite,writer_politicalIdeology,categorical,model,ordinal_correlation,0.09678932158667164,0.05719377716200849,0.13521308734237658,6777,713,
+unedited,rater,rewrite,writer_politicalIdeology,categorical,model - writer,ordinal_correlation,-0.0035261636617568565,-0.03416604156842762,0.02776417302688521,,713,0.82
+unedited,rater,rewrite,writer_english_first,categorical,writer,accuracy,0.8501892915089238,0.8344333552865857,0.8654162208628116,7396,736,
+unedited,rater,rewrite,writer_english_first,categorical,writer,chance_accuracy,0.8484599937229456,0.8334214757256732,0.8635666485831744,7396,736,
+unedited,rater,rewrite,writer_english_first,categorical,writer,kappa,0.01141149342977184,-0.020585487641791442,0.04783574722528151,7396,736,
+unedited,rater,rewrite,writer_english_first,categorical,model,accuracy,0.9101731601731602,0.8938447427931587,0.9246741612055425,7392,736,
+unedited,rater,rewrite,writer_english_first,categorical,model,chance_accuracy,0.9105216122261577,0.8946671548930597,0.92466974747069,7392,736,
+unedited,rater,rewrite,writer_english_first,categorical,model,kappa,-0.0038942594034909422,-0.02557038616370021,0.0197111661665057,7392,736,
+unedited,rater,rewrite,writer_english_first,categorical,model - writer,accuracy,0.05998386866423644,0.04843088870219954,0.07064577187840033,,736,0.0
+unedited,rater,rewrite,writer_english_first,categorical,model - writer,chance_accuracy,0.062061618503212124,0.051728291919287406,0.0718464911409776,,736,0.0
+unedited,rater,rewrite,writer_english_first,categorical,model - writer,kappa,-0.015305752833262782,-0.0556024125093129,0.020312951688574443,,736,0.486
+unedited,rater,rewrite,writer_gender,categorical,writer,accuracy,0.5145867098865479,0.49633170571633584,0.5312766772373573,7404,737,
+unedited,rater,rewrite,writer_gender,categorical,writer,chance_accuracy,0.4880984434363308,0.4810022193748326,0.49498200040648865,7404,737,
+unedited,rater,rewrite,writer_gender,categorical,writer,kappa,0.051744844512740834,0.018488360450654127,0.08579978650289546,7404,737,
+unedited,rater,rewrite,writer_gender,categorical,model,accuracy,0.5046590141796083,0.4871925347766208,0.5239191956291002,7405,737,
+unedited,rater,rewrite,writer_gender,categorical,model,chance_accuracy,0.48488459492076313,0.4776669875330533,0.49234842842353144,7405,737,
+unedited,rater,rewrite,writer_gender,categorical,model,kappa,0.03838832825394426,0.00460065864734396,0.07292009364525044,7405,737,
+unedited,rater,rewrite,writer_gender,categorical,model - writer,accuracy,-0.009927695706939521,-0.02555806418778383,0.0062786843171820155,,737,0.21
+unedited,rater,rewrite,writer_gender,categorical,model - writer,chance_accuracy,-0.0032138485155676633,-0.0057526350456336955,-0.000855584239983068,,737,0.006
+unedited,rater,rewrite,writer_gender,categorical,model - writer,kappa,-0.013356516258796573,-0.043063182770092974,0.018202296213706008,,737,0.4
+unedited,rater,rewrite,writer_race,categorical,writer,accuracy,0.6432242358669191,0.6236473390756472,0.6614347414305145,7394,736,
+unedited,rater,rewrite,writer_race,categorical,writer,chance_accuracy,0.6371420430297204,0.6179458971307535,0.6554434613280988,7394,736,
+unedited,rater,rewrite,writer_race,categorical,writer,kappa,0.016761911156593038,-0.0021550796390008425,0.0345287566250906,7394,736,
+unedited,rater,rewrite,writer_race,categorical,model,accuracy,0.6556246619794484,0.6368719285067782,0.6736597778287631,7396,736,
+unedited,rater,rewrite,writer_race,categorical,model,chance_accuracy,0.6507363619584761,0.632077245298634,0.6695551643950556,7396,736,
+unedited,rater,rewrite,writer_race,categorical,model,kappa,0.013996017588269873,-0.0010693941719837994,0.028636335276000867,7396,736,
+unedited,rater,rewrite,writer_race,categorical,model - writer,accuracy,0.012400426112529228,-0.0012384072439343549,0.025555533942136267,,736,0.078
+unedited,rater,rewrite,writer_race,categorical,model - writer,chance_accuracy,0.013594318928755622,0.0013826483705169478,0.025891686991401156,,736,0.022
+unedited,rater,rewrite,writer_race,categorical,model - writer,kappa,-0.0027658935683231647,-0.02389639919941495,0.017922723423145187,,736,0.788
+unedited,rater,rewrite,writer_politicalParty,categorical,writer,accuracy,0.2423782590702166,0.22833927513303753,0.25623979593126006,7249,722,
+unedited,rater,rewrite,writer_politicalParty,categorical,writer,chance_accuracy,0.21080786688726752,0.20208383165428848,0.21976820035276334,7249,722,
+unedited,rater,rewrite,writer_politicalParty,categorical,writer,kappa,0.04000342991057083,0.026423713257380053,0.053713026259343315,7249,722,
+unedited,rater,rewrite,writer_politicalParty,categorical,model,accuracy,0.2308117062396466,0.2157710571118934,0.24584434225757512,7244,722,
+unedited,rater,rewrite,writer_politicalParty,categorical,model,chance_accuracy,0.21302099706042069,0.2037428860663066,0.22225841788086304,7244,722,
+unedited,rater,rewrite,writer_politicalParty,categorical,model,kappa,0.022606332713798995,0.0064629364181231245,0.03916098158404793,7244,722,
+unedited,rater,rewrite,writer_politicalParty,categorical,model - writer,accuracy,-0.011566552830569982,-0.02452393217095706,0.0016336163144104257,,722,0.096
+unedited,rater,rewrite,writer_politicalParty,categorical,model - writer,chance_accuracy,0.002213130173153166,-0.0032787850967566715,0.007386140419178824,,722,0.392
+unedited,rater,rewrite,writer_politicalParty,categorical,model - writer,kappa,-0.01739709719677183,-0.03264862861673144,-0.0013940397887916326,,722,0.028
+unedited,rater,improve,writer_stance,scale,writer,correlation,0.6755205511866127,0.6466199332978738,0.7015879636487437,7630,761,
+unedited,rater,improve,writer_stance,scale,writer,bias,-1.0187418086500655,-2.3912639360295485,0.31577120509440265,7630,761,
+unedited,rater,improve,writer_stance,scale,writer,mae,19.588073394495414,18.796725165464554,20.466990090624247,7630,761,
+unedited,rater,improve,writer_stance,scale,model,correlation,0.6834292696927727,0.6512687717945262,0.7112935283883851,7589,761,
+unedited,rater,improve,writer_stance,scale,model,bias,0.2323099222558967,-1.168710557480478,1.7089299990665472,7589,761,
+unedited,rater,improve,writer_stance,scale,model,mae,19.71234681776255,18.868299214508877,20.633929808945545,7589,761,
+unedited,rater,improve,writer_stance,scale,model - writer,correlation,0.00790871850616004,-0.009752863286003008,0.025560909692777016,,761,0.406
+unedited,rater,improve,writer_stance,scale,model - writer,bias,1.2510517309059621,0.46947544149296155,2.082586139182787,,761,0.0
+unedited,rater,improve,writer_stance,scale,model - writer,mae,0.12427342326713742,-0.4272558781618791,0.6904280584050069,,761,0.644
+unedited,rater,improve,writer_stance_polarity,scale,writer,correlation,0.3857025839489242,0.34601515140075445,0.42454380174389694,7630,761,
+unedited,rater,improve,writer_stance_polarity,scale,writer,bias,5.069200524246396,3.2254581772327837,7.037271746872747,7630,761,
+unedited,rater,improve,writer_stance_polarity,scale,writer,mae,28.20524246395806,27.149928833620496,29.166574220354427,7630,761,
+unedited,rater,improve,writer_stance_polarity,scale,model,correlation,0.36909049615170486,0.3269616395076142,0.4112821162296885,7589,761,
+unedited,rater,improve,writer_stance_polarity,scale,model,bias,7.753063644748979,5.742169608640512,9.784370996534934,7589,761,
+unedited,rater,improve,writer_stance_polarity,scale,model,mae,28.79878771906707,27.646030526700066,29.867596708482917,7589,761,
+unedited,rater,improve,writer_stance_polarity,scale,model - writer,correlation,-0.016612087797219344,-0.0456594306293395,0.011591247520522641,,761,0.242
+unedited,rater,improve,writer_stance_polarity,scale,model - writer,bias,2.6838631205025827,1.688282742560134,3.6022956499051473,,761,0.0
+unedited,rater,improve,writer_stance_polarity,scale,model - writer,mae,0.5935452551090101,-0.18101708318337223,1.3961519358368615,,761,0.128
+unedited,rater,improve,writer_knowledge,scale,writer,correlation,0.21967175748264273,0.17447398053873198,0.2627452467447261,7630,761,
+unedited,rater,improve,writer_knowledge,scale,writer,bias,1.6972477064220184,0.1190369666911014,3.2983736694348305,7630,761,
+unedited,rater,improve,writer_knowledge,scale,writer,mae,23.125819134993446,22.380449569400596,23.86936078620847,7630,761,
+unedited,rater,improve,writer_knowledge,scale,model,correlation,0.2157333506571784,0.1738753011299058,0.25654182124219527,7589,761,
+unedited,rater,improve,writer_knowledge,scale,model,bias,12.382922651205693,10.921471718630398,13.930550348167483,7589,761,
+unedited,rater,improve,writer_knowledge,scale,model,mae,24.471998945842667,23.600121731515042,25.3330116563758,7589,761,
+unedited,rater,improve,writer_knowledge,scale,model - writer,correlation,-0.003938406825464313,-0.03469243689879734,0.02721014388687486,,761,0.78
+unedited,rater,improve,writer_knowledge,scale,model - writer,bias,10.685674944783674,9.876227776996458,11.464422680157535,,761,0.0
+unedited,rater,improve,writer_knowledge,scale,model - writer,mae,1.3461798108492218,0.5969527718968498,2.073647906272027,,761,0.0
+unedited,rater,improve,writer_importance,scale,writer,correlation,0.2748034788102538,0.23625873993758853,0.3139548054469842,7630,761,
+unedited,rater,improve,writer_importance,scale,writer,bias,3.0828309305373525,1.5067780207527333,4.718755410852931,7630,761,
+unedited,rater,improve,writer_importance,scale,writer,mae,23.268152031454783,22.48124545136957,24.137873613493017,7630,761,
+unedited,rater,improve,writer_importance,scale,model,correlation,0.2526995821766105,0.2115026378550561,0.2905986335235226,7589,761,
+unedited,rater,improve,writer_importance,scale,model,bias,9.096718935301094,7.516992316929488,10.818203474901724,7589,761,
+unedited,rater,improve,writer_importance,scale,model,mae,23.7358018184214,22.927027710762292,24.681415521564325,7589,761,
+unedited,rater,improve,writer_importance,scale,model - writer,correlation,-0.022103896633643316,-0.05303504257556202,0.00731505285175521,,761,0.144
+unedited,rater,improve,writer_importance,scale,model - writer,bias,6.013888004763742,5.32345769023082,6.657741935586905,,761,0.0
+unedited,rater,improve,writer_importance,scale,model - writer,mae,0.46764978696661785,-0.10264390923082035,1.0572072740223113,,761,0.12
+unedited,rater,improve,writer_confidence,scale,writer,correlation,0.289415121020167,0.240052601520109,0.3372591691640317,7630,761,
+unedited,rater,improve,writer_confidence,scale,writer,bias,0.35543905635648754,-1.076115217347602,1.8142125450181206,7630,761,
+unedited,rater,improve,writer_confidence,scale,writer,mae,21.959633027522937,21.215357936484867,22.751421934268784,7630,761,
+unedited,rater,improve,writer_confidence,scale,model,correlation,0.27432092662310076,0.22307398809825185,0.322220701383449,7589,761,
+unedited,rater,improve,writer_confidence,scale,model,bias,6.368955066543681,4.907785684185022,7.9130385441871205,7589,761,
+unedited,rater,improve,writer_confidence,scale,model,mae,21.543549874818815,20.771311929280532,22.40391208814168,7589,761,
+unedited,rater,improve,writer_confidence,scale,model - writer,correlation,-0.015094194397066218,-0.04896852349497432,0.016043804829467854,,761,0.368
+unedited,rater,improve,writer_confidence,scale,model - writer,bias,6.013516010187194,5.253935451972268,6.736946541568223,,761,0.0
+unedited,rater,improve,writer_confidence,scale,model - writer,mae,-0.4160831527041218,-0.9919846944669112,0.19184866776507536,,761,0.198
+unedited,rater,improve,writer_affect_x,scale,writer,correlation,0.20472147418368972,0.16375016753451346,0.24453368840320455,7630,761,
+unedited,rater,improve,writer_affect_x,scale,writer,bias,-4.868954128440369,-6.524528526014688,-3.2507278671598,7630,761,
+unedited,rater,improve,writer_affect_x,scale,writer,mae,23.576668414154643,22.73986495075328,24.37006183750122,7630,761,
+unedited,rater,improve,writer_affect_x,scale,model,correlation,0.20078009856084164,0.16320763553378867,0.2392999997628009,7589,761,
+unedited,rater,improve,writer_affect_x,scale,model,bias,-2.405472394254847,-4.079478931193634,-0.7610865639670747,7589,761,
+unedited,rater,improve,writer_affect_x,scale,model,mae,23.796709711424445,23.017144444062797,24.564945906231973,7589,761,
+unedited,rater,improve,writer_affect_x,scale,model - writer,correlation,-0.003941375622848076,-0.034995421921585106,0.026588009174991656,,761,0.84
+unedited,rater,improve,writer_affect_x,scale,model - writer,bias,2.463481734185522,1.7583845884068199,3.168977300637162,,761,0.0
+unedited,rater,improve,writer_affect_x,scale,model - writer,mae,0.22004129726980182,-0.3214468135241061,0.7584873126412979,,761,0.482
+unedited,rater,improve,writer_affect_y,scale,writer,correlation,0.06688716705644078,0.033936458778849994,0.09913950765434774,7630,761,
+unedited,rater,improve,writer_affect_y,scale,writer,bias,2.063964613368284,0.5620520348907652,3.542820107873255,7630,761,
+unedited,rater,improve,writer_affect_y,scale,writer,mae,21.54620052424639,20.891349655310737,22.27683197300811,7630,761,
+unedited,rater,improve,writer_affect_y,scale,model,correlation,0.04754249999632148,0.01825011447407693,0.0749628636543811,7589,761,
+unedited,rater,improve,writer_affect_y,scale,model,bias,0.1374911055475025,-1.3894143410397142,1.595197924901185,7589,761,
+unedited,rater,improve,writer_affect_y,scale,model,mae,21.434626432995127,20.707152479823765,22.167730208326248,7589,761,
+unedited,rater,improve,writer_affect_y,scale,model - writer,correlation,-0.0193446670601193,-0.05004408650229165,0.010735172804800259,,761,0.228
+unedited,rater,improve,writer_affect_y,scale,model - writer,bias,-1.9264735078207815,-2.6168338800118467,-1.2714398912242049,,761,0.0
+unedited,rater,improve,writer_affect_y,scale,model - writer,mae,-0.1115740912512635,-0.5387843328851487,0.3317448307827409,,761,0.578
+unedited,rater,improve,writer_age_binned,categorical,writer,accuracy,0.20615989515072083,0.19134184473597468,0.22104934350146146,7630,761,
+unedited,rater,improve,writer_age_binned,categorical,writer,chance_accuracy,0.18350377639482693,0.17368985623226985,0.1930621884369419,7630,761,
+unedited,rater,improve,writer_age_binned,categorical,writer,kappa,0.027747977395238457,0.015424067872996708,0.039904305510572634,7630,761,
+unedited,rater,improve,writer_age_binned,categorical,model,accuracy,0.19159309526946897,0.17925608043239782,0.2044036742893887,7589,761,
+unedited,rater,improve,writer_age_binned,categorical,model,chance_accuracy,0.18199132494078568,0.17338612145086846,0.18965947246105752,7589,761,
+unedited,rater,improve,writer_age_binned,categorical,model,kappa,0.011737981052570411,0.00033773772620046376,0.02449125554087042,7589,761,
+unedited,rater,improve,writer_age_binned,categorical,model - writer,accuracy,-0.014566799881251868,-0.0267284500495661,-0.0017377567776873566,,761,0.022
+unedited,rater,improve,writer_age_binned,categorical,model - writer,chance_accuracy,-0.001512451454041247,-0.0054315803037457994,0.002734424605051876,,761,0.486
+unedited,rater,improve,writer_age_binned,categorical,model - writer,kappa,-0.016009996342668045,-0.030485362798572203,-0.0009762922898052836,,761,0.034
+unedited,rater,improve,writer_age_binned,categorical,writer,ordinal_correlation,0.11536213812661268,0.08339562074994684,0.14744554005571325,7630,761,
+unedited,rater,improve,writer_age_binned,categorical,model,ordinal_correlation,0.07408356813309842,0.04277655210882493,0.10827491358767172,7589,761,
+unedited,rater,improve,writer_age_binned,categorical,model - writer,ordinal_correlation,-0.04127856999351426,-0.0718870424885024,-0.010282150820933924,,761,0.016
+unedited,rater,improve,writer_education,categorical,writer,accuracy,0.23067807768268597,0.2170285338765411,0.2431016180669471,7595,758,
+unedited,rater,improve,writer_education,categorical,writer,chance_accuracy,0.21772686632044141,0.20945424916453073,0.22558716536221426,7595,758,
+unedited,rater,improve,writer_education,categorical,writer,kappa,0.016555868793967483,0.0030168020830384666,0.02982469492540061,7595,758,
+unedited,rater,improve,writer_education,categorical,model,accuracy,0.2612779468183622,0.2464115057380293,0.2769650780354524,7559,758,
+unedited,rater,improve,writer_education,categorical,model,chance_accuracy,0.2611187546270262,0.24979043077072705,0.2729384121961033,7559,758,
+unedited,rater,improve,writer_education,categorical,model,kappa,0.000215450307248792,-0.013372110894578263,0.01291847438668128,7559,758,
+unedited,rater,improve,writer_education,categorical,model - writer,accuracy,0.030599869135676222,0.01428096365434126,0.046925922507657494,,758,0.0
+unedited,rater,improve,writer_education,categorical,model - writer,chance_accuracy,0.0433918883065848,0.03450769128383628,0.052145890812081534,,758,0.0
+unedited,rater,improve,writer_education,categorical,model - writer,kappa,-0.016340418486718692,-0.0327830045198924,0.0014105288139042785,,758,0.072
+unedited,rater,improve,writer_education,categorical,writer,ordinal_correlation,0.09019433208555394,0.0528724408852331,0.12659101025045733,7446,750,
+unedited,rater,improve,writer_education,categorical,model,ordinal_correlation,0.03919057674087029,0.005039114039876199,0.06983196455927011,7403,750,
+unedited,rater,improve,writer_education,categorical,model - writer,ordinal_correlation,-0.051003755344683654,-0.08746905399068991,-0.013869256337577213,,750,0.004
+unedited,rater,improve,writer_income,categorical,writer,accuracy,0.18691588785046728,0.17635170788821738,0.19917502529612272,7062,705,
+unedited,rater,improve,writer_income,categorical,writer,chance_accuracy,0.1871556624214657,0.17927058928965214,0.195114099104663,7062,705,
+unedited,rater,improve,writer_income,categorical,writer,kappa,-0.0002949821508417005,-0.01115948469392123,0.011170445771360457,7062,705,
+unedited,rater,improve,writer_income,categorical,model,accuracy,0.17746759720837488,0.16414917705600304,0.1897786299168649,7021,705,
+unedited,rater,improve,writer_income,categorical,model,chance_accuracy,0.17274842410729438,0.1636949008747412,0.18215672159894025,7021,705,
+unedited,rater,improve,writer_income,categorical,model,kappa,0.005704640811337148,-0.005188200852685726,0.015872601149741806,7021,705,
+unedited,rater,improve,writer_income,categorical,model - writer,accuracy,-0.009448290642092405,-0.023945046579797513,0.003969019532467909,,705,0.17
+unedited,rater,improve,writer_income,categorical,model - writer,chance_accuracy,-0.014407238314171317,-0.02055134600324966,-0.007886117334633944,,705,0.0
+unedited,rater,improve,writer_income,categorical,model - writer,kappa,0.005999622962178848,-0.009609654175066736,0.020538469105902422,,705,0.466
+unedited,rater,improve,writer_income,categorical,writer,ordinal_correlation,0.04167756775787132,0.007401868847161087,0.07600867743664672,7062,705,
+unedited,rater,improve,writer_income,categorical,model,ordinal_correlation,0.03520507890387754,0.0048473254580326175,0.06599865361782356,7021,705,
+unedited,rater,improve,writer_income,categorical,model - writer,ordinal_correlation,-0.006472488853993777,-0.046574686461596605,0.035620351744907915,,705,0.766
+unedited,rater,improve,writer_english_skills,categorical,writer,accuracy,0.3213020081375509,0.30784362887623656,0.33390482101622415,7619,760,
+unedited,rater,improve,writer_english_skills,categorical,writer,chance_accuracy,0.314686684274386,0.3045576688776651,0.3244852506887682,7619,760,
+unedited,rater,improve,writer_english_skills,categorical,writer,kappa,0.00965299186717324,-0.000771620639114411,0.021364738165264466,7619,760,
+unedited,rater,improve,writer_english_skills,categorical,model,accuracy,0.4957118353344768,0.4797376524483792,0.5105003526352717,7579,760,
+unedited,rater,improve,writer_english_skills,categorical,model,chance_accuracy,0.49550520679036164,0.48317673125697497,0.5076905954131024,7579,760,
+unedited,rater,improve,writer_english_skills,categorical,model,kappa,0.00040957517678348197,-0.0169745821841866,0.01886124166812974,7579,760,
+unedited,rater,improve,writer_english_skills,categorical,model - writer,accuracy,0.17440982719692594,0.15631683942852875,0.19270254571142148,,760,0.0
+unedited,rater,improve,writer_english_skills,categorical,model - writer,chance_accuracy,0.18081852251597563,0.1666821060108826,0.19520976681779043,,760,0.0
+unedited,rater,improve,writer_english_skills,categorical,model - writer,kappa,-0.009243416690389758,-0.02862078044294726,0.010710142606310107,,760,0.374
+unedited,rater,improve,writer_english_skills,categorical,writer,ordinal_correlation,0.025642132508514312,-0.008110521208491617,0.06265015992501155,7619,760,
+unedited,rater,improve,writer_english_skills,categorical,model,ordinal_correlation,-0.0015740352041941845,-0.029820971389301697,0.027955180520505735,7579,760,
+unedited,rater,improve,writer_english_skills,categorical,model - writer,ordinal_correlation,-0.027216167712708496,-0.06468222043498396,0.013000921974375735,,760,0.17
+unedited,rater,improve,writer_politicalIdeology,categorical,writer,accuracy,0.2662870762711864,0.2523128952798075,0.2795612855988362,7552,753,
+unedited,rater,improve,writer_politicalIdeology,categorical,writer,chance_accuracy,0.2367128866974289,0.23044391750864793,0.2429294291157342,7552,753,
+unedited,rater,improve,writer_politicalIdeology,categorical,writer,kappa,0.038745825860725815,0.02192121057046831,0.0553960821063112,7552,753,
+unedited,rater,improve,writer_politicalIdeology,categorical,model,accuracy,0.2787539936102236,0.26568714752296624,0.2913339587737844,7512,753,
+unedited,rater,improve,writer_politicalIdeology,categorical,model,chance_accuracy,0.24284254883347453,0.2368165006727678,0.24875418154008588,7512,753,
+unedited,rater,improve,writer_politicalIdeology,categorical,model,kappa,0.047429295876863675,0.031647000809636984,0.06343109586398016,7512,753,
+unedited,rater,improve,writer_politicalIdeology,categorical,model - writer,accuracy,0.012466917339037209,-0.0014850854294537166,0.025856894131441432,,753,0.074
+unedited,rater,improve,writer_politicalIdeology,categorical,model - writer,chance_accuracy,0.006129662136045627,0.0025523859720354147,0.009723748094188536,,753,0.0
+unedited,rater,improve,writer_politicalIdeology,categorical,model - writer,kappa,0.00868347001613786,-0.008628904206890723,0.02649971810477923,,753,0.32
+unedited,rater,improve,writer_politicalIdeology,categorical,writer,ordinal_correlation,0.14424365457583885,0.10100509468724746,0.182825140630354,6874,740,
+unedited,rater,improve,writer_politicalIdeology,categorical,model,ordinal_correlation,0.15276717428333336,0.11016669833062935,0.1946794057360911,7053,740,
+unedited,rater,improve,writer_politicalIdeology,categorical,model - writer,ordinal_correlation,0.008523519707494515,-0.02227108739156748,0.03908566449180849,,740,0.59
+unedited,rater,improve,writer_english_first,categorical,writer,accuracy,0.8387942332896461,0.8232389392779589,0.8550262182117452,7630,761,
+unedited,rater,improve,writer_english_first,categorical,writer,chance_accuracy,0.8345033830382587,0.8183787656137634,0.8495682092760539,7630,761,
+unedited,rater,improve,writer_english_first,categorical,writer,kappa,0.0259271176061524,-0.012448830980547727,0.0663694025149275,7630,761,
+unedited,rater,improve,writer_english_first,categorical,model,accuracy,0.9076294636974569,0.8905784786816024,0.9246363736850429,7589,761,
+unedited,rater,improve,writer_english_first,categorical,model,chance_accuracy,0.9085439858138121,0.8916091852905258,0.9251118327913682,7589,761,
+unedited,rater,improve,writer_english_first,categorical,model,kappa,-0.009999584220819318,-0.026442037297846024,0.008226244312219199,7589,761,
+unedited,rater,improve,writer_english_first,categorical,model - writer,accuracy,0.06883523040781081,0.05726001609660401,0.08063823711197955,,761,0.0
+unedited,rater,improve,writer_english_first,categorical,model - writer,chance_accuracy,0.07404060277555347,0.0633291390626992,0.08463556159686178,,761,0.0
+unedited,rater,improve,writer_english_first,categorical,model - writer,kappa,-0.03592670182697172,-0.07988904158379191,0.005104389185322192,,761,0.092
+unedited,rater,improve,writer_gender,categorical,writer,accuracy,0.526018396846255,0.5085248188020208,0.5438914861784795,7610,759,
+unedited,rater,improve,writer_gender,categorical,writer,chance_accuracy,0.4888593920786848,0.48346946382905875,0.494936734224408,7610,759,
+unedited,rater,improve,writer_gender,categorical,writer,kappa,0.07269820513515218,0.04006187511477154,0.10752822894385956,7610,759,
+unedited,rater,improve,writer_gender,categorical,model,accuracy,0.5214691504822302,0.5042368209537529,0.5409497693803039,7569,759,
+unedited,rater,improve,writer_gender,categorical,model,chance_accuracy,0.4879840745015501,0.48259562008902684,0.4934700717119646,7569,759,
+unedited,rater,improve,writer_gender,categorical,model,kappa,0.06539850483768096,0.03186264767030033,0.10153786090104426,7569,759,
+unedited,rater,improve,writer_gender,categorical,model - writer,accuracy,-0.004549246364024762,-0.019723951764880298,0.010886200090214225,,759,0.64
+unedited,rater,improve,writer_gender,categorical,model - writer,chance_accuracy,-0.00087531757713466,-0.003438583796291929,0.0015780841523434282,,759,0.464
+unedited,rater,improve,writer_gender,categorical,model - writer,kappa,-0.0072997002974712205,-0.03661425925028599,0.02320840981819974,,759,0.708
+unedited,rater,improve,writer_race,categorical,writer,accuracy,0.6313984168865435,0.6120020728019534,0.6524182199313544,7580,756,
+unedited,rater,improve,writer_race,categorical,writer,chance_accuracy,0.6171362807276474,0.5960874265408516,0.6391531849095691,7580,756,
+unedited,rater,improve,writer_race,categorical,writer,kappa,0.0372512083046205,0.020980646650779623,0.056194534078526585,7580,756,
+unedited,rater,improve,writer_race,categorical,model,accuracy,0.6502652519893899,0.6303203453491678,0.6709712195552558,7540,756,
+unedited,rater,improve,writer_race,categorical,model,chance_accuracy,0.6461066707005607,0.6266242577941804,0.6663712061492001,7540,756,
+unedited,rater,improve,writer_race,categorical,model,kappa,0.011750945679200646,-0.005380576105135984,0.030871706228039014,7540,756,
+unedited,rater,improve,writer_race,categorical,model - writer,accuracy,0.01886683510284637,0.0055559267631185546,0.03280679444140522,,756,0.006
+unedited,rater,improve,writer_race,categorical,model - writer,chance_accuracy,0.028970389972913346,0.01725754745985268,0.040826487366656006,,756,0.0
+unedited,rater,improve,writer_race,categorical,model - writer,kappa,-0.025500262625419857,-0.046465908969616214,-0.004660256046176012,,756,0.014
+unedited,rater,improve,writer_politicalParty,categorical,writer,accuracy,0.23449197860962567,0.22027878642501778,0.24872814190146372,7480,746,
+unedited,rater,improve,writer_politicalParty,categorical,writer,chance_accuracy,0.20826417684234608,0.2000700203626897,0.21758113328067577,7480,746,
+unedited,rater,improve,writer_politicalParty,categorical,writer,kappa,0.03312696103944889,0.01780994277126734,0.047442585135049536,7480,746,
+unedited,rater,improve,writer_politicalParty,categorical,model,accuracy,0.23881198763607042,0.22374231873295464,0.2547506858024493,7441,746,
+unedited,rater,improve,writer_politicalParty,categorical,model,chance_accuracy,0.21240880709730867,0.20306274048006773,0.22221690896947446,7441,746,
+unedited,rater,improve,writer_politicalParty,categorical,model,kappa,0.03352396621075971,0.019161840620902763,0.04783455406082763,7441,746,
+unedited,rater,improve,writer_politicalParty,categorical,model - writer,accuracy,0.004320009026444749,-0.010339876050950483,0.01825501768913145,,746,0.546
+unedited,rater,improve,writer_politicalParty,categorical,model - writer,chance_accuracy,0.004144630254962589,-0.001133860714997295,0.009551113017461378,,746,0.138
+unedited,rater,improve,writer_politicalParty,categorical,model - writer,kappa,0.0003970051713108186,-0.016160790226303116,0.017075281384997705,,746,0.95

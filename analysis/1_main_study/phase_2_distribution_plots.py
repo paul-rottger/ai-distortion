@@ -507,19 +507,6 @@ def _abbreviate_category_label(variable, label):
     return abbreviations.get(variable, {}).get(label, label)
 
 
-def _two_line_label(label):
-    """Split a label across two lines when possible to save horizontal space."""
-    text = str(label)
-    parts = text.split()
-
-    if len(parts) <= 1:
-        return text
-
-    # Split near midpoint by word count
-    split_idx = len(parts) // 2
-    return " ".join(parts[:split_idx]) + "\n" + " ".join(parts[split_idx:])
-
-
 def _blend_with_white(hex_color, intensity):
     """Blend a base color with white by intensity in [0,1]."""
     base = np.array(mcolors.to_rgb(hex_color))

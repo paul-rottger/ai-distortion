@@ -24,7 +24,6 @@ suppressPackageStartupMessages({
 	library(marginaleffects)
 	library(ordinal)
 	library(mclogit)
-	library(lme4)
 })
 
 source("./analysis/utils_r/demo_paths.R")

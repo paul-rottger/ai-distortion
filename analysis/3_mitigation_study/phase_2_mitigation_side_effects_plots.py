@@ -56,13 +56,11 @@ DISTORTION_TOLERANCE_PATH = str(
 # =============================================================================
 
 PREFERRED_PARA_TYPE = "preferred"
-MITIGATIONS = ["prompting", "reranking"]
 CHANGE_VS_STANCE_MITIGATIONS = ["reranking"]
 CORRELATION_TARGET_ATTRIBUTE = "writer_stance_polarity"
 EXCLUDED_ATTRIBUTES = {"writer_affect_x", "writer_affect_y"}
 CHANGE_VS_STANCE_BASE_MARKER_SIZE = 6
 CHANGE_VS_STANCE_MAX_MARKER_SCALE = 3
-REDUCTION_ARROW_COLOR = "#2f6f62"
 BEST_FIT_LINE_COLOR = "#4c5c68"
 CHANGE_GROUP_OVERRIDES = {
 	"writer_openness": "liked",
@@ -176,26 +174,6 @@ def get_plot_correlations(plot_df, x_column):
 		valid_df[x_column],
 		valid_df["stance_correlation"],
 	)
-
-	return {
-		"pearson_r": pearson_r,
-		"pearson_p": pearson_p,
-		"spearman_r": spearman_r,
-		"spearman_p": spearman_p,
-	}
-
-
-def get_pairwise_correlation(x_values, y_values):
-	pair_df = pd.DataFrame({"x": x_values, "y": y_values}).dropna()
-
-	if len(pair_df) < 3:
-		return None
-
-	if pair_df["x"].nunique() < 2 or pair_df["y"].nunique() < 2:
-		return None
-
-	pearson_r, pearson_p = pearsonr(pair_df["x"], pair_df["y"])
-	spearman_r, spearman_p = spearmanr(pair_df["x"], pair_df["y"])
 
 	return {
 		"pearson_r": pearson_r,

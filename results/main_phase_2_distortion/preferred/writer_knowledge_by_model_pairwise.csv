@@ -1,0 +1,4 @@
+attribute,variable_type,pair,model_a,model_b,estimate,conf_low,conf_high,statistic,p,p_holm
+writer_knowledge,scale,Claude vs ChatGPT,anthropic/claude-sonnet-4,openai/chatgpt-4o-latest,2.0347304769644192,1.5103478755285695,2.559113078400269,7.605131143131832,2.8461513414379834e-14,8.53845402431395e-14
+writer_knowledge,scale,Claude vs DeepSeek,anthropic/claude-sonnet-4,deepseek/deepseek-chat-v3-0324,1.5131785823827681,0.986617617243202,2.0397395475223346,5.632349756236705,1.777706957977955e-8,3.55541391595591e-8
+writer_knowledge,scale,ChatGPT vs DeepSeek,openai/chatgpt-4o-latest,deepseek/deepseek-chat-v3-0324,-0.5215518945816511,-1.0566540901380908,0.013550300974788428,-1.9103321532547304,0.056090460381790615,0.056090460381790615

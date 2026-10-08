@@ -1,0 +1,4 @@
+check,n_pairs_excluded,n_pairs_total,share_pairs_excluded,n_rows_excluded,n_rows_total,share_rows_excluded,threshold
+low_knowledge,1362,3795,0.35889328063241105,27237,75972,0.35851366292844733,self-report < 50
+low_importance,1080,3795,0.2845849802371542,21595,75972,0.2842494603274891,self-report < 50
+low_confidence,691,3795,0.18208168642951253,13867,75972,0.18252777339019638,self-report < 50

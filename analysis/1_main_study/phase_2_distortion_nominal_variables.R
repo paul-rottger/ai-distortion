@@ -5,9 +5,12 @@
 # 
 # Estimates nominal distortion patterns across model-generated and writer text.
 #
-# - Fits multinomial and one-vs-all logistic models for nominal outcomes.
-# - Computes model-level and input-condition contrasts against writer baselines.
-# - Runs analyses on unedited and edited subsets.
+# - Fits multinomial logistic models (reader random intercepts) and one-vs-all
+#   logistic models (crossed reader, writer and proposition random intercepts,
+#   as pre-registered) for nominal outcomes.
+# - Computes paragraph-type, model-level and input-condition contrasts against
+#   writer baselines.
+# - Runs analyses on unedited, edited, and preferred subsets.
 # - Writes nominal distortion result tables to results/main_phase_2_distortion/.
 # 
 # =============================================================================
@@ -20,7 +23,8 @@
 suppressPackageStartupMessages({
   library(tidyverse)
   library(mclogit)
-  library(lme4)
+  library(glmmTMB)
+  library(parallel)
 })
 
 source("./analysis/utils_r/demo_paths.R")
@@ -29,6 +33,7 @@ source("./analysis/utils_r/data_loading.R")
 
 # Set random seed for reproducibility
 # ===== RANDOM SEED ----
+RNGkind("L'Ecuyer-CMRG")
 set.seed(123)
 
 # Parse command-line flags
@@ -36,6 +41,10 @@ set.seed(123)
 args <- commandArgs(trailingOnly = TRUE)
 demo_mode <- parse_demo_mode(args)
 RESULTS_DIR <- get_results_dir(demo_mode, "main_phase_2_distortion")
+
+# Crossed random intercepts for the one-vs-all logistic regressions
+OVA_RANDOM_EFFECTS <- c("rater_id", "writer_id", "proposition_id")
+N_CORES <- min(10, detectCores())
 
 # =============================================================================
 # DATA LOADING AND PROCESSING
@@ -228,13 +237,14 @@ fit_ova_logit <- function(df,
                           outcome,
                           predictor = "paragraph_type_",
                           predictor_ref = "writer",
-                          random_effect = "rater_id") {
+                          random_effects = OVA_RANDOM_EFFECTS) {
   model_df <- df %>%
-    filter(!is.na(.data[[outcome]]), !is.na(.data[[predictor]]), !is.na(.data[[random_effect]])) %>%
+    filter(!is.na(.data[[outcome]]), !is.na(.data[[predictor]])) %>%
+    filter(if_all(all_of(random_effects), ~ !is.na(.x))) %>%
     mutate(
       outcome_factor = droplevels(as.factor(.data[[outcome]])),
       predictor_factor = droplevels(as.factor(.data[[predictor]])),
-      random_effect_factor = as.factor(.data[[random_effect]])
+      across(all_of(random_effects), as.factor)
     )
 
   model_df$predictor_factor <- relevel_if_present(model_df$predictor_factor, ref = predictor_ref)
@@ -250,7 +260,13 @@ fit_ova_logit <- function(df,
     return(empty_nominal_results())
   }
 
-  map_dfr(target_levels, function(target_level) {
+  ova_form <- as.formula(paste0(
+    "target_flag ~ predictor_factor + ",
+    paste0("(1 | ", random_effects, ")", collapse = " + ")
+  ))
+
+  # Fit one model per target level in parallel
+  bind_rows(mclapply(target_levels, mc.cores = N_CORES, function(target_level) {
     binary_df <- model_df %>%
       mutate(target_flag = as.integer(outcome_factor == target_level))
 
@@ -272,8 +288,8 @@ fit_ova_logit <- function(df,
 
     fit <- tryCatch(
       suppressWarnings(
-        glmer(
-          target_flag ~ predictor_factor + (1 | random_effect_factor),
+        glmmTMB(
+          ova_form,
           data = binary_df,
           family = binomial(link = "logit")
         )
@@ -297,7 +313,7 @@ fit_ova_logit <- function(df,
       }))
     }
 
-    fit_summary <- coef(summary(fit))
+    fit_summary <- summary(fit)$coefficients$cond
     map_dfr(comparison_levels, function(predictor_level) {
       term_name <- paste0("predictor_factor", predictor_level)
 
@@ -332,7 +348,7 @@ fit_ova_logit <- function(df,
         p_value = p_value
       )
     })
-  })
+  }))
 }
 
 run_nominal_regressions <- function(attribute) {
@@ -369,7 +385,7 @@ run_nominal_regressions <- function(attribute) {
     )
 
     for (predictor in list(
-      #c("paragraph_type_", "by_type"),
+      c("paragraph_type_", "by_type"),
       c("model_", "by_model"),
       c("input_condition_", "by_input")
     )) {
@@ -385,8 +401,7 @@ run_nominal_regressions <- function(attribute) {
         split_data,
         outcome = attribute,
         predictor = predictor[1],
-        predictor_ref = "writer",
-        random_effect = "rater_id"
+        predictor_ref = "writer"
       )
 
       write_csv(

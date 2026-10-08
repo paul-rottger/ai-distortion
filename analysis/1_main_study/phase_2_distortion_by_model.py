@@ -24,7 +24,7 @@ import pandas as pd
 # Path configuration
 BASE_DIR = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(BASE_DIR / "analysis" / "utils_py"))
-from demo_paths import get_results_dir, get_results_input_dir, parse_demo_mode
+from demo_paths import get_results_input_dir, parse_demo_mode
 from variable_definitions import MODEL_TERMS, VARIABLE_GROUPS
 
 DEMO_MODE = parse_demo_mode()

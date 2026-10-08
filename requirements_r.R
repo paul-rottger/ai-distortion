@@ -9,6 +9,7 @@ packages <- c(
   "mclogit",          # 0.9.15
   "Matrix",           # 1.7.4
   "ordinal",          # 2023.12.4.1
+  "sandwich",         # 3.1.1
   "marginaleffects",  # 0.30.0
   "broom.mixed",      # 0.2.9.6
   "glmmTMB",          # 1.1.12

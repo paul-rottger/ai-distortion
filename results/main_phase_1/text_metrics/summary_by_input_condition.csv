@@ -1,0 +1,81 @@
+model_input_condition,feature_group,feature,label,n_paragraphs,n_writers,mean,ci_lower,ci_upper
+writer (reference),Errors,errors_per_100_words_headline,"All errors per 100 words (excl. whitespace, style)",4503,1501,1.6410464106940876,1.5492186605846328,1.745637779475722
+writer (reference),Errors,pct_with_any_error,% paragraphs with at least one error,4503,1501,67.31068176771042,65.7111925383078,68.95403064623584
+writer (reference),Errors,errors_per_100_words_spelling,Spelling errors per 100 words,4503,1501,0.7991137076986845,0.7339277413588838,0.869014554723817
+writer (reference),Errors,errors_per_100_words_grammar,Grammar errors per 100 words,4503,1501,0.23834392425627426,0.22213807139853828,0.25554009692795004
+writer (reference),Errors,errors_per_100_words_punctuation,Punctuation errors per 100 words,4503,1501,0.3808662553213969,0.35994235193020974,0.4033544139474311
+writer (reference),Errors,errors_per_100_words_casing,Casing errors per 100 words,4503,1501,0.22272252341773194,0.19105422859899585,0.2557682668920628
+writer (reference),Errors,errors_per_100_words_whitespace,Whitespace issues per 100 words,4503,1501,0.31954802774880864,0.2706414989018871,0.36808147099696686
+writer (reference),Errors,errors_per_100_words_style_other,Style / other issues per 100 words,4503,1501,0.29398771653439404,0.27762371056065477,0.31117326324956307
+writer (reference),Length and readability,n_words,Words,4503,1501,115.7719298245614,114.91893737508329,116.7001998667555
+writer (reference),Length and readability,n_sentences,Sentences,4503,1501,5.3091272485009995,5.2305074394847875,5.38708083499889
+writer (reference),Length and readability,mean_sentence_length,Words per sentence,4503,1501,24.799790225380708,24.240991015704054,25.42268598677384
+writer (reference),Length and readability,mean_word_length,Characters per word,4503,1501,4.743408073382709,4.724622945559887,4.762734588010215
+writer (reference),Length and readability,flesch_kincaid_grade,Flesch-Kincaid grade level,4503,1501,10.815188682219741,10.595855766965071,11.052571997045655
+writer (reference),Lexical diversity,mtld,MTLD,4503,1501,89.20813285821951,88.15804555986948,90.2870428200257
+writer (reference),Personal voice,first_person_singular_per_100_words,First-person singular pronouns per 100 words,4503,1501,1.4325110338871228,1.3663157208300325,1.4943753371039465
+writer (reference),Personal voice,first_person_plural_per_100_words,First-person plural pronouns per 100 words,4503,1501,1.1453296837142597,1.0808829321043947,1.2097805082860094
+bullets-based,Errors,errors_per_100_words_headline,"All errors per 100 words (excl. whitespace, style)",1501,1501,0.025139015245068667,0.01792714352667379,0.03339645506402278
+bullets-based,Errors,pct_with_any_error,% paragraphs with at least one error,1501,1501,3.1312458361092603,2.2651565622918053,3.9973351099267154
+bullets-based,Errors,errors_per_100_words_spelling,Spelling errors per 100 words,1501,1501,0.012411777750204512,0.0073154363362342946,0.018129699341993776
+bullets-based,Errors,errors_per_100_words_grammar,Grammar errors per 100 words,1501,1501,0.006192178421460871,0.003050534878716022,0.009922158768908689
+bullets-based,Errors,errors_per_100_words_punctuation,Punctuation errors per 100 words,1501,1501,0.00551401340527755,0.0025121666590968077,0.008823831184269985
+bullets-based,Errors,errors_per_100_words_casing,Casing errors per 100 words,1501,1501,0.0010210456681257318,0.0,0.0025584822488667765
+bullets-based,Errors,errors_per_100_words_whitespace,Whitespace issues per 100 words,1501,1501,0.0004563167933706296,0.0,0.0013689503801118887
+bullets-based,Errors,errors_per_100_words_style_other,Style / other issues per 100 words,1501,1501,0.019864011936366745,0.013919781059718504,0.026661225066845703
+bullets-based,Length and readability,n_words,Words,1501,1501,129.6275816122585,129.1084943371086,130.11932045303132
+bullets-based,Length and readability,n_sentences,Sentences,1501,1501,5.748834110592938,5.709510326449034,5.792155229846769
+bullets-based,Length and readability,mean_sentence_length,Words per sentence,1501,1501,22.929060784873577,22.75956043193427,23.082856766124166
+bullets-based,Length and readability,mean_word_length,Characters per word,1501,1501,5.969180376373912,5.949892528298087,5.9888156689173675
+bullets-based,Length and readability,flesch_kincaid_grade,Flesch-Kincaid grade level,1501,1501,14.43884698264636,14.33951410485931,14.540366680158257
+bullets-based,Lexical diversity,mtld,MTLD,1501,1501,149.77713175525298,148.4445201514479,151.14002118460826
+bullets-based,Personal voice,first_person_singular_per_100_words,First-person singular pronouns per 100 words,1501,1501,0.7100634335350293,0.656616534626508,0.7690269933263042
+bullets-based,Personal voice,first_person_plural_per_100_words,First-person plural pronouns per 100 words,1501,1501,0.5261449865823551,0.46782171176882176,0.5878144774564844
+improve,Errors,errors_per_100_words_headline,"All errors per 100 words (excl. whitespace, style)",761,761,0.06789801440284338,0.0473792688321254,0.09159712359561584
+improve,Errors,pct_with_any_error,% paragraphs with at least one error,761,761,5.781865965834428,4.204993429697766,7.6215505913272015
+improve,Errors,errors_per_100_words_spelling,Spelling errors per 100 words,761,761,0.037454932357787164,0.022386395079861038,0.053957006005613026
+improve,Errors,errors_per_100_words_grammar,Grammar errors per 100 words,761,761,0.01584121419488731,0.006901929162973864,0.025611774828083758
+improve,Errors,errors_per_100_words_punctuation,Punctuation errors per 100 words,761,761,0.014601867850168905,0.004071551878101062,0.028915251382574225
+improve,Errors,errors_per_100_words_casing,Casing errors per 100 words,761,761,0.0,0.0,0.0
+improve,Errors,errors_per_100_words_whitespace,Whitespace issues per 100 words,761,761,0.002367676480685679,0.0,0.007103029442057037
+improve,Errors,errors_per_100_words_style_other,Style / other issues per 100 words,761,761,0.03991340257036843,0.02503847943168876,0.05553870119097361
+improve,Length and readability,n_words,Words,761,761,95.15505913272011,93.60568331143233,96.65348226018396
+improve,Length and readability,n_sentences,Sentences,761,761,5.019710906701708,4.919842312746386,5.123521681997372
+improve,Length and readability,mean_sentence_length,Words per sentence,761,761,19.610479728695893,19.309295240275855,19.921233554781107
+improve,Length and readability,mean_word_length,Characters per word,761,761,5.912845130383103,5.867939094942495,5.955774742618387
+improve,Length and readability,flesch_kincaid_grade,Flesch-Kincaid grade level,761,761,12.680991655779273,12.48948626250382,12.887388934467689
+improve,Lexical diversity,mtld,MTLD,761,761,151.37587211330867,147.73466079420433,154.99839214807204
+improve,Personal voice,first_person_singular_per_100_words,First-person singular pronouns per 100 words,761,761,1.0992800564979988,0.9852836390809403,1.2119032049743625
+improve,Personal voice,first_person_plural_per_100_words,First-person plural pronouns per 100 words,761,761,0.7457577627972976,0.6331857137629335,0.8620368410362372
+rewrite,Errors,errors_per_100_words_headline,"All errors per 100 words (excl. whitespace, style)",740,740,0.056474131999068214,0.037609478293002575,0.07807175410194218
+rewrite,Errors,pct_with_any_error,% paragraphs with at least one error,740,740,4.45945945945946,2.972972972972973,5.945945945945946
+rewrite,Errors,errors_per_100_words_spelling,Spelling errors per 100 words,740,740,0.024968420933946998,0.01103213063220775,0.04131442016338836
+rewrite,Errors,errors_per_100_words_grammar,Grammar errors per 100 words,740,740,0.00248694072223484,0.0,0.0063252327958210315
+rewrite,Errors,errors_per_100_words_punctuation,Punctuation errors per 100 words,740,740,0.029018770342886385,0.016850569653068814,0.04268476208983272
+rewrite,Errors,errors_per_100_words_casing,Casing errors per 100 words,740,740,0.0,0.0,0.0
+rewrite,Errors,errors_per_100_words_whitespace,Whitespace issues per 100 words,740,740,0.0057890789132588015,0.0,0.013206291984772245
+rewrite,Errors,errors_per_100_words_style_other,Style / other issues per 100 words,740,740,0.040430350769957754,0.025741093021029816,0.058602427678731944
+rewrite,Length and readability,n_words,Words,740,740,92.1391891891892,90.65675675675676,93.72584459459459
+rewrite,Length and readability,n_sentences,Sentences,740,740,5.058108108108108,4.939155405405406,5.181081081081081
+rewrite,Length and readability,mean_sentence_length,Words per sentence,740,740,19.22845024078577,18.8475475868716,19.62985761508377
+rewrite,Length and readability,mean_word_length,Characters per word,740,740,5.838027459258218,5.789148785862647,5.887274272026078
+rewrite,Length and readability,flesch_kincaid_grade,Flesch-Kincaid grade level,740,740,12.280298984141377,12.038154880076178,12.532973557307322
+rewrite,Lexical diversity,mtld,MTLD,740,740,158.8477046534622,154.6147475880015,163.13499218310952
+rewrite,Personal voice,first_person_singular_per_100_words,First-person singular pronouns per 100 words,740,740,1.3281098047032596,1.1926383320115113,1.466540377223571
+rewrite,Personal voice,first_person_plural_per_100_words,First-person plural pronouns per 100 words,740,740,0.8245099242448963,0.7014579143047248,0.9457246074798438
+stance-based,Errors,errors_per_100_words_headline,"All errors per 100 words (excl. whitespace, style)",1501,1501,0.022428483814851574,0.01608474633844445,0.02927362535387991
+stance-based,Errors,pct_with_any_error,% paragraphs with at least one error,1501,1501,2.9980013324450367,2.1985343104596935,3.864090606262492
+stance-based,Errors,errors_per_100_words_spelling,Spelling errors per 100 words,1501,1501,0.013921473237415332,0.009119959710480583,0.019410962382687958
+stance-based,Errors,errors_per_100_words_grammar,Grammar errors per 100 words,1501,1501,0.006510759036963845,0.00328920942070982,0.010133989518149252
+stance-based,Errors,errors_per_100_words_punctuation,Punctuation errors per 100 words,1501,1501,0.0019962515404723957,0.00045321259749736,0.004163401814945062
+stance-based,Errors,errors_per_100_words_casing,Casing errors per 100 words,1501,1501,0.0,0.0,0.0
+stance-based,Errors,errors_per_100_words_whitespace,Whitespace issues per 100 words,1501,1501,0.0,0.0,0.0
+stance-based,Errors,errors_per_100_words_style_other,Style / other issues per 100 words,1501,1501,0.020390995011633516,0.013785610600663674,0.02765106831808308
+stance-based,Length and readability,n_words,Words,1501,1501,133.5896069287142,133.16720519653566,134.01067621585608
+stance-based,Length and readability,n_sentences,Sentences,1501,1501,5.9886742171885405,5.947368421052632,6.029996668887408
+stance-based,Length and readability,mean_sentence_length,Words per sentence,1501,1501,22.649397227245334,22.503462400727553,22.7922174568806
+stance-based,Length and readability,mean_word_length,Characters per word,1501,1501,6.0657071074927735,6.047654792342478,6.083397754322295
+stance-based,Length and readability,flesch_kincaid_grade,Flesch-Kincaid grade level,1501,1501,14.63874211623875,14.557186933939787,14.716309707159592
+stance-based,Lexical diversity,mtld,MTLD,1501,1501,157.21502649823253,155.87231510119165,158.65015958955013
+stance-based,Personal voice,first_person_singular_per_100_words,First-person singular pronouns per 100 words,1501,1501,1.5153108866152858,1.4437639982640589,1.591429129428378
+stance-based,Personal voice,first_person_plural_per_100_words,First-person plural pronouns per 100 words,1501,1501,0.21127264305049964,0.18113421958331305,0.2414124113191644

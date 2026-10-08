@@ -1,0 +1,65 @@
+model_name,feature_group,feature,label,n_paragraphs,n_writers,mean,ci_lower,ci_upper
+writer (reference),Errors,errors_per_100_words_headline,"All errors per 100 words (excl. whitespace, style)",4503,1501,1.6410464106940876,1.5552216882026022,1.7400093248492379
+writer (reference),Errors,pct_with_any_error,% paragraphs with at least one error,4503,1501,67.31068176771042,65.64512547190762,68.8657561625583
+writer (reference),Errors,errors_per_100_words_spelling,Spelling errors per 100 words,4503,1501,0.7991137076986845,0.7366413320526323,0.8658860528486713
+writer (reference),Errors,errors_per_100_words_grammar,Grammar errors per 100 words,4503,1501,0.23834392425627426,0.2211446236227895,0.25590235565038216
+writer (reference),Errors,errors_per_100_words_punctuation,Punctuation errors per 100 words,4503,1501,0.3808662553213969,0.3586972702934606,0.40134461246274844
+writer (reference),Errors,errors_per_100_words_casing,Casing errors per 100 words,4503,1501,0.22272252341773194,0.19228297667876063,0.256585776964063
+writer (reference),Errors,errors_per_100_words_whitespace,Whitespace issues per 100 words,4503,1501,0.31954802774880864,0.2761256737186621,0.37159945384218973
+writer (reference),Errors,errors_per_100_words_style_other,Style / other issues per 100 words,4503,1501,0.29398771653439404,0.2767779134367495,0.31137320881521224
+writer (reference),Length and readability,n_words,Words,4503,1501,115.7719298245614,114.86339107261826,116.69340994892293
+writer (reference),Length and readability,n_sentences,Sentences,4503,1501,5.3091272485009995,5.228059071729958,5.385742838107928
+writer (reference),Length and readability,mean_sentence_length,Words per sentence,4503,1501,24.799790225380708,24.2557340986276,25.41207076765124
+writer (reference),Length and readability,mean_word_length,Characters per word,4503,1501,4.743408073382709,4.724060270113685,4.7614757895383395
+writer (reference),Length and readability,flesch_kincaid_grade,Flesch-Kincaid grade level,4503,1501,10.815188682219741,10.594735282500949,11.06212370246937
+writer (reference),Lexical diversity,mtld,MTLD,4503,1501,89.20813285821951,88.10756294873877,90.35963538684125
+writer (reference),Personal voice,first_person_singular_per_100_words,First-person singular pronouns per 100 words,4503,1501,1.4325110338871228,1.3681416582970833,1.4956937849973724
+writer (reference),Personal voice,first_person_plural_per_100_words,First-person plural pronouns per 100 words,4503,1501,1.1453296837142597,1.0803325757842528,1.2094923863469513
+anthropic/claude-sonnet-4,Errors,errors_per_100_words_headline,"All errors per 100 words (excl. whitespace, style)",1501,1501,0.04027597583211672,0.030862412853125076,0.05016460714986889
+anthropic/claude-sonnet-4,Errors,pct_with_any_error,% paragraphs with at least one error,1501,1501,4.530313124583611,3.530979347101932,5.662891405729513
+anthropic/claude-sonnet-4,Errors,errors_per_100_words_spelling,Spelling errors per 100 words,1501,1501,0.014573950044741348,0.009478178337672286,0.020458654069763906
+anthropic/claude-sonnet-4,Errors,errors_per_100_words_grammar,Grammar errors per 100 words,1501,1501,0.009655219945109351,0.005130982205445853,0.014349507342777767
+anthropic/claude-sonnet-4,Errors,errors_per_100_words_punctuation,Punctuation errors per 100 words,1501,1501,0.015534326982019009,0.009749370587548637,0.022178840562646077
+anthropic/claude-sonnet-4,Errors,errors_per_100_words_casing,Casing errors per 100 words,1501,1501,0.0005124788602470148,0.0,0.0015374365807410445
+anthropic/claude-sonnet-4,Errors,errors_per_100_words_whitespace,Whitespace issues per 100 words,1501,1501,0.002051365169022704,0.0,0.0054219828495723765
+anthropic/claude-sonnet-4,Errors,errors_per_100_words_style_other,Style / other issues per 100 words,1501,1501,0.03655555037332868,0.027382270005630094,0.046779114339705476
+anthropic/claude-sonnet-4,Length and readability,n_words,Words,1501,1501,122.76882078614257,121.82663224516989,123.6889740173218
+anthropic/claude-sonnet-4,Length and readability,n_sentences,Sentences,1501,1501,5.381745502998001,5.325116588940706,5.441705529646902
+anthropic/claude-sonnet-4,Length and readability,mean_sentence_length,Words per sentence,1501,1501,23.449339118576294,23.23852250045184,23.673376505009166
+anthropic/claude-sonnet-4,Length and readability,mean_word_length,Characters per word,1501,1501,6.277774964490596,6.256741650015422,6.299141604675903
+anthropic/claude-sonnet-4,Length and readability,flesch_kincaid_grade,Flesch-Kincaid grade level,1501,1501,15.567635383355755,15.454630484334666,15.682175639920244
+anthropic/claude-sonnet-4,Lexical diversity,mtld,MTLD,1501,1501,164.92102834909602,163.02092008531906,166.8261384687438
+anthropic/claude-sonnet-4,Personal voice,first_person_singular_per_100_words,First-person singular pronouns per 100 words,1501,1501,1.3770724807710026,1.304601241724478,1.4511727755898298
+anthropic/claude-sonnet-4,Personal voice,first_person_plural_per_100_words,First-person plural pronouns per 100 words,1501,1501,0.7684647879335724,0.6967589104150219,0.8462324840181615
+deepseek/deepseek-chat-v3-0324,Errors,errors_per_100_words_headline,"All errors per 100 words (excl. whitespace, style)",1501,1501,0.04091241483901531,0.02894137884768156,0.05442690122624234
+deepseek/deepseek-chat-v3-0324,Errors,pct_with_any_error,% paragraphs with at least one error,1501,1501,3.46435709526982,2.5316455696202533,4.3987341772151805
+deepseek/deepseek-chat-v3-0324,Errors,errors_per_100_words_spelling,Spelling errors per 100 words,1501,1501,0.027627158102592572,0.01770868726318662,0.038423168113136695
+deepseek/deepseek-chat-v3-0324,Errors,errors_per_100_words_grammar,Grammar errors per 100 words,1501,1501,0.008255235415007106,0.004248165612644373,0.013305611173895384
+deepseek/deepseek-chat-v3-0324,Errors,errors_per_100_words_punctuation,Punctuation errors per 100 words,1501,1501,0.0050300213214156285,0.000516451564590015,0.011362416460293916
+deepseek/deepseek-chat-v3-0324,Errors,errors_per_100_words_casing,Casing errors per 100 words,1501,1501,0.0,0.0,0.0
+deepseek/deepseek-chat-v3-0324,Errors,errors_per_100_words_whitespace,Whitespace issues per 100 words,1501,1501,0.0024593954601995673,0.0,0.006009236000486813
+deepseek/deepseek-chat-v3-0324,Errors,errors_per_100_words_style_other,Style / other issues per 100 words,1501,1501,0.018537611404604186,0.011451831404919385,0.026195484682807597
+deepseek/deepseek-chat-v3-0324,Length and readability,n_words,Words,1501,1501,112.618254497002,111.16037641572285,114.11903730846103
+deepseek/deepseek-chat-v3-0324,Length and readability,n_sentences,Sentences,1501,1501,5.706862091938707,5.644886742171885,5.766838774150567
+deepseek/deepseek-chat-v3-0324,Length and readability,mean_sentence_length,Words per sentence,1501,1501,19.79199316857545,19.616562186055855,19.963946145691235
+deepseek/deepseek-chat-v3-0324,Length and readability,mean_word_length,Characters per word,1501,1501,5.938861803107432,5.9177782160163455,5.959576145154648
+deepseek/deepseek-chat-v3-0324,Length and readability,flesch_kincaid_grade,Flesch-Kincaid grade level,1501,1501,12.94855392417928,12.845789359531667,13.053192520970688
+deepseek/deepseek-chat-v3-0324,Lexical diversity,mtld,MTLD,1501,1501,158.3019261285422,155.94123383674608,160.70674845963939
+deepseek/deepseek-chat-v3-0324,Personal voice,first_person_singular_per_100_words,First-person singular pronouns per 100 words,1501,1501,0.8222413037164543,0.7469549519461887,0.8996214719343053
+deepseek/deepseek-chat-v3-0324,Personal voice,first_person_plural_per_100_words,First-person plural pronouns per 100 words,1501,1501,0.27276609541768726,0.22827326214948027,0.323693294560367
+openai/chatgpt-4o-latest,Errors,errors_per_100_words_headline,"All errors per 100 words (excl. whitespace, style)",1501,1501,0.028645095490636503,0.02033370255069406,0.03722095298995355
+openai/chatgpt-4o-latest,Errors,pct_with_any_error,% paragraphs with at least one error,1501,1501,3.2644903397734844,2.3984010659560293,4.197201865423051
+openai/chatgpt-4o-latest,Errors,errors_per_100_words_spelling,Spelling errors per 100 words,1501,1501,0.015431166834554285,0.009777781397788928,0.021938332241320316
+openai/chatgpt-4o-latest,Errors,errors_per_100_words_grammar,Grammar errors per 100 words,1501,1501,0.004049977192753978,0.0015096297236276677,0.007113696602853579
+openai/chatgpt-4o-latest,Errors,errors_per_100_words_punctuation,Punctuation errors per 100 words,1501,1501,0.008655384655449528,0.004386416155838101,0.013129745502789173
+openai/chatgpt-4o-latest,Errors,errors_per_100_words_casing,Casing errors per 100 words,1501,1501,0.0005085668078787171,0.0,0.0015257004236361512
+openai/chatgpt-4o-latest,Errors,errors_per_100_words_whitespace,Whitespace issues per 100 words,1501,1501,0.0,0.0,0.0
+openai/chatgpt-4o-latest,Errors,errors_per_100_words_style_other,Style / other issues per 100 words,1501,1501,0.02533010561365108,0.018231306703149146,0.03340842032154283
+openai/chatgpt-4o-latest,Length and readability,n_words,Words,1501,1501,121.4983344437042,120.49565289806796,122.46572285143237
+openai/chatgpt-4o-latest,Length and readability,n_sentences,Sentences,1501,1501,5.687541638907395,5.632894736842105,5.744836775483011
+openai/chatgpt-4o-latest,Length and readability,mean_sentence_length,Words per sentence,1501,1501,21.75926313450683,21.58996610916327,21.932367235899044
+openai/chatgpt-4o-latest,Length and readability,mean_word_length,Characters per word,1501,1501,5.694210385870671,5.67244760561004,5.715953424202789
+openai/chatgpt-4o-latest,Length and readability,flesch_kincaid_grade,Flesch-Kincaid grade level,1501,1501,13.044848091358503,12.92497920440964,13.153129305561107
+openai/chatgpt-4o-latest,Lexical diversity,mtld,MTLD,1501,1501,138.82872417677328,137.41259946167162,140.23983201083155
+openai/chatgpt-4o-latest,Personal voice,first_person_singular_per_100_words,First-person singular pronouns per 100 words,1501,1501,1.238154725186768,1.1615650879978259,1.314909195843203
+openai/chatgpt-4o-latest,Personal voice,first_person_plural_per_100_words,First-person plural pronouns per 100 words,1501,1501,0.48076969193780217,0.42153635334621264,0.5480879639805337

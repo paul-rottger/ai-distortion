@@ -24,7 +24,7 @@ import pandas as pd
 # Path configuration
 BASE_DIR = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(BASE_DIR / "analysis" / "utils_py"))
-from demo_paths import get_results_dir, get_results_input_dir, parse_demo_mode
+from demo_paths import get_results_input_dir, parse_demo_mode
 from variable_definitions import INPUT_CONDITION_TERMS, VARIABLE_GROUPS
 
 DEMO_MODE = parse_demo_mode()
@@ -39,24 +39,11 @@ DATA_SPLITS = ["preferred", "edited", "unedited"]
 # LOAD DATA
 # =============================================================================
 
-def resolve_results_path(data_split: str, attribute: str) -> Path:
-	candidates = [
-		RESULTS_BASE_DIR / data_split / f"{attribute}_by_input_condition.csv",
-		RESULTS_BASE_DIR / data_split / f"{attribute}_by_input.csv",
-	]
-
-	for file_path in candidates:
-		if file_path.exists():
-			return file_path
-
-	raise FileNotFoundError(
-		f"Missing regression results for {attribute} in split '{data_split}'. Tried: "
-		+ ", ".join(str(path) for path in candidates)
-	)
-
-
 def load_attribute_results(data_split: str, attribute: str, metric_column: str) -> pd.DataFrame:
-	file_path = resolve_results_path(data_split, attribute)
+	file_path = RESULTS_BASE_DIR / data_split / f"{attribute}_by_input.csv"
+	if not file_path.exists():
+		raise FileNotFoundError(f"Missing regression results: {file_path.relative_to(BASE_DIR)}")
+
 	df = pd.read_csv(file_path)
 
 	required_columns = {"term", metric_column}

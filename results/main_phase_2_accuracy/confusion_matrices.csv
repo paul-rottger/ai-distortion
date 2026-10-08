@@ -1,0 +1,1729 @@
+split,paragraph_type,attribute,self_reported,perceived,n,row_share
+unedited,writer,writer_age_binned,18-29,18-29,4217,0.4962344080960226
+unedited,writer,writer_age_binned,18-29,30-39,2074,0.24405742527653565
+unedited,writer,writer_age_binned,18-29,40-49,1360,0.16003765591903976
+unedited,writer,writer_age_binned,18-29,50-59,668,0.07860673099552835
+unedited,writer,writer_age_binned,18-29,60-69,160,0.01882795951988703
+unedited,writer,writer_age_binned,18-29,70+,19,0.002235820192986585
+unedited,writer,writer_age_binned,30-39,18-29,3476,0.45178060826618144
+unedited,writer,writer_age_binned,30-39,30-39,2091,0.27177021055367817
+unedited,writer,writer_age_binned,30-39,40-49,1299,0.16883285677151028
+unedited,writer,writer_age_binned,30-39,50-59,643,0.08357161424486613
+unedited,writer,writer_age_binned,30-39,60-69,170,0.02209513906940473
+unedited,writer,writer_age_binned,30-39,70+,15,0.001949571094359241
+unedited,writer,writer_age_binned,40-49,18-29,3120,0.44192634560906513
+unedited,writer,writer_age_binned,40-49,30-39,1898,0.2688385269121813
+unedited,writer,writer_age_binned,40-49,40-49,1260,0.17847025495750707
+unedited,writer,writer_age_binned,40-49,50-59,629,0.08909348441926346
+unedited,writer,writer_age_binned,40-49,60-69,137,0.019405099150141644
+unedited,writer,writer_age_binned,40-49,70+,16,0.0022662889518413596
+unedited,writer,writer_age_binned,50-59,18-29,4558,0.4159138607537184
+unedited,writer,writer_age_binned,50-59,30-39,2793,0.25485901998357513
+unedited,writer,writer_age_binned,50-59,40-49,2033,0.18550962679076557
+unedited,writer,writer_age_binned,50-59,50-59,1159,0.10575782461903459
+unedited,writer,writer_age_binned,50-59,60-69,368,0.033579706177570945
+unedited,writer,writer_age_binned,50-59,70+,48,0.0043799616753353405
+unedited,writer,writer_age_binned,60-69,18-29,3605,0.4004665629860031
+unedited,writer,writer_age_binned,60-69,30-39,2230,0.24772272828260386
+unedited,writer,writer_age_binned,60-69,40-49,1724,0.19151299711175293
+unedited,writer,writer_age_binned,60-69,50-59,1024,0.11375249944456788
+unedited,writer,writer_age_binned,60-69,60-69,376,0.04176849588980227
+unedited,writer,writer_age_binned,60-69,70+,43,0.00477671628526994
+unedited,writer,writer_age_binned,70+,18-29,675,0.3611556982343499
+unedited,writer,writer_age_binned,70+,30-39,479,0.256286784376672
+unedited,writer,writer_age_binned,70+,40-49,352,0.18833600856072766
+unedited,writer,writer_age_binned,70+,50-59,236,0.12627073301230604
+unedited,writer,writer_age_binned,70+,60-69,110,0.05885500267522739
+unedited,writer,writer_age_binned,70+,70+,17,0.00909577314071696
+unedited,writer,writer_education,GCSEs or equivalent,GCSEs or equivalent,1188,0.2673869007427414
+unedited,writer,writer_education,GCSEs or equivalent,A-levels or equivalent,926,0.20841773576412334
+unedited,writer,writer_education,GCSEs or equivalent,Vocational qualification,729,0.16407832545577314
+unedited,writer,writer_education,GCSEs or equivalent,Undergraduate degree,1179,0.26536124240378123
+unedited,writer,writer_education,GCSEs or equivalent,Postgraduate degree (Master's),311,0.06999774926851227
+unedited,writer,writer_education,GCSEs or equivalent,Doctorate (PhD),48,0.010803511141120865
+unedited,writer,writer_education,GCSEs or equivalent,Other,62,0.013954535223947783
+unedited,writer,writer_education,A-levels or equivalent,GCSEs or equivalent,1480,0.22305953278070836
+unedited,writer,writer_education,A-levels or equivalent,A-levels or equivalent,1394,0.2100979653353429
+unedited,writer,writer_education,A-levels or equivalent,Vocational qualification,1009,0.1520723436322532
+unedited,writer,writer_education,A-levels or equivalent,Undergraduate degree,1960,0.29540316503391106
+unedited,writer,writer_education,A-levels or equivalent,Postgraduate degree (Master's),617,0.09299171062547099
+unedited,writer,writer_education,A-levels or equivalent,Doctorate (PhD),102,0.015373021853805577
+unedited,writer,writer_education,A-levels or equivalent,Other,73,0.011002260738507913
+unedited,writer,writer_education,Vocational qualification,GCSEs or equivalent,1205,0.23622819055087238
+unedited,writer,writer_education,Vocational qualification,A-levels or equivalent,1064,0.20858655165653794
+unedited,writer,writer_education,Vocational qualification,Vocational qualification,801,0.15702803371887866
+unedited,writer,writer_education,Vocational qualification,Undergraduate degree,1458,0.2858263085669477
+unedited,writer,writer_education,Vocational qualification,Postgraduate degree (Master's),434,0.08508135659674573
+unedited,writer,writer_education,Vocational qualification,Doctorate (PhD),77,0.015095079396196824
+unedited,writer,writer_education,Vocational qualification,Other,62,0.01215447951382082
+unedited,writer,writer_education,Undergraduate degree,GCSEs or equivalent,3364,0.18692004222926042
+unedited,writer,writer_education,Undergraduate degree,A-levels or equivalent,3674,0.20414513530032782
+unedited,writer,writer_education,Undergraduate degree,Vocational qualification,2648,0.14713563371673058
+unedited,writer,writer_education,Undergraduate degree,Undergraduate degree,5914,0.32861032394287937
+unedited,writer,writer_education,Undergraduate degree,Postgraduate degree (Master's),1886,0.10479524365171973
+unedited,writer,writer_education,Undergraduate degree,Doctorate (PhD),334,0.018558648663666168
+unedited,writer,writer_education,Undergraduate degree,Other,177,0.009834972495415902
+unedited,writer,writer_education,Postgraduate degree (Master's),GCSEs or equivalent,1351,0.15899729316229258
+unedited,writer,writer_education,Postgraduate degree (Master's),A-levels or equivalent,1613,0.18983170530775567
+unedited,writer,writer_education,Postgraduate degree (Master's),Vocational qualification,1146,0.13487113098740733
+unedited,writer,writer_education,Postgraduate degree (Master's),Undergraduate degree,2958,0.34812286689419797
+unedited,writer,writer_education,Postgraduate degree (Master's),Postgraduate degree (Master's),1151,0.13545957396728256
+unedited,writer,writer_education,Postgraduate degree (Master's),Doctorate (PhD),166,0.019536306931858302
+unedited,writer,writer_education,Postgraduate degree (Master's),Other,112,0.013181122749205602
+unedited,writer,writer_education,Doctorate (PhD),GCSEs or equivalent,290,0.15625
+unedited,writer,writer_education,Doctorate (PhD),A-levels or equivalent,353,0.19019396551724138
+unedited,writer,writer_education,Doctorate (PhD),Vocational qualification,238,0.12823275862068967
+unedited,writer,writer_education,Doctorate (PhD),Undergraduate degree,638,0.34375
+unedited,writer,writer_education,Doctorate (PhD),Postgraduate degree (Master's),255,0.13739224137931033
+unedited,writer,writer_education,Doctorate (PhD),Doctorate (PhD),57,0.030711206896551723
+unedited,writer,writer_education,Doctorate (PhD),Other,25,0.013469827586206896
+unedited,writer,writer_education,Other,GCSEs or equivalent,109,0.3002754820936639
+unedited,writer,writer_education,Other,A-levels or equivalent,72,0.19834710743801653
+unedited,writer,writer_education,Other,Vocational qualification,57,0.15702479338842976
+unedited,writer,writer_education,Other,Undergraduate degree,86,0.2369146005509642
+unedited,writer,writer_education,Other,Postgraduate degree (Master's),29,0.07988980716253444
+unedited,writer,writer_education,Other,Doctorate (PhD),7,0.01928374655647383
+unedited,writer,writer_education,Other,Other,3,0.008264462809917356
+unedited,writer,writer_income,"Under £15,000","Under £15,000",681,0.07628542623501736
+unedited,writer,writer_income,"Under £15,000","£15,000-£24,999",2020,0.22627982524924387
+unedited,writer,writer_income,"Under £15,000","£25,000-£34,999",2906,0.32552929315559537
+unedited,writer,writer_income,"Under £15,000","£35,000-£49,999",2125,0.23804189537358575
+unedited,writer,writer_income,"Under £15,000","£50,000-£74,999",876,0.09812927075165229
+unedited,writer,writer_income,"Under £15,000","£75,000-£99,999",239,0.026772711997311526
+unedited,writer,writer_income,"Under £15,000","£100,000+",80,0.008961577237593816
+unedited,writer,writer_income,"£15,000-£24,999","Under £15,000",593,0.07876211980342675
+unedited,writer,writer_income,"£15,000-£24,999","£15,000-£24,999",1677,0.22273874352503653
+unedited,writer,writer_income,"£15,000-£24,999","£25,000-£34,999",2475,0.32872891486253153
+unedited,writer,writer_income,"£15,000-£24,999","£35,000-£49,999",1848,0.2454509230973569
+unedited,writer,writer_income,"£15,000-£24,999","£50,000-£74,999",723,0.09602868906893346
+unedited,writer,writer_income,"£15,000-£24,999","£75,000-£99,999",156,0.02071988311860805
+unedited,writer,writer_income,"£15,000-£24,999","£100,000+",57,0.007570726524106787
+unedited,writer,writer_income,"£25,000-£34,999","Under £15,000",741,0.0788046368180368
+unedited,writer,writer_income,"£25,000-£34,999","£15,000-£24,999",2115,0.22492821439965968
+unedited,writer,writer_income,"£25,000-£34,999","£25,000-£34,999",3125,0.332340742316282
+unedited,writer,writer_income,"£25,000-£34,999","£35,000-£49,999",2248,0.23907263639264065
+unedited,writer,writer_income,"£25,000-£34,999","£50,000-£74,999",894,0.09507603956184196
+unedited,writer,writer_income,"£25,000-£34,999","£75,000-£99,999",214,0.022758694033818996
+unedited,writer,writer_income,"£25,000-£34,999","£100,000+",66,0.007019036477719877
+unedited,writer,writer_income,"£35,000-£49,999","Under £15,000",470,0.05820433436532508
+unedited,writer,writer_income,"£35,000-£49,999","£15,000-£24,999",1702,0.21077399380804954
+unedited,writer,writer_income,"£35,000-£49,999","£25,000-£34,999",2722,0.3370897832817337
+unedited,writer,writer_income,"£35,000-£49,999","£35,000-£49,999",2007,0.24854489164086688
+unedited,writer,writer_income,"£35,000-£49,999","£50,000-£74,999",887,0.10984520123839009
+unedited,writer,writer_income,"£35,000-£49,999","£75,000-£99,999",227,0.028111455108359135
+unedited,writer,writer_income,"£35,000-£49,999","£100,000+",60,0.007430340557275541
+unedited,writer,writer_income,"£50,000-£74,999","Under £15,000",349,0.06401320616287601
+unedited,writer,writer_income,"£50,000-£74,999","£15,000-£24,999",1148,0.21056493030080703
+unedited,writer,writer_income,"£50,000-£74,999","£25,000-£34,999",1768,0.32428466617754953
+unedited,writer,writer_income,"£50,000-£74,999","£35,000-£49,999",1375,0.25220102714600146
+unedited,writer,writer_income,"£50,000-£74,999","£50,000-£74,999",636,0.11665443873807776
+unedited,writer,writer_income,"£50,000-£74,999","£75,000-£99,999",132,0.02421129860601614
+unedited,writer,writer_income,"£50,000-£74,999","£100,000+",44,0.008070432868672046
+unedited,writer,writer_income,"£75,000-£99,999","Under £15,000",96,0.05476326297775243
+unedited,writer,writer_income,"£75,000-£99,999","£15,000-£24,999",368,0.20992584141471762
+unedited,writer,writer_income,"£75,000-£99,999","£25,000-£34,999",538,0.30690245293782087
+unedited,writer,writer_income,"£75,000-£99,999","£35,000-£49,999",452,0.257843696520251
+unedited,writer,writer_income,"£75,000-£99,999","£50,000-£74,999",216,0.12321734169994296
+unedited,writer,writer_income,"£75,000-£99,999","£75,000-£99,999",61,0.03479749001711352
+unedited,writer,writer_income,"£75,000-£99,999","£100,000+",22,0.012549914432401598
+unedited,writer,writer_income,"£100,000+","Under £15,000",78,0.06989247311827956
+unedited,writer,writer_income,"£100,000+","£15,000-£24,999",183,0.1639784946236559
+unedited,writer,writer_income,"£100,000+","£25,000-£34,999",338,0.30286738351254483
+unedited,writer,writer_income,"£100,000+","£35,000-£49,999",310,0.2777777777777778
+unedited,writer,writer_income,"£100,000+","£50,000-£74,999",151,0.13530465949820789
+unedited,writer,writer_income,"£100,000+","£75,000-£99,999",47,0.042114695340501794
+unedited,writer,writer_income,"£100,000+","£100,000+",9,0.008064516129032258
+unedited,writer,writer_english_skills,Basic,Basic,0,0.0
+unedited,writer,writer_english_skills,Basic,Intermediate,10,0.3333333333333333
+unedited,writer,writer_english_skills,Basic,Advanced,14,0.4666666666666667
+unedited,writer,writer_english_skills,Basic,Expert,6,0.2
+unedited,writer,writer_english_skills,Intermediate,Basic,117,0.06543624161073826
+unedited,writer,writer_english_skills,Intermediate,Intermediate,638,0.3568232662192394
+unedited,writer,writer_english_skills,Intermediate,Advanced,566,0.31655480984340045
+unedited,writer,writer_english_skills,Intermediate,Expert,467,0.2611856823266219
+unedited,writer,writer_english_skills,Advanced,Basic,395,0.05804555473916238
+unedited,writer,writer_english_skills,Advanced,Intermediate,2138,0.3141807494489346
+unedited,writer,writer_english_skills,Advanced,Advanced,2295,0.337252020573108
+unedited,writer,writer_english_skills,Advanced,Expert,1977,0.290521675238795
+unedited,writer,writer_english_skills,Expert,Basic,1792,0.04919022783420258
+unedited,writer,writer_english_skills,Expert,Intermediate,11082,0.3041998353005764
+unedited,writer,writer_english_skills,Expert,Advanced,12097,0.3320614877847928
+unedited,writer,writer_english_skills,Expert,Expert,11459,0.3145484490804282
+unedited,writer,writer_politicalIdeology,Very Left-Wing,Very Left-Wing,700,0.16088255573431395
+unedited,writer,writer_politicalIdeology,Very Left-Wing,Moderately Left-Wing,1462,0.3360147092622386
+unedited,writer,writer_politicalIdeology,Very Left-Wing,Centrist,1158,0.2661457136290508
+unedited,writer,writer_politicalIdeology,Very Left-Wing,Moderately Right-Wing,599,0.13766950126407723
+unedited,writer,writer_politicalIdeology,Very Left-Wing,Very Right-Wing,124,0.02849919558722133
+unedited,writer,writer_politicalIdeology,Very Left-Wing,Other,308,0.07078832452309813
+unedited,writer,writer_politicalIdeology,Moderately Left-Wing,Very Left-Wing,1810,0.11307552945586306
+unedited,writer,writer_politicalIdeology,Moderately Left-Wing,Moderately Left-Wing,5050,0.3154869744486787
+unedited,writer,writer_politicalIdeology,Moderately Left-Wing,Centrist,4635,0.28956081714250015
+unedited,writer,writer_politicalIdeology,Moderately Left-Wing,Moderately Right-Wing,2688,0.1679265321421878
+unedited,writer,writer_politicalIdeology,Moderately Left-Wing,Very Right-Wing,670,0.04185668769913163
+unedited,writer,writer_politicalIdeology,Moderately Left-Wing,Other,1154,0.07209345911163866
+unedited,writer,writer_politicalIdeology,Centrist,Very Left-Wing,1198,0.09548860194484297
+unedited,writer,writer_politicalIdeology,Centrist,Moderately Left-Wing,3453,0.27522716403634623
+unedited,writer,writer_politicalIdeology,Centrist,Centrist,3649,0.2908496732026144
+unedited,writer,writer_politicalIdeology,Centrist,Moderately Right-Wing,2611,0.20811413996492906
+unedited,writer,writer_politicalIdeology,Centrist,Very Right-Wing,781,0.06225091662681333
+unedited,writer,writer_politicalIdeology,Centrist,Other,854,0.06806950422445401
+unedited,writer,writer_politicalIdeology,Moderately Right-Wing,Very Left-Wing,659,0.06991300657755145
+unedited,writer,writer_politicalIdeology,Moderately Right-Wing,Moderately Left-Wing,2199,0.23329089751750479
+unedited,writer,writer_politicalIdeology,Moderately Right-Wing,Centrist,2600,0.2758328028856355
+unedited,writer,writer_politicalIdeology,Moderately Right-Wing,Moderately Right-Wing,2333,0.24750689582007215
+unedited,writer,writer_politicalIdeology,Moderately Right-Wing,Very Right-Wing,907,0.09622321239125822
+unedited,writer,writer_politicalIdeology,Moderately Right-Wing,Other,728,0.07723318480797793
+unedited,writer,writer_politicalIdeology,Very Right-Wing,Very Left-Wing,114,0.08816705336426914
+unedited,writer,writer_politicalIdeology,Very Right-Wing,Moderately Left-Wing,329,0.25444702242846096
+unedited,writer,writer_politicalIdeology,Very Right-Wing,Centrist,329,0.25444702242846096
+unedited,writer,writer_politicalIdeology,Very Right-Wing,Moderately Right-Wing,270,0.2088167053364269
+unedited,writer,writer_politicalIdeology,Very Right-Wing,Very Right-Wing,143,0.1105955143078113
+unedited,writer,writer_politicalIdeology,Very Right-Wing,Other,108,0.08352668213457076
+unedited,writer,writer_politicalIdeology,Other,Very Left-Wing,88,0.09988649262202043
+unedited,writer,writer_politicalIdeology,Other,Moderately Left-Wing,239,0.27128263337116915
+unedited,writer,writer_politicalIdeology,Other,Centrist,217,0.246311010215664
+unedited,writer,writer_politicalIdeology,Other,Moderately Right-Wing,171,0.19409761634506242
+unedited,writer,writer_politicalIdeology,Other,Very Right-Wing,82,0.09307604994324631
+unedited,writer,writer_politicalIdeology,Other,Other,84,0.09534619750283768
+unedited,writer,writer_english_first,No,No,362,0.15543151567196223
+unedited,writer,writer_english_first,No,Yes,1967,0.8445684843280378
+unedited,writer,writer_english_first,Yes,No,4709,0.1104621158808351
+unedited,writer,writer_english_first,Yes,Yes,37921,0.8895378841191649
+unedited,writer,writer_gender,Male,Male,13309,0.6100288765641472
+unedited,writer,writer_gender,Male,Female,8122,0.37227849841866434
+unedited,writer,writer_gender,Male,Other,386,0.01769262501718843
+unedited,writer,writer_gender,Female,Male,12468,0.5422755741127349
+unedited,writer,writer_gender,Female,Female,10112,0.4398051496172582
+unedited,writer,writer_gender,Female,Other,412,0.01791927627000696
+unedited,writer,writer_gender,Other,Male,63,0.5338983050847458
+unedited,writer,writer_gender,Other,Female,52,0.4406779661016949
+unedited,writer,writer_gender,Other,Other,3,0.025423728813559324
+unedited,writer,writer_race,White,White,28138,0.7266670110014979
+unedited,writer,writer_race,White,Black,3311,0.08550694695521925
+unedited,writer,writer_race,White,Asian,2617,0.06758431899178761
+unedited,writer,writer_race,White,Mixed,3001,0.07750116213005527
+unedited,writer,writer_race,White,Other,1655,0.04274056092144001
+unedited,writer,writer_race,Black,White,1079,0.6445639187574671
+unedited,writer,writer_race,Black,Black,185,0.11051373954599761
+unedited,writer,writer_race,Black,Asian,134,0.08004778972520908
+unedited,writer,writer_race,Black,Mixed,192,0.11469534050179211
+unedited,writer,writer_race,Black,Other,84,0.05017921146953405
+unedited,writer,writer_race,Asian,White,2236,0.6696615753219527
+unedited,writer,writer_race,Asian,Black,290,0.0868523510032944
+unedited,writer,writer_race,Asian,Asian,341,0.10212638514525307
+unedited,writer,writer_race,Asian,Mixed,281,0.08415693321353698
+unedited,writer,writer_race,Asian,Other,191,0.05720275531596286
+unedited,writer,writer_race,Mixed,White,506,0.6764705882352942
+unedited,writer,writer_race,Mixed,Black,73,0.09759358288770054
+unedited,writer,writer_race,Mixed,Asian,68,0.09090909090909091
+unedited,writer,writer_race,Mixed,Mixed,61,0.08155080213903744
+unedited,writer,writer_race,Mixed,Other,40,0.053475935828877004
+unedited,writer,writer_race,Other,White,235,0.7230769230769231
+unedited,writer,writer_race,Other,Black,28,0.08615384615384615
+unedited,writer,writer_race,Other,Asian,22,0.06769230769230769
+unedited,writer,writer_race,Other,Mixed,24,0.07384615384615385
+unedited,writer,writer_race,Other,Other,16,0.04923076923076923
+unedited,writer,writer_politicalParty,Labour,Labour,6240,0.34446591222743583
+unedited,writer,writer_politicalParty,Labour,Conservative,3567,0.19690863924924096
+unedited,writer,writer_politicalParty,Labour,Liberal Democrats,2347,0.1295611371791333
+unedited,writer,writer_politicalParty,Labour,Greens,1481,0.08175545128346674
+unedited,writer,writer_politicalParty,Labour,Scottish National Party,257,0.01418713773116202
+unedited,writer,writer_politicalParty,Labour,Did not vote,2545,0.1404913055478885
+unedited,writer,writer_politicalParty,Labour,Not eligible to vote,484,0.026718189345845984
+unedited,writer,writer_politicalParty,Labour,Other,1194,0.06591222743582666
+unedited,writer,writer_politicalParty,Conservative,Labour,1849,0.2794317666616291
+unedited,writer,writer_politicalParty,Conservative,Conservative,1797,0.2715732204926704
+unedited,writer,writer_politicalParty,Conservative,Liberal Democrats,697,0.10533474384162007
+unedited,writer,writer_politicalParty,Conservative,Greens,411,0.06211273991234698
+unedited,writer,writer_politicalParty,Conservative,Scottish National Party,102,0.015414840562188304
+unedited,writer,writer_politicalParty,Conservative,Did not vote,956,0.1444763487985492
+unedited,writer,writer_politicalParty,Conservative,Not eligible to vote,185,0.02795828925494937
+unedited,writer,writer_politicalParty,Conservative,Other,620,0.09369805047604654
+unedited,writer,writer_politicalParty,Liberal Democrats,Labour,1565,0.3376483279395901
+unedited,writer,writer_politicalParty,Liberal Democrats,Conservative,931,0.20086299892125134
+unedited,writer,writer_politicalParty,Liberal Democrats,Liberal Democrats,594,0.12815533980582525
+unedited,writer,writer_politicalParty,Liberal Democrats,Greens,435,0.09385113268608414
+unedited,writer,writer_politicalParty,Liberal Democrats,Scottish National Party,59,0.01272923408845739
+unedited,writer,writer_politicalParty,Liberal Democrats,Did not vote,620,0.133764832793959
+unedited,writer,writer_politicalParty,Liberal Democrats,Not eligible to vote,97,0.0209277238403452
+unedited,writer,writer_politicalParty,Liberal Democrats,Other,334,0.07206040992448759
+unedited,writer,writer_politicalParty,Greens,Labour,1191,0.3495744056354564
+unedited,writer,writer_politicalParty,Greens,Conservative,568,0.16671558555914295
+unedited,writer,writer_politicalParty,Greens,Liberal Democrats,470,0.13795127678309363
+unedited,writer,writer_politicalParty,Greens,Greens,394,0.11564426181391253
+unedited,writer,writer_politicalParty,Greens,Scottish National Party,59,0.017317287936601117
+unedited,writer,writer_politicalParty,Greens,Did not vote,428,0.1256237158790725
+unedited,writer,writer_politicalParty,Greens,Not eligible to vote,69,0.020252421485177575
+unedited,writer,writer_politicalParty,Greens,Other,228,0.06692104490754329
+unedited,writer,writer_politicalParty,Scottish National Party,Labour,480,0.36281179138321995
+unedited,writer,writer_politicalParty,Scottish National Party,Conservative,216,0.16326530612244897
+unedited,writer,writer_politicalParty,Scottish National Party,Liberal Democrats,181,0.1368102796674225
+unedited,writer,writer_politicalParty,Scottish National Party,Greens,137,0.10355253212396069
+unedited,writer,writer_politicalParty,Scottish National Party,Scottish National Party,43,0.03250188964474679
+unedited,writer,writer_politicalParty,Scottish National Party,Did not vote,163,0.12320483749055178
+unedited,writer,writer_politicalParty,Scottish National Party,Not eligible to vote,29,0.021919879062736205
+unedited,writer,writer_politicalParty,Scottish National Party,Other,74,0.055933484504913075
+unedited,writer,writer_politicalParty,Did not vote,Labour,1507,0.32104814657008945
+unedited,writer,writer_politicalParty,Did not vote,Conservative,975,0.20771197273114614
+unedited,writer,writer_politicalParty,Did not vote,Liberal Democrats,552,0.1175969322539412
+unedited,writer,writer_politicalParty,Did not vote,Greens,359,0.07648061354921176
+unedited,writer,writer_politicalParty,Did not vote,Scottish National Party,61,0.012995313165743502
+unedited,writer,writer_politicalParty,Did not vote,Did not vote,735,0.15658287175117172
+unedited,writer,writer_politicalParty,Did not vote,Not eligible to vote,148,0.031529612270984234
+unedited,writer,writer_politicalParty,Did not vote,Other,357,0.07605453770771198
+unedited,writer,writer_politicalParty,Not eligible to vote,Labour,185,0.36489151873767256
+unedited,writer,writer_politicalParty,Not eligible to vote,Conservative,94,0.1854043392504931
+unedited,writer,writer_politicalParty,Not eligible to vote,Liberal Democrats,62,0.1222879684418146
+unedited,writer,writer_politicalParty,Not eligible to vote,Greens,38,0.07495069033530571
+unedited,writer,writer_politicalParty,Not eligible to vote,Scottish National Party,10,0.01972386587771203
+unedited,writer,writer_politicalParty,Not eligible to vote,Did not vote,72,0.14201183431952663
+unedited,writer,writer_politicalParty,Not eligible to vote,Not eligible to vote,21,0.04142011834319527
+unedited,writer,writer_politicalParty,Not eligible to vote,Other,25,0.04930966469428008
+unedited,writer,writer_politicalParty,Other,Labour,1292,0.26916666666666667
+unedited,writer,writer_politicalParty,Other,Conservative,1366,0.28458333333333335
+unedited,writer,writer_politicalParty,Other,Liberal Democrats,525,0.109375
+unedited,writer,writer_politicalParty,Other,Greens,248,0.051666666666666666
+unedited,writer,writer_politicalParty,Other,Scottish National Party,73,0.015208333333333334
+unedited,writer,writer_politicalParty,Other,Did not vote,689,0.14354166666666668
+unedited,writer,writer_politicalParty,Other,Not eligible to vote,116,0.024166666666666666
+unedited,writer,writer_politicalParty,Other,Other,491,0.10229166666666667
+unedited,model,writer_age_binned,18-29,18-29,2713,0.3203447868697603
+unedited,model,writer_age_binned,18-29,30-39,2738,0.3232967292478451
+unedited,model,writer_age_binned,18-29,40-49,1869,0.22068721218561813
+unedited,model,writer_age_binned,18-29,50-59,926,0.10933994568426024
+unedited,model,writer_age_binned,18-29,60-69,202,0.02385169441492502
+unedited,model,writer_age_binned,18-29,70+,21,0.002479631597591215
+unedited,model,writer_age_binned,30-39,18-29,2371,0.3082824080093616
+unedited,model,writer_age_binned,30-39,30-39,2458,0.31959433103627616
+unedited,model,writer_age_binned,30-39,40-49,1805,0.23468989728253803
+unedited,model,writer_age_binned,30-39,50-59,888,0.11545962813678326
+unedited,model,writer_age_binned,30-39,60-69,150,0.01950331556364582
+unedited,model,writer_age_binned,30-39,70+,19,0.0024704199713951372
+unedited,model,writer_age_binned,40-49,18-29,2252,0.31920623671155207
+unedited,model,writer_age_binned,40-49,30-39,2220,0.3146704464918498
+unedited,model,writer_age_binned,40-49,40-49,1682,0.23841247342310418
+unedited,model,writer_age_binned,40-49,50-59,715,0.10134656272147413
+unedited,model,writer_age_binned,40-49,60-69,171,0.024238128986534373
+unedited,model,writer_age_binned,40-49,70+,15,0.002126151665485471
+unedited,model,writer_age_binned,50-59,18-29,3296,0.3010320577221664
+unedited,model,writer_age_binned,50-59,30-39,3535,0.32286053520869484
+unedited,model,writer_age_binned,50-59,40-49,2534,0.23143666088227235
+unedited,model,writer_age_binned,50-59,50-59,1273,0.116266325691844
+unedited,model,writer_age_binned,50-59,60-69,284,0.025938441866837154
+unedited,model,writer_age_binned,50-59,70+,27,0.0024659786281852223
+unedited,model,writer_age_binned,60-69,18-29,2670,0.2973273942093541
+unedited,model,writer_age_binned,60-69,30-39,2836,0.3158129175946548
+unedited,model,writer_age_binned,60-69,40-49,2106,0.23452115812917596
+unedited,model,writer_age_binned,60-69,50-59,1040,0.11581291759465479
+unedited,model,writer_age_binned,60-69,60-69,301,0.03351893095768374
+unedited,model,writer_age_binned,60-69,70+,27,0.0030066815144766147
+unedited,model,writer_age_binned,70+,18-29,505,0.26776246023329797
+unedited,model,writer_age_binned,70+,30-39,584,0.30965005302226933
+unedited,model,writer_age_binned,70+,40-49,457,0.24231177094379638
+unedited,model,writer_age_binned,70+,50-59,272,0.14422057264050903
+unedited,model,writer_age_binned,70+,60-69,61,0.03234358430540827
+unedited,model,writer_age_binned,70+,70+,7,0.003711558854718982
+unedited,model,writer_education,GCSEs or equivalent,GCSEs or equivalent,192,0.04345857854232685
+unedited,model,writer_education,GCSEs or equivalent,A-levels or equivalent,569,0.12879130828429153
+unedited,model,writer_education,GCSEs or equivalent,Vocational qualification,445,0.10072430964237211
+unedited,model,writer_education,GCSEs or equivalent,Undergraduate degree,1801,0.40765052059755547
+unedited,model,writer_education,GCSEs or equivalent,Postgraduate degree (Master's),1120,0.2535083748302399
+unedited,model,writer_education,GCSEs or equivalent,Doctorate (PhD),246,0.05568130375735627
+unedited,model,writer_education,GCSEs or equivalent,Other,45,0.010185604345857854
+unedited,model,writer_education,A-levels or equivalent,GCSEs or equivalent,260,0.03924528301886793
+unedited,model,writer_education,A-levels or equivalent,A-levels or equivalent,685,0.10339622641509434
+unedited,model,writer_education,A-levels or equivalent,Vocational qualification,564,0.08513207547169811
+unedited,model,writer_education,A-levels or equivalent,Undergraduate degree,2871,0.43335849056603776
+unedited,model,writer_education,A-levels or equivalent,Postgraduate degree (Master's),1796,0.2710943396226415
+unedited,model,writer_education,A-levels or equivalent,Doctorate (PhD),382,0.05766037735849057
+unedited,model,writer_education,A-levels or equivalent,Other,67,0.010113207547169812
+unedited,model,writer_education,Vocational qualification,GCSEs or equivalent,195,0.03830288744843842
+unedited,model,writer_education,Vocational qualification,A-levels or equivalent,565,0.11098016106855235
+unedited,model,writer_education,Vocational qualification,Vocational qualification,464,0.09114122962089963
+unedited,model,writer_education,Vocational qualification,Undergraduate degree,2149,0.4221174621881752
+unedited,model,writer_education,Vocational qualification,Postgraduate degree (Master's),1375,0.2700844627774504
+unedited,model,writer_education,Vocational qualification,Doctorate (PhD),286,0.056177568257709684
+unedited,model,writer_education,Vocational qualification,Other,57,0.011196228638774307
+unedited,model,writer_education,Undergraduate degree,GCSEs or equivalent,628,0.034799955668846284
+unedited,model,writer_education,Undergraduate degree,A-levels or equivalent,1846,0.10229413720492075
+unedited,model,writer_education,Undergraduate degree,Vocational qualification,1513,0.08384129446968858
+unedited,model,writer_education,Undergraduate degree,Undergraduate degree,7768,0.43045550260445525
+unedited,model,writer_education,Undergraduate degree,Postgraduate degree (Master's),5039,0.2792308544829879
+unedited,model,writer_education,Undergraduate degree,Doctorate (PhD),1075,0.059569987808932724
+unedited,model,writer_education,Undergraduate degree,Other,177,0.009808267760168458
+unedited,model,writer_education,Postgraduate degree (Master's),GCSEs or equivalent,244,0.028855250709555344
+unedited,model,writer_education,Postgraduate degree (Master's),A-levels or equivalent,790,0.0934247871333964
+unedited,model,writer_education,Postgraduate degree (Master's),Vocational qualification,647,0.07651371807000946
+unedited,model,writer_education,Postgraduate degree (Master's),Undergraduate degree,3640,0.4304635761589404
+unedited,model,writer_education,Postgraduate degree (Master's),Postgraduate degree (Master's),2509,0.2967123935666982
+unedited,model,writer_education,Postgraduate degree (Master's),Doctorate (PhD),554,0.06551561021759697
+unedited,model,writer_education,Postgraduate degree (Master's),Other,72,0.008514664143803218
+unedited,model,writer_education,Doctorate (PhD),GCSEs or equivalent,41,0.022114347357065803
+unedited,model,writer_education,Doctorate (PhD),A-levels or equivalent,167,0.09007551240560949
+unedited,model,writer_education,Doctorate (PhD),Vocational qualification,140,0.07551240560949299
+unedited,model,writer_education,Doctorate (PhD),Undergraduate degree,805,0.4341963322545847
+unedited,model,writer_education,Doctorate (PhD),Postgraduate degree (Master's),548,0.29557713052858686
+unedited,model,writer_education,Doctorate (PhD),Doctorate (PhD),133,0.07173678532901834
+unedited,model,writer_education,Doctorate (PhD),Other,20,0.010787486515641856
+unedited,model,writer_education,Other,GCSEs or equivalent,7,0.019498607242339833
+unedited,model,writer_education,Other,A-levels or equivalent,38,0.10584958217270195
+unedited,model,writer_education,Other,Vocational qualification,38,0.10584958217270195
+unedited,model,writer_education,Other,Undergraduate degree,161,0.44846796657381616
+unedited,model,writer_education,Other,Postgraduate degree (Master's),91,0.25348189415041783
+unedited,model,writer_education,Other,Doctorate (PhD),19,0.052924791086350974
+unedited,model,writer_education,Other,Other,5,0.013927576601671309
+unedited,model,writer_income,"Under £15,000","Under £15,000",158,0.01773487484566169
+unedited,model,writer_income,"Under £15,000","£15,000-£24,999",704,0.0790212145021888
+unedited,model,writer_income,"Under £15,000","£25,000-£34,999",2138,0.2399820406330677
+unedited,model,writer_income,"Under £15,000","£35,000-£49,999",3072,0.3448198451004602
+unedited,model,writer_income,"Under £15,000","£50,000-£74,999",2062,0.23145134134021775
+unedited,model,writer_income,"Under £15,000","£75,000-£99,999",594,0.0666741497362218
+unedited,model,writer_income,"Under £15,000","£100,000+",181,0.02031653384218206
+unedited,model,writer_income,"£15,000-£24,999","Under £15,000",146,0.019451105782041032
+unedited,model,writer_income,"£15,000-£24,999","£15,000-£24,999",569,0.07580602184918732
+unedited,model,writer_income,"£15,000-£24,999","£25,000-£34,999",1872,0.24940047961630696
+unedited,model,writer_income,"£15,000-£24,999","£35,000-£49,999",2464,0.3282707167599254
+unedited,model,writer_income,"£15,000-£24,999","£50,000-£74,999",1778,0.2368771649347189
+unedited,model,writer_income,"£15,000-£24,999","£75,000-£99,999",534,0.07114308553157474
+unedited,model,writer_income,"£15,000-£24,999","£100,000+",143,0.01905142552624567
+unedited,model,writer_income,"£25,000-£34,999","Under £15,000",174,0.018445881479910952
+unedited,model,writer_income,"£25,000-£34,999","£15,000-£24,999",760,0.08056821795823174
+unedited,model,writer_income,"£25,000-£34,999","£25,000-£34,999",2266,0.2402205024912541
+unedited,model,writer_income,"£25,000-£34,999","£35,000-£49,999",3189,0.3380684829852645
+unedited,model,writer_income,"£25,000-£34,999","£50,000-£74,999",2230,0.2364041132195484
+unedited,model,writer_income,"£25,000-£34,999","£75,000-£99,999",622,0.0659387257500265
+unedited,model,writer_income,"£25,000-£34,999","£100,000+",192,0.020354076115763807
+unedited,model,writer_income,"£35,000-£49,999","Under £15,000",149,0.018518518518518517
+unedited,model,writer_income,"£35,000-£49,999","£15,000-£24,999",597,0.07419835943325877
+unedited,model,writer_income,"£35,000-£49,999","£25,000-£34,999",2011,0.24993785732040766
+unedited,model,writer_income,"£35,000-£49,999","£35,000-£49,999",2654,0.32985334327616206
+unedited,model,writer_income,"£35,000-£49,999","£50,000-£74,999",1885,0.23427790206313695
+unedited,model,writer_income,"£35,000-£49,999","£75,000-£99,999",576,0.07158836689038031
+unedited,model,writer_income,"£35,000-£49,999","£100,000+",174,0.02162565249813572
+unedited,model,writer_income,"£50,000-£74,999","Under £15,000",123,0.022510980966325037
+unedited,model,writer_income,"£50,000-£74,999","£15,000-£24,999",399,0.07302342606149341
+unedited,model,writer_income,"£50,000-£74,999","£25,000-£34,999",1331,0.24359443631039532
+unedited,model,writer_income,"£50,000-£74,999","£35,000-£49,999",1806,0.33052708638360173
+unedited,model,writer_income,"£50,000-£74,999","£50,000-£74,999",1297,0.2373718887262079
+unedited,model,writer_income,"£50,000-£74,999","£75,000-£99,999",394,0.07210834553440702
+unedited,model,writer_income,"£50,000-£74,999","£100,000+",114,0.020863836017569547
+unedited,model,writer_income,"£75,000-£99,999","Under £15,000",22,0.012709416522241479
+unedited,model,writer_income,"£75,000-£99,999","£15,000-£24,999",121,0.06990179087232813
+unedited,model,writer_income,"£75,000-£99,999","£25,000-£34,999",393,0.2270363951473137
+unedited,model,writer_income,"£75,000-£99,999","£35,000-£49,999",555,0.32062391681109187
+unedited,model,writer_income,"£75,000-£99,999","£50,000-£74,999",461,0.2663200462160601
+unedited,model,writer_income,"£75,000-£99,999","£75,000-£99,999",125,0.07221259387637204
+unedited,model,writer_income,"£75,000-£99,999","£100,000+",54,0.03119584055459272
+unedited,model,writer_income,"£100,000+","Under £15,000",11,0.009883198562443846
+unedited,model,writer_income,"£100,000+","£15,000-£24,999",70,0.06289308176100629
+unedited,model,writer_income,"£100,000+","£25,000-£34,999",229,0.20575022461814915
+unedited,model,writer_income,"£100,000+","£35,000-£49,999",396,0.3557951482479784
+unedited,model,writer_income,"£100,000+","£50,000-£74,999",287,0.2578616352201258
+unedited,model,writer_income,"£100,000+","£75,000-£99,999",82,0.07367475292003593
+unedited,model,writer_income,"£100,000+","£100,000+",38,0.034141958670260555
+unedited,model,writer_english_skills,Basic,Basic,0,0.0
+unedited,model,writer_english_skills,Basic,Intermediate,1,0.034482758620689655
+unedited,model,writer_english_skills,Basic,Advanced,9,0.3103448275862069
+unedited,model,writer_english_skills,Basic,Expert,19,0.6551724137931034
+unedited,model,writer_english_skills,Intermediate,Basic,8,0.00446677833612507
+unedited,model,writer_english_skills,Intermediate,Intermediate,169,0.0943606923506421
+unedited,model,writer_english_skills,Intermediate,Advanced,560,0.3126744835287549
+unedited,model,writer_english_skills,Intermediate,Expert,1054,0.588498045784478
+unedited,model,writer_english_skills,Advanced,Basic,30,0.004437213429965981
+unedited,model,writer_english_skills,Advanced,Intermediate,611,0.09037124685697381
+unedited,model,writer_english_skills,Advanced,Advanced,2063,0.3051323768673273
+unedited,model,writer_english_skills,Advanced,Expert,4057,0.6000591628457329
+unedited,model,writer_english_skills,Expert,Basic,179,0.004915016886789862
+unedited,model,writer_english_skills,Expert,Intermediate,3227,0.08860759493670886
+unedited,model,writer_english_skills,Expert,Advanced,11071,0.30398967571871827
+unedited,model,writer_english_skills,Expert,Expert,21942,0.602487712457783
+unedited,model,writer_politicalIdeology,Very Left-Wing,Very Left-Wing,708,0.16160693905501028
+unedited,model,writer_politicalIdeology,Very Left-Wing,Moderately Left-Wing,1485,0.3389637069162292
+unedited,model,writer_politicalIdeology,Very Left-Wing,Centrist,1202,0.27436658297192423
+unedited,model,writer_politicalIdeology,Very Left-Wing,Moderately Right-Wing,630,0.14380278475233965
+unedited,model,writer_politicalIdeology,Very Left-Wing,Very Right-Wing,146,0.033325724720383476
+unedited,model,writer_politicalIdeology,Very Left-Wing,Other,210,0.047934261584113215
+unedited,model,writer_politicalIdeology,Moderately Left-Wing,Very Left-Wing,2080,0.13013013013013014
+unedited,model,writer_politicalIdeology,Moderately Left-Wing,Moderately Left-Wing,5069,0.31712962962962965
+unedited,model,writer_politicalIdeology,Moderately Left-Wing,Centrist,4606,0.28816316316316315
+unedited,model,writer_politicalIdeology,Moderately Left-Wing,Moderately Right-Wing,2856,0.17867867867867868
+unedited,model,writer_politicalIdeology,Moderately Left-Wing,Very Right-Wing,662,0.04141641641641642
+unedited,model,writer_politicalIdeology,Moderately Left-Wing,Other,711,0.04448198198198198
+unedited,model,writer_politicalIdeology,Centrist,Very Left-Wing,1343,0.10776761354517735
+unedited,model,writer_politicalIdeology,Centrist,Moderately Left-Wing,3572,0.2866313593323704
+unedited,model,writer_politicalIdeology,Centrist,Centrist,3724,0.2988284384528968
+unedited,model,writer_politicalIdeology,Centrist,Moderately Right-Wing,2513,0.20165302519659767
+unedited,model,writer_politicalIdeology,Centrist,Very Right-Wing,713,0.05721393034825871
+unedited,model,writer_politicalIdeology,Centrist,Other,597,0.04790563312469909
+unedited,model,writer_politicalIdeology,Moderately Right-Wing,Very Left-Wing,769,0.08119522753669095
+unedited,model,writer_politicalIdeology,Moderately Right-Wing,Moderately Left-Wing,2431,0.25667828106852497
+unedited,model,writer_politicalIdeology,Moderately Right-Wing,Centrist,2777,0.2932108541864639
+unedited,model,writer_politicalIdeology,Moderately Right-Wing,Moderately Right-Wing,2329,0.24590856298173372
+unedited,model,writer_politicalIdeology,Moderately Right-Wing,Very Right-Wing,712,0.07517685566466055
+unedited,model,writer_politicalIdeology,Moderately Right-Wing,Other,453,0.04783021856192588
+unedited,model,writer_politicalIdeology,Very Right-Wing,Very Left-Wing,133,0.10350194552529182
+unedited,model,writer_politicalIdeology,Very Right-Wing,Moderately Left-Wing,337,0.2622568093385214
+unedited,model,writer_politicalIdeology,Very Right-Wing,Centrist,345,0.26848249027237353
+unedited,model,writer_politicalIdeology,Very Right-Wing,Moderately Right-Wing,299,0.23268482490272374
+unedited,model,writer_politicalIdeology,Very Right-Wing,Very Right-Wing,100,0.07782101167315175
+unedited,model,writer_politicalIdeology,Very Right-Wing,Other,71,0.05525291828793774
+unedited,model,writer_politicalIdeology,Other,Very Left-Wing,101,0.11649365628604383
+unedited,model,writer_politicalIdeology,Other,Moderately Left-Wing,252,0.2906574394463668
+unedited,model,writer_politicalIdeology,Other,Centrist,238,0.27450980392156865
+unedited,model,writer_politicalIdeology,Other,Moderately Right-Wing,176,0.2029988465974625
+unedited,model,writer_politicalIdeology,Other,Very Right-Wing,56,0.06459054209919261
+unedited,model,writer_politicalIdeology,Other,Other,44,0.05074971164936563
+unedited,model,writer_english_first,No,No,76,0.03236797274275979
+unedited,model,writer_english_first,No,Yes,2272,0.9676320272572402
+unedited,model,writer_english_first,Yes,No,1496,0.03515285381958315
+unedited,model,writer_english_first,Yes,Yes,41061,0.9648471461804169
+unedited,model,writer_gender,Male,Male,12488,0.5740817358525261
+unedited,model,writer_gender,Male,Female,8824,0.40564519836344415
+unedited,model,writer_gender,Male,Other,441,0.02027306578402979
+unedited,model,writer_gender,Female,Male,12340,0.5363584995870821
+unedited,model,writer_gender,Female,Female,10205,0.4435606554526883
+unedited,model,writer_gender,Female,Other,462,0.020080844960229497
+unedited,model,writer_gender,Other,Male,79,0.6638655462184874
+unedited,model,writer_gender,Other,Female,40,0.33613445378151263
+unedited,model,writer_gender,Other,Other,0,0.0
+unedited,model,writer_race,White,White,28315,0.7317861111829013
+unedited,model,writer_race,White,Black,3404,0.08797456904349624
+unedited,model,writer_race,White,Asian,2477,0.06401674721525857
+unedited,model,writer_race,White,Mixed,3050,0.0788256273744605
+unedited,model,writer_race,White,Other,1447,0.03739694518388339
+unedited,model,writer_race,Black,White,1209,0.7217910447761194
+unedited,model,writer_race,Black,Black,158,0.09432835820895523
+unedited,model,writer_race,Black,Asian,103,0.061492537313432835
+unedited,model,writer_race,Black,Mixed,140,0.08358208955223881
+unedited,model,writer_race,Black,Other,65,0.03880597014925373
+unedited,model,writer_race,Asian,White,2423,0.723715651135006
+unedited,model,writer_race,Asian,Black,273,0.08154121863799284
+unedited,model,writer_race,Asian,Asian,265,0.07915173237753884
+unedited,model,writer_race,Asian,Mixed,245,0.07317801672640382
+unedited,model,writer_race,Asian,Other,142,0.04241338112305854
+unedited,model,writer_race,Mixed,White,509,0.7128851540616247
+unedited,model,writer_race,Mixed,Black,62,0.08683473389355742
+unedited,model,writer_race,Mixed,Asian,58,0.08123249299719888
+unedited,model,writer_race,Mixed,Mixed,56,0.0784313725490196
+unedited,model,writer_race,Mixed,Other,29,0.04061624649859944
+unedited,model,writer_race,Other,White,241,0.7325227963525835
+unedited,model,writer_race,Other,Black,29,0.08814589665653495
+unedited,model,writer_race,Other,Asian,22,0.0668693009118541
+unedited,model,writer_race,Other,Mixed,28,0.0851063829787234
+unedited,model,writer_race,Other,Other,9,0.02735562310030395
+unedited,model,writer_politicalParty,Labour,Labour,6345,0.3503589177250138
+unedited,model,writer_politicalParty,Labour,Conservative,4637,0.2560463832136941
+unedited,model,writer_politicalParty,Labour,Liberal Democrats,3006,0.16598564329099944
+unedited,model,writer_politicalParty,Labour,Greens,1779,0.09823302043070127
+unedited,model,writer_politicalParty,Labour,Scottish National Party,315,0.017393705135284373
+unedited,model,writer_politicalParty,Labour,Did not vote,950,0.05245720596355605
+unedited,model,writer_politicalParty,Labour,Not eligible to vote,142,0.007840971838763115
+unedited,model,writer_politicalParty,Labour,Other,936,0.05168415240198785
+unedited,model,writer_politicalParty,Conservative,Labour,1973,0.29916603487490523
+unedited,model,writer_politicalParty,Conservative,Conservative,2190,0.33206974981046244
+unedited,model,writer_politicalParty,Conservative,Liberal Democrats,975,0.14783927217589082
+unedited,model,writer_politicalParty,Conservative,Greens,526,0.0797573919636088
+unedited,model,writer_politicalParty,Conservative,Scottish National Party,102,0.015466262319939347
+unedited,model,writer_politicalParty,Conservative,Did not vote,362,0.05489006823351023
+unedited,model,writer_politicalParty,Conservative,Not eligible to vote,52,0.007884761182714178
+unedited,model,writer_politicalParty,Conservative,Other,415,0.06292645943896892
+unedited,model,writer_politicalParty,Liberal Democrats,Labour,1595,0.3454624214858133
+unedited,model,writer_politicalParty,Liberal Democrats,Conservative,1207,0.2614251678579164
+unedited,model,writer_politicalParty,Liberal Democrats,Liberal Democrats,762,0.1650422352176738
+unedited,model,writer_politicalParty,Liberal Democrats,Greens,479,0.10374702187567685
+unedited,model,writer_politicalParty,Liberal Democrats,Scottish National Party,69,0.014944769330734242
+unedited,model,writer_politicalParty,Liberal Democrats,Did not vote,243,0.05263157894736842
+unedited,model,writer_politicalParty,Liberal Democrats,Not eligible to vote,28,0.006064544076239983
+unedited,model,writer_politicalParty,Liberal Democrats,Other,234,0.050682261208576995
+unedited,model,writer_politicalParty,Greens,Labour,1239,0.3655945706698141
+unedited,model,writer_politicalParty,Greens,Conservative,730,0.2154027736795515
+unedited,model,writer_politicalParty,Greens,Liberal Democrats,569,0.16789613455296548
+unedited,model,writer_politicalParty,Greens,Greens,413,0.12186485688993803
+unedited,model,writer_politicalParty,Greens,Scottish National Party,51,0.015048686928297432
+unedited,model,writer_politicalParty,Greens,Did not vote,182,0.05370315727353202
+unedited,model,writer_politicalParty,Greens,Not eligible to vote,15,0.004426084390675715
+unedited,model,writer_politicalParty,Greens,Other,190,0.05606373561522573
+unedited,model,writer_politicalParty,Scottish National Party,Labour,491,0.3716881150643452
+unedited,model,writer_politicalParty,Scottish National Party,Conservative,280,0.21196063588190764
+unedited,model,writer_politicalParty,Scottish National Party,Liberal Democrats,213,0.16124148372445118
+unedited,model,writer_politicalParty,Scottish National Party,Greens,155,0.11733535200605602
+unedited,model,writer_politicalParty,Scottish National Party,Scottish National Party,35,0.026495079485238455
+unedited,model,writer_politicalParty,Scottish National Party,Did not vote,76,0.05753217259651779
+unedited,model,writer_politicalParty,Scottish National Party,Not eligible to vote,11,0.008327024981074944
+unedited,model,writer_politicalParty,Scottish National Party,Other,60,0.045420136260408785
+unedited,model,writer_politicalParty,Did not vote,Labour,1519,0.3250588487053285
+unedited,model,writer_politicalParty,Did not vote,Conservative,1273,0.27241600684784933
+unedited,model,writer_politicalParty,Did not vote,Liberal Democrats,787,0.16841429488551252
+unedited,model,writer_politicalParty,Did not vote,Greens,469,0.10036379199657608
+unedited,model,writer_politicalParty,Did not vote,Scottish National Party,62,0.01326770811042157
+unedited,model,writer_politicalParty,Did not vote,Did not vote,253,0.05414080890220415
+unedited,model,writer_politicalParty,Did not vote,Not eligible to vote,31,0.006633854055210785
+unedited,model,writer_politicalParty,Did not vote,Other,279,0.059704686496897065
+unedited,model,writer_politicalParty,Not eligible to vote,Labour,192,0.3685220729366603
+unedited,model,writer_politicalParty,Not eligible to vote,Conservative,115,0.22072936660268713
+unedited,model,writer_politicalParty,Not eligible to vote,Liberal Democrats,89,0.1708253358925144
+unedited,model,writer_politicalParty,Not eligible to vote,Greens,61,0.11708253358925144
+unedited,model,writer_politicalParty,Not eligible to vote,Scottish National Party,9,0.01727447216890595
+unedited,model,writer_politicalParty,Not eligible to vote,Did not vote,26,0.04990403071017274
+unedited,model,writer_politicalParty,Not eligible to vote,Not eligible to vote,5,0.009596928982725527
+unedited,model,writer_politicalParty,Not eligible to vote,Other,24,0.046065259117082535
+unedited,model,writer_politicalParty,Other,Labour,1413,0.2941911305434104
+unedited,model,writer_politicalParty,Other,Conservative,1652,0.3439516968561316
+unedited,model,writer_politicalParty,Other,Liberal Democrats,670,0.1394961482406829
+unedited,model,writer_politicalParty,Other,Greens,378,0.07870081199250469
+unedited,model,writer_politicalParty,Other,Scottish National Party,67,0.01394961482406829
+unedited,model,writer_politicalParty,Other,Did not vote,256,0.053300020820320634
+unedited,model,writer_politicalParty,Other,Not eligible to vote,50,0.010410160316468874
+unedited,model,writer_politicalParty,Other,Other,317,0.06600041640641266
+edited,writer,writer_age_binned,18-29,18-29,4217,0.4962344080960226
+edited,writer,writer_age_binned,18-29,30-39,2074,0.24405742527653565
+edited,writer,writer_age_binned,18-29,40-49,1360,0.16003765591903976
+edited,writer,writer_age_binned,18-29,50-59,668,0.07860673099552835
+edited,writer,writer_age_binned,18-29,60-69,160,0.01882795951988703
+edited,writer,writer_age_binned,18-29,70+,19,0.002235820192986585
+edited,writer,writer_age_binned,30-39,18-29,3476,0.45178060826618144
+edited,writer,writer_age_binned,30-39,30-39,2091,0.27177021055367817
+edited,writer,writer_age_binned,30-39,40-49,1299,0.16883285677151028
+edited,writer,writer_age_binned,30-39,50-59,643,0.08357161424486613
+edited,writer,writer_age_binned,30-39,60-69,170,0.02209513906940473
+edited,writer,writer_age_binned,30-39,70+,15,0.001949571094359241
+edited,writer,writer_age_binned,40-49,18-29,3120,0.44192634560906513
+edited,writer,writer_age_binned,40-49,30-39,1898,0.2688385269121813
+edited,writer,writer_age_binned,40-49,40-49,1260,0.17847025495750707
+edited,writer,writer_age_binned,40-49,50-59,629,0.08909348441926346
+edited,writer,writer_age_binned,40-49,60-69,137,0.019405099150141644
+edited,writer,writer_age_binned,40-49,70+,16,0.0022662889518413596
+edited,writer,writer_age_binned,50-59,18-29,4558,0.4159138607537184
+edited,writer,writer_age_binned,50-59,30-39,2793,0.25485901998357513
+edited,writer,writer_age_binned,50-59,40-49,2033,0.18550962679076557
+edited,writer,writer_age_binned,50-59,50-59,1159,0.10575782461903459
+edited,writer,writer_age_binned,50-59,60-69,368,0.033579706177570945
+edited,writer,writer_age_binned,50-59,70+,48,0.0043799616753353405
+edited,writer,writer_age_binned,60-69,18-29,3605,0.4004665629860031
+edited,writer,writer_age_binned,60-69,30-39,2230,0.24772272828260386
+edited,writer,writer_age_binned,60-69,40-49,1724,0.19151299711175293
+edited,writer,writer_age_binned,60-69,50-59,1024,0.11375249944456788
+edited,writer,writer_age_binned,60-69,60-69,376,0.04176849588980227
+edited,writer,writer_age_binned,60-69,70+,43,0.00477671628526994
+edited,writer,writer_age_binned,70+,18-29,675,0.3611556982343499
+edited,writer,writer_age_binned,70+,30-39,479,0.256286784376672
+edited,writer,writer_age_binned,70+,40-49,352,0.18833600856072766
+edited,writer,writer_age_binned,70+,50-59,236,0.12627073301230604
+edited,writer,writer_age_binned,70+,60-69,110,0.05885500267522739
+edited,writer,writer_age_binned,70+,70+,17,0.00909577314071696
+edited,writer,writer_education,GCSEs or equivalent,GCSEs or equivalent,1188,0.2673869007427414
+edited,writer,writer_education,GCSEs or equivalent,A-levels or equivalent,926,0.20841773576412334
+edited,writer,writer_education,GCSEs or equivalent,Vocational qualification,729,0.16407832545577314
+edited,writer,writer_education,GCSEs or equivalent,Undergraduate degree,1179,0.26536124240378123
+edited,writer,writer_education,GCSEs or equivalent,Postgraduate degree (Master's),311,0.06999774926851227
+edited,writer,writer_education,GCSEs or equivalent,Doctorate (PhD),48,0.010803511141120865
+edited,writer,writer_education,GCSEs or equivalent,Other,62,0.013954535223947783
+edited,writer,writer_education,A-levels or equivalent,GCSEs or equivalent,1480,0.22305953278070836
+edited,writer,writer_education,A-levels or equivalent,A-levels or equivalent,1394,0.2100979653353429
+edited,writer,writer_education,A-levels or equivalent,Vocational qualification,1009,0.1520723436322532
+edited,writer,writer_education,A-levels or equivalent,Undergraduate degree,1960,0.29540316503391106
+edited,writer,writer_education,A-levels or equivalent,Postgraduate degree (Master's),617,0.09299171062547099
+edited,writer,writer_education,A-levels or equivalent,Doctorate (PhD),102,0.015373021853805577
+edited,writer,writer_education,A-levels or equivalent,Other,73,0.011002260738507913
+edited,writer,writer_education,Vocational qualification,GCSEs or equivalent,1205,0.23622819055087238
+edited,writer,writer_education,Vocational qualification,A-levels or equivalent,1064,0.20858655165653794
+edited,writer,writer_education,Vocational qualification,Vocational qualification,801,0.15702803371887866
+edited,writer,writer_education,Vocational qualification,Undergraduate degree,1458,0.2858263085669477
+edited,writer,writer_education,Vocational qualification,Postgraduate degree (Master's),434,0.08508135659674573
+edited,writer,writer_education,Vocational qualification,Doctorate (PhD),77,0.015095079396196824
+edited,writer,writer_education,Vocational qualification,Other,62,0.01215447951382082
+edited,writer,writer_education,Undergraduate degree,GCSEs or equivalent,3364,0.18692004222926042
+edited,writer,writer_education,Undergraduate degree,A-levels or equivalent,3674,0.20414513530032782
+edited,writer,writer_education,Undergraduate degree,Vocational qualification,2648,0.14713563371673058
+edited,writer,writer_education,Undergraduate degree,Undergraduate degree,5914,0.32861032394287937
+edited,writer,writer_education,Undergraduate degree,Postgraduate degree (Master's),1886,0.10479524365171973
+edited,writer,writer_education,Undergraduate degree,Doctorate (PhD),334,0.018558648663666168
+edited,writer,writer_education,Undergraduate degree,Other,177,0.009834972495415902
+edited,writer,writer_education,Postgraduate degree (Master's),GCSEs or equivalent,1351,0.15899729316229258
+edited,writer,writer_education,Postgraduate degree (Master's),A-levels or equivalent,1613,0.18983170530775567
+edited,writer,writer_education,Postgraduate degree (Master's),Vocational qualification,1146,0.13487113098740733
+edited,writer,writer_education,Postgraduate degree (Master's),Undergraduate degree,2958,0.34812286689419797
+edited,writer,writer_education,Postgraduate degree (Master's),Postgraduate degree (Master's),1151,0.13545957396728256
+edited,writer,writer_education,Postgraduate degree (Master's),Doctorate (PhD),166,0.019536306931858302
+edited,writer,writer_education,Postgraduate degree (Master's),Other,112,0.013181122749205602
+edited,writer,writer_education,Doctorate (PhD),GCSEs or equivalent,290,0.15625
+edited,writer,writer_education,Doctorate (PhD),A-levels or equivalent,353,0.19019396551724138
+edited,writer,writer_education,Doctorate (PhD),Vocational qualification,238,0.12823275862068967
+edited,writer,writer_education,Doctorate (PhD),Undergraduate degree,638,0.34375
+edited,writer,writer_education,Doctorate (PhD),Postgraduate degree (Master's),255,0.13739224137931033
+edited,writer,writer_education,Doctorate (PhD),Doctorate (PhD),57,0.030711206896551723
+edited,writer,writer_education,Doctorate (PhD),Other,25,0.013469827586206896
+edited,writer,writer_education,Other,GCSEs or equivalent,109,0.3002754820936639
+edited,writer,writer_education,Other,A-levels or equivalent,72,0.19834710743801653
+edited,writer,writer_education,Other,Vocational qualification,57,0.15702479338842976
+edited,writer,writer_education,Other,Undergraduate degree,86,0.2369146005509642
+edited,writer,writer_education,Other,Postgraduate degree (Master's),29,0.07988980716253444
+edited,writer,writer_education,Other,Doctorate (PhD),7,0.01928374655647383
+edited,writer,writer_education,Other,Other,3,0.008264462809917356
+edited,writer,writer_income,"Under £15,000","Under £15,000",681,0.07628542623501736
+edited,writer,writer_income,"Under £15,000","£15,000-£24,999",2020,0.22627982524924387
+edited,writer,writer_income,"Under £15,000","£25,000-£34,999",2906,0.32552929315559537
+edited,writer,writer_income,"Under £15,000","£35,000-£49,999",2125,0.23804189537358575
+edited,writer,writer_income,"Under £15,000","£50,000-£74,999",876,0.09812927075165229
+edited,writer,writer_income,"Under £15,000","£75,000-£99,999",239,0.026772711997311526
+edited,writer,writer_income,"Under £15,000","£100,000+",80,0.008961577237593816
+edited,writer,writer_income,"£15,000-£24,999","Under £15,000",593,0.07876211980342675
+edited,writer,writer_income,"£15,000-£24,999","£15,000-£24,999",1677,0.22273874352503653
+edited,writer,writer_income,"£15,000-£24,999","£25,000-£34,999",2475,0.32872891486253153
+edited,writer,writer_income,"£15,000-£24,999","£35,000-£49,999",1848,0.2454509230973569
+edited,writer,writer_income,"£15,000-£24,999","£50,000-£74,999",723,0.09602868906893346
+edited,writer,writer_income,"£15,000-£24,999","£75,000-£99,999",156,0.02071988311860805
+edited,writer,writer_income,"£15,000-£24,999","£100,000+",57,0.007570726524106787
+edited,writer,writer_income,"£25,000-£34,999","Under £15,000",741,0.0788046368180368
+edited,writer,writer_income,"£25,000-£34,999","£15,000-£24,999",2115,0.22492821439965968
+edited,writer,writer_income,"£25,000-£34,999","£25,000-£34,999",3125,0.332340742316282
+edited,writer,writer_income,"£25,000-£34,999","£35,000-£49,999",2248,0.23907263639264065
+edited,writer,writer_income,"£25,000-£34,999","£50,000-£74,999",894,0.09507603956184196
+edited,writer,writer_income,"£25,000-£34,999","£75,000-£99,999",214,0.022758694033818996
+edited,writer,writer_income,"£25,000-£34,999","£100,000+",66,0.007019036477719877
+edited,writer,writer_income,"£35,000-£49,999","Under £15,000",470,0.05820433436532508
+edited,writer,writer_income,"£35,000-£49,999","£15,000-£24,999",1702,0.21077399380804954
+edited,writer,writer_income,"£35,000-£49,999","£25,000-£34,999",2722,0.3370897832817337
+edited,writer,writer_income,"£35,000-£49,999","£35,000-£49,999",2007,0.24854489164086688
+edited,writer,writer_income,"£35,000-£49,999","£50,000-£74,999",887,0.10984520123839009
+edited,writer,writer_income,"£35,000-£49,999","£75,000-£99,999",227,0.028111455108359135
+edited,writer,writer_income,"£35,000-£49,999","£100,000+",60,0.007430340557275541
+edited,writer,writer_income,"£50,000-£74,999","Under £15,000",349,0.06401320616287601
+edited,writer,writer_income,"£50,000-£74,999","£15,000-£24,999",1148,0.21056493030080703
+edited,writer,writer_income,"£50,000-£74,999","£25,000-£34,999",1768,0.32428466617754953
+edited,writer,writer_income,"£50,000-£74,999","£35,000-£49,999",1375,0.25220102714600146
+edited,writer,writer_income,"£50,000-£74,999","£50,000-£74,999",636,0.11665443873807776
+edited,writer,writer_income,"£50,000-£74,999","£75,000-£99,999",132,0.02421129860601614
+edited,writer,writer_income,"£50,000-£74,999","£100,000+",44,0.008070432868672046
+edited,writer,writer_income,"£75,000-£99,999","Under £15,000",96,0.05476326297775243
+edited,writer,writer_income,"£75,000-£99,999","£15,000-£24,999",368,0.20992584141471762
+edited,writer,writer_income,"£75,000-£99,999","£25,000-£34,999",538,0.30690245293782087
+edited,writer,writer_income,"£75,000-£99,999","£35,000-£49,999",452,0.257843696520251
+edited,writer,writer_income,"£75,000-£99,999","£50,000-£74,999",216,0.12321734169994296
+edited,writer,writer_income,"£75,000-£99,999","£75,000-£99,999",61,0.03479749001711352
+edited,writer,writer_income,"£75,000-£99,999","£100,000+",22,0.012549914432401598
+edited,writer,writer_income,"£100,000+","Under £15,000",78,0.06989247311827956
+edited,writer,writer_income,"£100,000+","£15,000-£24,999",183,0.1639784946236559
+edited,writer,writer_income,"£100,000+","£25,000-£34,999",338,0.30286738351254483
+edited,writer,writer_income,"£100,000+","£35,000-£49,999",310,0.2777777777777778
+edited,writer,writer_income,"£100,000+","£50,000-£74,999",151,0.13530465949820789
+edited,writer,writer_income,"£100,000+","£75,000-£99,999",47,0.042114695340501794
+edited,writer,writer_income,"£100,000+","£100,000+",9,0.008064516129032258
+edited,writer,writer_english_skills,Basic,Basic,0,0.0
+edited,writer,writer_english_skills,Basic,Intermediate,10,0.3333333333333333
+edited,writer,writer_english_skills,Basic,Advanced,14,0.4666666666666667
+edited,writer,writer_english_skills,Basic,Expert,6,0.2
+edited,writer,writer_english_skills,Intermediate,Basic,117,0.06543624161073826
+edited,writer,writer_english_skills,Intermediate,Intermediate,638,0.3568232662192394
+edited,writer,writer_english_skills,Intermediate,Advanced,566,0.31655480984340045
+edited,writer,writer_english_skills,Intermediate,Expert,467,0.2611856823266219
+edited,writer,writer_english_skills,Advanced,Basic,395,0.05804555473916238
+edited,writer,writer_english_skills,Advanced,Intermediate,2138,0.3141807494489346
+edited,writer,writer_english_skills,Advanced,Advanced,2295,0.337252020573108
+edited,writer,writer_english_skills,Advanced,Expert,1977,0.290521675238795
+edited,writer,writer_english_skills,Expert,Basic,1792,0.04919022783420258
+edited,writer,writer_english_skills,Expert,Intermediate,11082,0.3041998353005764
+edited,writer,writer_english_skills,Expert,Advanced,12097,0.3320614877847928
+edited,writer,writer_english_skills,Expert,Expert,11459,0.3145484490804282
+edited,writer,writer_politicalIdeology,Very Left-Wing,Very Left-Wing,700,0.16088255573431395
+edited,writer,writer_politicalIdeology,Very Left-Wing,Moderately Left-Wing,1462,0.3360147092622386
+edited,writer,writer_politicalIdeology,Very Left-Wing,Centrist,1158,0.2661457136290508
+edited,writer,writer_politicalIdeology,Very Left-Wing,Moderately Right-Wing,599,0.13766950126407723
+edited,writer,writer_politicalIdeology,Very Left-Wing,Very Right-Wing,124,0.02849919558722133
+edited,writer,writer_politicalIdeology,Very Left-Wing,Other,308,0.07078832452309813
+edited,writer,writer_politicalIdeology,Moderately Left-Wing,Very Left-Wing,1810,0.11307552945586306
+edited,writer,writer_politicalIdeology,Moderately Left-Wing,Moderately Left-Wing,5050,0.3154869744486787
+edited,writer,writer_politicalIdeology,Moderately Left-Wing,Centrist,4635,0.28956081714250015
+edited,writer,writer_politicalIdeology,Moderately Left-Wing,Moderately Right-Wing,2688,0.1679265321421878
+edited,writer,writer_politicalIdeology,Moderately Left-Wing,Very Right-Wing,670,0.04185668769913163
+edited,writer,writer_politicalIdeology,Moderately Left-Wing,Other,1154,0.07209345911163866
+edited,writer,writer_politicalIdeology,Centrist,Very Left-Wing,1198,0.09548860194484297
+edited,writer,writer_politicalIdeology,Centrist,Moderately Left-Wing,3453,0.27522716403634623
+edited,writer,writer_politicalIdeology,Centrist,Centrist,3649,0.2908496732026144
+edited,writer,writer_politicalIdeology,Centrist,Moderately Right-Wing,2611,0.20811413996492906
+edited,writer,writer_politicalIdeology,Centrist,Very Right-Wing,781,0.06225091662681333
+edited,writer,writer_politicalIdeology,Centrist,Other,854,0.06806950422445401
+edited,writer,writer_politicalIdeology,Moderately Right-Wing,Very Left-Wing,659,0.06991300657755145
+edited,writer,writer_politicalIdeology,Moderately Right-Wing,Moderately Left-Wing,2199,0.23329089751750479
+edited,writer,writer_politicalIdeology,Moderately Right-Wing,Centrist,2600,0.2758328028856355
+edited,writer,writer_politicalIdeology,Moderately Right-Wing,Moderately Right-Wing,2333,0.24750689582007215
+edited,writer,writer_politicalIdeology,Moderately Right-Wing,Very Right-Wing,907,0.09622321239125822
+edited,writer,writer_politicalIdeology,Moderately Right-Wing,Other,728,0.07723318480797793
+edited,writer,writer_politicalIdeology,Very Right-Wing,Very Left-Wing,114,0.08816705336426914
+edited,writer,writer_politicalIdeology,Very Right-Wing,Moderately Left-Wing,329,0.25444702242846096
+edited,writer,writer_politicalIdeology,Very Right-Wing,Centrist,329,0.25444702242846096
+edited,writer,writer_politicalIdeology,Very Right-Wing,Moderately Right-Wing,270,0.2088167053364269
+edited,writer,writer_politicalIdeology,Very Right-Wing,Very Right-Wing,143,0.1105955143078113
+edited,writer,writer_politicalIdeology,Very Right-Wing,Other,108,0.08352668213457076
+edited,writer,writer_politicalIdeology,Other,Very Left-Wing,88,0.09988649262202043
+edited,writer,writer_politicalIdeology,Other,Moderately Left-Wing,239,0.27128263337116915
+edited,writer,writer_politicalIdeology,Other,Centrist,217,0.246311010215664
+edited,writer,writer_politicalIdeology,Other,Moderately Right-Wing,171,0.19409761634506242
+edited,writer,writer_politicalIdeology,Other,Very Right-Wing,82,0.09307604994324631
+edited,writer,writer_politicalIdeology,Other,Other,84,0.09534619750283768
+edited,writer,writer_english_first,No,No,362,0.15543151567196223
+edited,writer,writer_english_first,No,Yes,1967,0.8445684843280378
+edited,writer,writer_english_first,Yes,No,4709,0.1104621158808351
+edited,writer,writer_english_first,Yes,Yes,37921,0.8895378841191649
+edited,writer,writer_gender,Male,Male,13309,0.6100288765641472
+edited,writer,writer_gender,Male,Female,8122,0.37227849841866434
+edited,writer,writer_gender,Male,Other,386,0.01769262501718843
+edited,writer,writer_gender,Female,Male,12468,0.5422755741127349
+edited,writer,writer_gender,Female,Female,10112,0.4398051496172582
+edited,writer,writer_gender,Female,Other,412,0.01791927627000696
+edited,writer,writer_gender,Other,Male,63,0.5338983050847458
+edited,writer,writer_gender,Other,Female,52,0.4406779661016949
+edited,writer,writer_gender,Other,Other,3,0.025423728813559324
+edited,writer,writer_race,White,White,28138,0.7266670110014979
+edited,writer,writer_race,White,Black,3311,0.08550694695521925
+edited,writer,writer_race,White,Asian,2617,0.06758431899178761
+edited,writer,writer_race,White,Mixed,3001,0.07750116213005527
+edited,writer,writer_race,White,Other,1655,0.04274056092144001
+edited,writer,writer_race,Black,White,1079,0.6445639187574671
+edited,writer,writer_race,Black,Black,185,0.11051373954599761
+edited,writer,writer_race,Black,Asian,134,0.08004778972520908
+edited,writer,writer_race,Black,Mixed,192,0.11469534050179211
+edited,writer,writer_race,Black,Other,84,0.05017921146953405
+edited,writer,writer_race,Asian,White,2236,0.6696615753219527
+edited,writer,writer_race,Asian,Black,290,0.0868523510032944
+edited,writer,writer_race,Asian,Asian,341,0.10212638514525307
+edited,writer,writer_race,Asian,Mixed,281,0.08415693321353698
+edited,writer,writer_race,Asian,Other,191,0.05720275531596286
+edited,writer,writer_race,Mixed,White,506,0.6764705882352942
+edited,writer,writer_race,Mixed,Black,73,0.09759358288770054
+edited,writer,writer_race,Mixed,Asian,68,0.09090909090909091
+edited,writer,writer_race,Mixed,Mixed,61,0.08155080213903744
+edited,writer,writer_race,Mixed,Other,40,0.053475935828877004
+edited,writer,writer_race,Other,White,235,0.7230769230769231
+edited,writer,writer_race,Other,Black,28,0.08615384615384615
+edited,writer,writer_race,Other,Asian,22,0.06769230769230769
+edited,writer,writer_race,Other,Mixed,24,0.07384615384615385
+edited,writer,writer_race,Other,Other,16,0.04923076923076923
+edited,writer,writer_politicalParty,Labour,Labour,6240,0.34446591222743583
+edited,writer,writer_politicalParty,Labour,Conservative,3567,0.19690863924924096
+edited,writer,writer_politicalParty,Labour,Liberal Democrats,2347,0.1295611371791333
+edited,writer,writer_politicalParty,Labour,Greens,1481,0.08175545128346674
+edited,writer,writer_politicalParty,Labour,Scottish National Party,257,0.01418713773116202
+edited,writer,writer_politicalParty,Labour,Did not vote,2545,0.1404913055478885
+edited,writer,writer_politicalParty,Labour,Not eligible to vote,484,0.026718189345845984
+edited,writer,writer_politicalParty,Labour,Other,1194,0.06591222743582666
+edited,writer,writer_politicalParty,Conservative,Labour,1849,0.2794317666616291
+edited,writer,writer_politicalParty,Conservative,Conservative,1797,0.2715732204926704
+edited,writer,writer_politicalParty,Conservative,Liberal Democrats,697,0.10533474384162007
+edited,writer,writer_politicalParty,Conservative,Greens,411,0.06211273991234698
+edited,writer,writer_politicalParty,Conservative,Scottish National Party,102,0.015414840562188304
+edited,writer,writer_politicalParty,Conservative,Did not vote,956,0.1444763487985492
+edited,writer,writer_politicalParty,Conservative,Not eligible to vote,185,0.02795828925494937
+edited,writer,writer_politicalParty,Conservative,Other,620,0.09369805047604654
+edited,writer,writer_politicalParty,Liberal Democrats,Labour,1565,0.3376483279395901
+edited,writer,writer_politicalParty,Liberal Democrats,Conservative,931,0.20086299892125134
+edited,writer,writer_politicalParty,Liberal Democrats,Liberal Democrats,594,0.12815533980582525
+edited,writer,writer_politicalParty,Liberal Democrats,Greens,435,0.09385113268608414
+edited,writer,writer_politicalParty,Liberal Democrats,Scottish National Party,59,0.01272923408845739
+edited,writer,writer_politicalParty,Liberal Democrats,Did not vote,620,0.133764832793959
+edited,writer,writer_politicalParty,Liberal Democrats,Not eligible to vote,97,0.0209277238403452
+edited,writer,writer_politicalParty,Liberal Democrats,Other,334,0.07206040992448759
+edited,writer,writer_politicalParty,Greens,Labour,1191,0.3495744056354564
+edited,writer,writer_politicalParty,Greens,Conservative,568,0.16671558555914295
+edited,writer,writer_politicalParty,Greens,Liberal Democrats,470,0.13795127678309363
+edited,writer,writer_politicalParty,Greens,Greens,394,0.11564426181391253
+edited,writer,writer_politicalParty,Greens,Scottish National Party,59,0.017317287936601117
+edited,writer,writer_politicalParty,Greens,Did not vote,428,0.1256237158790725
+edited,writer,writer_politicalParty,Greens,Not eligible to vote,69,0.020252421485177575
+edited,writer,writer_politicalParty,Greens,Other,228,0.06692104490754329
+edited,writer,writer_politicalParty,Scottish National Party,Labour,480,0.36281179138321995
+edited,writer,writer_politicalParty,Scottish National Party,Conservative,216,0.16326530612244897
+edited,writer,writer_politicalParty,Scottish National Party,Liberal Democrats,181,0.1368102796674225
+edited,writer,writer_politicalParty,Scottish National Party,Greens,137,0.10355253212396069
+edited,writer,writer_politicalParty,Scottish National Party,Scottish National Party,43,0.03250188964474679
+edited,writer,writer_politicalParty,Scottish National Party,Did not vote,163,0.12320483749055178
+edited,writer,writer_politicalParty,Scottish National Party,Not eligible to vote,29,0.021919879062736205
+edited,writer,writer_politicalParty,Scottish National Party,Other,74,0.055933484504913075
+edited,writer,writer_politicalParty,Did not vote,Labour,1507,0.32104814657008945
+edited,writer,writer_politicalParty,Did not vote,Conservative,975,0.20771197273114614
+edited,writer,writer_politicalParty,Did not vote,Liberal Democrats,552,0.1175969322539412
+edited,writer,writer_politicalParty,Did not vote,Greens,359,0.07648061354921176
+edited,writer,writer_politicalParty,Did not vote,Scottish National Party,61,0.012995313165743502
+edited,writer,writer_politicalParty,Did not vote,Did not vote,735,0.15658287175117172
+edited,writer,writer_politicalParty,Did not vote,Not eligible to vote,148,0.031529612270984234
+edited,writer,writer_politicalParty,Did not vote,Other,357,0.07605453770771198
+edited,writer,writer_politicalParty,Not eligible to vote,Labour,185,0.36489151873767256
+edited,writer,writer_politicalParty,Not eligible to vote,Conservative,94,0.1854043392504931
+edited,writer,writer_politicalParty,Not eligible to vote,Liberal Democrats,62,0.1222879684418146
+edited,writer,writer_politicalParty,Not eligible to vote,Greens,38,0.07495069033530571
+edited,writer,writer_politicalParty,Not eligible to vote,Scottish National Party,10,0.01972386587771203
+edited,writer,writer_politicalParty,Not eligible to vote,Did not vote,72,0.14201183431952663
+edited,writer,writer_politicalParty,Not eligible to vote,Not eligible to vote,21,0.04142011834319527
+edited,writer,writer_politicalParty,Not eligible to vote,Other,25,0.04930966469428008
+edited,writer,writer_politicalParty,Other,Labour,1292,0.26916666666666667
+edited,writer,writer_politicalParty,Other,Conservative,1366,0.28458333333333335
+edited,writer,writer_politicalParty,Other,Liberal Democrats,525,0.109375
+edited,writer,writer_politicalParty,Other,Greens,248,0.051666666666666666
+edited,writer,writer_politicalParty,Other,Scottish National Party,73,0.015208333333333334
+edited,writer,writer_politicalParty,Other,Did not vote,689,0.14354166666666668
+edited,writer,writer_politicalParty,Other,Not eligible to vote,116,0.024166666666666666
+edited,writer,writer_politicalParty,Other,Other,491,0.10229166666666667
+edited,model,writer_age_binned,18-29,18-29,2734,0.3231296537052358
+edited,model,writer_age_binned,18-29,30-39,2698,0.31887483748965845
+edited,model,writer_age_binned,18-29,40-49,1900,0.22455974471102708
+edited,model,writer_age_binned,18-29,50-59,904,0.10684316274672025
+edited,model,writer_age_binned,18-29,60-69,212,0.02505613993617776
+edited,model,writer_age_binned,18-29,70+,13,0.0015364614111807115
+edited,model,writer_age_binned,30-39,18-29,2395,0.31136245449817995
+edited,model,writer_age_binned,30-39,30-39,2455,0.31916276651066045
+edited,model,writer_age_binned,30-39,40-49,1787,0.23231929277171087
+edited,model,writer_age_binned,30-39,50-59,876,0.11388455538221529
+edited,model,writer_age_binned,30-39,60-69,156,0.0202808112324493
+edited,model,writer_age_binned,30-39,70+,23,0.0029901196047841913
+edited,model,writer_age_binned,40-49,18-29,2267,0.32083215397679027
+edited,model,writer_age_binned,40-49,30-39,2206,0.3121992640815171
+edited,model,writer_age_binned,40-49,40-49,1685,0.2384658930087744
+edited,model,writer_age_binned,40-49,50-59,728,0.10302858760260401
+edited,model,writer_age_binned,40-49,60-69,164,0.023209736767619588
+edited,model,writer_age_binned,40-49,70+,16,0.0022643645626945937
+edited,model,writer_age_binned,50-59,18-29,3280,0.29946133479412035
+edited,model,writer_age_binned,50-59,30-39,3522,0.3215557381539304
+edited,model,writer_age_binned,50-59,40-49,2581,0.2356432027754953
+edited,model,writer_age_binned,50-59,50-59,1256,0.11467177942116315
+edited,model,writer_age_binned,50-59,60-69,279,0.025472473294987676
+edited,model,writer_age_binned,50-59,70+,35,0.0031954715603031134
+edited,model,writer_age_binned,60-69,18-29,2693,0.29915574316818483
+edited,model,writer_age_binned,60-69,30-39,2818,0.3130415463230393
+edited,model,writer_age_binned,60-69,40-49,2107,0.23405909797822705
+edited,model,writer_age_binned,60-69,50-59,1071,0.11897356143079316
+edited,model,writer_age_binned,60-69,60-69,282,0.0313263719173517
+edited,model,writer_age_binned,60-69,70+,31,0.0034436791824039104
+edited,model,writer_age_binned,70+,18-29,507,0.2683959767072525
+edited,model,writer_age_binned,70+,30-39,574,0.3038644785600847
+edited,model,writer_age_binned,70+,40-49,472,0.24986765484383272
+edited,model,writer_age_binned,70+,50-59,267,0.1413446267866596
+edited,model,writer_age_binned,70+,60-69,63,0.03335097935415564
+edited,model,writer_age_binned,70+,70+,6,0.0031762837480148226
+edited,model,writer_education,GCSEs or equivalent,GCSEs or equivalent,204,0.04609127880704925
+edited,model,writer_education,GCSEs or equivalent,A-levels or equivalent,563,0.1272028920018075
+edited,model,writer_education,GCSEs or equivalent,Vocational qualification,452,0.10212381382738364
+edited,model,writer_education,GCSEs or equivalent,Undergraduate degree,1838,0.4152733845458653
+edited,model,writer_education,GCSEs or equivalent,Postgraduate degree (Master's),1086,0.24536827835517397
+edited,model,writer_education,GCSEs or equivalent,Doctorate (PhD),234,0.05286940804338003
+edited,model,writer_education,GCSEs or equivalent,Other,49,0.011070944419340261
+edited,model,writer_education,A-levels or equivalent,GCSEs or equivalent,264,0.039921367004385304
+edited,model,writer_education,A-levels or equivalent,A-levels or equivalent,717,0.10842280356872826
+edited,model,writer_education,A-levels or equivalent,Vocational qualification,578,0.08740359897172237
+edited,model,writer_education,A-levels or equivalent,Undergraduate degree,2878,0.4352033872675034
+edited,model,writer_education,A-levels or equivalent,Postgraduate degree (Master's),1739,0.2629668834114623
+edited,model,writer_education,A-levels or equivalent,Doctorate (PhD),369,0.055799183426584
+edited,model,writer_education,A-levels or equivalent,Other,68,0.010282776349614395
+edited,model,writer_education,Vocational qualification,GCSEs or equivalent,193,0.0380220646178093
+edited,model,writer_education,Vocational qualification,A-levels or equivalent,571,0.11249014972419227
+edited,model,writer_education,Vocational qualification,Vocational qualification,452,0.08904649330181245
+edited,model,writer_education,Vocational qualification,Undergraduate degree,2154,0.4243498817966903
+edited,model,writer_education,Vocational qualification,Postgraduate degree (Master's),1376,0.2710795902285264
+edited,model,writer_education,Vocational qualification,Doctorate (PhD),272,0.05358550039401103
+edited,model,writer_education,Vocational qualification,Other,58,0.011426319936958234
+edited,model,writer_education,Undergraduate degree,GCSEs or equivalent,662,0.036625172890733054
+edited,model,writer_education,Undergraduate degree,A-levels or equivalent,1902,0.10522821576763486
+edited,model,writer_education,Undergraduate degree,Vocational qualification,1544,0.08542185338865836
+edited,model,writer_education,Undergraduate degree,Undergraduate degree,7799,0.4314799446749654
+edited,model,writer_education,Undergraduate degree,Postgraduate degree (Master's),4926,0.2725311203319502
+edited,model,writer_education,Undergraduate degree,Doctorate (PhD),1062,0.0587551867219917
+edited,model,writer_education,Undergraduate degree,Other,180,0.00995850622406639
+edited,model,writer_education,Postgraduate degree (Master's),GCSEs or equivalent,267,0.031526744597945446
+edited,model,writer_education,Postgraduate degree (Master's),A-levels or equivalent,858,0.10131066241586964
+edited,model,writer_education,Postgraduate degree (Master's),Vocational qualification,647,0.0763962687448341
+edited,model,writer_education,Postgraduate degree (Master's),Undergraduate degree,3631,0.42874011099303344
+edited,model,writer_education,Postgraduate degree (Master's),Postgraduate degree (Master's),2483,0.29318691699138033
+edited,model,writer_education,Postgraduate degree (Master's),Doctorate (PhD),506,0.05974731373243594
+edited,model,writer_education,Postgraduate degree (Master's),Other,77,0.009091982524501122
+edited,model,writer_education,Doctorate (PhD),GCSEs or equivalent,49,0.02628755364806867
+edited,model,writer_education,Doctorate (PhD),A-levels or equivalent,169,0.09066523605150215
+edited,model,writer_education,Doctorate (PhD),Vocational qualification,143,0.07671673819742489
+edited,model,writer_education,Doctorate (PhD),Undergraduate degree,796,0.4270386266094421
+edited,model,writer_education,Doctorate (PhD),Postgraduate degree (Master's),565,0.3031115879828326
+edited,model,writer_education,Doctorate (PhD),Doctorate (PhD),126,0.06759656652360516
+edited,model,writer_education,Doctorate (PhD),Other,16,0.008583690987124463
+edited,model,writer_education,Other,GCSEs or equivalent,7,0.019337016574585635
+edited,model,writer_education,Other,A-levels or equivalent,41,0.1132596685082873
+edited,model,writer_education,Other,Vocational qualification,40,0.11049723756906077
+edited,model,writer_education,Other,Undergraduate degree,159,0.43922651933701656
+edited,model,writer_education,Other,Postgraduate degree (Master's),90,0.24861878453038674
+edited,model,writer_education,Other,Doctorate (PhD),20,0.055248618784530384
+edited,model,writer_education,Other,Other,5,0.013812154696132596
+edited,model,writer_income,"Under £15,000","Under £15,000",177,0.019892110586648686
+edited,model,writer_income,"Under £15,000","£15,000-£24,999",727,0.08170375365250618
+edited,model,writer_income,"Under £15,000","£25,000-£34,999",2191,0.2462351090132614
+edited,model,writer_income,"Under £15,000","£35,000-£49,999",3003,0.33749157113958195
+edited,model,writer_income,"Under £15,000","£50,000-£74,999",2052,0.2306136210384356
+edited,model,writer_income,"Under £15,000","£75,000-£99,999",573,0.06439649359406609
+edited,model,writer_income,"Under £15,000","£100,000+",175,0.019667340975500113
+edited,model,writer_income,"£15,000-£24,999","Under £15,000",142,0.018920719520319786
+edited,model,writer_income,"£15,000-£24,999","£15,000-£24,999",581,0.07741505662891406
+edited,model,writer_income,"£15,000-£24,999","£25,000-£34,999",1819,0.2423717521652232
+edited,model,writer_income,"£15,000-£24,999","£35,000-£49,999",2484,0.33097934710193205
+edited,model,writer_income,"£15,000-£24,999","£50,000-£74,999",1797,0.23944037308461025
+edited,model,writer_income,"£15,000-£24,999","£75,000-£99,999",545,0.072618254497002
+edited,model,writer_income,"£15,000-£24,999","£100,000+",137,0.018254497001998667
+edited,model,writer_income,"£25,000-£34,999","Under £15,000",202,0.021377923589797863
+edited,model,writer_income,"£25,000-£34,999","£15,000-£24,999",767,0.08117261085829189
+edited,model,writer_income,"£25,000-£34,999","£25,000-£34,999",2299,0.24330616996507567
+edited,model,writer_income,"£25,000-£34,999","£35,000-£49,999",3202,0.33887183828976614
+edited,model,writer_income,"£25,000-£34,999","£50,000-£74,999",2163,0.2289131124986771
+edited,model,writer_income,"£25,000-£34,999","£75,000-£99,999",625,0.06614456556249339
+edited,model,writer_income,"£25,000-£34,999","£100,000+",191,0.02021377923589798
+edited,model,writer_income,"£35,000-£49,999","Under £15,000",161,0.020014917951268026
+edited,model,writer_income,"£35,000-£49,999","£15,000-£24,999",604,0.07508702138239681
+edited,model,writer_income,"£35,000-£49,999","£25,000-£34,999",1995,0.2480109398309299
+edited,model,writer_income,"£35,000-£49,999","£35,000-£49,999",2674,0.3324216807558429
+edited,model,writer_income,"£35,000-£49,999","£50,000-£74,999",1894,0.2354549975136748
+edited,model,writer_income,"£35,000-£49,999","£75,000-£99,999",542,0.06737941322725012
+edited,model,writer_income,"£35,000-£49,999","£100,000+",174,0.021631029338637493
+edited,model,writer_income,"£50,000-£74,999","Under £15,000",129,0.02354014598540146
+edited,model,writer_income,"£50,000-£74,999","£15,000-£24,999",416,0.07591240875912408
+edited,model,writer_income,"£50,000-£74,999","£25,000-£34,999",1329,0.24251824817518247
+edited,model,writer_income,"£50,000-£74,999","£35,000-£49,999",1808,0.32992700729927005
+edited,model,writer_income,"£50,000-£74,999","£50,000-£74,999",1294,0.23613138686131388
+edited,model,writer_income,"£50,000-£74,999","£75,000-£99,999",388,0.0708029197080292
+edited,model,writer_income,"£50,000-£74,999","£100,000+",116,0.021167883211678833
+edited,model,writer_income,"£75,000-£99,999","Under £15,000",22,0.012672811059907835
+edited,model,writer_income,"£75,000-£99,999","£15,000-£24,999",119,0.06854838709677419
+edited,model,writer_income,"£75,000-£99,999","£25,000-£34,999",417,0.2402073732718894
+edited,model,writer_income,"£75,000-£99,999","£35,000-£49,999",562,0.32373271889400923
+edited,model,writer_income,"£75,000-£99,999","£50,000-£74,999",444,0.2557603686635945
+edited,model,writer_income,"£75,000-£99,999","£75,000-£99,999",119,0.06854838709677419
+edited,model,writer_income,"£75,000-£99,999","£100,000+",53,0.03052995391705069
+edited,model,writer_income,"£100,000+","Under £15,000",17,0.01526032315978456
+edited,model,writer_income,"£100,000+","£15,000-£24,999",67,0.06014362657091562
+edited,model,writer_income,"£100,000+","£25,000-£34,999",228,0.20466786355475763
+edited,model,writer_income,"£100,000+","£35,000-£49,999",374,0.3357271095152603
+edited,model,writer_income,"£100,000+","£50,000-£74,999",299,0.26840215439856374
+edited,model,writer_income,"£100,000+","£75,000-£99,999",94,0.0843806104129264
+edited,model,writer_income,"£100,000+","£100,000+",35,0.03141831238779174
+edited,model,writer_english_skills,Basic,Basic,0,0.0
+edited,model,writer_english_skills,Basic,Intermediate,2,0.06666666666666667
+edited,model,writer_english_skills,Basic,Advanced,11,0.36666666666666664
+edited,model,writer_english_skills,Basic,Expert,17,0.5666666666666667
+edited,model,writer_english_skills,Intermediate,Basic,11,0.006131549609810479
+edited,model,writer_english_skills,Intermediate,Intermediate,192,0.10702341137123746
+edited,model,writer_english_skills,Intermediate,Advanced,540,0.3010033444816054
+edited,model,writer_english_skills,Intermediate,Expert,1051,0.5858416945373467
+edited,model,writer_english_skills,Advanced,Basic,43,0.006340312592155706
+edited,model,writer_english_skills,Advanced,Intermediate,631,0.09304040106163373
+edited,model,writer_english_skills,Advanced,Advanced,2112,0.31141256266588024
+edited,model,writer_english_skills,Advanced,Expert,3996,0.5892067236803303
+edited,model,writer_english_skills,Expert,Basic,210,0.005764954566667582
+edited,model,writer_english_skills,Expert,Intermediate,3363,0.09232162956049085
+edited,model,writer_english_skills,Expert,Advanced,11084,0.3042797924616356
+edited,model,writer_english_skills,Expert,Expert,21770,0.597633623411206
+edited,model,writer_politicalIdeology,Very Left-Wing,Very Left-Wing,684,0.15598631698973775
+edited,model,writer_politicalIdeology,Very Left-Wing,Moderately Left-Wing,1503,0.3427594070695553
+edited,model,writer_politicalIdeology,Very Left-Wing,Centrist,1203,0.2743443557582668
+edited,model,writer_politicalIdeology,Very Left-Wing,Moderately Right-Wing,633,0.1443557582668187
+edited,model,writer_politicalIdeology,Very Left-Wing,Very Right-Wing,145,0.0330672748004561
+edited,model,writer_politicalIdeology,Very Left-Wing,Other,217,0.049486887115165336
+edited,model,writer_politicalIdeology,Moderately Left-Wing,Very Left-Wing,2070,0.12942353382518446
+edited,model,writer_politicalIdeology,Moderately Left-Wing,Moderately Left-Wing,5067,0.31680630236338625
+edited,model,writer_politicalIdeology,Moderately Left-Wing,Centrist,4624,0.289108415655871
+edited,model,writer_politicalIdeology,Moderately Left-Wing,Moderately Right-Wing,2861,0.1788795798424409
+edited,model,writer_politicalIdeology,Moderately Left-Wing,Very Right-Wing,626,0.039139677379017135
+edited,model,writer_politicalIdeology,Moderately Left-Wing,Other,746,0.046642490934100285
+edited,model,writer_politicalIdeology,Centrist,Very Left-Wing,1332,0.1069621777884847
+edited,model,writer_politicalIdeology,Centrist,Moderately Left-Wing,3543,0.2845097566851361
+edited,model,writer_politicalIdeology,Centrist,Centrist,3753,0.30137316309323053
+edited,model,writer_politicalIdeology,Centrist,Moderately Right-Wing,2570,0.20637597366096522
+edited,model,writer_politicalIdeology,Centrist,Very Right-Wing,699,0.05613105275837148
+edited,model,writer_politicalIdeology,Centrist,Other,556,0.044647876013811934
+edited,model,writer_politicalIdeology,Moderately Right-Wing,Very Left-Wing,771,0.08114935269971582
+edited,model,writer_politicalIdeology,Moderately Right-Wing,Moderately Left-Wing,2453,0.25818334912114516
+edited,model,writer_politicalIdeology,Moderately Right-Wing,Centrist,2790,0.2936532996526681
+edited,model,writer_politicalIdeology,Moderately Right-Wing,Moderately Right-Wing,2330,0.2452373434375329
+edited,model,writer_politicalIdeology,Moderately Right-Wing,Very Right-Wing,721,0.07588674876328808
+edited,model,writer_politicalIdeology,Moderately Right-Wing,Other,436,0.04588990632564993
+edited,model,writer_politicalIdeology,Very Right-Wing,Very Left-Wing,139,0.10766847405112316
+edited,model,writer_politicalIdeology,Very Right-Wing,Moderately Left-Wing,332,0.2571649883810999
+edited,model,writer_politicalIdeology,Very Right-Wing,Centrist,353,0.273431448489543
+edited,model,writer_politicalIdeology,Very Right-Wing,Moderately Right-Wing,290,0.2246320681642138
+edited,model,writer_politicalIdeology,Very Right-Wing,Very Right-Wing,105,0.08133230054221534
+edited,model,writer_politicalIdeology,Very Right-Wing,Other,72,0.055770720371804805
+edited,model,writer_politicalIdeology,Other,Very Left-Wing,103,0.11921296296296297
+edited,model,writer_politicalIdeology,Other,Moderately Left-Wing,245,0.2835648148148148
+edited,model,writer_politicalIdeology,Other,Centrist,227,0.26273148148148145
+edited,model,writer_politicalIdeology,Other,Moderately Right-Wing,190,0.2199074074074074
+edited,model,writer_politicalIdeology,Other,Very Right-Wing,59,0.06828703703703703
+edited,model,writer_politicalIdeology,Other,Other,40,0.046296296296296294
+edited,model,writer_english_first,No,No,88,0.03727234222786955
+edited,model,writer_english_first,No,Yes,2273,0.9627276577721304
+edited,model,writer_english_first,Yes,No,1540,0.03616806406914207
+edited,model,writer_english_first,Yes,Yes,41039,0.9638319359308579
+edited,model,writer_gender,Male,Male,12515,0.57453059725474
+edited,model,writer_gender,Male,Female,8808,0.4043520176284258
+edited,model,writer_gender,Male,Other,460,0.02111738511683423
+edited,model,writer_gender,Female,Male,12369,0.5374788163212098
+edited,model,writer_gender,Female,Female,10189,0.44274975014122453
+edited,model,writer_gender,Female,Other,455,0.019771433537565723
+edited,model,writer_gender,Other,Male,74,0.6271186440677966
+edited,model,writer_gender,Other,Female,39,0.3305084745762712
+edited,model,writer_gender,Other,Other,5,0.0423728813559322
+edited,model,writer_race,White,White,28347,0.7320455543217209
+edited,model,writer_race,White,Black,3420,0.08831960333651835
+edited,model,writer_race,White,Asian,2423,0.06257263125274384
+edited,model,writer_race,White,Mixed,3054,0.07886785631278569
+edited,model,writer_race,White,Other,1479,0.03819435477623118
+edited,model,writer_race,Black,White,1213,0.7211652794292509
+edited,model,writer_race,Black,Black,158,0.093935790725327
+edited,model,writer_race,Black,Asian,106,0.06302021403091558
+edited,model,writer_race,Black,Mixed,142,0.08442330558858502
+edited,model,writer_race,Black,Other,63,0.03745541022592152
+edited,model,writer_race,Asian,White,2451,0.7309871756635848
+edited,model,writer_race,Asian,Black,258,0.07694601849090367
+edited,model,writer_race,Asian,Asian,275,0.08201610498061437
+edited,model,writer_race,Asian,Mixed,227,0.06770056665672532
+edited,model,writer_race,Asian,Other,142,0.04235013420817179
+edited,model,writer_race,Mixed,White,504,0.711864406779661
+edited,model,writer_race,Mixed,Black,62,0.08757062146892655
+edited,model,writer_race,Mixed,Asian,58,0.08192090395480225
+edited,model,writer_race,Mixed,Mixed,51,0.07203389830508475
+edited,model,writer_race,Mixed,Other,33,0.046610169491525424
+edited,model,writer_race,Other,White,241,0.7303030303030303
+edited,model,writer_race,Other,Black,27,0.08181818181818182
+edited,model,writer_race,Other,Asian,26,0.07878787878787878
+edited,model,writer_race,Other,Mixed,26,0.07878787878787878
+edited,model,writer_race,Other,Other,10,0.030303030303030304
+edited,model,writer_politicalParty,Labour,Labour,6353,0.3508394079964656
+edited,model,writer_politicalParty,Labour,Conservative,4581,0.2529821073558648
+edited,model,writer_politicalParty,Labour,Liberal Democrats,3011,0.16628009719461012
+edited,model,writer_politicalParty,Labour,Greens,1785,0.09857521537442014
+edited,model,writer_politicalParty,Labour,Scottish National Party,305,0.016843384139606805
+edited,model,writer_politicalParty,Labour,Did not vote,959,0.052960017671747295
+edited,model,writer_politicalParty,Labour,Not eligible to vote,162,0.008946322067594433
+edited,model,writer_politicalParty,Labour,Other,952,0.052573448199690745
+edited,model,writer_politicalParty,Conservative,Labour,2000,0.3031681067151736
+edited,model,writer_politicalParty,Conservative,Conservative,2193,0.3324238290131878
+edited,model,writer_politicalParty,Conservative,Liberal Democrats,963,0.14597544338335608
+edited,model,writer_politicalParty,Conservative,Greens,518,0.07852053963922995
+edited,model,writer_politicalParty,Conservative,Scottish National Party,101,0.015309989389116265
+edited,model,writer_politicalParty,Conservative,Did not vote,365,0.05532817947551918
+edited,model,writer_politicalParty,Conservative,Not eligible to vote,54,0.008185538881309686
+edited,model,writer_politicalParty,Conservative,Other,403,0.061088373503107474
+edited,model,writer_politicalParty,Liberal Democrats,Labour,1604,0.3466609033931273
+edited,model,writer_politicalParty,Liberal Democrats,Conservative,1197,0.2586989409984871
+edited,model,writer_politicalParty,Liberal Democrats,Liberal Democrats,764,0.1651177869029609
+edited,model,writer_politicalParty,Liberal Democrats,Greens,486,0.10503566025502485
+edited,model,writer_politicalParty,Liberal Democrats,Scottish National Party,68,0.014696347525394424
+edited,model,writer_politicalParty,Liberal Democrats,Did not vote,248,0.05359844391614437
+edited,model,writer_politicalParty,Liberal Democrats,Not eligible to vote,31,0.006699805489518046
+edited,model,writer_politicalParty,Liberal Democrats,Other,229,0.049492111519342984
+edited,model,writer_politicalParty,Greens,Labour,1230,0.36358261897723915
+edited,model,writer_politicalParty,Greens,Conservative,739,0.21844516701152822
+edited,model,writer_politicalParty,Greens,Liberal Democrats,566,0.16730712385456695
+edited,model,writer_politicalParty,Greens,Greens,394,0.11646467632279042
+edited,model,writer_politicalParty,Greens,Scottish National Party,54,0.01596216375997635
+edited,model,writer_politicalParty,Greens,Did not vote,188,0.05557197753473249
+edited,model,writer_politicalParty,Greens,Not eligible to vote,18,0.0053207212533254505
+edited,model,writer_politicalParty,Greens,Other,194,0.05734555128584097
+edited,model,writer_politicalParty,Scottish National Party,Labour,481,0.3621987951807229
+edited,model,writer_politicalParty,Scottish National Party,Conservative,304,0.2289156626506024
+edited,model,writer_politicalParty,Scottish National Party,Liberal Democrats,203,0.15286144578313254
+edited,model,writer_politicalParty,Scottish National Party,Greens,149,0.11219879518072289
+edited,model,writer_politicalParty,Scottish National Party,Scottish National Party,37,0.02786144578313253
+edited,model,writer_politicalParty,Scottish National Party,Did not vote,83,0.0625
+edited,model,writer_politicalParty,Scottish National Party,Not eligible to vote,6,0.004518072289156626
+edited,model,writer_politicalParty,Scottish National Party,Other,65,0.04894578313253012
+edited,model,writer_politicalParty,Did not vote,Labour,1512,0.3244635193133047
+edited,model,writer_politicalParty,Did not vote,Conservative,1270,0.27253218884120173
+edited,model,writer_politicalParty,Did not vote,Liberal Democrats,789,0.16931330472103004
+edited,model,writer_politicalParty,Did not vote,Greens,449,0.09635193133047211
+edited,model,writer_politicalParty,Did not vote,Scottish National Party,65,0.013948497854077254
+edited,model,writer_politicalParty,Did not vote,Did not vote,275,0.059012875536480686
+edited,model,writer_politicalParty,Did not vote,Not eligible to vote,32,0.0068669527896995704
+edited,model,writer_politicalParty,Did not vote,Other,268,0.05751072961373391
+edited,model,writer_politicalParty,Not eligible to vote,Labour,185,0.3544061302681992
+edited,model,writer_politicalParty,Not eligible to vote,Conservative,125,0.23946360153256704
+edited,model,writer_politicalParty,Not eligible to vote,Liberal Democrats,91,0.1743295019157088
+edited,model,writer_politicalParty,Not eligible to vote,Greens,61,0.11685823754789272
+edited,model,writer_politicalParty,Not eligible to vote,Scottish National Party,7,0.013409961685823755
+edited,model,writer_politicalParty,Not eligible to vote,Did not vote,25,0.04789272030651341
+edited,model,writer_politicalParty,Not eligible to vote,Not eligible to vote,6,0.011494252873563218
+edited,model,writer_politicalParty,Not eligible to vote,Other,22,0.0421455938697318
+edited,model,writer_politicalParty,Other,Labour,1386,0.2859500722096142
+edited,model,writer_politicalParty,Other,Conservative,1689,0.34846296678357747
+edited,model,writer_politicalParty,Other,Liberal Democrats,685,0.14132453063750774
+edited,model,writer_politicalParty,Other,Greens,382,0.07881163606354447
+edited,model,writer_politicalParty,Other,Scottish National Party,60,0.012378791004745203
+edited,model,writer_politicalParty,Other,Did not vote,269,0.055498246337940996
+edited,model,writer_politicalParty,Other,Not eligible to vote,52,0.010728285537445844
+edited,model,writer_politicalParty,Other,Other,324,0.0668454714256241
+preferred,writer,writer_age_binned,18-29,18-29,3378,0.49874501697918205
+preferred,writer,writer_age_binned,18-29,30-39,1595,0.23549387272995717
+preferred,writer,writer_age_binned,18-29,40-49,1108,0.16359072789015208
+preferred,writer,writer_age_binned,18-29,50-59,540,0.07972833308725823
+preferred,writer,writer_age_binned,18-29,60-69,133,0.019636793149269156
+preferred,writer,writer_age_binned,18-29,70+,19,0.002805256164181308
+preferred,writer,writer_age_binned,30-39,18-29,3005,0.45724284844796104
+preferred,writer,writer_age_binned,30-39,30-39,1761,0.26795496043822276
+preferred,writer,writer_age_binned,30-39,40-49,1110,0.16889835666463784
+preferred,writer,writer_age_binned,30-39,50-59,545,0.0829275715155204
+preferred,writer,writer_age_binned,30-39,60-69,140,0.02130249543517955
+preferred,writer,writer_age_binned,30-39,70+,11,0.0016737674984783932
+preferred,writer,writer_age_binned,40-49,18-29,2689,0.4450513075140682
+preferred,writer,writer_age_binned,40-49,30-39,1598,0.26448195961602117
+preferred,writer,writer_age_binned,40-49,40-49,1072,0.1774246938099967
+preferred,writer,writer_age_binned,40-49,50-59,545,0.0902019198940748
+preferred,writer,writer_age_binned,40-49,60-69,124,0.020523005627275735
+preferred,writer,writer_age_binned,40-49,70+,14,0.0023171135385633896
+preferred,writer,writer_age_binned,50-59,18-29,3855,0.4193864229765013
+preferred,writer,writer_age_binned,50-59,30-39,2343,0.25489556135770236
+preferred,writer,writer_age_binned,50-59,40-49,1708,0.18581375108790252
+preferred,writer,writer_age_binned,50-59,50-59,957,0.10411227154046998
+preferred,writer,writer_age_binned,50-59,60-69,292,0.03176675369886858
+preferred,writer,writer_age_binned,50-59,70+,37,0.004025239338555265
+preferred,writer,writer_age_binned,60-69,18-29,3136,0.4024640657084189
+preferred,writer,writer_age_binned,60-69,30-39,1940,0.24897330595482547
+preferred,writer,writer_age_binned,60-69,40-49,1488,0.19096509240246407
+preferred,writer,writer_age_binned,60-69,50-59,860,0.11036960985626283
+preferred,writer,writer_age_binned,60-69,60-69,329,0.04222279260780287
+preferred,writer,writer_age_binned,60-69,70+,39,0.005005133470225872
+preferred,writer,writer_age_binned,70+,18-29,582,0.3583743842364532
+preferred,writer,writer_age_binned,70+,30-39,422,0.25985221674876846
+preferred,writer,writer_age_binned,70+,40-49,304,0.18719211822660098
+preferred,writer,writer_age_binned,70+,50-59,206,0.1268472906403941
+preferred,writer,writer_age_binned,70+,60-69,94,0.05788177339901478
+preferred,writer,writer_age_binned,70+,70+,16,0.009852216748768473
+preferred,writer,writer_education,GCSEs or equivalent,GCSEs or equivalent,1050,0.2684049079754601
+preferred,writer,writer_education,GCSEs or equivalent,A-levels or equivalent,812,0.20756646216768918
+preferred,writer,writer_education,GCSEs or equivalent,Vocational qualification,655,0.16743353783231082
+preferred,writer,writer_education,GCSEs or equivalent,Undergraduate degree,1038,0.26533742331288346
+preferred,writer,writer_education,GCSEs or equivalent,Postgraduate degree (Master's),265,0.06774028629856851
+preferred,writer,writer_education,GCSEs or equivalent,Doctorate (PhD),38,0.009713701431492843
+preferred,writer,writer_education,GCSEs or equivalent,Other,54,0.013803680981595092
+preferred,writer,writer_education,A-levels or equivalent,GCSEs or equivalent,1297,0.22354360565322304
+preferred,writer,writer_education,A-levels or equivalent,A-levels or equivalent,1221,0.21044467425025853
+preferred,writer,writer_education,A-levels or equivalent,Vocational qualification,894,0.15408479834539815
+preferred,writer,writer_education,A-levels or equivalent,Undergraduate degree,1705,0.29386418476387455
+preferred,writer,writer_education,A-levels or equivalent,Postgraduate degree (Master's),532,0.09169251982075147
+preferred,writer,writer_education,A-levels or equivalent,Doctorate (PhD),90,0.015511892450879007
+preferred,writer,writer_education,A-levels or equivalent,Other,63,0.010858324715615306
+preferred,writer,writer_education,Vocational qualification,GCSEs or equivalent,1079,0.24307276413606668
+preferred,writer,writer_education,Vocational qualification,A-levels or equivalent,929,0.20928136967785538
+preferred,writer,writer_education,Vocational qualification,Vocational qualification,697,0.15701734624915523
+preferred,writer,writer_education,Vocational qualification,Undergraduate degree,1242,0.27979274611398963
+preferred,writer,writer_education,Vocational qualification,Postgraduate degree (Master's),372,0.08380265825636404
+preferred,writer,writer_education,Vocational qualification,Doctorate (PhD),66,0.014868213561612977
+preferred,writer,writer_education,Vocational qualification,Other,54,0.012164902004956072
+preferred,writer,writer_education,Undergraduate degree,GCSEs or equivalent,2881,0.19098442161087173
+preferred,writer,writer_education,Undergraduate degree,A-levels or equivalent,3118,0.2066953927742791
+preferred,writer,writer_education,Undergraduate degree,Vocational qualification,2239,0.1484255883327809
+preferred,writer,writer_education,Undergraduate degree,Undergraduate degree,4899,0.3247596950613192
+preferred,writer,writer_education,Undergraduate degree,Postgraduate degree (Master's),1528,0.10129267484255883
+preferred,writer,writer_education,Undergraduate degree,Doctorate (PhD),273,0.018097447795823667
+preferred,writer,writer_education,Undergraduate degree,Other,147,0.00974477958236659
+preferred,writer,writer_education,Postgraduate degree (Master's),GCSEs or equivalent,1149,0.16570522065186039
+preferred,writer,writer_education,Postgraduate degree (Master's),A-levels or equivalent,1333,0.1922411306605134
+preferred,writer,writer_education,Postgraduate degree (Master's),Vocational qualification,944,0.13614075569656764
+preferred,writer,writer_education,Postgraduate degree (Master's),Undergraduate degree,2377,0.3428035765791751
+preferred,writer,writer_education,Postgraduate degree (Master's),Postgraduate degree (Master's),903,0.1302278627055091
+preferred,writer,writer_education,Postgraduate degree (Master's),Doctorate (PhD),132,0.01903663109316412
+preferred,writer,writer_education,Postgraduate degree (Master's),Other,96,0.013844822613210269
+preferred,writer,writer_education,Doctorate (PhD),GCSEs or equivalent,220,0.1652892561983471
+preferred,writer,writer_education,Doctorate (PhD),A-levels or equivalent,250,0.18782870022539444
+preferred,writer,writer_education,Doctorate (PhD),Vocational qualification,183,0.13749060856498874
+preferred,writer,writer_education,Doctorate (PhD),Undergraduate degree,451,0.33884297520661155
+preferred,writer,writer_education,Doctorate (PhD),Postgraduate degree (Master's),160,0.12021036814425244
+preferred,writer,writer_education,Doctorate (PhD),Doctorate (PhD),46,0.03456048084147258
+preferred,writer,writer_education,Doctorate (PhD),Other,21,0.015777610818933134
+preferred,writer,writer_education,Other,GCSEs or equivalent,106,0.30903790087463556
+preferred,writer,writer_education,Other,A-levels or equivalent,68,0.19825072886297376
+preferred,writer,writer_education,Other,Vocational qualification,54,0.15743440233236153
+preferred,writer,writer_education,Other,Undergraduate degree,79,0.2303206997084548
+preferred,writer,writer_education,Other,Postgraduate degree (Master's),26,0.07580174927113703
+preferred,writer,writer_education,Other,Doctorate (PhD),7,0.02040816326530612
+preferred,writer,writer_education,Other,Other,3,0.008746355685131196
+preferred,writer,writer_income,"Under £15,000","Under £15,000",573,0.07756870177338568
+preferred,writer,writer_income,"Under £15,000","£15,000-£24,999",1697,0.22972790036550697
+preferred,writer,writer_income,"Under £15,000","£25,000-£34,999",2401,0.32503045891430893
+preferred,writer,writer_income,"Under £15,000","£35,000-£49,999",1771,0.2397454988493299
+preferred,writer,writer_income,"Under £15,000","£50,000-£74,999",691,0.09354271016650874
+preferred,writer,writer_income,"Under £15,000","£75,000-£99,999",187,0.02531474211452552
+preferred,writer,writer_income,"Under £15,000","£100,000+",67,0.009069987816434276
+preferred,writer,writer_income,"£15,000-£24,999","Under £15,000",515,0.07871007183249273
+preferred,writer,writer_income,"£15,000-£24,999","£15,000-£24,999",1457,0.22268072749503287
+preferred,writer,writer_income,"£15,000-£24,999","£25,000-£34,999",2161,0.33027663151459574
+preferred,writer,writer_income,"£15,000-£24,999","£35,000-£49,999",1597,0.24407764022619594
+preferred,writer,writer_income,"£15,000-£24,999","£50,000-£74,999",625,0.09552193183554944
+preferred,writer,writer_income,"£15,000-£24,999","£75,000-£99,999",133,0.020327067094604922
+preferred,writer,writer_income,"£15,000-£24,999","£100,000+",55,0.008405930001528351
+preferred,writer,writer_income,"£25,000-£34,999","Under £15,000",670,0.08228936379267993
+preferred,writer,writer_income,"£25,000-£34,999","£15,000-£24,999",1828,0.22451486121346106
+preferred,writer,writer_income,"£25,000-£34,999","£25,000-£34,999",2732,0.33554409236059934
+preferred,writer,writer_income,"£25,000-£34,999","£35,000-£49,999",1909,0.2344632768361582
+preferred,writer,writer_income,"£25,000-£34,999","£50,000-£74,999",758,0.09309751903709163
+preferred,writer,writer_income,"£25,000-£34,999","£75,000-£99,999",186,0.022844509948415623
+preferred,writer,writer_income,"£25,000-£34,999","£100,000+",59,0.007246376811594203
+preferred,writer,writer_income,"£35,000-£49,999","Under £15,000",401,0.05864287803451301
+preferred,writer,writer_income,"£35,000-£49,999","£15,000-£24,999",1472,0.21526762211172856
+preferred,writer,writer_income,"£35,000-£49,999","£25,000-£34,999",2289,0.3347470020473823
+preferred,writer,writer_income,"£35,000-£49,999","£35,000-£49,999",1690,0.24714828897338403
+preferred,writer,writer_income,"£35,000-£49,999","£50,000-£74,999",747,0.10924246855805791
+preferred,writer,writer_income,"£35,000-£49,999","£75,000-£99,999",190,0.02778590231061714
+preferred,writer,writer_income,"£35,000-£49,999","£100,000+",49,0.007165837964317052
+preferred,writer,writer_income,"£50,000-£74,999","Under £15,000",287,0.06563000228675966
+preferred,writer,writer_income,"£50,000-£74,999","£15,000-£24,999",940,0.21495540818659958
+preferred,writer,writer_income,"£50,000-£74,999","£25,000-£34,999",1402,0.32060370455065174
+preferred,writer,writer_income,"£50,000-£74,999","£35,000-£49,999",1089,0.24902812714383718
+preferred,writer,writer_income,"£50,000-£74,999","£50,000-£74,999",514,0.1175394466041619
+preferred,writer,writer_income,"£50,000-£74,999","£75,000-£99,999",101,0.02309627258175166
+preferred,writer,writer_income,"£50,000-£74,999","£100,000+",40,0.00914703864623828
+preferred,writer,writer_income,"£75,000-£99,999","Under £15,000",81,0.053536021150033045
+preferred,writer,writer_income,"£75,000-£99,999","£15,000-£24,999",327,0.21612690019828157
+preferred,writer,writer_income,"£75,000-£99,999","£25,000-£34,999",472,0.3119629874421679
+preferred,writer,writer_income,"£75,000-£99,999","£35,000-£49,999",388,0.25644415069398546
+preferred,writer,writer_income,"£75,000-£99,999","£50,000-£74,999",175,0.11566424322538003
+preferred,writer,writer_income,"£75,000-£99,999","£75,000-£99,999",50,0.03304692663582287
+preferred,writer,writer_income,"£75,000-£99,999","£100,000+",20,0.013218770654329148
+preferred,writer,writer_income,"£100,000+","Under £15,000",68,0.07597765363128492
+preferred,writer,writer_income,"£100,000+","£15,000-£24,999",160,0.1787709497206704
+preferred,writer,writer_income,"£100,000+","£25,000-£34,999",278,0.3106145251396648
+preferred,writer,writer_income,"£100,000+","£35,000-£49,999",233,0.26033519553072626
+preferred,writer,writer_income,"£100,000+","£50,000-£74,999",111,0.12402234636871508
+preferred,writer,writer_income,"£100,000+","£75,000-£99,999",36,0.04022346368715084
+preferred,writer,writer_income,"£100,000+","£100,000+",9,0.01005586592178771
+preferred,writer,writer_english_skills,Basic,Basic,0,0.0
+preferred,writer,writer_english_skills,Basic,Intermediate,10,0.3333333333333333
+preferred,writer,writer_english_skills,Basic,Advanced,14,0.4666666666666667
+preferred,writer,writer_english_skills,Basic,Expert,6,0.2
+preferred,writer,writer_english_skills,Intermediate,Basic,112,0.0681265206812652
+preferred,writer,writer_english_skills,Intermediate,Intermediate,582,0.354014598540146
+preferred,writer,writer_english_skills,Intermediate,Advanced,518,0.3150851581508516
+preferred,writer,writer_english_skills,Intermediate,Expert,432,0.26277372262773724
+preferred,writer,writer_english_skills,Advanced,Basic,337,0.05799346067802444
+preferred,writer,writer_english_skills,Advanced,Intermediate,1849,0.31818964033729136
+preferred,writer,writer_english_skills,Advanced,Advanced,1945,0.33471003269660987
+preferred,writer,writer_english_skills,Advanced,Expert,1680,0.28910686628807436
+preferred,writer,writer_english_skills,Expert,Basic,1561,0.051212230569863196
+preferred,writer,writer_english_skills,Expert,Intermediate,9490,0.31134149142088513
+preferred,writer,writer_english_skills,Expert,Advanced,10090,0.331025884977527
+preferred,writer,writer_english_skills,Expert,Expert,9340,0.3064203930317247
+preferred,writer,writer_politicalIdeology,Very Left-Wing,Very Left-Wing,545,0.16162514827995256
+preferred,writer,writer_politicalIdeology,Very Left-Wing,Moderately Left-Wing,1131,0.33540925266903915
+preferred,writer,writer_politicalIdeology,Very Left-Wing,Centrist,893,0.2648279952550415
+preferred,writer,writer_politicalIdeology,Very Left-Wing,Moderately Right-Wing,476,0.14116251482799524
+preferred,writer,writer_politicalIdeology,Very Left-Wing,Very Right-Wing,94,0.027876631079478055
+preferred,writer,writer_politicalIdeology,Very Left-Wing,Other,233,0.06909845788849348
+preferred,writer,writer_politicalIdeology,Moderately Left-Wing,Very Left-Wing,1498,0.1115911799761621
+preferred,writer,writer_politicalIdeology,Moderately Left-Wing,Moderately Left-Wing,4184,0.31168057210965433
+preferred,writer,writer_politicalIdeology,Moderately Left-Wing,Centrist,3931,0.2928337306317044
+preferred,writer,writer_politicalIdeology,Moderately Left-Wing,Moderately Right-Wing,2257,0.1681317044100119
+preferred,writer,writer_politicalIdeology,Moderately Left-Wing,Very Right-Wing,568,0.04231227651966627
+preferred,writer,writer_politicalIdeology,Moderately Left-Wing,Other,986,0.07345053635280095
+preferred,writer,writer_politicalIdeology,Centrist,Very Left-Wing,1055,0.09601383327266108
+preferred,writer,writer_politicalIdeology,Centrist,Moderately Left-Wing,3028,0.27557335274845285
+preferred,writer,writer_politicalIdeology,Centrist,Centrist,3199,0.29113578449217326
+preferred,writer,writer_politicalIdeology,Centrist,Moderately Right-Wing,2274,0.20695303967965054
+preferred,writer,writer_politicalIdeology,Centrist,Very Right-Wing,675,0.06143065161994903
+preferred,writer,writer_politicalIdeology,Centrist,Other,757,0.06889333818711321
+preferred,writer,writer_politicalIdeology,Moderately Right-Wing,Very Left-Wing,564,0.06981926219361229
+preferred,writer,writer_politicalIdeology,Moderately Right-Wing,Moderately Left-Wing,1861,0.23037880663530577
+preferred,writer,writer_politicalIdeology,Moderately Right-Wing,Centrist,2213,0.27395394899727654
+preferred,writer,writer_politicalIdeology,Moderately Right-Wing,Moderately Right-Wing,2044,0.2530329289428076
+preferred,writer,writer_politicalIdeology,Moderately Right-Wing,Very Right-Wing,766,0.09482545184451598
+preferred,writer,writer_politicalIdeology,Moderately Right-Wing,Other,630,0.0779896013864818
+preferred,writer,writer_politicalIdeology,Very Right-Wing,Very Left-Wing,88,0.08286252354048965
+preferred,writer,writer_politicalIdeology,Very Right-Wing,Moderately Left-Wing,261,0.2457627118644068
+preferred,writer,writer_politicalIdeology,Very Right-Wing,Centrist,264,0.24858757062146894
+preferred,writer,writer_politicalIdeology,Very Right-Wing,Moderately Right-Wing,231,0.2175141242937853
+preferred,writer,writer_politicalIdeology,Very Right-Wing,Very Right-Wing,129,0.12146892655367232
+preferred,writer,writer_politicalIdeology,Very Right-Wing,Other,89,0.08380414312617702
+preferred,writer,writer_politicalIdeology,Other,Very Left-Wing,56,0.08682170542635659
+preferred,writer,writer_politicalIdeology,Other,Moderately Left-Wing,176,0.27286821705426356
+preferred,writer,writer_politicalIdeology,Other,Centrist,165,0.2558139534883721
+preferred,writer,writer_politicalIdeology,Other,Moderately Right-Wing,129,0.2
+preferred,writer,writer_politicalIdeology,Other,Very Right-Wing,55,0.08527131782945736
+preferred,writer,writer_politicalIdeology,Other,Other,64,0.09922480620155039
+preferred,writer,writer_english_first,No,No,307,0.16200527704485487
+preferred,writer,writer_english_first,No,Yes,1588,0.8379947229551451
+preferred,writer,writer_english_first,Yes,No,4038,0.11201420289051015
+preferred,writer,writer_english_first,Yes,Yes,32011,0.8879857971094899
+preferred,writer,writer_gender,Male,Male,11082,0.6119946984758118
+preferred,writer,writer_gender,Male,Female,6721,0.3711619173845814
+preferred,writer,writer_gender,Male,Other,305,0.016843384139606805
+preferred,writer,writer_gender,Female,Male,10718,0.5436469693127061
+preferred,writer,writer_gender,Female,Female,8643,0.4383971595232057
+preferred,writer,writer_gender,Female,Other,354,0.01795587116408826
+preferred,writer,writer_gender,Other,Male,37,0.46835443037974683
+preferred,writer,writer_gender,Other,Female,39,0.4936708860759494
+preferred,writer,writer_gender,Other,Other,3,0.0379746835443038
+preferred,writer,writer_race,White,White,23770,0.7267557403613906
+preferred,writer,writer_race,White,Black,2779,0.08496652092824165
+preferred,writer,writer_race,White,Asian,2234,0.06830342128596326
+preferred,writer,writer_race,White,Mixed,2529,0.07732289723912313
+preferred,writer,writer_race,White,Other,1395,0.04265142018528144
+preferred,writer,writer_race,Black,White,856,0.635486265775798
+preferred,writer,writer_race,Black,Black,148,0.10987379361544172
+preferred,writer,writer_race,Black,Asian,113,0.08389012620638456
+preferred,writer,writer_race,Black,Mixed,157,0.11655530809205643
+preferred,writer,writer_race,Black,Other,73,0.054194506310319225
+preferred,writer,writer_race,Asian,White,1912,0.6811542572141076
+preferred,writer,writer_race,Asian,Black,242,0.0862130388314927
+preferred,writer,writer_race,Asian,Asian,276,0.09832561453509084
+preferred,writer,writer_race,Asian,Mixed,219,0.07801923762023513
+preferred,writer,writer_race,Asian,Other,158,0.056287851799073745
+preferred,writer,writer_race,Mixed,White,458,0.6795252225519288
+preferred,writer,writer_race,Mixed,Black,64,0.09495548961424333
+preferred,writer,writer_race,Mixed,Asian,63,0.09347181008902077
+preferred,writer,writer_race,Mixed,Mixed,54,0.08011869436201781
+preferred,writer,writer_race,Mixed,Other,35,0.05192878338278932
+preferred,writer,writer_race,Other,White,164,0.6919831223628692
+preferred,writer,writer_race,Other,Black,22,0.09282700421940929
+preferred,writer,writer_race,Other,Asian,18,0.0759493670886076
+preferred,writer,writer_race,Other,Mixed,19,0.08016877637130802
+preferred,writer,writer_race,Other,Other,14,0.05907172995780591
+preferred,writer,writer_politicalParty,Labour,Labour,5172,0.3401512660309109
+preferred,writer,writer_politicalParty,Labour,Conservative,3020,0.1986188753699441
+preferred,writer,writer_politicalParty,Labour,Liberal Democrats,1935,0.12726076948372245
+preferred,writer,writer_politicalParty,Labour,Greens,1212,0.07971062150608353
+preferred,writer,writer_politicalParty,Labour,Scottish National Party,218,0.014337389016770799
+preferred,writer,writer_politicalParty,Labour,Did not vote,2217,0.14580730023018743
+preferred,writer,writer_politicalParty,Labour,Not eligible to vote,411,0.02703058204537981
+preferred,writer,writer_politicalParty,Labour,Other,1020,0.06708319631700099
+preferred,writer,writer_politicalParty,Conservative,Labour,1605,0.278307612276747
+preferred,writer,writer_politicalParty,Conservative,Conservative,1575,0.2731056008323218
+preferred,writer,writer_politicalParty,Conservative,Liberal Democrats,612,0.10612103346627362
+preferred,writer,writer_politicalParty,Conservative,Greens,337,0.05843592855904283
+preferred,writer,writer_politicalParty,Conservative,Scottish National Party,92,0.01595283509623721
+preferred,writer,writer_politicalParty,Conservative,Did not vote,840,0.14565632044390497
+preferred,writer,writer_politicalParty,Conservative,Not eligible to vote,156,0.027050459511010923
+preferred,writer,writer_politicalParty,Conservative,Other,550,0.09537020981446159
+preferred,writer,writer_politicalParty,Liberal Democrats,Labour,1334,0.33400100150225337
+preferred,writer,writer_politicalParty,Liberal Democrats,Conservative,800,0.200300450676014
+preferred,writer,writer_politicalParty,Liberal Democrats,Liberal Democrats,514,0.128693039559339
+preferred,writer,writer_politicalParty,Liberal Democrats,Greens,381,0.09539308963445167
+preferred,writer,writer_politicalParty,Liberal Democrats,Scottish National Party,43,0.010766149223835753
+preferred,writer,writer_politicalParty,Liberal Democrats,Did not vote,542,0.1357035553329995
+preferred,writer,writer_politicalParty,Liberal Democrats,Not eligible to vote,89,0.02228342513770656
+preferred,writer,writer_politicalParty,Liberal Democrats,Other,291,0.0728592889334001
+preferred,writer,writer_politicalParty,Greens,Labour,971,0.3524500907441016
+preferred,writer,writer_politicalParty,Greens,Conservative,456,0.16551724137931034
+preferred,writer,writer_politicalParty,Greens,Liberal Democrats,379,0.13756805807622505
+preferred,writer,writer_politicalParty,Greens,Greens,317,0.11506352087114338
+preferred,writer,writer_politicalParty,Greens,Scottish National Party,41,0.014882032667876587
+preferred,writer,writer_politicalParty,Greens,Did not vote,345,0.12522686025408347
+preferred,writer,writer_politicalParty,Greens,Not eligible to vote,59,0.021415607985480943
+preferred,writer,writer_politicalParty,Greens,Other,187,0.06787658802177858
+preferred,writer,writer_politicalParty,Scottish National Party,Labour,428,0.37909654561558903
+preferred,writer,writer_politicalParty,Scottish National Party,Conservative,187,0.16563330380868024
+preferred,writer,writer_politicalParty,Scottish National Party,Liberal Democrats,151,0.1337466784765279
+preferred,writer,writer_politicalParty,Scottish National Party,Greens,117,0.10363153232949512
+preferred,writer,writer_politicalParty,Scottish National Party,Scottish National Party,28,0.024800708591674048
+preferred,writer,writer_politicalParty,Scottish National Party,Did not vote,129,0.11426040744021258
+preferred,writer,writer_politicalParty,Scottish National Party,Not eligible to vote,26,0.023029229406554472
+preferred,writer,writer_politicalParty,Scottish National Party,Other,63,0.05580159433126661
+preferred,writer,writer_politicalParty,Did not vote,Labour,1267,0.3169877408056042
+preferred,writer,writer_politicalParty,Did not vote,Conservative,830,0.20765574180635477
+preferred,writer,writer_politicalParty,Did not vote,Liberal Democrats,472,0.11808856642481862
+preferred,writer,writer_politicalParty,Did not vote,Greens,319,0.07980985739304479
+preferred,writer,writer_politicalParty,Did not vote,Scottish National Party,46,0.011508631473605204
+preferred,writer,writer_politicalParty,Did not vote,Did not vote,623,0.15586690017513136
+preferred,writer,writer_politicalParty,Did not vote,Not eligible to vote,135,0.03377533149862397
+preferred,writer,writer_politicalParty,Did not vote,Other,305,0.07630723042281712
+preferred,writer,writer_politicalParty,Not eligible to vote,Labour,148,0.34660421545667447
+preferred,writer,writer_politicalParty,Not eligible to vote,Conservative,87,0.20374707259953162
+preferred,writer,writer_politicalParty,Not eligible to vote,Liberal Democrats,53,0.12412177985948478
+preferred,writer,writer_politicalParty,Not eligible to vote,Greens,31,0.07259953161592506
+preferred,writer,writer_politicalParty,Not eligible to vote,Scottish National Party,8,0.01873536299765808
+preferred,writer,writer_politicalParty,Not eligible to vote,Did not vote,60,0.1405152224824356
+preferred,writer,writer_politicalParty,Not eligible to vote,Not eligible to vote,20,0.0468384074941452
+preferred,writer,writer_politicalParty,Not eligible to vote,Other,20,0.0468384074941452
+preferred,writer,writer_politicalParty,Other,Labour,1044,0.2635032811711257
+preferred,writer,writer_politicalParty,Other,Conservative,1143,0.2884906612821807
+preferred,writer,writer_politicalParty,Other,Liberal Democrats,422,0.10651186269560828
+preferred,writer,writer_politicalParty,Other,Greens,206,0.05199394245330641
+preferred,writer,writer_politicalParty,Other,Scottish National Party,66,0.016658253407370014
+preferred,writer,writer_politicalParty,Other,Did not vote,565,0.1426047450782433
+preferred,writer,writer_politicalParty,Other,Not eligible to vote,103,0.025996971226653204
+preferred,writer,writer_politicalParty,Other,Other,413,0.10424028268551237
+preferred,model,writer_age_binned,18-29,18-29,2158,0.31956167629201837
+preferred,model,writer_age_binned,18-29,30-39,2160,0.31985784095957354
+preferred,model,writer_age_binned,18-29,40-49,1522,0.22538131200947728
+preferred,model,writer_age_binned,18-29,50-59,730,0.10810010365763364
+preferred,model,writer_age_binned,18-29,60-69,170,0.02517399674218866
+preferred,model,writer_age_binned,18-29,70+,13,0.0019250703391085443
+preferred,model,writer_age_binned,30-39,18-29,2029,0.3090161437709412
+preferred,model,writer_age_binned,30-39,30-39,2104,0.3204386232104782
+preferred,model,writer_age_binned,30-39,40-49,1527,0.2325616813889735
+preferred,model,writer_age_binned,30-39,50-59,753,0.11468169357295156
+preferred,model,writer_age_binned,30-39,60-69,130,0.01979896436186415
+preferred,model,writer_age_binned,30-39,70+,23,0.0035028936947913494
+preferred,model,writer_age_binned,40-49,18-29,1908,0.31636544519980103
+preferred,model,writer_age_binned,40-49,30-39,1900,0.3150389653457138
+preferred,model,writer_age_binned,40-49,40-49,1434,0.23777151384513348
+preferred,model,writer_age_binned,40-49,50-59,626,0.10379704858232465
+preferred,model,writer_age_binned,40-49,60-69,150,0.0248714972641353
+preferred,model,writer_age_binned,40-49,70+,13,0.002155529762891726
+preferred,model,writer_age_binned,50-59,18-29,2708,0.2943158352353005
+preferred,model,writer_age_binned,50-59,30-39,2980,0.32387783936528636
+preferred,model,writer_age_binned,50-59,40-49,2187,0.237691555265732
+preferred,model,writer_age_binned,50-59,50-59,1065,0.11574828822954027
+preferred,model,writer_age_binned,50-59,60-69,231,0.025105966742745355
+preferred,model,writer_age_binned,50-59,70+,30,0.0032605151613955006
+preferred,model,writer_age_binned,60-69,18-29,2307,0.2961108971890643
+preferred,model,writer_age_binned,60-69,30-39,2461,0.315877294313952
+preferred,model,writer_age_binned,60-69,40-49,1799,0.23090745732255166
+preferred,model,writer_age_binned,60-69,50-59,951,0.12206391990758568
+preferred,model,writer_age_binned,60-69,60-69,245,0.031446540880503145
+preferred,model,writer_age_binned,60-69,70+,28,0.0035938903863432167
+preferred,model,writer_age_binned,70+,18-29,423,0.25871559633027524
+preferred,model,writer_age_binned,70+,30-39,506,0.309480122324159
+preferred,model,writer_age_binned,70+,40-49,410,0.25076452599388377
+preferred,model,writer_age_binned,70+,50-59,234,0.14311926605504588
+preferred,model,writer_age_binned,70+,60-69,57,0.03486238532110092
+preferred,model,writer_age_binned,70+,70+,5,0.0030581039755351682
+preferred,model,writer_education,GCSEs or equivalent,GCSEs or equivalent,170,0.04336734693877551
+preferred,model,writer_education,GCSEs or equivalent,A-levels or equivalent,492,0.12551020408163266
+preferred,model,writer_education,GCSEs or equivalent,Vocational qualification,417,0.10637755102040816
+preferred,model,writer_education,GCSEs or equivalent,Undergraduate degree,1632,0.4163265306122449
+preferred,model,writer_education,GCSEs or equivalent,Postgraduate degree (Master's),958,0.2443877551020408
+preferred,model,writer_education,GCSEs or equivalent,Doctorate (PhD),206,0.052551020408163264
+preferred,model,writer_education,GCSEs or equivalent,Other,45,0.011479591836734694
+preferred,model,writer_education,A-levels or equivalent,GCSEs or equivalent,231,0.04002772483105181
+preferred,model,writer_education,A-levels or equivalent,A-levels or equivalent,631,0.10933980246057876
+preferred,model,writer_education,A-levels or equivalent,Vocational qualification,510,0.08837289897764686
+preferred,model,writer_education,A-levels or equivalent,Undergraduate degree,2501,0.4333737653786172
+preferred,model,writer_education,A-levels or equivalent,Postgraduate degree (Master's),1514,0.26234621382775947
+preferred,model,writer_education,A-levels or equivalent,Doctorate (PhD),327,0.056662623462138274
+preferred,model,writer_education,A-levels or equivalent,Other,57,0.00987697106220759
+preferred,model,writer_education,Vocational qualification,GCSEs or equivalent,165,0.03741496598639456
+preferred,model,writer_education,Vocational qualification,A-levels or equivalent,489,0.1108843537414966
+preferred,model,writer_education,Vocational qualification,Vocational qualification,392,0.08888888888888889
+preferred,model,writer_education,Vocational qualification,Undergraduate degree,1881,0.42653061224489797
+preferred,model,writer_education,Vocational qualification,Postgraduate degree (Master's),1191,0.27006802721088435
+preferred,model,writer_education,Vocational qualification,Doctorate (PhD),241,0.054648526077097505
+preferred,model,writer_education,Vocational qualification,Other,51,0.011564625850340135
+preferred,model,writer_education,Undergraduate degree,GCSEs or equivalent,548,0.03620746613809052
+preferred,model,writer_education,Undergraduate degree,A-levels or equivalent,1571,0.1037991410637595
+preferred,model,writer_education,Undergraduate degree,Vocational qualification,1280,0.08457218368021142
+preferred,model,writer_education,Undergraduate degree,Undergraduate degree,6509,0.4300627684175752
+preferred,model,writer_education,Undergraduate degree,Postgraduate degree (Master's),4182,0.2763131813676908
+preferred,model,writer_education,Undergraduate degree,Doctorate (PhD),904,0.05972910472414932
+preferred,model,writer_education,Undergraduate degree,Other,141,0.009316154608523291
+preferred,model,writer_education,Postgraduate degree (Master's),GCSEs or equivalent,217,0.03138559444605149
+preferred,model,writer_education,Postgraduate degree (Master's),A-levels or equivalent,702,0.10153312120335552
+preferred,model,writer_education,Postgraduate degree (Master's),Vocational qualification,535,0.0773792305467168
+preferred,model,writer_education,Postgraduate degree (Master's),Undergraduate degree,2962,0.4284061324848134
+preferred,model,writer_education,Postgraduate degree (Master's),Postgraduate degree (Master's),2040,0.29505351460804163
+preferred,model,writer_education,Postgraduate degree (Master's),Doctorate (PhD),398,0.05756436216372578
+preferred,model,writer_education,Postgraduate degree (Master's),Other,60,0.008678044547295342
+preferred,model,writer_education,Doctorate (PhD),GCSEs or equivalent,30,0.02225519287833828
+preferred,model,writer_education,Doctorate (PhD),A-levels or equivalent,128,0.09495548961424333
+preferred,model,writer_education,Doctorate (PhD),Vocational qualification,100,0.07418397626112759
+preferred,model,writer_education,Doctorate (PhD),Undergraduate degree,573,0.4250741839762611
+preferred,model,writer_education,Doctorate (PhD),Postgraduate degree (Master's),403,0.29896142433234424
+preferred,model,writer_education,Doctorate (PhD),Doctorate (PhD),102,0.07566765578635015
+preferred,model,writer_education,Doctorate (PhD),Other,12,0.008902077151335312
+preferred,model,writer_education,Other,GCSEs or equivalent,7,0.02040816326530612
+preferred,model,writer_education,Other,A-levels or equivalent,39,0.11370262390670553
+preferred,model,writer_education,Other,Vocational qualification,39,0.11370262390670553
+preferred,model,writer_education,Other,Undergraduate degree,148,0.4314868804664723
+preferred,model,writer_education,Other,Postgraduate degree (Master's),85,0.2478134110787172
+preferred,model,writer_education,Other,Doctorate (PhD),20,0.05830903790087463
+preferred,model,writer_education,Other,Other,5,0.014577259475218658
+preferred,model,writer_income,"Under £15,000","Under £15,000",132,0.017891027378693414
+preferred,model,writer_income,"Under £15,000","£15,000-£24,999",585,0.07928978042830036
+preferred,model,writer_income,"Under £15,000","£25,000-£34,999",1832,0.24830577392247222
+preferred,model,writer_income,"Under £15,000","£35,000-£49,999",2486,0.33694768229872596
+preferred,model,writer_income,"Under £15,000","£50,000-£74,999",1719,0.23298997018162104
+preferred,model,writer_income,"Under £15,000","£75,000-£99,999",474,0.06424505285985362
+preferred,model,writer_income,"Under £15,000","£100,000+",150,0.020330712930333422
+preferred,model,writer_income,"£15,000-£24,999","Under £15,000",122,0.018697318007662837
+preferred,model,writer_income,"£15,000-£24,999","£15,000-£24,999",489,0.07494252873563219
+preferred,model,writer_income,"£15,000-£24,999","£25,000-£34,999",1610,0.2467432950191571
+preferred,model,writer_income,"£15,000-£24,999","£35,000-£49,999",2144,0.3285823754789272
+preferred,model,writer_income,"£15,000-£24,999","£50,000-£74,999",1558,0.23877394636015326
+preferred,model,writer_income,"£15,000-£24,999","£75,000-£99,999",481,0.07371647509578544
+preferred,model,writer_income,"£15,000-£24,999","£100,000+",121,0.01854406130268199
+preferred,model,writer_income,"£25,000-£34,999","Under £15,000",180,0.022034520749173704
+preferred,model,writer_income,"£25,000-£34,999","£15,000-£24,999",650,0.07956910270534949
+preferred,model,writer_income,"£25,000-£34,999","£25,000-£34,999",1997,0.24446076631166605
+preferred,model,writer_income,"£25,000-£34,999","£35,000-£49,999",2772,0.3393316195372751
+preferred,model,writer_income,"£25,000-£34,999","£50,000-£74,999",1867,0.22854694577059614
+preferred,model,writer_income,"£25,000-£34,999","£75,000-£99,999",538,0.06585873423919697
+preferred,model,writer_income,"£25,000-£34,999","£100,000+",165,0.020198310686742563
+preferred,model,writer_income,"£35,000-£49,999","Under £15,000",132,0.01938610662358643
+preferred,model,writer_income,"£35,000-£49,999","£15,000-£24,999",508,0.07460713761198413
+preferred,model,writer_income,"£35,000-£49,999","£25,000-£34,999",1694,0.24878836833602586
+preferred,model,writer_income,"£35,000-£49,999","£35,000-£49,999",2238,0.32868262593626085
+preferred,model,writer_income,"£35,000-£49,999","£50,000-£74,999",1606,0.2358642972536349
+preferred,model,writer_income,"£35,000-£49,999","£75,000-£99,999",480,0.07049493317667793
+preferred,model,writer_income,"£35,000-£49,999","£100,000+",151,0.02217653106182993
+preferred,model,writer_income,"£50,000-£74,999","Under £15,000",95,0.021679598356914652
+preferred,model,writer_income,"£50,000-£74,999","£15,000-£24,999",312,0.07120036513007759
+preferred,model,writer_income,"£50,000-£74,999","£25,000-£34,999",1051,0.23984481971702418
+preferred,model,writer_income,"£50,000-£74,999","£35,000-£49,999",1444,0.3295298950251027
+preferred,model,writer_income,"£50,000-£74,999","£50,000-£74,999",1074,0.24509356458238246
+preferred,model,writer_income,"£50,000-£74,999","£75,000-£99,999",315,0.07188498402555911
+preferred,model,writer_income,"£50,000-£74,999","£100,000+",91,0.020766773162939296
+preferred,model,writer_income,"£75,000-£99,999","Under £15,000",20,0.013333333333333334
+preferred,model,writer_income,"£75,000-£99,999","£15,000-£24,999",106,0.07066666666666667
+preferred,model,writer_income,"£75,000-£99,999","£25,000-£34,999",355,0.23666666666666666
+preferred,model,writer_income,"£75,000-£99,999","£35,000-£49,999",482,0.32133333333333336
+preferred,model,writer_income,"£75,000-£99,999","£50,000-£74,999",384,0.256
+preferred,model,writer_income,"£75,000-£99,999","£75,000-£99,999",104,0.06933333333333333
+preferred,model,writer_income,"£75,000-£99,999","£100,000+",49,0.03266666666666666
+preferred,model,writer_income,"£100,000+","Under £15,000",13,0.01452513966480447
+preferred,model,writer_income,"£100,000+","£15,000-£24,999",52,0.05810055865921788
+preferred,model,writer_income,"£100,000+","£25,000-£34,999",185,0.20670391061452514
+preferred,model,writer_income,"£100,000+","£35,000-£49,999",300,0.33519553072625696
+preferred,model,writer_income,"£100,000+","£50,000-£74,999",237,0.264804469273743
+preferred,model,writer_income,"£100,000+","£75,000-£99,999",75,0.08379888268156424
+preferred,model,writer_income,"£100,000+","£100,000+",33,0.03687150837988827
+preferred,model,writer_english_skills,Basic,Basic,0,0.0
+preferred,model,writer_english_skills,Basic,Intermediate,2,0.06666666666666667
+preferred,model,writer_english_skills,Basic,Advanced,11,0.36666666666666664
+preferred,model,writer_english_skills,Basic,Expert,17,0.5666666666666667
+preferred,model,writer_english_skills,Intermediate,Basic,10,0.006075334143377886
+preferred,model,writer_english_skills,Intermediate,Intermediate,174,0.10571081409477522
+preferred,model,writer_english_skills,Intermediate,Advanced,499,0.3031591737545565
+preferred,model,writer_english_skills,Intermediate,Expert,963,0.5850546780072904
+preferred,model,writer_english_skills,Advanced,Basic,31,0.0053614666205465235
+preferred,model,writer_english_skills,Advanced,Intermediate,524,0.09062608094085092
+preferred,model,writer_english_skills,Advanced,Advanced,1808,0.312694569353165
+preferred,model,writer_english_skills,Advanced,Expert,3419,0.5913178830854375
+preferred,model,writer_english_skills,Expert,Basic,167,0.005477385286496769
+preferred,model,writer_english_skills,Expert,Intermediate,2780,0.09118042572731148
+preferred,model,writer_english_skills,Expert,Advanced,9278,0.3043064711863295
+preferred,model,writer_english_skills,Expert,Expert,18264,0.5990357177998622
+preferred,model,writer_politicalIdeology,Very Left-Wing,Very Left-Wing,521,0.15256222547584186
+preferred,model,writer_politicalIdeology,Very Left-Wing,Moderately Left-Wing,1174,0.3437774524158126
+preferred,model,writer_politicalIdeology,Very Left-Wing,Centrist,949,0.277891654465593
+preferred,model,writer_politicalIdeology,Very Left-Wing,Moderately Right-Wing,494,0.1446559297218155
+preferred,model,writer_politicalIdeology,Very Left-Wing,Very Right-Wing,116,0.03396778916544656
+preferred,model,writer_politicalIdeology,Very Left-Wing,Other,161,0.04714494875549048
+preferred,model,writer_politicalIdeology,Moderately Left-Wing,Very Left-Wing,1723,0.1284766236671389
+preferred,model,writer_politicalIdeology,Moderately Left-Wing,Moderately Left-Wing,4235,0.3157855491760495
+preferred,model,writer_politicalIdeology,Moderately Left-Wing,Centrist,3868,0.28841995376929386
+preferred,model,writer_politicalIdeology,Moderately Left-Wing,Moderately Right-Wing,2433,0.1814182387592275
+preferred,model,writer_politicalIdeology,Moderately Left-Wing,Very Right-Wing,528,0.03937066587129968
+preferred,model,writer_politicalIdeology,Moderately Left-Wing,Other,624,0.04652896875699053
+preferred,model,writer_politicalIdeology,Centrist,Very Left-Wing,1179,0.1080263881253436
+preferred,model,writer_politicalIdeology,Centrist,Moderately Left-Wing,3100,0.28403884918453365
+preferred,model,writer_politicalIdeology,Centrist,Centrist,3280,0.30053142752428075
+preferred,model,writer_politicalIdeology,Centrist,Moderately Right-Wing,2251,0.20624885468205975
+preferred,model,writer_politicalIdeology,Centrist,Very Right-Wing,612,0.056074766355140186
+preferred,model,writer_politicalIdeology,Centrist,Other,492,0.04507971412864211
+preferred,model,writer_politicalIdeology,Moderately Right-Wing,Very Left-Wing,635,0.07814422840265814
+preferred,model,writer_politicalIdeology,Moderately Right-Wing,Moderately Left-Wing,2084,0.2564607432931332
+preferred,model,writer_politicalIdeology,Moderately Right-Wing,Centrist,2371,0.2917794732955944
+preferred,model,writer_politicalIdeology,Moderately Right-Wing,Moderately Right-Wing,2029,0.24969234555746986
+preferred,model,writer_politicalIdeology,Moderately Right-Wing,Very Right-Wing,632,0.07777504307162196
+preferred,model,writer_politicalIdeology,Moderately Right-Wing,Other,375,0.04614816637952252
+preferred,model,writer_politicalIdeology,Very Right-Wing,Very Left-Wing,112,0.10526315789473684
+preferred,model,writer_politicalIdeology,Very Right-Wing,Moderately Left-Wing,249,0.23402255639097744
+preferred,model,writer_politicalIdeology,Very Right-Wing,Centrist,291,0.27349624060150374
+preferred,model,writer_politicalIdeology,Very Right-Wing,Moderately Right-Wing,251,0.23590225563909775
+preferred,model,writer_politicalIdeology,Very Right-Wing,Very Right-Wing,99,0.09304511278195489
+preferred,model,writer_politicalIdeology,Very Right-Wing,Other,62,0.05827067669172932
+preferred,model,writer_politicalIdeology,Other,Very Left-Wing,71,0.11323763955342903
+preferred,model,writer_politicalIdeology,Other,Moderately Left-Wing,179,0.28548644338118023
+preferred,model,writer_politicalIdeology,Other,Centrist,170,0.2711323763955343
+preferred,model,writer_politicalIdeology,Other,Moderately Right-Wing,136,0.21690590111642744
+preferred,model,writer_politicalIdeology,Other,Very Right-Wing,41,0.06539074960127592
+preferred,model,writer_politicalIdeology,Other,Other,30,0.04784688995215311
+preferred,model,writer_english_first,No,No,73,0.038159958180867745
+preferred,model,writer_english_first,No,Yes,1840,0.9618400418191323
+preferred,model,writer_english_first,Yes,No,1265,0.035127179828945906
+preferred,model,writer_english_first,Yes,Yes,34747,0.9648728201710541
+preferred,model,writer_gender,Male,Male,10422,0.5762468207453278
+preferred,model,writer_gender,Male,Female,7289,0.40301890965387593
+preferred,model,writer_gender,Male,Other,375,0.020734269600796197
+preferred,model,writer_gender,Female,Male,10590,0.5368549122984893
+preferred,model,writer_gender,Female,Female,8755,0.4438304775423299
+preferred,model,writer_gender,Female,Other,381,0.019314610159180776
+preferred,model,writer_gender,Other,Male,51,0.6455696202531646
+preferred,model,writer_gender,Other,Female,23,0.2911392405063291
+preferred,model,writer_gender,Other,Other,5,0.06329113924050633
+preferred,model,writer_race,White,White,24024,0.7340503544365681
+preferred,model,writer_race,White,Black,2851,0.08711195306770961
+preferred,model,writer_race,White,Asian,2060,0.06294304571009533
+preferred,model,writer_race,White,Mixed,2540,0.07760938645807872
+preferred,model,writer_race,White,Other,1253,0.038285260327548275
+preferred,model,writer_race,Black,White,972,0.7226765799256506
+preferred,model,writer_race,Black,Black,132,0.09814126394052045
+preferred,model,writer_race,Black,Asian,79,0.058736059479553904
+preferred,model,writer_race,Black,Mixed,110,0.08178438661710037
+preferred,model,writer_race,Black,Other,52,0.038661710037174724
+preferred,model,writer_race,Asian,White,2056,0.7314123087869085
+preferred,model,writer_race,Asian,Black,210,0.07470651013874066
+preferred,model,writer_race,Asian,Asian,240,0.08537886872998933
+preferred,model,writer_race,Asian,Mixed,200,0.0711490572749911
+preferred,model,writer_race,Asian,Other,105,0.03735325506937033
+preferred,model,writer_race,Mixed,White,455,0.7142857142857143
+preferred,model,writer_race,Mixed,Black,52,0.08163265306122448
+preferred,model,writer_race,Mixed,Asian,52,0.08163265306122448
+preferred,model,writer_race,Mixed,Mixed,49,0.07692307692307693
+preferred,model,writer_race,Mixed,Other,29,0.04552590266875981
+preferred,model,writer_race,Other,White,175,0.7261410788381742
+preferred,model,writer_race,Other,Black,22,0.0912863070539419
+preferred,model,writer_race,Other,Asian,19,0.07883817427385892
+preferred,model,writer_race,Other,Mixed,18,0.07468879668049792
+preferred,model,writer_race,Other,Other,7,0.029045643153526972
+preferred,model,writer_politicalParty,Labour,Labour,5315,0.3502009619819464
+preferred,model,writer_politicalParty,Labour,Conservative,3908,0.2574948935889833
+preferred,model,writer_politicalParty,Labour,Liberal Democrats,2472,0.1628780391381696
+preferred,model,writer_politicalParty,Labour,Greens,1473,0.09705475390393359
+preferred,model,writer_politicalParty,Labour,Scottish National Party,255,0.016801739474204387
+preferred,model,writer_politicalParty,Labour,Did not vote,819,0.053963233840679976
+preferred,model,writer_politicalParty,Labour,Not eligible to vote,128,0.008433814324306517
+preferred,model,writer_politicalParty,Labour,Other,807,0.05317256374777624
+preferred,model,writer_politicalParty,Conservative,Labour,1722,0.2994261867501304
+preferred,model,writer_politicalParty,Conservative,Conservative,1965,0.34167970787689095
+preferred,model,writer_politicalParty,Conservative,Liberal Democrats,821,0.14275778125543384
+preferred,model,writer_politicalParty,Conservative,Greens,425,0.07390019127108328
+preferred,model,writer_politicalParty,Conservative,Scottish National Party,93,0.01617110067814293
+preferred,model,writer_politicalParty,Conservative,Did not vote,320,0.055642496957050945
+preferred,model,writer_politicalParty,Conservative,Not eligible to vote,44,0.007650843331594505
+preferred,model,writer_politicalParty,Conservative,Other,361,0.0627716918796731
+preferred,model,writer_politicalParty,Liberal Democrats,Labour,1376,0.34434434434434436
+preferred,model,writer_politicalParty,Liberal Democrats,Conservative,1042,0.26076076076076077
+preferred,model,writer_politicalParty,Liberal Democrats,Liberal Democrats,653,0.16341341341341342
+preferred,model,writer_politicalParty,Liberal Democrats,Greens,433,0.10835835835835836
+preferred,model,writer_politicalParty,Liberal Democrats,Scottish National Party,53,0.013263263263263263
+preferred,model,writer_politicalParty,Liberal Democrats,Did not vote,206,0.05155155155155155
+preferred,model,writer_politicalParty,Liberal Democrats,Not eligible to vote,30,0.0075075075075075074
+preferred,model,writer_politicalParty,Liberal Democrats,Other,203,0.0508008008008008
+preferred,model,writer_politicalParty,Greens,Labour,990,0.3605243991260015
+preferred,model,writer_politicalParty,Greens,Conservative,608,0.22141296431172613
+preferred,model,writer_politicalParty,Greens,Liberal Democrats,466,0.16970138383102695
+preferred,model,writer_politicalParty,Greens,Greens,323,0.11762563729060452
+preferred,model,writer_politicalParty,Greens,Scottish National Party,42,0.01529497450837582
+preferred,model,writer_politicalParty,Greens,Did not vote,145,0.0528040786598689
+preferred,model,writer_politicalParty,Greens,Not eligible to vote,14,0.005098324836125273
+preferred,model,writer_politicalParty,Greens,Other,158,0.05753823743627094
+preferred,model,writer_politicalParty,Scottish National Party,Labour,423,0.37040280210157617
+preferred,model,writer_politicalParty,Scottish National Party,Conservative,263,0.23029772329246936
+preferred,model,writer_politicalParty,Scottish National Party,Liberal Democrats,174,0.15236427320490367
+preferred,model,writer_politicalParty,Scottish National Party,Greens,133,0.11646234676007006
+preferred,model,writer_politicalParty,Scottish National Party,Scottish National Party,25,0.021891418563922942
+preferred,model,writer_politicalParty,Scottish National Party,Did not vote,64,0.05604203152364273
+preferred,model,writer_politicalParty,Scottish National Party,Not eligible to vote,6,0.005253940455341506
+preferred,model,writer_politicalParty,Scottish National Party,Other,54,0.047285464098073555
+preferred,model,writer_politicalParty,Did not vote,Labour,1303,0.3282115869017632
+preferred,model,writer_politicalParty,Did not vote,Conservative,1067,0.26876574307304785
+preferred,model,writer_politicalParty,Did not vote,Liberal Democrats,666,0.1677581863979849
+preferred,model,writer_politicalParty,Did not vote,Greens,402,0.10125944584382872
+preferred,model,writer_politicalParty,Did not vote,Scottish National Party,52,0.01309823677581864
+preferred,model,writer_politicalParty,Did not vote,Did not vote,219,0.055163727959697734
+preferred,model,writer_politicalParty,Did not vote,Not eligible to vote,26,0.00654911838790932
+preferred,model,writer_politicalParty,Did not vote,Other,235,0.05919395465994962
+preferred,model,writer_politicalParty,Not eligible to vote,Labour,154,0.34841628959276016
+preferred,model,writer_politicalParty,Not eligible to vote,Conservative,107,0.2420814479638009
+preferred,model,writer_politicalParty,Not eligible to vote,Liberal Democrats,78,0.17647058823529413
+preferred,model,writer_politicalParty,Not eligible to vote,Greens,56,0.12669683257918551
+preferred,model,writer_politicalParty,Not eligible to vote,Scottish National Party,7,0.01583710407239819
+preferred,model,writer_politicalParty,Not eligible to vote,Did not vote,18,0.04072398190045249
+preferred,model,writer_politicalParty,Not eligible to vote,Not eligible to vote,4,0.00904977375565611
+preferred,model,writer_politicalParty,Not eligible to vote,Other,18,0.04072398190045249
+preferred,model,writer_politicalParty,Other,Labour,1119,0.2805214339433442
+preferred,model,writer_politicalParty,Other,Conservative,1404,0.35196791175733266
+preferred,model,writer_politicalParty,Other,Liberal Democrats,556,0.13938330408623714
+preferred,model,writer_politicalParty,Other,Greens,333,0.08347956881423915
+preferred,model,writer_politicalParty,Other,Scottish National Party,48,0.01203309100025069
+preferred,model,writer_politicalParty,Other,Did not vote,215,0.053898220105289545
+preferred,model,writer_politicalParty,Other,Not eligible to vote,43,0.010779644021057909
+preferred,model,writer_politicalParty,Other,Other,271,0.06793682627224869

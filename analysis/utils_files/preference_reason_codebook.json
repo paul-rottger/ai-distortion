@@ -1,0 +1,297 @@
+{
+  "version": "5",
+  "codes": [
+    {
+      "code": "reflects_opinion",
+      "rating_attributes": [
+        "writer_stance"
+      ],
+      "definition": "The preferred paragraph better reflects my opinion.",
+      "examples": [
+        "It says what I wanted to say but couldn't articulate",
+        "the AI changed my opinion"
+      ]
+    },
+    {
+      "code": "extremity_more",
+      "rating_attributes": [
+        "writer_stance_polarity"
+      ],
+      "definition": "The preferred paragraph makes my opinion seem more extreme.",
+      "examples": [
+        "takes a stronger stance",
+        "the AI version waters down my view"
+      ]
+    },
+    {
+      "code": "extremity_less",
+      "rating_attributes": [
+        "writer_stance_polarity"
+      ],
+      "definition": "The preferred paragraph makes my opinion seem less extreme.",
+      "examples": [
+        "the AI paragraph is too extreme",
+        "less politically charged"
+      ]
+    },
+    {
+      "code": "confidence_more",
+      "rating_attributes": [
+        "writer_confidence"
+      ],
+      "definition": "The preferred paragraph makes me seem more confident in my opinion.",
+      "examples": [
+        "It expresses my points in a firmer way",
+        "more assertive"
+      ]
+    },
+    {
+      "code": "confidence_less",
+      "rating_attributes": [
+        "writer_confidence"
+      ],
+      "definition": "The preferred paragraph makes me seem less confident in my opinion.",
+      "examples": [
+        "more humble in its assertions",
+        "less committal"
+      ]
+    },
+    {
+      "code": "knowledge_more",
+      "rating_attributes": [
+        "writer_knowledge"
+      ],
+      "definition": "The preferred paragraph makes me seem more knowledgeable about the issue.",
+      "examples": [
+        "they sound like they know what they're talking about",
+        "It sounds a lot smarter"
+      ]
+    },
+    {
+      "code": "knowledge_less",
+      "rating_attributes": [
+        "writer_knowledge"
+      ],
+      "definition": "The preferred paragraph makes me seem less knowledgeable about the issue.",
+      "examples": [
+        "reflects my limited knowledge",
+        "the AI version makes me sound like an expert, which I am not"
+      ]
+    },
+    {
+      "code": "importance_more",
+      "rating_attributes": [
+        "writer_importance"
+      ],
+      "definition": "The preferred paragraph makes the issue seem more important to me.",
+      "examples": [
+        "puts across the strong passion I feel about this issue",
+        "highlights the urgency"
+      ]
+    },
+    {
+      "code": "relevance_more",
+      "rating_attributes": [
+        "paragraph_relevance"
+      ],
+      "definition": "The preferred paragraph is more relevant or on-topic.",
+      "examples": [
+        "more directly answered the question",
+        "more focused"
+      ]
+    },
+    {
+      "code": "clarity_more",
+      "rating_attributes": [
+        "paragraph_clarity"
+      ],
+      "definition": "The preferred paragraph is clearer or easier to understand.",
+      "examples": [
+        "It is clearer",
+        "easier to understand"
+      ]
+    },
+    {
+      "code": "formality_more",
+      "rating_attributes": [
+        "paragraph_formality"
+      ],
+      "definition": "The preferred paragraph is more formal.",
+      "examples": [
+        "more professional",
+        "uses more formal language"
+      ]
+    },
+    {
+      "code": "formality_less",
+      "rating_attributes": [
+        "paragraph_formality"
+      ],
+      "definition": "The preferred paragraph is less formal.",
+      "examples": [
+        "more conversational",
+        "the AI version is too academic"
+      ]
+    },
+    {
+      "code": "informativeness_more",
+      "rating_attributes": [
+        "paragraph_informativeness"
+      ],
+      "definition": "The preferred paragraph is more informative.",
+      "examples": [
+        "Added a lot more detail",
+        "gives practical examples"
+      ]
+    },
+    {
+      "code": "originality_more",
+      "rating_attributes": [
+        "paragraph_originality"
+      ],
+      "definition": "The preferred paragraph contains more original or novel arguments.",
+      "examples": [
+        "looks at things I didn't think of",
+        "brings in new ideas"
+      ]
+    },
+    {
+      "code": "friendliness_more",
+      "rating_attributes": [
+        "writer_friendliness"
+      ],
+      "definition": "The preferred paragraph makes me seem friendlier.",
+      "examples": [
+        "more diplomatic",
+        "more compassionate and less cold"
+      ]
+    },
+    {
+      "code": "optimism_more",
+      "rating_attributes": [
+        "writer_optimism"
+      ],
+      "definition": "The preferred paragraph makes me seem more optimistic.",
+      "examples": [
+        "expands positively on my paragraph",
+        "more positive outlook"
+      ]
+    },
+    {
+      "code": "community_more",
+      "rating_attributes": [
+        "writer_community"
+      ],
+      "definition": "The preferred paragraph makes me seem more community-oriented.",
+      "examples": [
+        "has people's best interests in mind",
+        "less individualistic"
+      ]
+    },
+    {
+      "code": "openness_more",
+      "rating_attributes": [
+        "writer_openness"
+      ],
+      "definition": "The preferred paragraph makes me seem more open to other views.",
+      "examples": [
+        "better balanced",
+        "considers both sides"
+      ]
+    },
+    {
+      "code": "emotionality_more",
+      "rating_attributes": [
+        "paragraph_hope",
+        "paragraph_excitement",
+        "paragraph_fear",
+        "paragraph_disgust",
+        "paragraph_anger",
+        "writer_affect_x",
+        "writer_affect_y"
+      ],
+      "definition": "The preferred paragraph is more emotional.",
+      "examples": [
+        "has feeling behind it",
+        "more emotive language"
+      ]
+    },
+    {
+      "code": "emotionality_less",
+      "rating_attributes": [
+        "paragraph_hope",
+        "paragraph_excitement",
+        "paragraph_fear",
+        "paragraph_disgust",
+        "paragraph_anger",
+        "writer_affect_x",
+        "writer_affect_y"
+      ],
+      "definition": "The preferred paragraph is less emotional.",
+      "examples": [
+        "less emotive",
+        "removes the unnecessary emotional aspect"
+      ]
+    },
+    {
+      "code": "language_quality",
+      "rating_attributes": [],
+      "definition": "The preferred paragraph is better written in terms of grammar, word choice, flow or polish.",
+      "examples": [
+        "better grammar and use of words",
+        "flows better"
+      ]
+    },
+    {
+      "code": "concision",
+      "rating_attributes": [],
+      "definition": "The preferred paragraph is more concise.",
+      "examples": [
+        "More concise",
+        "less waffle"
+      ]
+    },
+    {
+      "code": "structure",
+      "rating_attributes": [],
+      "definition": "The preferred paragraph is better structured or more coherent.",
+      "examples": [
+        "better structure",
+        "more coherent"
+      ]
+    },
+    {
+      "code": "persuasiveness",
+      "rating_attributes": [],
+      "definition": "The preferred paragraph is more persuasive.",
+      "examples": [
+        "more compelling argument",
+        "more convincing"
+      ]
+    },
+    {
+      "code": "authenticity",
+      "rating_attributes": [],
+      "definition": "The preferred paragraph sounds more human or more like my own voice.",
+      "examples": [
+        "It reads more human",
+        "this is how I normally speak"
+      ]
+    },
+    {
+      "code": "ai_aversion",
+      "rating_attributes": [],
+      "definition": "The preferred paragraph is not AI-written, and I dislike or distrust AI in general.",
+      "examples": [
+        "I despise the use of AI",
+        "I always prefer a human generated paragraph"
+      ]
+    },
+    {
+      "code": "other",
+      "rating_attributes": [],
+      "definition": "The preferred paragraph has an advantage not captured by any other code.",
+      "examples": []
+    }
+  ]
+}
